@@ -1,0 +1,31 @@
+{
+  "songId": "c3a9f1da-3e9e-51d7-b203-af02ff0e2f9b",
+  "title": "Credits",
+  "aliases": [
+    "Credits",
+    "信用",
+    "cre",
+    "天气预报",
+    "制作组",
+    "学分",
+    "信用卡"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：冰封世界",
+    "曲师：Frums",
+    "标准曲名包含 7 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/01 冰封世界/Credits.png",
+  "chapter": 1,
+  "chapterName": "冰封世界",
+  "composer": "Frums",
+  "illustrator": "Ctymax",
+  "assets": {
+    "ez": "../../../source/01 冰封世界/EZ/Credits-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

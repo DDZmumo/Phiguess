@@ -1,0 +1,12 @@
+node_modules
+dist
+**/node_modules
+**/dist
+output
+.playwright-mcp
+.venv-assets
+.git
+.env
+storage
+backups
+tests

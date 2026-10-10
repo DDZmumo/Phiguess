@@ -1,0 +1,29 @@
+{
+  "songId": "242e2aac-2b02-585f-9cbf-dbfd0e8a5a8b",
+  "title": "Clock Paradox",
+  "aliases": [
+    "Clock Paradox",
+    "时钟悖论",
+    "时间悖论",
+    "时钟链接",
+    "时悖"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：时钟链接",
+    "曲师：WyvernP",
+    "标准曲名包含 12 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/07 时钟链接/Clock Paradox.png",
+  "chapter": 7,
+  "chapterName": "时钟链接",
+  "composer": "WyvernP",
+  "illustrator": "汉堡",
+  "assets": {
+    "ez": "../../../source/07 时钟链接/EZ/Clock Paradox-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

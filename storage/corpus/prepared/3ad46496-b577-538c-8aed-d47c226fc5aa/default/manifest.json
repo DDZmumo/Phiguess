@@ -1,0 +1,36 @@
+{
+  "songId": "3ad46496-b577-538c-8aed-d47c226fc5aa",
+  "title": "Colorful Days♪",
+  "aliases": [
+    "Colorful Days♪",
+    "彩日",
+    "Colorful Days",
+    "彩虹之日",
+    "彩色的一天",
+    "彩色之日",
+    "彩色的岁月",
+    "缤纷时光",
+    "多彩的一天",
+    "画家",
+    "cfday",
+    "Colourful Days"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：方舟蜃景",
+    "曲师：P4koo feat. つゆり花鈴",
+    "标准曲名包含 13 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/06 方舟蜃景/Colorful Days♪.png",
+  "chapter": 6,
+  "chapterName": "方舟蜃景",
+  "composer": "P4koo feat. つゆり花鈴",
+  "illustrator": "Doro-nyong & Ratif",
+  "assets": {
+    "ez": "../../../source/06 方舟蜃景/EZ/Colorful Days♪-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

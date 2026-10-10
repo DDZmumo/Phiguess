@@ -1,0 +1,30 @@
+{
+  "songId": "f2a2d718-75b4-5226-a037-f4fe45811abc",
+  "title": "望影の方舟Six",
+  "aliases": [
+    "望影の方舟Six",
+    "six",
+    "方舟",
+    "守望方舟六号",
+    "望影",
+    "望影方舟"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：方舟蜃景",
+    "曲师：Se-U-Ra",
+    "标准曲名包含 8 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/06 方舟蜃景/望影の方舟Six.png",
+  "chapter": 6,
+  "chapterName": "方舟蜃景",
+  "composer": "Se-U-Ra",
+  "illustrator": "鲸弑",
+  "assets": {
+    "ez": "../../../source/06 方舟蜃景/EZ/望影の方舟Six-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

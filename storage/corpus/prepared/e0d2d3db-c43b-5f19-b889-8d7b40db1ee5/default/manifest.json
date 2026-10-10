@@ -1,0 +1,35 @@
+{
+  "songId": "e0d2d3db-c43b-5f19-b889-8d7b40db1ee5",
+  "title": "Winter ↑cube↓",
+  "aliases": [
+    "Winter ↑cube↓",
+    "冬魔方",
+    "冬立方",
+    "小久住",
+    "冬季方块",
+    "冬天方块",
+    "冬方",
+    "冬方块",
+    "冬块",
+    "哲学神曲",
+    "↑↓"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：废土之下",
+    "曲师：Ctymax feat. NceS",
+    "标准曲名包含 12 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/02 废土之下/Winter ↑cube↓.png",
+  "chapter": 2,
+  "chapterName": "废土之下",
+  "composer": "Ctymax feat. NceS",
+  "illustrator": "翠冷兮",
+  "assets": {
+    "ez": "../../../source/02 废土之下/EZ/Winter ↑cube↓-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phiguess 难度动画逐帧对照</title>
+<link rel="icon" href="data:,">
+<style>
+@font-face{font-family:"Phiguess Difficulty";src:url('/fonts/phiguess-difficulty-hanzi.woff2');font-weight:900}
+@font-face{font-family:Saira;src:url('/@fs/E:/Project/Code/Phiguess/node_modules/@fontsource/saira/files/saira-latin-500-normal.woff2');font-weight:500}
+*{box-sizing:border-box}body{margin:0;background:#17191b;color:#ddd;font:14px system-ui,sans-serif}header{padding:14px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}h1{font-size:19px;margin:0 16px 0 0}button,select,input{font:inherit}button,select{background:#30343a;color:#eee;border:1px solid #777;padding:7px 12px}button:focus-visible,select:focus-visible{outline:2px solid #92ced0}input[type=range]{flex:1;min-width:240px}main{display:flex;justify-content:center;flex-wrap:wrap;gap:2px}figure{margin:0;width:720px}figcaption{padding:7px 12px;background:#25292d}.frame{display:block;width:720px;height:540px;background:#000}footer{padding:12px 20px;line-height:1.8}code{white-space:pre-wrap}a{color:#a2d9e6}#overlay{position:relative;width:720px;height:540px;display:none}#overlay img,#overlay canvas{position:absolute;inset:0;pointer-events:none}#overlay canvas{opacity:.5}body.overlay main>figure{display:none}body.overlay #overlay{display:block}#status{min-width:225px;font-variant-numeric:tabular-nums}.notice{color:#bbb}@media(max-width:720px){figure,.frame,#overlay{width:100vw}.frame,#overlay{height:75vw}}
+</style>
+<header>
+ <h1>难度动画逐帧对照</h1>
+ <select id="level" aria-label="难度"><option value="at">AT / 外挂</option><option value="in">IN / 龙比</option><option value="hd">HD / 人类</option><option value="ez">EZ / 区区</option></select>
+ <button id="previous">上一帧 ←</button><button id="next">下一帧 →</button><button id="play">慢放 6fps</button><button id="mode">叠加对照</button>
+ <input id="frame" type="range" min="0" max="521" value="15" aria-label="参考帧">
+ <output id="status"></output>
+</header>
+<main>
+ <figure><figcaption>用户原视频 · 30fps · 720×540 分析副本</figcaption><img id="reference" class="frame" alt="原视频当前帧"></figure>
+ <figure><figcaption>当前网页绘制 · 同一参考时刻 · 固定随机种子</figcaption><canvas id="render" class="frame"></canvas></figure>
+ <div id="overlay"><img id="overlayRef" class="frame" alt="叠加原帧"><canvas id="overlayWeb" class="frame"></canvas></div>
+</main>
+<footer>
+ <div>左右键逐帧，上下键跨 30 帧；空格开始或暂停慢放。帧号从 0 开始，文件号从 0001 开始。</div>
+ <div class="notice">这是开发核对页。原片 0～14 帧为入口淡入，游戏取第 15 帧作为静态选择入口；第 456 帧后游戏已进入黑场并开始请求挑战。本页仍保留全部原帧用于核对。数字替换为汉字、后续随机汉字属于用户指定变化，不能用全图像素误差判断一致。</div>
+ <code id="state"></code>
+</footer>
+<script type="module">
+import {DifficultyPainter} from '/src/difficulty-painter.ts';
+import {difficultyState} from '/src/difficulty-motion.ts';
+import {ROLLING_HANZI} from '/src/difficulty-atlas.ts';
+const root='/@fs/E:/Project/Code/Phiguess/storage/references/difficulty';
+const canvas=document.querySelector('#render'),reference=document.querySelector('#reference'),slider=document.querySelector('#frame'),level=document.querySelector('#level');
+await Promise.all([document.fonts.load('900 216px "Phiguess Difficulty"',ROLLING_HANZI.join('')),document.fonts.load('500 24px Saira')]);
+const painter=await DifficultyPainter.create(canvas);painter.seed=0x504849;
+painter.resize();let timer=null,revision=0;
+async function render(id,index,loadReference=true){
+ const current=++revision;index=Math.max(0,Math.min(521,index));level.value=id;slider.value=index;
+ painter.draw(index/30,id);
+ const state=difficultyState(index/30);
+ document.querySelector('#status').textContent=`帧 ${index} / 521 · ${(index/30).toFixed(3)}s`;
+ document.querySelector('#state').textContent=JSON.stringify(state);
+ const other=document.querySelector('#overlayWeb');other.width=canvas.width;other.height=canvas.height;other.getContext('2d').drawImage(canvas,0,0);
+ if(loadReference){reference.src=`${root}/${id}/frames/${String(index+1).padStart(4,'0')}.jpg`;await reference.decode();if(current===revision)document.querySelector('#overlayRef').src=reference.src;}
+ return state;
+}
+function stop(){clearInterval(timer);timer=null;document.querySelector('#play').textContent='慢放 6fps';}
+function step(n){stop();void render(level.value,Number(slider.value)+n);}
+function play(){if(timer){stop();return;}document.querySelector('#play').textContent='暂停';timer=setInterval(()=>{if(Number(slider.value)>=521){stop();return;}void render(level.value,Number(slider.value)+1);},1000/6);}
+document.querySelector('#previous').onclick=()=>step(-1);document.querySelector('#next').onclick=()=>step(1);document.querySelector('#play').onclick=play;
+slider.oninput=()=>{stop();void render(level.value,Number(slider.value));};level.onchange=()=>{stop();void render(level.value,Number(slider.value));};
+document.querySelector('#mode').onclick=()=>document.body.classList.toggle('overlay');
+document.addEventListener('keydown',event=>{if(event.target===level||event.target===slider)return;const steps={ArrowLeft:-1,ArrowRight:1,ArrowUp:-30,ArrowDown:30};if(event.key in steps){event.preventDefault();step(steps[event.key]);}if(event.code==='Space'){event.preventDefault();play();}});
+window.reviewFrame=render;
+window.exportReviewFrames=async(id,port=5190)=>{
+ stop();const rows=[];
+ for(let frame=0;frame<522;frame++){
+  const state=await render(id,frame,false);
+  const response=await fetch(`http://127.0.0.1:${port}/frame`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({level:id,frame,state,png:canvas.toDataURL('image/png')})});
+  if(!response.ok)throw Error(`Export ${id} ${frame}: ${response.status}`);
+  rows.push(frame);
+ }
+ return {level:id,frames:rows.length,canvas:[canvas.width,canvas.height],seed:0x504849};
+};
+await render('at',15);window.reviewReady=true;
+</script>
+</html>

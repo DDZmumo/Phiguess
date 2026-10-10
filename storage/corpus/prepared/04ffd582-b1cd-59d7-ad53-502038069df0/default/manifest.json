@@ -1,0 +1,30 @@
+{
+  "songId": "04ffd582-b1cd-59d7-ad53-502038069df0",
+  "title": "Ametrine",
+  "aliases": [
+    "Ametrine",
+    "紫黄晶",
+    "黄紫晶",
+    "紫黄水晶",
+    "黄紫水晶",
+    "Ame"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part2",
+    "曲师：GRYSCL & MIssionary",
+    "标准曲名包含 8 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Ametrine.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part2",
+  "composer": "GRYSCL & MIssionary",
+  "illustrator": "子狼",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Ametrine-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "songId": "b86738a8-a7ad-5964-959a-3a170ffdba30",
+  "title": "混乱-Confusion",
+  "aliases": [
+    "混乱-Confusion",
+    "混乱",
+    "Confusion",
+    "乱麻了"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：废土之下",
+    "曲师：Only My Black Score",
+    "标准曲名包含 12 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/02 废土之下/混乱-Confusion.png",
+  "chapter": 2,
+  "chapterName": "废土之下",
+  "composer": "Only My Black Score",
+  "illustrator": "L-sp4",
+  "assets": {
+    "ez": "../../../source/02 废土之下/EZ/混乱-Confusion-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

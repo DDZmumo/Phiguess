@@ -1,0 +1,33 @@
+{
+  "songId": "02883c95-fdbb-56d8-a3ab-5211ba861158",
+  "title": "尊師 ～The Guru～",
+  "aliases": [
+    "尊師 ～The Guru～",
+    "尊师",
+    "The Guru",
+    "Guru",
+    "孔子搓碟",
+    "尊师古卢",
+    "Sonshi ~The Guru~",
+    "Sonshi",
+    "樽尸"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：rider",
+    "标准曲名包含 11 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/尊師 ～The Guru～.png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "rider",
+  "illustrator": "1B",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/尊師 ～The Guru～-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

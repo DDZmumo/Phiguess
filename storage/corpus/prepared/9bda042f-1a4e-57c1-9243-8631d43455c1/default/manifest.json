@@ -1,0 +1,31 @@
+{
+  "songId": "9bda042f-1a4e-57c1-9243-8631d43455c1",
+  "title": "Cipher : /2&//<|0",
+  "aliases": [
+    "Cipher： ／2&／／＜｜0",
+    "Cipher : /2&//<|0",
+    "病毒代码",
+    "Cipher",
+    "密码",
+    "密码病毒",
+    "乱码"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：废土之下",
+    "曲师：Tetrajectory feat. Ctymax",
+    "标准曲名包含 15 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/02 废土之下/Cipher： ／2&／／＜｜0.png",
+  "chapter": 2,
+  "chapterName": "废土之下",
+  "composer": "Tetrajectory feat. Ctymax",
+  "illustrator": "IvyTowers",
+  "assets": {
+    "ez": "../../../source/02 废土之下/EZ/Cipher： ／2&／／＜｜0-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

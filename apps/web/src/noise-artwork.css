@@ -1,0 +1,8 @@
+.noise-artwork{position:absolute;inset:0;width:100%;height:100%}
+.noise-artwork>img,.noise-artwork>canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.noise-artwork>img{object-fit:cover;object-position:center}
+.noise-artwork>canvas{pointer-events:none;visibility:hidden}
+.art-zoom-dialog>.noise-artwork{position:relative;inset:auto;height:auto;flex:none;max-height:100%}
+
+/* Escape artwork clipping and scene stacking contexts. */
+.artwork-noise-canvas,.artwork-noise-exit,.submit-noise-canvas,.submit-noise-exit{position:fixed;z-index:2147483646;pointer-events:none;visibility:hidden;display:block}

@@ -1,0 +1,37 @@
+{
+  "songId": "837c66e7-b0a3-58cd-8a7c-2b1ad023bf45",
+  "title": "Desultory Signals",
+  "aliases": [
+    "Desultory Signals",
+    "DS9",
+    "大DS",
+    "杂乱信号",
+    "零散信号",
+    "散逸信号",
+    "断续信号",
+    "断续讯号",
+    "剑圣鸠",
+    "鸠信号",
+    "DS",
+    "九鸟打大蛇",
+    "九鸟搓螺旋丸"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part2",
+    "曲师：technoplanet",
+    "标准曲名包含 16 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Desultory Signals.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part2",
+  "composer": "technoplanet",
+  "illustrator": "月光大刺剑",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Desultory Signals-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

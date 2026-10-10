@@ -1,0 +1,30 @@
+{
+  "songId": "4343dc8b-a31a-5f1f-9d3d-7a65b2115ca9",
+  "title": "NYA!!! (Phigros ver.)",
+  "aliases": [
+    "NYA!!!(Phigros ver.)",
+    "NYA!!! (Phigros ver.)",
+    "喵",
+    "黑巧夹心鱼",
+    "NYA",
+    "猫娘沙发"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：FLuoRiTe/姜米條",
+    "标准曲名包含 19 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/NYA!!!(Phigros ver.).png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "FLuoRiTe/姜米條",
+  "illustrator": "NEKO&海产",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/NYA!!!(Phigros ver.)-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

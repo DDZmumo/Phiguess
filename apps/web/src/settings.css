@@ -1,0 +1,45 @@
+.settings-page{position:relative;isolation:isolate;flex:1 0 auto;min-height:610px;overflow:hidden;color:#f5f6f7}
+.settings-form{position:relative;width:100%;max-width:900px;margin:0 auto;padding:4px 56px 24px;display:flex;flex-direction:column;z-index:1}
+.settings-heading{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;padding-bottom:20px;border-bottom:1px solid #ffffff20}
+.settings-heading h1{margin:0;font-size:25px;font-weight:400;letter-spacing:1px;white-space:nowrap}
+.settings-heading>span{font:13px Saira,sans-serif;letter-spacing:3px;color:#a8b0bc}
+.setting-row{min-width:0;min-height:124px;padding:24px 0;border-bottom:1px solid #ffffff10}
+.setting-row:last-child{border-bottom:0}
+.setting-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px;font-size:24px;line-height:1.4}
+.setting-heading label{cursor:pointer;white-space:nowrap}
+.setting-heading output{font:400 23px Saira,sans-serif;font-variant-numeric:tabular-nums}
+.setting-heading output small{font-size:15px;margin-left:4px}
+.setting-slider{display:flex;align-items:center;height:34px;background:#03050b55;transform:skewX(-15deg)}
+.setting-slider button{display:flex;align-items:center;justify-content:center;flex:none;width:34px;height:34px;background:white;color:#272831;padding:0}
+.setting-slider button>svg{transform:skewX(15deg)}
+.setting-slider button:disabled{opacity:1;color:#a3a3a8;cursor:default}
+.setting-slider input{appearance:none;-webkit-appearance:none;height:34px;flex:1;width:0;min-width:0;margin:0 10px;background:transparent;cursor:pointer;border:0;padding:0;border-radius:0}
+.setting-slider input::-webkit-slider-runnable-track{height:34px;background:transparent}
+.setting-slider input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:34px;height:34px;background:#fff;border:0;border-radius:0;box-shadow:none}
+.setting-slider input::-moz-range-track{height:34px;background:transparent}
+.setting-slider input::-moz-range-thumb{width:34px;height:34px;background:#fff;border:0;border-radius:0}
+.setting-toggle .setting-heading{margin-bottom:8px}
+.setting-toggle>p{color:#b7bbc5;font-size:13px;line-height:1.6}
+.setting-switch{position:relative;width:78px;height:34px;flex:none;transform:skewX(-15deg);display:block}
+.setting-switch input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.setting-switch-track{display:block;width:100%;height:100%;background:#03050b66}
+.setting-switch-track>i{position:absolute;left:0;top:0;width:36px;height:34px;background:#fff;transition:transform 180ms cubic-bezier(.2,.7,.3,1)}
+.setting-switch-track>svg{position:absolute;left:10px;top:7px;opacity:0;transform:skewX(15deg)}
+.setting-switch input:checked+.setting-switch-track>i{transform:translateX(42px)}
+.setting-switch input:checked+.setting-switch-track>svg{opacity:1}
+.setting-switch input:focus-visible+.setting-switch-track{outline:2px solid #9af5f4;outline-offset:5px}
+
+.settings-fullscreen{position:fixed;inset:0;margin:0;width:100vw;height:100svh;max-width:none;max-height:none;border:0;padding:0;color:#f5f6f7;background:radial-gradient(ellipse at 15% 90%,#55565377,transparent 70%),linear-gradient(115deg,#20232c,#302038);overflow:auto}
+.settings-fullscreen::backdrop{background:#161920}
+.settings-fullscreen-header{display:flex;align-items:center;justify-content:space-between;margin:18px 6vw 20px;padding:15px 25px;background:#070912b0;font-size:22px}
+.settings-fullscreen-header button{background:#fff;color:#171a21;padding:9px 25px;font-size:17px}
+.settings-fullscreen>.settings-page{margin:0 6vw;min-height:max(610px,calc(100svh - 115px))}
+.hub-settings-panel{scrollbar-width:none}.hub-settings-panel::-webkit-scrollbar{display:none}
+@media(prefers-reduced-motion:reduce){.setting-switch-track>i{transition:none}}
+.reduced-motion .setting-switch-track>i{transition:none}
+@media(max-aspect-ratio:1/1){
+ .settings-page{min-height:760px;flex:0 0 auto}.settings-form{padding:6px 35px 35px}.settings-heading h1{font-size:30px}.settings-heading>span{font-size:16px}
+ .setting-row{min-height:145px;padding:28px 0}.setting-heading{font-size:28px}.setting-heading output{font-size:27px}.setting-toggle>p{font-size:18px}
+ .setting-slider,.setting-slider button,.setting-slider input,.setting-slider input::-webkit-slider-runnable-track,.setting-slider input::-webkit-slider-thumb{height:44px}.setting-slider button,.setting-slider input::-webkit-slider-thumb{width:44px}
+ .settings-fullscreen .settings-form{padding:20px 25px}.settings-fullscreen .setting-row{min-height:124px}.settings-fullscreen .setting-heading{font-size:20px}.settings-fullscreen .setting-toggle>p{font-size:13px}.settings-fullscreen .settings-heading h1{font-size:24px}
+}

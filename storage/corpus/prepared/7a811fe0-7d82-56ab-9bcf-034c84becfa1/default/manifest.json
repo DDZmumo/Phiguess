@@ -1,0 +1,31 @@
+{
+  "songId": "7a811fe0-7d82-56ab-9bcf-034c84becfa1",
+  "title": "Non-Melodic Ragez (MUG Edit)",
+  "aliases": [
+    "Non-Melodic Ragez (MUG Edit)",
+    "NMR",
+    "Non-Melodic Ragez",
+    "你骂人",
+    "震楼机",
+    "无旋律暴怒",
+    "核磁共振"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：幽蓝边界",
+    "曲师：Normal1zer",
+    "标准曲名包含 25 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/03 幽蓝边界/Non-Melodic Ragez (MUG Edit).png",
+  "chapter": 3,
+  "chapterName": "幽蓝边界",
+  "composer": "Normal1zer",
+  "illustrator": "cycats",
+  "assets": {
+    "ez": "../../../source/03 幽蓝边界/EZ/Non-Melodic Ragez (MUG Edit)-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

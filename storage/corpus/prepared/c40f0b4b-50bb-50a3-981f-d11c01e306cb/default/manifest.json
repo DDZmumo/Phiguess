@@ -1,0 +1,32 @@
+{
+  "songId": "c40f0b4b-50bb-50a3-981f-d11c01e306cb",
+  "title": "ENERGY SYNERGY MATRIX",
+  "aliases": [
+    "ENERGY SYNERGY MATRIX",
+    "ESM",
+    "ESM跑",
+    "三只猫",
+    "三猫",
+    "能量协同矩阵",
+    "能源协同矩阵",
+    "动物园"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：管道迷宫",
+    "曲师：Tanchiky",
+    "标准曲名包含 19 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/04 管道迷宫/ENERGY SYNERGY MATRIX.png",
+  "chapter": 4,
+  "chapterName": "管道迷宫",
+  "composer": "Tanchiky",
+  "illustrator": "Karameru",
+  "assets": {
+    "ez": "../../../source/04 管道迷宫/EZ/ENERGY SYNERGY MATRIX-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,17 @@
+Noise material author: HL_Storia (Bilibili)
+Source package supplied by the user: E:/Project/region
+Original material: (素材)/pre1.mp4, 2880x2160, 60 fps, 10 seconds.
+Web derivative: hl-noise-60.mp4, 1280x960, 60 fps, H.264 CRF 16.
+The grain is sampled at fixed coordinates; its animation is not regenerated.
+
+Contact pattern visual reference: Phigros recording supplied by the user,
+ScreenRecording_10-09-2026 18-21-52_1.MP4, frames 60 through 131 (60 fps).
+Web derivative: contact-atlas.webp, 72 background-separated frames in a loop.
+This is an extraction from recorded footage, not an original game texture.
+Reproduction script: tools/extract-noise-contact.py.
+
+Package attribution note (readme读我.txt):
+使用本工程发布视频，仅需在简介 @HL_Storia 标明一下模板作者即可（b站）
+
+This note records provenance and the supplied attribution requirement;
+it does not assert additional licensing rights.

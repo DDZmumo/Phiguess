@@ -1,0 +1,33 @@
+{
+  "songId": "a32b7ec4-2ce3-52ee-8fb8-416839bdc2ab",
+  "title": "JunXion Between Life And Death(VIP Mix)",
+  "aliases": [
+    "JunXion Between Life And Death(VIP Mix)",
+    "JunXion Between Life And Death(VIP Mix)",
+    "jblad",
+    "俊雄半死不活",
+    "俊雄",
+    "生死交界处",
+    "交于生死之间",
+    "Junction",
+    "JunXion"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：1N6Fs",
+    "标准曲名包含 34 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/JunXion Between Life And Death(VIP Mix).png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "1N6Fs",
+  "illustrator": "IvyTowers",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/JunXion Between Life And Death(VIP Mix)-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

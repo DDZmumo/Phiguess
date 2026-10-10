@@ -1,0 +1,4703 @@
+{
+  "sample": false,
+  "groups": 60,
+  "svgCount": 180,
+  "totalBytes": 14254734,
+  "gzipBytes": 4983196,
+  "maxBytes": 467059,
+  "maxPaths": 530,
+  "preset": {
+    "max_side": 1280,
+    "palette_colors": 64,
+    "quantizer": "maxcoverage",
+    "color_refinements": 3,
+    "median_size": 3,
+    "color_precision": 8,
+    "layer_difference": 1,
+    "filter_speckle": 10,
+    "max_iterations": 3,
+    "path_precision": 1
+  },
+  "files": [
+    {
+      "song": "Credits",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "19ce7697002ff298fa712972ffb4526d07f107383b7591d684a3a60d4793aec8",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 69903,
+      "gzipBytes": 23405,
+      "paths": 103,
+      "seconds": 0.35
+    },
+    {
+      "song": "Credits",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "6f80dc9cb44b3ffbeb54d1393b56a6e1c5916510b2a803528b8a5ab7f1197ecb",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 32771,
+      "gzipBytes": 11765,
+      "paths": 53,
+      "seconds": 0.31
+    },
+    {
+      "song": "Credits",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "33518c910e4ecc104d587a82fa59d36c90773bc40cb1ffb68135859f8ccd660d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 15150,
+      "gzipBytes": 5387,
+      "paths": 27,
+      "seconds": 0.28
+    },
+    {
+      "song": "Dlyrotz",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "4112000bee621ba5bdab0a8be78bd2751277301032186366f64f648c3bdd816f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 76238,
+      "gzipBytes": 27244,
+      "paths": 64,
+      "seconds": 0.59
+    },
+    {
+      "song": "Dlyrotz",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "794d0816fc1094ef70032792d50b2874b6239b5b87781b9c9f582fdc88ce0995",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 107023,
+      "gzipBytes": 36047,
+      "paths": 122,
+      "seconds": 0.58
+    },
+    {
+      "song": "Dlyrotz",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "75ce94d5f602f0b776971d345b7581dfe05d4808791e7d1d3195b89d9075df2a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 3328,
+      "gzipBytes": 1508,
+      "paths": 5,
+      "seconds": 0.42
+    },
+    {
+      "song": "Engine x Start!! (melody mix)",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6f0861b99689f1661060d60f8dc93cc490cce3c998e8d5a066f6c2fb16c7c39f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 185211,
+      "gzipBytes": 65453,
+      "paths": 157,
+      "seconds": 0.81
+    },
+    {
+      "song": "Engine x Start!! (melody mix)",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "16511661de867d0721fb48adaec49ae7721879436a45dc46acb04da80490377b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 25768,
+      "gzipBytes": 9620,
+      "paths": 37,
+      "seconds": 0.53
+    },
+    {
+      "song": "Engine x Start!! (melody mix)",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "a2ea18bb75cf2a7736298cecb1e560aa019be697c9b5dd11c6d63bd10f1dead3",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 5450,
+      "gzipBytes": 2379,
+      "paths": 8,
+      "seconds": 0.4
+    },
+    {
+      "song": "Eradication Catastrophe",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "7d26ce73fb85618b32f00306b9a393d957fcc8bf6ac93910b1156b38ed232d73",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 118653,
+      "gzipBytes": 43082,
+      "paths": 91,
+      "seconds": 0.54
+    },
+    {
+      "song": "Eradication Catastrophe",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a20cea190c6fbd910ceb7994e5bd6d977168990bd81bd40582c3969eb181fede",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 36496,
+      "gzipBytes": 13296,
+      "paths": 26,
+      "seconds": 0.46
+    },
+    {
+      "song": "Eradication Catastrophe",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "fb77e33caf6620b136ae809908a4cd8fab2cc6715e6fbbe0d005bb05a652d78a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 27823,
+      "gzipBytes": 10313,
+      "paths": 27,
+      "seconds": 0.47
+    },
+    {
+      "song": "Glaciaxion",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "6b72c193b7f0b2a934313ae42b9ac6b048ffcdd23f5e8f346950385d9eaa16ee",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 39713,
+      "gzipBytes": 13696,
+      "paths": 56,
+      "seconds": 0.34
+    },
+    {
+      "song": "Glaciaxion",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "f823c95b58f694bad24ed455fcde2b49b07ee505ecaf6b893219c51339f3afc0",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 160279,
+      "gzipBytes": 54764,
+      "paths": 125,
+      "seconds": 0.7
+    },
+    {
+      "song": "Glaciaxion",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "a59e31fa30fb4a8f21baff89b91a90b394c0ae61a871f3e76f971ebeab3493bf",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 48871,
+      "gzipBytes": 17486,
+      "paths": 46,
+      "seconds": 0.35
+    },
+    {
+      "song": "Cipher : /2&//<|0",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "2b73393b1764dbd58a98962e238e39c9593676e77cc535992663866ec7d19506",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 110325,
+      "gzipBytes": 39974,
+      "paths": 61,
+      "seconds": 0.93
+    },
+    {
+      "song": "Cipher : /2&//<|0",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "ca8fbb53b485022fd860c54fb78e45e2290d51e7b21187f9b325ce342e87983d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 89954,
+      "gzipBytes": 31368,
+      "paths": 88,
+      "seconds": 0.58
+    },
+    {
+      "song": "Cipher : /2&//<|0",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "fcfddbe04ed449f4f78dbe78bd91d9510d108eaf5c4185317ef9d68df000207e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 51789,
+      "gzipBytes": 18762,
+      "paths": 40,
+      "seconds": 0.53
+    },
+    {
+      "song": "FULi AUTO SHOOTER",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "a3eed11e3be00cdd01d545b2b4de186ff59a909da92b2d19f229db22300092db",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        677
+      ],
+      "bytes": 133207,
+      "gzipBytes": 48449,
+      "paths": 91,
+      "seconds": 0.7
+    },
+    {
+      "song": "FULi AUTO SHOOTER",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "1099ceec8755e274f6c0a6a89417a61a928a6602f50899ff27b187af1932e497",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 25900,
+      "gzipBytes": 10290,
+      "paths": 16,
+      "seconds": 0.47
+    },
+    {
+      "song": "FULi AUTO SHOOTER",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "f2c614ddaa26f51b2bd0452d6fa40b6bce7c565e33bdf2bd8efafbf19312c6bf",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 28856,
+      "gzipBytes": 10462,
+      "paths": 30,
+      "seconds": 0.42
+    },
+    {
+      "song": "Winter ↑cube↓",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6d75951067da21515af40d9d22c0361ede17ce216f2ea2b275a26cfcd263f43f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 94304,
+      "gzipBytes": 30695,
+      "paths": 94,
+      "seconds": 0.62
+    },
+    {
+      "song": "Winter ↑cube↓",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "fee0fcd91c7a17e71b2d56694461c20fe1c8b2ffacbfe3bcd745cf12b45f30fb",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 14091,
+      "gzipBytes": 5785,
+      "paths": 13,
+      "seconds": 0.42
+    },
+    {
+      "song": "Winter ↑cube↓",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "3ad76ef8d24cc10f7528cc1a67c9c42a4d91de0b7919fa7380c0b5b40e2c8cad",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 2853,
+      "gzipBytes": 1337,
+      "paths": 3,
+      "seconds": 0.34
+    },
+    {
+      "song": "光",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "235f0fcb6a41f1b25a4994b8663d4e4ab08cd140f1d23dbd8e0b2c21bbd106fa",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 71256,
+      "gzipBytes": 24377,
+      "paths": 75,
+      "seconds": 0.58
+    },
+    {
+      "song": "光",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "3c42872e2bd0e38668f5bfe2e87a750d3d08bdda39dc2f731c38307af58a00a7",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 57398,
+      "gzipBytes": 20271,
+      "paths": 65,
+      "seconds": 0.59
+    },
+    {
+      "song": "光",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "a074a5a0d4f71aac70c1933ea8265231ef6f76e2864a08e4e5df1c11eea7d503",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 11335,
+      "gzipBytes": 4347,
+      "paths": 14,
+      "seconds": 0.37
+    },
+    {
+      "song": "混乱-Confusion",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "d07bda78a1ea6118d3407476a92f00e81a44f0bf061523bdd15d1a4bb282d7cc",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 74113,
+      "gzipBytes": 26831,
+      "paths": 73,
+      "seconds": 0.86
+    },
+    {
+      "song": "混乱-Confusion",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a425a1b13d4c8ab4c6836388a131997c64c4ee51230efdd07acda51e2ed69cc9",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 11405,
+      "gzipBytes": 4847,
+      "paths": 9,
+      "seconds": 0.76
+    },
+    {
+      "song": "混乱-Confusion",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "58d5cde331285bc8b9726fdfa9005ad6f864e3bff542defb834b2c11f23112b4",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 4253,
+      "gzipBytes": 1915,
+      "paths": 4,
+      "seconds": 0.47
+    },
+    {
+      "song": "Cereris",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "d5265eea1702082588d63c8acc07e2c509f7b201225eae6e94e4504b40e38c6b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 53711,
+      "gzipBytes": 15230,
+      "paths": 43,
+      "seconds": 0.59
+    },
+    {
+      "song": "Cereris",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "d7ef75f665b6b2b1949e157071ae2b67e2e5215c775ae7ae1d4d2a522f61efee",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 43478,
+      "gzipBytes": 15387,
+      "paths": 39,
+      "seconds": 0.38
+    },
+    {
+      "song": "Cereris",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "b6078f91702e855fd719111cbf3a5def345238acc4349ee800e814ecf96faae2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 1450,
+      "gzipBytes": 720,
+      "paths": 2,
+      "seconds": 0.35
+    },
+    {
+      "song": "HumaN",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "74279839d7af630d51ca41a3e14c0519c654ba82080ce8275bd280062f91ab66",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 72486,
+      "gzipBytes": 26815,
+      "paths": 67,
+      "seconds": 1.0
+    },
+    {
+      "song": "HumaN",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "bc40c0ef62a7028a53b347a1df44dc7273df221731cae8d0b64925b930c2743e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 25082,
+      "gzipBytes": 9219,
+      "paths": 26,
+      "seconds": 0.46
+    },
+    {
+      "song": "HumaN",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "5e7f3d73c9a4eda405b4150af8578e3c39809cf50ccf00b339d249c7939db31b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 56033,
+      "gzipBytes": 21148,
+      "paths": 50,
+      "seconds": 0.44
+    },
+    {
+      "song": "Non-Melodic Ragez (MUG Edit)",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "db797fa38c36a1be685c7efdd80bbc4bdeb7065c32982e83643ede327f682fae",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 152187,
+      "gzipBytes": 52646,
+      "paths": 177,
+      "seconds": 0.51
+    },
+    {
+      "song": "Non-Melodic Ragez (MUG Edit)",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "4536ce828a331ae4d34ca28b756dd989982122b77c09ffcf0d4c3a96a04fd1c2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 100063,
+      "gzipBytes": 35836,
+      "paths": 100,
+      "seconds": 0.55
+    },
+    {
+      "song": "Non-Melodic Ragez (MUG Edit)",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "5bf419c5c9a5170adc28d34c13fa7bc6832036c9f9cb5a1ece16fdc20ac04733",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 8501,
+      "gzipBytes": 3545,
+      "paths": 7,
+      "seconds": 0.31
+    },
+    {
+      "song": "Pixel Rebelz",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "29785d22c258db96ffed294c42690fa0953d9cdee0839c89461389b78a0eb597",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 66090,
+      "gzipBytes": 20557,
+      "paths": 59,
+      "seconds": 0.48
+    },
+    {
+      "song": "Pixel Rebelz",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "adf115ae1909e68b8dae3b41f1da27aaee4ffe9c015942f4089fd52f0f110e43",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 31750,
+      "gzipBytes": 10545,
+      "paths": 46,
+      "seconds": 0.35
+    },
+    {
+      "song": "Pixel Rebelz",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "46318901a3181ceef1add5e693fa51988fe5a0e36ee736904de6afd4e7364acb",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 1828,
+      "gzipBytes": 777,
+      "paths": 5,
+      "seconds": 0.43
+    },
+    {
+      "song": "[PRAW]",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "584fe58ab3730f1a6a2da83ef0130bf01c61bbc31f7725f5df71f698fde23e85",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 149031,
+      "gzipBytes": 49066,
+      "paths": 119,
+      "seconds": 0.9
+    },
+    {
+      "song": "[PRAW]",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "6894f12d6b1eedaa2e703269eec1653e49841b6209067c67d2d9ac9144d56fdf",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 18388,
+      "gzipBytes": 7032,
+      "paths": 22,
+      "seconds": 0.44
+    },
+    {
+      "song": "[PRAW]",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "ac7604177a2cbfaccbf009d5f2fe6e86387af458c71d6a847c2b1c9590df634c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 28607,
+      "gzipBytes": 10935,
+      "paths": 22,
+      "seconds": 0.44
+    },
+    {
+      "song": "-SURREALISM-",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6b0599b66aea5cb8bfabb4eaad6f28e02bda74fbae7f0c38ccc4fc6fa2eff2ef",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 123345,
+      "gzipBytes": 41493,
+      "paths": 165,
+      "seconds": 0.39
+    },
+    {
+      "song": "-SURREALISM-",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "36ebc80051c2581939bfd05fea13c4e453932d4828e548ebf326495c5b99dff8",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 17874,
+      "gzipBytes": 6816,
+      "paths": 28,
+      "seconds": 0.34
+    },
+    {
+      "song": "-SURREALISM-",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "9e9f2f108d6788e14083ee7b50b32e236d13450e3df61ff04ac8df99a66d8032",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 12904,
+      "gzipBytes": 4753,
+      "paths": 24,
+      "seconds": 0.27
+    },
+    {
+      "song": "Bonus Time",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6c7eec752aeff1c0a7522458696ce33285b2a840c3875b4e2ae1064e805afc30",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 110654,
+      "gzipBytes": 37004,
+      "paths": 94,
+      "seconds": 1.12
+    },
+    {
+      "song": "Bonus Time",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "02355632bc19d29939ee0d7f7b16ab1b03274aec60c19bd6163a84e9e94eef1b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 19404,
+      "gzipBytes": 7299,
+      "paths": 31,
+      "seconds": 0.42
+    },
+    {
+      "song": "Bonus Time",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "35656f39434042f3d7755799e4aa1de80a56754f50d7a2d92f649aa4bdef07fa",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 14656,
+      "gzipBytes": 5424,
+      "paths": 15,
+      "seconds": 0.37
+    },
+    {
+      "song": "Class Memories",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "d3728370ad28ae0be2d4a6015cf7fc97b5c877fbf4705be3a2d1090c7b57e84e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 61626,
+      "gzipBytes": 21836,
+      "paths": 66,
+      "seconds": 0.49
+    },
+    {
+      "song": "Class Memories",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "e2c24ff0e4bc040cebb34d6fab7af198fcad01066e6e3dd77a0a4317aa62b546",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 62951,
+      "gzipBytes": 22238,
+      "paths": 54,
+      "seconds": 0.45
+    },
+    {
+      "song": "Class Memories",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "2fcb2183bafaf991f336d32f935ea2309102d443cebf98bcdd4b7c6dc42ddb89",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 2763,
+      "gzipBytes": 1292,
+      "paths": 2,
+      "seconds": 0.42
+    },
+    {
+      "song": "ENERGY SYNERGY MATRIX",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "775bc87dc8aad59e01aa506db3aa2b36b1bab08b3bb883187e4f41cee4715ea0",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 74883,
+      "gzipBytes": 26378,
+      "paths": 52,
+      "seconds": 0.5
+    },
+    {
+      "song": "ENERGY SYNERGY MATRIX",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "ddb60ccd3c20ceed0a249ef026062fa47e259534c6cf9917c1dd910abfb5120f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 56596,
+      "gzipBytes": 20551,
+      "paths": 59,
+      "seconds": 0.53
+    },
+    {
+      "song": "ENERGY SYNERGY MATRIX",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "c2112740216e7b444da4accb4cdd488dbc583a22a637743388ac6416c36f9d32",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 17431,
+      "gzipBytes": 6691,
+      "paths": 25,
+      "seconds": 0.44
+    },
+    {
+      "song": "Sultan Rage",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "0aa85da5e81544dfe3430f1f114c8d5a14efcfacf76440d70347119e5366c904",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 69386,
+      "gzipBytes": 24827,
+      "paths": 77,
+      "seconds": 0.34
+    },
+    {
+      "song": "Sultan Rage",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "51ee2734b6975ad312c45dabbb9397a8743fe6bd8677c18ac344a4aa3462ba1a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 248202,
+      "gzipBytes": 84891,
+      "paths": 242,
+      "seconds": 0.56
+    },
+    {
+      "song": "Sultan Rage",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "65b48758be8fd6ebb0aff1be92d9803797d58b033006687334b953730b562738",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        677
+      ],
+      "bytes": 11111,
+      "gzipBytes": 4250,
+      "paths": 20,
+      "seconds": 0.2
+    },
+    {
+      "song": "JunXion Between Life And Death(VIP Mix)",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "7b015a8cf739d28760ce39e1277ddd452a93728d94ed2229816e8b57ff3cec0d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 164697,
+      "gzipBytes": 58405,
+      "paths": 161,
+      "seconds": 0.56
+    },
+    {
+      "song": "JunXion Between Life And Death(VIP Mix)",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "bf20e814147e7063bf2b42a6aa29091fd243a3774c4ca3a83fef4c84a1f80371",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 96898,
+      "gzipBytes": 33191,
+      "paths": 102,
+      "seconds": 0.44
+    },
+    {
+      "song": "JunXion Between Life And Death(VIP Mix)",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "6b5f2304498a83f7e126ec3c2ec4fccf089fb8b84c0734e4921774a66fd9dba8",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 14819,
+      "gzipBytes": 5565,
+      "paths": 21,
+      "seconds": 0.36
+    },
+    {
+      "song": "Leave All Behind",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "38453203280f30e1c519cff39d1b82a83d2c0c15ac2d3a8bb5296d29f9fbba0d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 176070,
+      "gzipBytes": 61404,
+      "paths": 154,
+      "seconds": 0.76
+    },
+    {
+      "song": "Leave All Behind",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "1aee362a67cdc784b8b5a7128df83cf7a87007ca5a37c9c2b3c6baa466f659db",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 88153,
+      "gzipBytes": 29683,
+      "paths": 118,
+      "seconds": 0.42
+    },
+    {
+      "song": "Leave All Behind",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "81c16e304980a7942734f1f3b95857ed3eb64ced89a8b9e1d722e63b39d88777",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 4249,
+      "gzipBytes": 1858,
+      "paths": 5,
+      "seconds": 0.31
+    },
+    {
+      "song": "NYA!!! (Phigros ver.)",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "78a4eac5d57faab44402e03a2fa1e3696314a2f3ecdef221e0719b3f19d0578f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 76098,
+      "gzipBytes": 25340,
+      "paths": 71,
+      "seconds": 0.59
+    },
+    {
+      "song": "NYA!!! (Phigros ver.)",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "8e2c2a8a05682d7c920db67e45b64d137400e412541b39fdca2b288dbadd28b5",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 92606,
+      "gzipBytes": 31923,
+      "paths": 96,
+      "seconds": 0.4
+    },
+    {
+      "song": "NYA!!! (Phigros ver.)",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "d28b17ce796f20500b63e3693c927edebcbe7b15d51c67b2ec54cc4e68f0ff5c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 6794,
+      "gzipBytes": 2746,
+      "paths": 10,
+      "seconds": 0.32
+    },
+    {
+      "song": "Reimei",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "d604702de8b255722a04d804d56a0aef8cbc3a1a5bc26776f2ff5b6f539ff4e6",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 86457,
+      "gzipBytes": 28704,
+      "paths": 114,
+      "seconds": 0.44
+    },
+    {
+      "song": "Reimei",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "e72d7d2a9e4539f2cc5dfe50096ff72acfc806cda7326f0e8d1dbe93ba429ba7",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 187301,
+      "gzipBytes": 63888,
+      "paths": 149,
+      "seconds": 0.94
+    },
+    {
+      "song": "Reimei",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "ea1333fe4e26c215412a1bf285224675542c6ece08a93e520d53b294c791bccd",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 34817,
+      "gzipBytes": 12981,
+      "paths": 30,
+      "seconds": 0.36
+    },
+    {
+      "song": "Spasmodic",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "96d090480a0d5c1b4f2d25210ff653b3194c514c4a022daa1e534592077ecba0",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 203892,
+      "gzipBytes": 70014,
+      "paths": 241,
+      "seconds": 0.78
+    },
+    {
+      "song": "Spasmodic",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a12037ae9fa9d3d66f0ac33e6d93b10d0ddf8da637b110c8d878b20189a502d4",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 45171,
+      "gzipBytes": 16089,
+      "paths": 69,
+      "seconds": 0.61
+    },
+    {
+      "song": "Spasmodic",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "213fd6115b339867b6e79c2d4c10db537649ab41c04ed5b238f5939066d9ba77",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 25305,
+      "gzipBytes": 9243,
+      "paths": 44,
+      "seconds": 0.41
+    },
+    {
+      "song": "cryout",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "617e500d8a5b7160fb5b48840564d6631fe8da8626d2b619f52a516c643c3469",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 145530,
+      "gzipBytes": 50284,
+      "paths": 196,
+      "seconds": 0.46
+    },
+    {
+      "song": "cryout",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "7afa4695452b508d1a87390dc6194613ab149e93d19ea895a1270328a4bbd65d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 61839,
+      "gzipBytes": 22520,
+      "paths": 86,
+      "seconds": 0.36
+    },
+    {
+      "song": "cryout",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "51c7833947298301579127589e3b768ad0aff5338cd888589651035ce5fe0e1d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 10822,
+      "gzipBytes": 4539,
+      "paths": 10,
+      "seconds": 0.3
+    },
+    {
+      "song": "尊師 ～The Guru～",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "aeb0ce3c9c7d86c494f9d3219ec1cd0396e5fa6eefa044bffa0163de28f8b96c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 122418,
+      "gzipBytes": 43382,
+      "paths": 116,
+      "seconds": 0.6
+    },
+    {
+      "song": "尊師 ～The Guru～",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "836be3d470903b37fec79a2f7b946c50883ef9a1629db474f09faf017fa21f0c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 22088,
+      "gzipBytes": 8268,
+      "paths": 26,
+      "seconds": 0.47
+    },
+    {
+      "song": "尊師 ～The Guru～",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "ebf4ef95208b206f312008b9898c81d1aa05855f80fa8b8e9ed15e614828afbc",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 121439,
+      "gzipBytes": 42722,
+      "paths": 106,
+      "seconds": 0.65
+    },
+    {
+      "song": "Colorful Days♪",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a46cff20809cdffd681055d2d35b60e1d181f6fb46767be73c89c729da378c91",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 55679,
+      "gzipBytes": 19450,
+      "paths": 68,
+      "seconds": 0.55
+    },
+    {
+      "song": "Colorful Days♪",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "d965245e0b3aedacbb4ceda5666a724a077d1660ca9dfcb2564a2985cbd03a99",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 238506,
+      "gzipBytes": 77824,
+      "paths": 235,
+      "seconds": 0.8
+    },
+    {
+      "song": "Colorful Days♪",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "2a096eac8e7f9d3a75c4346b75fae31432a37f0b7de0b5b6955bf16b2727e18c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 169474,
+      "gzipBytes": 56865,
+      "paths": 156,
+      "seconds": 0.51
+    },
+    {
+      "song": "Igallta",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "4485d7429069ebb5d783aea0f9fceb02c8014c78cd10620c00dcc015fd578378",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 123384,
+      "gzipBytes": 42149,
+      "paths": 157,
+      "seconds": 0.64
+    },
+    {
+      "song": "Igallta",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "1f5d244e7ea598edf034f7f9666ece4ae4012cb6d320bead7fd40a4aedcd183a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 43787,
+      "gzipBytes": 15650,
+      "paths": 51,
+      "seconds": 0.42
+    },
+    {
+      "song": "Igallta",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "6404b2714602fb092016fbbeab78fb448d1eb30617bf4234a6e48a6f96984cd6",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 8745,
+      "gzipBytes": 3639,
+      "paths": 9,
+      "seconds": 0.36
+    },
+    {
+      "song": "NO ONE YES MAN",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "1ca64ab5dae208aa22c5182f937b327534c2db831b39bd90423f35fdbac4e808",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 40524,
+      "gzipBytes": 13870,
+      "paths": 69,
+      "seconds": 0.45
+    },
+    {
+      "song": "NO ONE YES MAN",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "4dc1d75871f5348b5c514397501439be3be4d545b6d2a353905ebd6f4597a256",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 146914,
+      "gzipBytes": 50193,
+      "paths": 178,
+      "seconds": 0.59
+    },
+    {
+      "song": "NO ONE YES MAN",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "b6118c40ed25d799c1277b5fc9dd18729189e2d52da43cf3a9d07dbbb7be5c7f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 9119,
+      "gzipBytes": 3562,
+      "paths": 15,
+      "seconds": 0.34
+    },
+    {
+      "song": "micro.wav",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "17b98f3d2635c5464dd784a89c23f66c17d85a069e0c262e0ca7c47144b8a458",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 84615,
+      "gzipBytes": 29214,
+      "paths": 98,
+      "seconds": 0.59
+    },
+    {
+      "song": "micro.wav",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "70750ff3f3a90e075b140050ebdddaa5910cc90a1124c02fa3f60d5784c9d465",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 25906,
+      "gzipBytes": 9402,
+      "paths": 24,
+      "seconds": 0.39
+    },
+    {
+      "song": "micro.wav",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "408e698d308c1f6c7dd4a075a6039fcb383474b4f277865595e3f665704b2635",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 33251,
+      "gzipBytes": 11707,
+      "paths": 39,
+      "seconds": 0.51
+    },
+    {
+      "song": "望影の方舟Six",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "7d66125fc4810eb3e053ab91d0b69e4ca6da59237832c49add64d60648b1f9e2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 297141,
+      "gzipBytes": 101952,
+      "paths": 385,
+      "seconds": 0.99
+    },
+    {
+      "song": "望影の方舟Six",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "93046612a507f6fc8b660583bd43f03f023242be8136e4e3fbb38107a0eca59f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 117588,
+      "gzipBytes": 40602,
+      "paths": 155,
+      "seconds": 0.6
+    },
+    {
+      "song": "望影の方舟Six",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "339d83037a9a1957dc9dc6b88812cb59381f4d54195d8207ec915d6ca1a96162",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 12918,
+      "gzipBytes": 5358,
+      "paths": 12,
+      "seconds": 0.44
+    },
+    {
+      "song": "重生",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "1070d047b370ccb5afd2b2600f62abb8c3aa83ef6bd8abf07784a514b06ad93d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 93877,
+      "gzipBytes": 31130,
+      "paths": 134,
+      "seconds": 0.54
+    },
+    {
+      "song": "重生",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "0a6da5bb5466c142cd55437064fdb1e31cd8113d7c20c308ecfc4cbfc3412f68",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 82055,
+      "gzipBytes": 28943,
+      "paths": 98,
+      "seconds": 0.44
+    },
+    {
+      "song": "重生",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "2b9ff225941f94ba3cc2889c53362491dcb9522429dab71a251d810640ba262a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 6834,
+      "gzipBytes": 2758,
+      "paths": 11,
+      "seconds": 0.24
+    },
+    {
+      "song": "Chronologika",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "e352da76f9fbe5b65fb38080b1db597ab8618c15c3de4ae919d90a657ebee29d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 63621,
+      "gzipBytes": 22708,
+      "paths": 73,
+      "seconds": 0.46
+    },
+    {
+      "song": "Chronologika",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "b4ad28370b56465fa6104d640703d835b47834ee2a1db2129138a7f1bba1e3b4",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 10652,
+      "gzipBytes": 3935,
+      "paths": 20,
+      "seconds": 0.4
+    },
+    {
+      "song": "Chronologika",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "6dc8de84c90c669a5bdece86a81eeedd99b20a4237ba0bf056d187544d5972f2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 12494,
+      "gzipBytes": 4928,
+      "paths": 11,
+      "seconds": 0.34
+    },
+    {
+      "song": "Chronomia",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6c91c5e33cd1ac81e97959e242ab1beb55703717bbbb0040b836c84b8623c8e1",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 195965,
+      "gzipBytes": 66955,
+      "paths": 284,
+      "seconds": 0.74
+    },
+    {
+      "song": "Chronomia",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "b529298f2d38d7e5509fb0336add4786b0d38ea82e095b33b400326eb0669ecf",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 28139,
+      "gzipBytes": 10657,
+      "paths": 46,
+      "seconds": 0.39
+    },
+    {
+      "song": "Chronomia",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "c800371264cc2a73fba1657ff94fae48da5be2b02ba8158d9ec3482385b514ce",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 6054,
+      "gzipBytes": 2377,
+      "paths": 12,
+      "seconds": 0.37
+    },
+    {
+      "song": "Chronos Collapse - La Campanella",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "3d9e8002aa570433949c6b5fbc56312e69d7f7074c3248cabc8c29fd0f8ecdfd",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 151484,
+      "gzipBytes": 50792,
+      "paths": 156,
+      "seconds": 0.65
+    },
+    {
+      "song": "Chronos Collapse - La Campanella",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "7d18a19bec612ca266e2a1d91f1ad5b2ef46e36e456446a7be73946793951efc",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 25311,
+      "gzipBytes": 9852,
+      "paths": 28,
+      "seconds": 0.42
+    },
+    {
+      "song": "Chronos Collapse - La Campanella",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "a922ea5b407cfb74fb7e2c6e9fd63f5d7427361ff77f1442e644e4043a93365f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 71639,
+      "gzipBytes": 24058,
+      "paths": 64,
+      "seconds": 0.58
+    },
+    {
+      "song": "Clock Paradox",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "9a9239443c2337c0f229b407e2e7fddfa2dced6622df6a1ce23845ce9e4f07b6",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 256956,
+      "gzipBytes": 89502,
+      "paths": 285,
+      "seconds": 0.8
+    },
+    {
+      "song": "Clock Paradox",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "91c2c5583bc147e88cc7b3b02d95d655db3c12168b1b134e35f8adab5c2d3568",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 123190,
+      "gzipBytes": 41764,
+      "paths": 140,
+      "seconds": 0.47
+    },
+    {
+      "song": "Clock Paradox",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "9ed1c55b1c6bffd0ff9bc2ffc0b0e24d6b0999dbbeaf311255cbc08d98c54be7",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 3761,
+      "gzipBytes": 1585,
+      "paths": 5,
+      "seconds": 0.3
+    },
+    {
+      "song": "Nick of Time",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "839f03f250649cabf64277f2a478a236bc7c0ca23fe8a7908e1c607ffac07d57",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 180284,
+      "gzipBytes": 59466,
+      "paths": 173,
+      "seconds": 0.68
+    },
+    {
+      "song": "Nick of Time",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "6d9fe98f701e42e1373380f764fb43d35c6d9313fc24e7d9d19c57d23cfc86af",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 21148,
+      "gzipBytes": 7783,
+      "paths": 29,
+      "seconds": 0.3
+    },
+    {
+      "song": "Nick of Time",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "183cb16beb23bf673601bb752862e00707734abd72592963b9bcd249765f8401",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 20437,
+      "gzipBytes": 8262,
+      "paths": 16,
+      "seconds": 0.35
+    },
+    {
+      "song": "Rrhar'il",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "bdd69f328627e05c33831512f8652ca347de1c80fdb7dac7d4c627d376994014",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 88952,
+      "gzipBytes": 31886,
+      "paths": 94,
+      "seconds": 0.57
+    },
+    {
+      "song": "Rrhar'il",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "9b398864b5b47373941808f923bb682127e06a642e2059c7954df7c2afe7e1a6",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 160584,
+      "gzipBytes": 57455,
+      "paths": 131,
+      "seconds": 0.62
+    },
+    {
+      "song": "Rrhar'il",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "18b924e38ada355b85a7b10f12d1f8875dfaa2b1097c2092b39b072e28149ea4",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 118897,
+      "gzipBytes": 41107,
+      "paths": 98,
+      "seconds": 0.44
+    },
+    {
+      "song": "Crave Wave",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "06782fa4d161801a936267d7c22f5abcfe7cccb146ffbe097a083688a0dd2a6d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 253985,
+      "gzipBytes": 90940,
+      "paths": 201,
+      "seconds": 0.96
+    },
+    {
+      "song": "Crave Wave",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "4d00fd3f616b4999c5349bd8434738efea1f5c603ddb20f07cc08e1f9d0f3acd",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 39966,
+      "gzipBytes": 14708,
+      "paths": 43,
+      "seconds": 0.32
+    },
+    {
+      "song": "Crave Wave",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "9d0ebf1a11f2e61c172a07d82f6b888634d94bcecc53bf05c7a69f69cc9b6790",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 3672,
+      "gzipBytes": 1609,
+      "paths": 4,
+      "seconds": 0.31
+    },
+    {
+      "song": "DESTRUCTION 3,2,1",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "017772edc6faa5c553a91b12a32dec044e340c1d2efa45489bbf0441bbf02bed",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 111351,
+      "gzipBytes": 39888,
+      "paths": 125,
+      "seconds": 0.58
+    },
+    {
+      "song": "DESTRUCTION 3,2,1",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "63e33b3f1fc587922ecc5320f7c6ace3084f5fad98081e143faa3c62b5f7795e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 121223,
+      "gzipBytes": 41771,
+      "paths": 118,
+      "seconds": 0.52
+    },
+    {
+      "song": "DESTRUCTION 3,2,1",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "d861d6306a60f4df7c61b635418993b2b578760a73e7c8f53a0cf4a6118be5ee",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 4171,
+      "gzipBytes": 1910,
+      "paths": 4,
+      "seconds": 0.31
+    },
+    {
+      "song": "Distorted Fate",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "c70f4d10541cf9fea5bc8a0a400fa5913149e512b8dce25baaa754d25436b96e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 171253,
+      "gzipBytes": 59149,
+      "paths": 174,
+      "seconds": 0.72
+    },
+    {
+      "song": "Distorted Fate",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "2d39ee2d22da92d2a6bff8d8617a81240c02c17bbf55f8d2d491a1138f8ec8e9",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 38301,
+      "gzipBytes": 14188,
+      "paths": 29,
+      "seconds": 0.56
+    },
+    {
+      "song": "Distorted Fate",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "9ac61aec89d707050a4ab22118e1a4f7d41a8b19f114c79c0595d7d02a1fbff5",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 3771,
+      "gzipBytes": 1645,
+      "paths": 5,
+      "seconds": 0.32
+    },
+    {
+      "song": "Luminescence",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "9698d1f67060f1ec774dd75c41c56b133dfa00ae20c7e266aefac484d5bc8d43",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 159412,
+      "gzipBytes": 54625,
+      "paths": 148,
+      "seconds": 0.76
+    },
+    {
+      "song": "Luminescence",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "d324a127bd5390a9a6126ecf6fa6e2eb8ffcad51c2fbab902b74cdd61a8aaec3",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 6430,
+      "gzipBytes": 2849,
+      "paths": 6,
+      "seconds": 0.46
+    },
+    {
+      "song": "Luminescence",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "3e3bd97108e86fd1dcbd44ebbf53e96f57dde356361dcaae2e7a025c3d5f7b79",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 47078,
+      "gzipBytes": 15941,
+      "paths": 68,
+      "seconds": 0.52
+    },
+    {
+      "song": "Retribution",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "f1152bf754064d23e0021b4cc835f103e9610249b47eecd4f5ec7af2b61fe532",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 124627,
+      "gzipBytes": 42727,
+      "paths": 93,
+      "seconds": 0.7
+    },
+    {
+      "song": "Retribution",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "3997773da95ea8685c13ab6688990737a1747cb4ab4fd73dbae37e736402b3ba",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 48900,
+      "gzipBytes": 17570,
+      "paths": 43,
+      "seconds": 0.55
+    },
+    {
+      "song": "Retribution",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "cc6fbc2c9a5ce838383ff4d4dbafc1f29d1bdd5673d0bb0605fb55dc245b5792",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 6460,
+      "gzipBytes": 2764,
+      "paths": 6,
+      "seconds": 0.38
+    },
+    {
+      "song": "The Chariot ~REVIIVAL~",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "fab105e9e064d2b78743dd0fe15a60606cfba762cd2cac4b6dda6c63abad0873",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 167301,
+      "gzipBytes": 56460,
+      "paths": 170,
+      "seconds": 0.95
+    },
+    {
+      "song": "The Chariot ~REVIIVAL~",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "5c5083aeb1869701d37f90c62cdf6dc02c1a36fe9172e19a3f8a46e67720d1a1",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 44209,
+      "gzipBytes": 15861,
+      "paths": 64,
+      "seconds": 0.44
+    },
+    {
+      "song": "The Chariot ~REVIIVAL~",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "61d7b739ad712c7ef7d10f19e23b3959d52eb50f42700e9a92dc0f1346730bba",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 18930,
+      "gzipBytes": 6813,
+      "paths": 30,
+      "seconds": 0.34
+    },
+    {
+      "song": "About The Universe",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "7fbf715ca2f699d1972755f675e3e0bc6292e0fd464430e0c1f74b6e668f735a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 64072,
+      "gzipBytes": 23910,
+      "paths": 39,
+      "seconds": 0.8
+    },
+    {
+      "song": "About The Universe",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "9a6c5ec86ee1d3390780996612951168a919d1ec7297c54d209d716c783d237a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 67138,
+      "gzipBytes": 23638,
+      "paths": 88,
+      "seconds": 0.75
+    },
+    {
+      "song": "About The Universe",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "6ff4b0d80f223554fde0bd7363126f0cd129e5a3178db57282c6d732cd2938cb",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 83347,
+      "gzipBytes": 29543,
+      "paths": 70,
+      "seconds": 0.41
+    },
+    {
+      "song": "Entrance to the Chaos",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "cdfa3075ce417c6f47ce420d416cbe722646d103f1ab7f7617dce85edd9a9998",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 174184,
+      "gzipBytes": 60360,
+      "paths": 141,
+      "seconds": 0.77
+    },
+    {
+      "song": "Entrance to the Chaos",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "2280c8eff8da349973c031a805c7a18099bfcc325551e7c06eeacfc310761517",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 12974,
+      "gzipBytes": 5108,
+      "paths": 15,
+      "seconds": 0.36
+    },
+    {
+      "song": "Evanescent",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "4a5e4e4ecefc4063511821370775373d8f4cf1a83a71670e82e5a506f0a9e145",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 183598,
+      "gzipBytes": 60414,
+      "paths": 154,
+      "seconds": 0.79
+    },
+    {
+      "song": "Entrance to the Chaos",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "09230b4d49ccad8f169e4009ce939719046447a1da4fe495b3bc7812fe4f6d9a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 8301,
+      "gzipBytes": 3379,
+      "paths": 11,
+      "seconds": 0.26
+    },
+    {
+      "song": "Evanescent",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "86c817062e780e8fc2b265dfbf9668b5a03bfb98aebb314145ea8858381a6648",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 92794,
+      "gzipBytes": 33783,
+      "paths": 65,
+      "seconds": 0.52
+    },
+    {
+      "song": "Evanescent",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "b59e7f3547d2bb2f39fd413a57128d678a1a9971f3f87ef92d289c527f61e16d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 51764,
+      "gzipBytes": 18620,
+      "paths": 51,
+      "seconds": 0.38
+    },
+    {
+      "song": "Exoplanetary Mirage",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "537d59c91502af83700d6fa1bf32307c2ecf8ae271fd528322bd800d73b69e2b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 259803,
+      "gzipBytes": 87507,
+      "paths": 274,
+      "seconds": 0.59
+    },
+    {
+      "song": "Exoplanetary Mirage",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a83ac5e2fcabc6976297f96ba47046b54d89694b13db78ea06b5bf78112ab7dc",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 36224,
+      "gzipBytes": 14098,
+      "paths": 25,
+      "seconds": 0.46
+    },
+    {
+      "song": "Exoplanetary Mirage",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "7630b3639075495af815178c6af815a01183ee56de5a4ca10f00b8061327ac72",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 6644,
+      "gzipBytes": 2792,
+      "paths": 10,
+      "seconds": 0.33
+    },
+    {
+      "song": "Implexrough",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "10d468207f9c8f34665ed47ad7344d8e421a10b5c03a36f026fb9478f736af24",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 129289,
+      "gzipBytes": 45764,
+      "paths": 119,
+      "seconds": 0.88
+    },
+    {
+      "song": "Implexrough",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "bd43048be90450180824454a5bd13ff283a775fa6c92b22b44afb3c98b2fabb6",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 13483,
+      "gzipBytes": 5377,
+      "paths": 18,
+      "seconds": 0.48
+    },
+    {
+      "song": "Implexrough",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "4253b27fa0b44b2458f1619c092ff868028b7c14ce8f1477033eac279e41f347",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 25747,
+      "gzipBytes": 9509,
+      "paths": 31,
+      "seconds": 0.42
+    },
+    {
+      "song": "Ametrine",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "df8541f12ead4fde2bfa5e9477203e522424fdcb55103d99376bc7dcaa679c47",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 401981,
+      "gzipBytes": 144852,
+      "paths": 397,
+      "seconds": 1.22
+    },
+    {
+      "song": "Ametrine",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "2b48764b83c455715bbd99dcdb20fbeec074dd773c8beb813db9408bcea93d68",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 74019,
+      "gzipBytes": 24323,
+      "paths": 59,
+      "seconds": 0.52
+    },
+    {
+      "song": "Ametrine",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "27eb1292137d2bbdce777c434a41b467156b95aeb6d531ad08730f52e33553d2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 69980,
+      "gzipBytes": 24772,
+      "paths": 59,
+      "seconds": 0.51
+    },
+    {
+      "song": "Desultory Signals",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "3d23dacfdb18f647110f20f23195a3c32e57464296ac3581bc5bb7b9a6834395",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 467059,
+      "gzipBytes": 166131,
+      "paths": 503,
+      "seconds": 1.6
+    },
+    {
+      "song": "Desultory Signals",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "ecc53ebdc22b34a657ddf612e7e5c1be62f44fd9e30cdacfd078eb83dd4bcf4a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 57647,
+      "gzipBytes": 20965,
+      "paths": 61,
+      "seconds": 0.53
+    },
+    {
+      "song": "Desultory Signals",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "107851cfdce7f67d605d9783df23ad193c7ed90b74c532bef32c1bacfb758a70",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 81423,
+      "gzipBytes": 29000,
+      "paths": 70,
+      "seconds": 0.56
+    },
+    {
+      "song": "Message",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "9e45e3db4fa3fad3046a0f4bdf929d5353edd941da8169940d20f072c77a44ae",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 405263,
+      "gzipBytes": 140194,
+      "paths": 530,
+      "seconds": 1.19
+    },
+    {
+      "song": "Message",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "71d4650325334d1a3eda7f9252d8c22e6f6db0ef880bcdd010a44f961ac15b8c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 68702,
+      "gzipBytes": 24586,
+      "paths": 57,
+      "seconds": 0.61
+    },
+    {
+      "song": "Message",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "eba412d4d018566c21fce7c632c55bd382db991b96d8bc8771a490f18cc02826",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 4029,
+      "gzipBytes": 1837,
+      "paths": 4,
+      "seconds": 0.49
+    },
+    {
+      "song": "Petrichor",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "6f3e4d6c6e0d8067df0bd90728c54cc4e7223821be7a6dcb50b2ecddaa006cf1",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 130282,
+      "gzipBytes": 43088,
+      "paths": 171,
+      "seconds": 0.6
+    },
+    {
+      "song": "Petrichor",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "a12de73dca009d3648d12156676a47f55ca5b6a6c1cfa1c57def04cceda39e43",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        674
+      ],
+      "bytes": 17256,
+      "gzipBytes": 6425,
+      "paths": 21,
+      "seconds": 0.45
+    },
+    {
+      "song": "Petrichor",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "8c27cfae3625e547b61256a43c0978fa3c9788a450768cf796c9e71db9cdff3b",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        674
+      ],
+      "bytes": 4951,
+      "gzipBytes": 2119,
+      "paths": 7,
+      "seconds": 0.39
+    },
+    {
+      "song": "True Home, True World (Rework)",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "41518aec7e41f45f8a0b56808317e68eb179b73ab18ca13224881390e325732e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 261672,
+      "gzipBytes": 91579,
+      "paths": 219,
+      "seconds": 1.12
+    },
+    {
+      "song": "True Home, True World (Rework)",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "5f8dd697f88fbecf69493051e5fcfc0489f059b0f115ca0637de9103f19a49b3",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 37866,
+      "gzipBytes": 12970,
+      "paths": 42,
+      "seconds": 0.4
+    },
+    {
+      "song": "True Home, True World (Rework)",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "3f057d04a813bd48b2b0cff846f1cb7c9c6f0d65037b86421d4ec6d1e783d73e",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        674
+      ],
+      "bytes": 63030,
+      "gzipBytes": 21506,
+      "paths": 63,
+      "seconds": 0.35
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-at",
+      "difficulty": "hd",
+      "fingerprint": "e29ac95480022e8128ece965980fcdf6f4191242f4c7580fe1210ecb4998885c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 139580,
+      "gzipBytes": 48036,
+      "paths": 119,
+      "seconds": 0.58
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-at",
+      "difficulty": "in",
+      "fingerprint": "63382cfe580f7b4d31990adc264e016e606f1fe9a0ddff7005e1ea00f96df673",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 48590,
+      "gzipBytes": 17809,
+      "paths": 38,
+      "seconds": 0.46
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-at",
+      "difficulty": "at",
+      "fingerprint": "9d1bab6f00049d311d4df5d0a66e1724549ccc5c3d94fa07108b9e20443e655f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 64497,
+      "gzipBytes": 21663,
+      "paths": 58,
+      "seconds": 0.34
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-ez",
+      "difficulty": "hd",
+      "fingerprint": "2540ee66cb26e3951fb26449846cd991be78d9e26554e0a480a39f183ad7dd2d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 175534,
+      "gzipBytes": 63083,
+      "paths": 137,
+      "seconds": 0.64
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-ez",
+      "difficulty": "in",
+      "fingerprint": "4028b03a58a80f7fdd5ed2db63f44e16a4a956dd820a34d4c665ede5ca103b5c",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 43889,
+      "gzipBytes": 15071,
+      "paths": 59,
+      "seconds": 0.45
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-ez",
+      "difficulty": "at",
+      "fingerprint": "430d35d3f5046d0429dc7ec0d84d1e5b120a1af25c36a39ff17b0afbfebc86f2",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 21438,
+      "gzipBytes": 7907,
+      "paths": 27,
+      "seconds": 0.3
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-hd",
+      "difficulty": "hd",
+      "fingerprint": "22f3498020c7843d339fd2292b5cf978041db3835f3b21bdd8998db5483504a4",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 224118,
+      "gzipBytes": 79557,
+      "paths": 167,
+      "seconds": 0.67
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-hd",
+      "difficulty": "in",
+      "fingerprint": "c4feeb07a2c368ce2a7a5da58082b654a339a21348c3521d4a68070ef3e0d748",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        674
+      ],
+      "bytes": 33219,
+      "gzipBytes": 11652,
+      "paths": 26,
+      "seconds": 0.51
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-hd",
+      "difficulty": "at",
+      "fingerprint": "73c0ba9e5a63d84dfbbe7124bbc990b25d2938ba12252061f28797d86aee6f82",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 22669,
+      "gzipBytes": 8640,
+      "paths": 22,
+      "seconds": 0.33
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-in",
+      "difficulty": "hd",
+      "fingerprint": "913d9ace201ef2ee1b7de7521f91e7a3b9dcd9926f8be278ce0df133541b4faa",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 112275,
+      "gzipBytes": 39491,
+      "paths": 84,
+      "seconds": 0.82
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-in",
+      "difficulty": "in",
+      "fingerprint": "204f9eed2dcee96b3e4a7de274c5237e827a19ee1a30109f874bbb7ec1558d9f",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 63697,
+      "gzipBytes": 22232,
+      "paths": 45,
+      "seconds": 0.4
+    },
+    {
+      "song": "ハテ",
+      "variant": "default",
+      "difficulty": "hd",
+      "fingerprint": "9dfee94b7c52b1eeb3732f980971648053907a917f9c407e3e64555725869c3d",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 145562,
+      "gzipBytes": 50005,
+      "paths": 154,
+      "seconds": 0.75
+    },
+    {
+      "song": "What do you want more than a Happy ending?",
+      "variant": "illustration-in",
+      "difficulty": "at",
+      "fingerprint": "207ec8ad9fabd59cae03b208b336b97722b66560f8ce19a46c81794c1b5364aa",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        676
+      ],
+      "bytes": 4506,
+      "gzipBytes": 2023,
+      "paths": 3,
+      "seconds": 0.35
+    },
+    {
+      "song": "ハテ",
+      "variant": "default",
+      "difficulty": "in",
+      "fingerprint": "5d941fd420db4b911db5cc8e4dc11729d47318255428769d65219d7ad91398bf",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        675
+      ],
+      "bytes": 61357,
+      "gzipBytes": 22087,
+      "paths": 40,
+      "seconds": 0.38
+    },
+    {
+      "song": "ハテ",
+      "variant": "default",
+      "difficulty": "at",
+      "fingerprint": "3c72788ae99afba344449c5f4d796c88fdf8677b9544f00801cb9f28adf24b6a",
+      "preset": {
+        "max_side": 1280,
+        "palette_colors": 64,
+        "quantizer": "maxcoverage",
+        "color_refinements": 3,
+        "median_size": 3,
+        "color_precision": 8,
+        "layer_difference": 1,
+        "filter_speckle": 10,
+        "max_iterations": 3,
+        "path_precision": 1
+      },
+      "size": [
+        1280,
+        677
+      ],
+      "bytes": 4706,
+      "gzipBytes": 1928,
+      "paths": 7,
+      "seconds": 0.31
+    }
+  ]
+}

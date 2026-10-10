@@ -1,0 +1,27 @@
+{
+  "songId": "e106a875-733d-5ddd-9bfb-03352b302607",
+  "title": "True Home, True World (Rework)",
+  "aliases": [
+    "True Home, True World (Rework)",
+    "thtw",
+    "世家"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part2",
+    "曲师：816ThreeNumbers",
+    "标准曲名包含 26 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/True Home, True World (Rework).png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part2",
+  "composer": "816ThreeNumbers",
+  "illustrator": "PEZZ",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/True Home, True World (Rework)-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "songId": "ab9533ed-1b49-5401-8df0-ab7c09959668",
+  "title": "NO ONE YES MAN",
+  "aliases": [
+    "NO ONE YES MAN",
+    "NOYM",
+    "没人是人",
+    "没有一个是人",
+    "没有一个好男人",
+    "没一个男的",
+    "梅忆阁诗人",
+    "无人奸佞"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：方舟蜃景",
+    "曲师：MYUKKE.",
+    "标准曲名包含 11 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/06 方舟蜃景/NO ONE YES MAN.png",
+  "chapter": 6,
+  "chapterName": "方舟蜃景",
+  "composer": "MYUKKE.",
+  "illustrator": "青鸟",
+  "assets": {
+    "ez": "../../../source/06 方舟蜃景/EZ/NO ONE YES MAN-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

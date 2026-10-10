@@ -1,0 +1,44 @@
+/* The background plane, selection and toolbar have separate measured edges.
+   No inherited skew transforms or percentage widths from the old track CSS. */
+.song-rail-viewport{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.song-rail{position:absolute;left:calc((100% - 1210px) * .35);top:0;width:640px;height:834px;color:#f4f4f4;font-family:Saira,"Phiguess CJK","Microsoft YaHei",sans-serif}
+.song-rail-surface{position:absolute;inset:0;width:640px;height:834px;overflow:visible}
+.song-rail-plane{fill:#000;fill-opacity:.15}
+.song-rail-selection{fill:#000;fill-opacity:.54}
+.song-rail-rows{position:absolute;inset:0}
+.song-rail-row{position:absolute;top:0;left:0;width:392px;height:60px;display:flex;align-items:center;will-change:transform}
+.song-rail-copy{position:relative;flex:none;width:300px;height:99px;padding-left:6px;display:flex;align-items:center}
+.song-rail-title{display:block;flex:none;width:276px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:400 22.5px/1.35 Saira,"Phiguess CJK",sans-serif;letter-spacing:0;will-change:transform}
+.song-rail-row.current .song-rail-title{width:290px;font-size:34.5px;line-height:1.25;letter-spacing:.35px;color:white}
+.song-name{position:relative;display:block;width:max-content;max-width:100%;line-height:inherit}
+.song-name-label{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:inherit}
+.song-name-measure{position:absolute;left:0;top:0;width:max-content;visibility:hidden;pointer-events:none;white-space:nowrap}
+.song-name-cover{position:absolute;left:0;top:0;bottom:0;width:100%;background:#f4f4f4;transform:scaleX(0);transform-origin:0 50%;pointer-events:none;will-change:transform}
+.song-rail-status{position:absolute;top:60.75px;left:-4.5px;right:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:400 17.5px/1.35 Saira,"Phiguess CJK",sans-serif;color:#eee}
+.song-rail-number{position:absolute;right:1px;width:94px;text-align:center;font:400 34.5px/1 Saira,sans-serif;transform:translateY(.5px)}
+.song-rail-row.current .song-rail-number{visibility:hidden}
+.song-rail-badge{position:absolute;left:413px;top:300px;width:120.5px;height:99px;text-align:center;color:#333}
+.song-rail-badge>svg{position:absolute;inset:0;width:100%;height:100%;fill:#fff}
+.song-rail-badge>strong{position:absolute;left:3px;right:0;top:21px;font:400 44px/1 Saira,sans-serif}
+.song-rail-badge>small{position:absolute;left:1.5px;right:0;top:61.5px;font:400 15px/1 Saira,sans-serif}
+.song-rail-toolbar{position:absolute;left:168px;top:6.5px;width:448.5px;height:70.5px;pointer-events:auto;isolation:isolate}
+.song-rail-toolbar::before{content:'';position:absolute;inset:0;clip-path:polygon(18.89px 0,100% 0,calc(100% - 18.89px) 100%,0 100%);background:#000a;z-index:-1}
+.song-rail-progress{position:absolute;left:32px;top:12px;max-width:220px}
+.song-rail-progress>small{display:block;font:400 12px/1.2 "Phiguess CJK",sans-serif;margin-bottom:7px}
+.song-rail-progress>span{display:flex;align-items:center;gap:6px;white-space:nowrap;font:400 18px/1.3 Saira,"Phiguess CJK",sans-serif}
+.song-rail-toolbar>button{position:absolute;top:7px;width:67px;height:58px;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.song-rail-hint{left:273px}
+.song-rail-settings{left:361.5px}
+.song-rail-toolbar>button>span{font:400 12px/1.3 "Phiguess CJK",sans-serif}
+.song-rail-toolbar>button>.song-rail-hint-symbol{height:29px;font:400 29px/1 Saira,sans-serif;letter-spacing:-2px}
+.song-rail-toolbar>i{position:absolute;left:350px;top:19px;width:1px;height:34px;transform:skewX(-15deg);background:#ddd8}
+@media(max-aspect-ratio:1/1){
+ .song-rail-viewport{top:110px;bottom:auto;height:370px;overflow:visible}
+ .song-rail{left:105px;top:-120px}
+ .song-rail-surface,.song-rail-rows{clip-path:inset(120px -30px 344px -200px)}
+ .song-rail-badge{top:300px}
+ .song-rail-toolbar{left:36px;top:22px}
+}
+
+.song-rail-noise{position:absolute;inset:0;width:640px;height:834px;pointer-events:none;visibility:hidden;z-index:2}
+@media(max-aspect-ratio:1/1){.song-rail-noise{clip-path:inset(120px -30px 344px -200px)}}

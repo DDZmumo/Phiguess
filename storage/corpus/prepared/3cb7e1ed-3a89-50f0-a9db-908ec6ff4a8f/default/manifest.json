@@ -1,0 +1,49 @@
+{
+  "songId": "3cb7e1ed-3a89-50f0-a9db-908ec6ff4a8f",
+  "title": "Exoplanetary Mirage",
+  "aliases": [
+    "Exoplanetary Mirage",
+    "EPTM",
+    "Exo",
+    "EM",
+    "mirage",
+    "系外幻象",
+    "系外行星",
+    "外星幻景",
+    "幻象",
+    "系外行星幻景",
+    "异星幻景",
+    "海市蜃楼",
+    "系外蜃楼",
+    "系外蜃景",
+    "星外虚舟",
+    "穹顶鸠",
+    "黑洞鸠",
+    "仁王盾",
+    "九鸟打狙",
+    "九鸟架狙",
+    "鸠鸠架狙",
+    "谁玩屁股肉我杀谁",
+    "鸠儿狙击怕过谁",
+    "韩国男团",
+    "米垃圾"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part1",
+    "曲师：Camellia",
+    "标准曲名包含 18 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Exoplanetary Mirage.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part1",
+  "composer": "Camellia",
+  "illustrator": "神居冰绘 feat. 祈莲",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Exoplanetary Mirage-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

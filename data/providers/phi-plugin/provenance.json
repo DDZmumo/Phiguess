@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/Catrong/phi-plugin",
+  "commit": "d3e36b180273cb9bf856d8b72f5d525ae30913db",
+  "retrievedAt": "2026-10-08T07:35:58.592Z",
+  "license": "GPL-3.0; see LICENSE",
+  "files": {
+    "info.csv": {
+      "sha256": "6b7c05d2ee93c3f57cca4ec09f34643ddd97be8812c15fce7f0a4c43e41383e0"
+    },
+    "nicklist.yaml": {
+      "sha256": "132e2a27b1d211db4540990d3cbd7fb7a4172a9a7fd1949bc9143803c1128a45"
+    },
+    "LICENSE": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  }
+}

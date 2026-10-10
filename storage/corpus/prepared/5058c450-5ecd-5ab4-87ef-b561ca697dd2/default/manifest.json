@@ -1,0 +1,30 @@
+{
+  "songId": "5058c450-5ecd-5ab4-87ef-b561ca697dd2",
+  "title": "-SURREALISM-",
+  "aliases": [
+    "-SURREALISM-",
+    "超现实主义",
+    "SURREALISM",
+    "楼梯",
+    "阶梯",
+    "彭罗斯阶梯"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：管道迷宫",
+    "曲师：Itsuki",
+    "标准曲名包含 12 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/04 管道迷宫/-SURREALISM-.png",
+  "chapter": 4,
+  "chapterName": "管道迷宫",
+  "composer": "Itsuki",
+  "illustrator": "喵n葵",
+  "assets": {
+    "ez": "../../../source/04 管道迷宫/EZ/-SURREALISM--EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

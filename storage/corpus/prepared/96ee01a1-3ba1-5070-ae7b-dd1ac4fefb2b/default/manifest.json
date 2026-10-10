@@ -1,0 +1,29 @@
+{
+  "songId": "96ee01a1-3ba1-5070-ae7b-dd1ac4fefb2b",
+  "title": "Cereris",
+  "aliases": [
+    "Cereris",
+    "谷神星",
+    "科目二",
+    "老司机",
+    "CARRY YOU FLY"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：幽蓝边界",
+    "曲师：SunsetRay/NceS",
+    "标准曲名包含 7 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/03 幽蓝边界/Cereris.png",
+  "chapter": 3,
+  "chapterName": "幽蓝边界",
+  "composer": "SunsetRay/NceS",
+  "illustrator": "IvyTowers",
+  "assets": {
+    "ez": "../../../source/03 幽蓝边界/EZ/Cereris-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,23 @@
+[Unit]
+Description=Phiguess backend
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=phiguess
+Group=phiguess
+WorkingDirectory=/opt/phiguess
+EnvironmentFile=/opt/phiguess/.env
+ExecStartPre=/usr/bin/node dist/tools/migrate.js
+ExecStart=/usr/bin/node dist/apps/server/src/main.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/phiguess/storage/assets
+ReadWritePaths=/opt/phiguess/storage/avatars
+
+[Install]
+WantedBy=multi-user.target

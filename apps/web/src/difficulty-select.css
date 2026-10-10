@@ -1,0 +1,58 @@
+@font-face{font-family:"Phiguess Difficulty";src:url('/fonts/phiguess-difficulty-hanzi.woff2') format('woff2');font-style:normal;font-weight:900;font-display:block}
+.difficulty-screen{position:absolute;inset:0;overflow:hidden;background:#010401;color:#dce2d7;isolation:isolate;font-family:Saira,"Phiguess CJK",sans-serif}
+.difficulty-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.difficulty-options{position:absolute;inset:0}
+.difficulty-options[hidden]{display:none}
+.difficulty-options>button{position:absolute;top:50%;width:calc(96 * var(--du));height:calc(72 * var(--du));padding:0;transform:translate(-50%,-50%);border:0;background:transparent;cursor:pointer}
+.difficulty-options>button:focus-visible{outline:1px solid #dce2d76b;outline-offset:0}
+.difficulty-options>button:disabled{cursor:default}
+.difficulty-back{position:absolute;left:25px;top:22px;width:44px;height:44px;display:grid;place-items:center;opacity:.48;color:#dce2d7}
+.difficulty-back:focus-visible{outline:1px solid #dce2d7}
+.difficulty-screen[data-phase=starting] .difficulty-back{visibility:hidden}
+.difficulty-screen[data-phase=starting]{background:#000}
+.difficulty-screen[data-phase=starting] .difficulty-canvas{visibility:hidden}
+.scene:has(.difficulty-screen[data-phase=starting])>.fullscreen,.scene:has(.difficulty-screen[data-phase=starting])>.demo-label{visibility:hidden}
+.difficulty-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.difficulty-notice{position:absolute;left:15%;right:15%;top:65%;display:flex;flex-direction:column;align-items:center;gap:20px;font-size:18px;text-align:center;color:#e4e6df}
+.difficulty-notice button{padding:9px 28px;border:1px solid #e4e6df80;background:#151815}
+@media(max-aspect-ratio:1/1){.difficulty-back{left:28px;top:25px;width:64px;height:64px}.difficulty-back svg{width:40px;height:40px}.difficulty-notice{font-size:26px}}
+
+.difficulty-challenge-settings{position:absolute;top:calc(50% + 42 * var(--du));left:0;right:0;margin:0 auto;width:calc(340 * var(--du));max-width:88%;opacity:0;color:#dce2d7;text-shadow:0 0 12px #d5eec447;font-size:calc(13 * var(--du));letter-spacing:calc(1 * var(--du))}
+.difficulty-challenge-settings h2{margin:0 0 calc(12 * var(--du));font:inherit;text-align:center;font-size:calc(15 * var(--du));font-weight:400;letter-spacing:calc(4 * var(--du))}
+.difficulty-challenge-settings fieldset{border:0;padding:0;margin:0;min-width:0}
+.difficulty-setting-row,.at-warning-line{display:flex;align-items:center;justify-content:space-between;min-height:calc(29 * var(--du));gap:calc(12 * var(--du))}
+.difficulty-setting-row>span:first-child{color:#b7c0b0;white-space:nowrap}
+.difficulty-setting-values{display:flex;gap:calc(7 * var(--du));align-items:center}
+.difficulty-challenge-settings button{border:0;background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-shadow:inherit;padding:calc(4 * var(--du));cursor:pointer}
+.difficulty-setting-values button{opacity:.4;white-space:nowrap}
+.difficulty-setting-values button[aria-pressed=true]{opacity:1;color:#f2f8ea;text-shadow:0 0 9px #e3ffaf75}
+.difficulty-challenge-settings button:hover{opacity:1;color:white}
+.difficulty-challenge-settings button:focus-visible{outline:1px solid #dce2d788;outline-offset:3px}
+.difficulty-setting-fixed,.difficulty-health-toggle{margin-right:calc(4 * var(--du));color:#eef7e6}
+.difficulty-setting-actions{display:flex;justify-content:center;gap:20px;margin-top:calc(15 * var(--du))}
+.difficulty-setting-actions button:last-child{color:#f5ffe9;text-shadow:0 0 14px #d8f8b680}
+.difficulty-screen[data-phase=fading-settings] .difficulty-challenge-settings{pointer-events:none}
+
+.difficulty-screen[data-phase=transition] .difficulty-back{visibility:hidden}
+.difficulty-screen[data-phase=fading-settings] .difficulty-back{pointer-events:none}
+.difficulty-screen[data-phase=returning-settings] .difficulty-challenge-settings{pointer-events:none}
+.difficulty-screen[data-phase=returning-labels] .difficulty-back{visibility:hidden;opacity:0!important}
+.difficulty-back{transition:none}
+.difficulty-exit-shade{position:absolute;inset:0;z-index:20;background:#000;opacity:0;pointer-events:none}
+.difficulty-screen[data-phase=leaving-hub]{z-index:20}
+.difficulty-screen[data-phase=leaving-hub] .difficulty-exit-shade{pointer-events:auto}
+.at-challenge-warning{color:#ff5267;text-shadow:0 0 12px #ff284f40;isolation:isolate}
+.at-challenge-warning::before{content:'';position:absolute;inset:-30% -10%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(255,24,52,.2) 0%,rgba(224,12,40,.1) 35%,rgba(184,0,28,.025) 60%,transparent 75%)}
+.at-warning-message{text-align:center}
+.at-warning-line{max-width:100%;justify-content:center}
+.at-warning-scramble{display:inline;white-space:nowrap}
+.at-warning-character{display:inline-grid;vertical-align:baseline;white-space:pre}
+.at-warning-character>span{grid-area:1 / 1}
+.at-warning-character-size{visibility:hidden}
+.at-warning-character-glyph{justify-self:center}
+.at-warning-health-line{justify-content:center;gap:0}
+.at-challenge-warning .at-warning-health{padding:0;margin-left:calc(3 * var(--du));text-decoration:underline;text-underline-offset:calc(3 * var(--du));text-decoration-thickness:1px;color:inherit}
+.at-challenge-warning .at-warning-health:hover{color:inherit}
+.at-challenge-warning .at-warning-health:disabled{opacity:1;cursor:default}
+.at-challenge-warning .song-name-cover{background:#ff5267}
+.at-challenge-warning .difficulty-setting-actions button:last-child{color:#ff5267;text-shadow:inherit}

@@ -1,0 +1,27 @@
+{
+  "songId": "c62ee6f7-f0d0-511f-a45f-fe58e15b4381",
+  "title": "Chronomia",
+  "aliases": [
+    "Chronomia",
+    "天文钟",
+    "时空"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：时钟链接",
+    "曲师：Lime",
+    "标准曲名包含 9 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/07 时钟链接/Chronomia.png",
+  "chapter": 7,
+  "chapterName": "时钟链接",
+  "composer": "Lime",
+  "illustrator": "inukoro",
+  "assets": {
+    "ez": "../../../source/07 时钟链接/EZ/Chronomia-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

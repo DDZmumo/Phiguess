@@ -1,0 +1,32 @@
+{
+  "songId": "ef2d1659-ac27-5fef-9963-f985afdb8a9f",
+  "title": "Sultan Rage",
+  "aliases": [
+    "Sultan Rage",
+    "苏丹",
+    "素檀",
+    "苏丹怒了",
+    "苏丹之怒",
+    "苏丹狂怒",
+    "苏丹怒",
+    "SR"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：管道迷宫",
+    "曲师：MonstDeath",
+    "标准曲名包含 10 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/04 管道迷宫/Sultan Rage.png",
+  "chapter": 4,
+  "chapterName": "管道迷宫",
+  "composer": "MonstDeath",
+  "illustrator": "笔记RE",
+  "assets": {
+    "ez": "../../../source/04 管道迷宫/EZ/Sultan Rage-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

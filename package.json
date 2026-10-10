@@ -1,0 +1,54 @@
+{
+  "name": "phiguess",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.14"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build:server && npm run build:web",
+    "build:server": "tsc -p tsconfig.json",
+    "build:web": "npm run build --workspace apps/web",
+    "dev:web": "npm run dev --workspace apps/web",
+    "preview:game": "npm run build:server && node tools/preview.mjs",
+    "dev": "npm run build:server && node --env-file-if-exists=.env dist/apps/server/src/main.js",
+    "start": "node --env-file-if-exists=.env dist/apps/server/src/main.js",
+    "db:migrate": "npm run build:server && node --env-file-if-exists=.env dist/tools/migrate.js",
+    "assets:import": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-assets.js",
+    "assets:showcase": "npm run build:server && node --env-file-if-exists=.env dist/tools/backfill-showcase.js",
+    "assets:catalog": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-catalog.js",
+    "aliases:sync": "npm run build:server && node --env-file-if-exists=.env dist/tools/sync-aliases.js",
+    "test": "npm run build:server && node tools/test-runner.mjs",
+    "db:local": "node tools/local-db.mjs"
+  },
+  "dependencies": {
+    "@nestjs/common": "11.2.7",
+    "@nestjs/core": "11.2.7",
+    "@nestjs/platform-express": "11.2.7",
+    "@nestjs/platform-socket.io": "11.2.7",
+    "@nestjs/websockets": "11.2.7",
+    "express-rate-limit": "8.7.1",
+    "helmet": "8.3.0",
+    "pg": "8.23.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "saxes": "6.0.0",
+    "sharp": "0.35.5",
+    "socket.io": "4.8.4",
+    "yaml": "2.9.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "11.2.7",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.5",
+    "@types/pg": "8.23.1",
+    "embedded-postgres": "17.10.0-beta.17",
+    "socket.io-client": "4.8.4",
+    "typescript": "5.9.3"
+  }
+}

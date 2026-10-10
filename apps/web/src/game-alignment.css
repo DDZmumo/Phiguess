@@ -1,0 +1,106 @@
+/* Refinements to the original composition. At every viewport, the artwork,
+   answer row and hints share two continuous 15-degree side guidelines.
+   The song list itself is implemented in SongRail.tsx / song-rail.css. */
+@font-face{font-family:"Phiguess CJK";src:url('/fonts/phiguess-cjk.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+.game-screen{
+  --slant-angle:-15deg;
+  --counter-angle:15deg;
+  --slant-ratio:.2679491924;
+  --art-left:45.3%;
+  --art-width:50.7%;
+  --art-top:150px;
+  --art-height:323px;
+  --answer-top:500px;
+  --answer-height:54px;
+  --hints-top:591px;
+  --hints-height:93px;
+  --art-cut:calc(var(--art-height) * var(--slant-ratio));
+  font-family:Saira,"Phiguess CJK","Microsoft YaHei",sans-serif;
+  font-weight:400;
+}
+.game-screen button,.game-screen input{font-family:inherit}
+.game-screen .art-frame{
+  left:var(--art-left);top:var(--art-top);width:var(--art-width);height:var(--art-height);
+  clip-path:polygon(var(--art-cut) 0,100% 0,calc(100% - var(--art-cut)) 100%,0 100%);
+}
+.game-screen .art-frame img{object-fit:cover;object-position:center}
+.game-screen .round-countdown{left:var(--art-left);top:var(--art-top);width:var(--art-width);height:var(--art-height);display:grid;place-items:center;margin:0;padding:0;transform:none;line-height:1;pointer-events:none}
+.art-slide,.art-reveal-layer,.art-abstract-layer{position:absolute;inset:0}
+.art-reveal-layer{--original-sweep:0%}
+.art-downgrade-cover{z-index:1;--artwork-sweep:0%;clip-path:polygon(calc(var(--artwork-sweep) + var(--art-cut)) 0,calc(100% + var(--art-cut)) 0,100% 100%,var(--artwork-sweep) 100%)}
+.art-abstract-layer{clip-path:polygon(calc(var(--original-sweep) + var(--art-cut)) 0,calc(100% + var(--art-cut)) 0,100% 100%,var(--original-sweep) 100%)}
+.game-screen .art-zoom-trigger{position:absolute;inset:0;width:100%;height:100%;padding:0;cursor:zoom-in}
+.game-screen .art-zoom-trigger:focus-visible{outline:2px solid white;outline-offset:-9px}
+.art-zoom-dialog{position:fixed;inset:0;width:min(94vw,1800px);height:92svh;max-width:none;max-height:none;margin:auto;padding:41px 12px;border:0;background:transparent;color:white;overflow:visible;font-family:Saira,"Phiguess CJK",sans-serif}
+.art-zoom-dialog::backdrop{background:#04060bee}
+.art-zoom-dialog[open]{display:flex;align-items:center;justify-content:center}
+.art-zoom-dialog>img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.art-zoom-close{position:absolute;top:0;right:0;width:44px;height:44px;display:grid;place-items:center;background:#11151ce6;border:1px solid #ffffff38;cursor:pointer}
+.art-zoom-dialog>p{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:13px;line-height:1.5;color:#c4c9d0;pointer-events:none}
+.game-screen .guess-input-row{
+  left:calc(var(--art-left) - (var(--answer-top) - var(--art-top) - var(--art-height) + var(--answer-height) / 2) * var(--slant-ratio));
+  top:var(--answer-top);width:calc(var(--art-width) - var(--art-cut));height:var(--answer-height);
+}
+.game-screen .current-difficulty,.game-screen .song-input,.game-screen .submit-answer{height:var(--answer-height);transform:skewX(var(--slant-angle))}
+.game-screen .current-difficulty>span,.game-screen .song-input input,.game-screen .submit-answer>span{transform:skewX(var(--counter-angle))}
+.game-screen .current-difficulty>span{font:400 25px/1 Saira,sans-serif}
+.game-screen .song-input input{font-size:17px;line-height:1.35;padding:0 20px}
+.game-screen .song-input input:focus,.game-screen .song-input input:focus-visible{outline:none}
+.game-screen .song-input:focus-within{box-shadow:inset 0 -1px 0 #ffffff45}
+.game-screen .submit-answer>span{font-size:19px;line-height:1.35}
+.game-screen .hint-strip{
+  left:calc(var(--art-left) - (var(--hints-top) - var(--art-top) - var(--art-height) + var(--hints-height) / 2) * var(--slant-ratio));
+  top:var(--hints-top);width:calc(var(--art-width) - var(--art-cut));height:var(--hints-height);
+  transform:skewX(var(--slant-angle));
+}
+.game-screen .hint-emblem,.game-screen .hint-inner{transform:skewX(var(--counter-angle))}
+.game-screen .hint-cell{position:relative;flex:1;min-width:0;height:100%;overflow:hidden;cursor:default}
+.game-screen .hint-inner{display:flex;align-items:center;justify-content:center;height:100%;padding:7px 13px;min-width:0}
+.game-screen .hint-order{font:400 20px/1.15 Saira,sans-serif}
+.game-screen .hint-text{--hint-font-max:18px;--hint-font-min:14px;display:block;width:100%;height:100%;align-content:center;white-space:pre-line;overflow-wrap:anywhere;overflow:hidden;text-align:center;font:400 18px/1.25 "Phiguess CJK","Microsoft YaHei",sans-serif;color:#f4f4f5}
+.game-screen .round-status{transform:skewX(var(--slant-angle))}
+.game-screen .round-status>small,.game-screen .round-status>strong,.game-screen .round-status>button{transform:skewX(var(--counter-angle))}
+.game-screen .round-status>small{font:400 11px/1.3 Saira,sans-serif;letter-spacing:1px;white-space:nowrap}
+.game-screen .round-status strong{font:400 48px/1.2 Saira,sans-serif;font-variant-numeric:tabular-nums}
+.game-screen .game-bottom b{font:400 23px/1 Saira,sans-serif;font-variant-numeric:tabular-nums}
+.game-player-header{position:absolute;top:15px;right:14px;display:flex;align-items:center;gap:24px;z-index:4}
+.game-player-header .player-chip{position:relative;top:auto;right:auto;flex:none}
+.game-score{display:flex;align-items:center;gap:12px;color:#fff;font:400 13px/1 Saira,sans-serif;letter-spacing:1px;white-space:nowrap}
+.game-score b{font:400 23px/1 Saira,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:0}
+@media(max-aspect-ratio:1/1){
+  .game-player-header{top:100px;right:16px;gap:20px}
+  .game-screen{--art-left:100px;--art-width:670px;--art-top:485px;--art-height:390px;--answer-top:925px;--answer-height:65px;--hints-top:1045px;--hints-height:110px}
+  .game-screen .song-input input{font-size:23px}
+  .game-screen .submit-answer>span{font-size:23px}
+  .game-screen .hint-order{font-size:25px}
+  .game-screen .hint-text{--hint-font-max:20px;--hint-font-min:15px}
+}
+
+.game-screen .submit-answer.submit-covered{position:relative;z-index:5;opacity:1;overflow:visible}
+.game-screen .submit-answer.submit-covered::after{content:"";position:absolute;inset:0;background:transparent;opacity:.34;pointer-events:none;z-index:1}
+.game-screen .submit-answer.submit-flashing::after{animation:submit-pink-flash .111111s linear infinite}
+@keyframes submit-pink-flash{0%,100%{opacity:.48}50%{opacity:.18}}
+.reduced-motion .game-screen .submit-answer.submit-flashing::after{animation:none;opacity:.4}
+@media(prefers-reduced-motion:reduce){.game-screen .submit-answer.submit-flashing::after{animation:none;opacity:.4}}
+
+.game-screen .submit-answer.submit-dissolving::after{animation:submit-pink-dissolve .35s ease-out forwards}
+@keyframes submit-pink-dissolve{from{opacity:.34}to{opacity:0;transform:translateY(-5px)}}
+
+.game-screen .submit-answer.submit-red::after{inset:-20px -32px;background:transparent;opacity:0;animation:none;pointer-events:auto;cursor:not-allowed}
+
+.game-screen button.round-status{border:0;color:#101820;cursor:pointer}
+.game-screen button.round-status:disabled{opacity:1;cursor:default}
+.game-screen .round-status.skip-armed{background:#fff}
+.game-screen .round-status>.skip-icon{width:58px;height:58px;stroke-width:1.5;transform:skewX(var(--counter-angle))}
+
+.game-screen .challenge-return{width:128px;justify-content:flex-start;padding-left:43px;transition:width 280ms cubic-bezier(.2,.7,.3,1);overflow:visible}
+.game-screen .challenge-return>svg{flex:none}
+.game-screen .challenge-return.abandon-armed{width:248px}
+.game-screen .challenge-return .abandon-label{position:absolute;left:112px;top:0;height:100%;display:flex;align-items:center;white-space:nowrap;font-size:23px;transform:skewX(15deg);opacity:0;clip-path:inset(0 100% 0 0);transition:clip-path 280ms cubic-bezier(.2,.7,.3,1),opacity 120ms}
+.game-screen .challenge-return.abandon-armed .abandon-label{opacity:1;clip-path:inset(0)}
+.game-screen .challenge-return:disabled{opacity:1}
+.reduced-motion .challenge-return,.reduced-motion .challenge-return .abandon-label{transition:none}
+@media(prefers-reduced-motion:reduce){.game-screen .challenge-return,.game-screen .challenge-return .abandon-label{transition:none}}
+
+.game-screen .challenge-return.return-pink{background:#b45c80;animation:return-noise-flash .111s steps(2,end) infinite}
+@keyframes return-noise-flash{50%{background:#f6b4d1}}
