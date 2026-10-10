@@ -187,7 +187,7 @@ export function Hub({route='/account'}:{route?:string}) {
         </div>
       {error&&<p className="hub-notice" role="alert">{error}</p>}
       </div>
-      <div ref={boardPanel} className="hub-tab-panel" aria-hidden={tab!=='board'} inert={tab!=='board'||tabPhase!=='idle'}>{boardVisited&&<Leaderboard/>}</div>
+      <div ref={boardPanel} className="hub-tab-panel hub-board-panel" aria-hidden={tab!=='board'} inert={tab!=='board'||tabPhase!=='idle'}>{boardVisited&&<Leaderboard/>}</div>
       <div ref={settingsPanel} className="hub-tab-panel hub-settings-panel" aria-hidden={tab!=='settings'} inert={tab!=='settings'||tabPhase!=='idle'}><SettingsPanel/></div>
     </div>
     <div className="hub-bottom-line"><div className="hub-footer-actions" data-expanded={footerExpanded} onClickCapture={()=>{if(footerExpanded)setFooterActivity(n=>n+1);}}>

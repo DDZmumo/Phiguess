@@ -34,13 +34,13 @@ export function App() {
   useEffect(installMenuMusic,[]);
   const route=useRoute(),outer=useRef<HTMLDivElement>(null),[size,setSize]=useState({width:1210,height:834,scale:1});
   const session=useStore(s=>s.session),brightness=useStore(s=>s.preferences.brightness),reduce=useReducedMotion();
+  const parts=route.split('/'),screen=parts[1]||'title',accountScreen=screen==='account';
   useEffect(()=>{
-    const observer=new ResizeObserver(([entry])=>{const {width,height}=entry.contentRect;const portrait=width<height;const scale=portrait?width/810:height/834;setSize({width,height:portrait?Math.max(height,scale*1500):height,scale});});
+    const observer=new ResizeObserver(([entry])=>{const {width,height}=entry.contentRect;const portrait=width<height;const scale=portrait?width/810:height/834;setSize({width,height:portrait&&!accountScreen?Math.max(height,scale*1500):height,scale});});
     if(outer.current)observer.observe(outer.current);return()=>observer.disconnect();
-  },[]);
+  },[accountScreen]);
   useEffect(()=>{if(route==='/difficulty/room'||(!MULTIPLAYER_ENABLED&&route.startsWith('/room/')))go('/account');else if(route!=='/'&&!session&&route!=='/account')go('/account');},[route,session]);
   useEffect(()=>{if(session)void api<NonNullable<typeof session>['user']>('me').then(user=>{const current=useStore.getState().session;if(current?.token===session.token)useStore.getState().setSession({...current,user});}).catch(()=>{});},[session?.token]);
-  const parts=route.split('/'),screen=parts[1]||'title';
   const menuMusic=screen==='account';
   useEffect(()=>{
     if(!menuMusic){setMenuMusicActive(false);return;}
@@ -48,7 +48,7 @@ export function App() {
     return()=>{window.clearTimeout(timer);setMenuMusicActive(false);};
   },[menuMusic]);
   const [fullscreenError,setFullscreenError]=useState('');
-  return <main className={`app-shell ${reduce?'reduced-motion':''}`} ref={outer}>
+  return <main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer}>
     <div className="stage-holder" style={{width:size.width,height:size.height}}>
       <div className="stage" style={{width:size.width/size.scale,height:size.height/size.scale,transform:`scale(${size.scale})`}}>
         <FadeScene scene={screen}>
