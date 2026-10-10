@@ -33,6 +33,7 @@
 | GET | `/matches/:id` | 获取运行中或近期完成比赛快照，需为参赛者 |
 | POST | `/matches/:id/guesses` | `{ "requestId": "UUID", "round": 0, "answer": "歌名或别名" }`；也兼容 `songId`，二者只能传一个 |
 | GET | `/matches/:id/rounds/:round/image` | 当前回合题图二进制；开始前、未来回合、非参赛者均拒绝 |
+| GET | `/matches/:id/rounds/:round/preload` | 仅参赛者可在开题后预加载下一回合的加密题图；更远回合及已结束比赛拒绝 |
 | GET | `/matches/:id/result` | 数据库保存的状态和参赛者分数，需为参赛者 |
 | GET | `/matches/:id/progress` | 当前玩家已提交的回合：`round, correct, score, answer_text, title`；仅猜中的 `title` 非空 |
 | GET | `/matches/:id/rounds/:round/hints` | 已解锁提示数组 `[{ index, content }]`；未解锁内容不返回 |
@@ -80,6 +81,8 @@
 ```
 
 题图使用 Bearer 鉴权，所以前端应使用 `fetch(imageUrl, { headers: { Authorization: ... } })` 读取 Blob，再创建 Object URL 给 `<img>`；切换题目后撤销旧 Object URL。不要把 token 放进 URL。服务端对题图返回 `private, no-store`，不会公开原始素材路径。
+
+预加载接口返回 `application/octet-stream`，`X-Artwork-Mime` 给出解密后的题图 MIME。素材先 gzip 压缩再加密，格式为 12 字节 nonce、AES-256-GCM 密文、16 字节认证标签，避免加密数据无法由反向代理压缩而增加带宽。服务端只在该题正式开始后的比赛快照中提供可选的 `imageKey`（Base64）；上一题期间不提供下一题密钥。浏览器仅缓存一张加密题图，切题后复用、解密并解压，失败时回退到 `/image`；降低难度提示仍从 `/image` 加载对应素材。
 
 ## 房间
 

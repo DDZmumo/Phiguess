@@ -57,6 +57,12 @@ export class GameController {
   }
   @Post('matches/practice') practice(@Req() req: AuthRequest,@Body() body: unknown) { return this.games.createSolo(req.user,parse(GameOptions,body)); }
   @Get('matches/:id') snapshot(@Req() req: AuthRequest,@Param('id') id: string) { return this.games.snapshot(parse(UUID,id),req.user.id); }
+  @Get('matches/:id/rounds/:round/preload')
+  async preloadImage(@Req() req:AuthRequest,@Res({passthrough:true}) res:Response,@Param('id') id:string,@Param('round') round:string){
+    const image=await this.games.preloadImage(parse(UUID,id),parse(RoundIndex,Number(round)),req.user.id);
+    res.setHeader('Cache-Control','private, no-store');res.setHeader('X-Artwork-Mime',image.mime);
+    return new StreamableFile(image.body,{type:'application/octet-stream'});
+  }
   @Get('matches/:id/result') result(@Req() req: AuthRequest,@Param('id') id: string) { return this.games.result(parse(UUID,id),req.user.id); }
   @Post('matches/:id/publication') publication(@Req() req:AuthRequest,@Param('id') id:string,@Body() body:unknown){return this.games.setResultPublication(parse(UUID,id),req.user.id,parse(ResultPublicationInput,body).published);}
   @Get('matches/:id/rounds/:round/result-reveal') async revealResult(@Req() req:AuthRequest,@Param('id') id:string,@Param('round') round:string){

@@ -2,6 +2,7 @@ import {DamageFeedback} from './DamageFeedback';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
 import {createRequestId} from './request-id';
+import {ArtworkPreloader} from './artwork-preload';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import {createPortal} from 'react-dom';
 import { X, SkipForward, ArrowLeft } from 'lucide-react';
@@ -19,7 +20,7 @@ import { HealthBar } from './HealthBar';
 import { subscribeNoiseHits } from './noise-stage';
 import './game-results-transition.css';
 
-function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progress,startsAt,deadline,now,answered}:{skipFlashAt?:number;id:string;round:number;started:boolean;complete:boolean;difficulty:string;onReady:(round:number,url:string)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean}) {
+function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progress,startsAt,deadline,now,answered,imageKey,totalRounds}:{skipFlashAt?:number;id:string;round:number;started:boolean;complete:boolean;difficulty:string;onReady:(round:number,url:string)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean;imageKey?:string;totalRounds:number}) {
   const [images,setImages]=useState<{url:string;round:number;difficulty:string;ratio:number;decoded:HTMLImageElement;startsAt:number;deadline:number}[]>([]),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [originals,setOriginals]=useState<Map<number,{url:string;ratio:number}>>(()=>new Map());
   const [zoomOpen,setZoomOpen]=useState(false),zoom=useRef<HTMLDialogElement>(null);
@@ -27,6 +28,8 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const noiseFlashes=useRef(new Map<number,number>());if(skipFlashAt!==undefined)noiseFlashes.current.set(round,skipFlashAt);else noiseFlashes.current.delete(round);
   const noiseDeadlines=useRef(new Map<number,number>());noiseDeadlines.current.set(round,deadline);
   const token=useStore(s=>s.session?.token);
+  const [preloader]=useState(()=>new ArtworkPreloader());
+  useEffect(()=>()=>preloader.cancel(),[preloader,id,token]);
   const onOriginalReady=useCallback((originalRound:number,original:{url:string;ratio:number}|null)=>setOriginals(previous=>{
     const next=new Map(previous);if(original)next.set(originalRound,original);else next.delete(originalRound);return next;
   }),[]);
@@ -38,16 +41,27 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   useEffect(()=>{
     if(!started||!token)return;
     const ctrl=new AbortController();let alive=true;setError('');
-    const timeout=setTimeout(()=>ctrl.abort(),12000);
-    void fetch(`/api/matches/${id}/rounds/${round}/image`,{headers:{Authorization:`Bearer ${token}`},signal:ctrl.signal}).then(async response=>{
-      if(!response.ok)throw new Error('Image unavailable');
-      const blob=await response.blob();if(!alive)return;
+    const timeout=setTimeout(()=>ctrl.abort(),30000);
+    void (async()=>{
+      let blob=await preloader.take(round,imageKey,ctrl.signal);
+      if(!blob){
+        const response=await fetch(`/api/matches/${id}/rounds/${round}/image`,{headers:{Authorization:`Bearer ${token}`},signal:ctrl.signal});
+        if(!response.ok)throw new Error('Image unavailable');
+        blob=await response.blob();
+      }
+      if(!alive)return;
       const url=URL.createObjectURL(blob);urls.current.add(url);
       const decoded=new Image();decoded.src=url;await decoded.decode();if(!alive)return;
       setImages(previous=>[...previous.slice(-1),{url,round,difficulty,ratio:decoded.naturalWidth/decoded.naturalHeight,decoded,startsAt,deadline}]);onReady(round,url);
-    }).catch(()=>{if(alive)setError('题图加载未完成');}).finally(()=>clearTimeout(timeout));
+    })().catch(()=>{if(alive)setError('题图加载未完成');}).finally(()=>clearTimeout(timeout));
     return()=>{alive=false;ctrl.abort();clearTimeout(timeout);};
-  },[id,round,started,token,retry,onReady,difficulty]);
+  },[id,round,started,token,retry,onReady,difficulty,imageKey,preloader]);
+  useEffect(()=>{
+    if(complete){preloader.cancel();return;}
+    // The visible image gets the bandwidth first. Keep only the next ciphertext.
+    if(started&&token&&round+1<totalRounds&&images.at(-1)?.round===round)
+      preloader.preload(id,round+1,token);
+  },[preloader,id,round,started,complete,token,totalRounds,images]);
   useEffect(()=>()=>{for(const url of urls.current)URL.revokeObjectURL(url);urls.current.clear();},[]);
   useGSAP(()=>{
     transitionStart.current.startedAt=performance.now();transitionStart.current.progress=0;
@@ -272,7 +286,7 @@ export function Game({id}:{id:string}) {
       hintDisabled={!playing||hintBusy||visibleHints.every(i=>hints.some(h=>h.index===i))}
       onHint={()=>void reveal(visibleHints.find(i=>!hints.some(h=>h.index===i))??0)} onSettings={()=>{setSettings(true);playSound('ui.confirm');}}/>
     <div className="game-player-header"><div className="game-score" aria-label="当前分数"><span>SCORE</span><b>{(match.players.find(p=>p.id===session.user.id)?.score??0).toLocaleString()}</b></div><UserChip/></div>
-    <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered}/>
+    <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>

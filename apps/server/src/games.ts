@@ -1,5 +1,10 @@
 import { BadRequestException, ConflictException, ForbiddenException, Injectable, Logger, NotFoundException, OnModuleDestroy, OnModuleInit, ServiceUnavailableException } from '@nestjs/common';
-import { randomInt, randomUUID } from 'node:crypto';
+import { createCipheriv, randomBytes, randomInt, randomUUID } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { gzip } from 'node:zlib';
+import { promisify } from 'node:util';
+import { configuration } from './config';
 import type { GameOptions, GuessInput, InfinityLeaderboardOptions, MatchView, NoiseHitInput, ResultRoundView } from '../../../packages/contracts/src';
 import { correctHealthGain, INFINITY_ROUNDS, resolveHealthCapacity, timeoutHealthCost, RULES_VERSION } from '../../../packages/contracts/src';
 import { scoreAnswer, SerialQueue } from '../../../packages/game-core/src';
@@ -8,6 +13,7 @@ import { Artwork, CatalogService } from './catalog';
 import { Db } from './db';
 import { Events } from './events';
 import {withReferencePlayer,type LeaderboardEntry} from './leaderboard-reference';
+const compressArtwork=promisify(gzip);
 
 interface Match {
   id: string; mode: MatchView['mode']; options: GameOptions; artworks: Artwork[];
@@ -15,6 +21,8 @@ interface Match {
   health:Map<string,number>; wrongAttempts:Map<string,number>;
   round: number; startsAt: number; deadline: number; nextAt: number;
   status: MatchView['status']; touchedAt: number; returnBlocked?:boolean; returnBlockedAt?:number;
+  preloadedImage?: {round:number;key:Buffer;mime:string;body:Promise<Buffer>};
+  currentImageKey?: Buffer;
 }
 @Injectable()
 export class GamesService implements OnModuleInit, OnModuleDestroy {
@@ -108,6 +116,28 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       if(hint?.artwork_id)return (await this.db.query<Artwork>('SELECT * FROM artworks WHERE id=$1',[hint.artwork_id])).rows[0]!;
       return m.artworks[round]!;
     });
+  }
+  async preloadImage(id:string,round:number,userId:string) {
+    const preload=await this.queue.run(async()=>{
+      const m=this.require(id,userId);await this.advance(m,Date.now());
+      if(!['playing','reveal'].includes(m.status)||Date.now()<m.startsAt||round!==m.round+1||round>=m.artworks.length)
+        throw new ForbiddenException('Only the next artwork can be preloaded');
+      if(!m.preloadedImage){
+        const art=m.artworks[round]!;
+        if(!/^[a-f0-9-]{36}\.(svg|webp)$/.test(art.storage_key))throw new ServiceUnavailableException('Invalid asset key');
+        const key=randomBytes(32),nonce=randomBytes(12);
+        const body=readFile(join(configuration().ASSET_DIR,art.storage_key)).then(bytes=>compressArtwork(bytes)).then(bytes=>{
+          const cipher=createCipheriv('aes-256-gcm',key,nonce);
+          return Buffer.concat([nonce,cipher.update(bytes),cipher.final(),cipher.getAuthTag()]);
+        });
+        // Disk I/O and encryption must not hold the shared game mutation queue.
+        void body.catch(()=>{});
+        m.preloadedImage={round,key,mime:art.mime,body};
+      }
+      return m.preloadedImage;
+    });
+    try{return {body:await preload.body,mime:preload.mime};}
+    catch{await this.queue.run(async()=>{const m=this.matches.get(id);if(m?.preloadedImage===preload)m.preloadedImage=undefined;});throw new ServiceUnavailableException('Artwork file unavailable');}
   }
   guess(id: string, userId: string, input: GuessInput) {
     const receivedAt = Date.now();
@@ -271,7 +301,8 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       } else {
         const next = m.round + 1, startsAt = now, deadline = startsAt + m.options.roundSeconds*1000;
         await this.db.query('INSERT INTO match_rounds(match_id,round,artwork_id,starts_at,deadline) VALUES($1,$2,$3,$4,$5)', [m.id,next,m.artworks[next]!.id,new Date(startsAt),new Date(deadline)]);
-        Object.assign(m,{ round: next, startsAt, deadline, nextAt: 0, status: 'playing', answered: new Set(),wrongAttempts:new Map(), touchedAt: now });
+        Object.assign(m,{ round: next, startsAt, deadline, nextAt: 0, status: 'playing', answered: new Set(),wrongAttempts:new Map(), touchedAt: now,
+          currentImageKey:m.preloadedImage?.round===next?m.preloadedImage.key:undefined,preloadedImage:undefined });
       }
       this.events.match(this.view(m));
     }
@@ -281,6 +312,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     return { id: m.id, mode: m.mode, returnBlocked:Boolean(m.returnBlocked),returnBlockedAt:m.returnBlockedAt, healthEnabled:Boolean(m.options.healthCapacity),healthCapacity:m.options.healthCapacity, status: m.status, difficulty: m.options.difficulty, round: m.round, totalRounds: m.options.rounds===INFINITY_ROUNDS?m.artworks.length:m.options.rounds,endless:m.options.rounds===INFINITY_ROUNDS,
       serverNow: Date.now(), startsAt: m.startsAt, deadline: m.deadline, nextAt: m.nextAt,
       imageUrl: `/api/matches/${m.id}/rounds/${m.round}/image`,
+      ...(m.currentImageKey&&Date.now()>=m.startsAt?{imageKey:m.currentImageKey.toString('base64')}:{}),
       answer: ['reveal','finished'].includes(m.status) ? { id: artwork.song_id,title: artwork.title } : null,
       players: m.users.map(u => ({ ...u,score: m.scores.get(u.id)!,answered: m.answered.has(u.id),health:m.health.get(u.id)! })), rulesVersion: RULES_VERSION };
   }
