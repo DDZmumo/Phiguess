@@ -129,7 +129,7 @@ IN 选中 Infinity 后，关闭血条会退回 5 题。Infinity 按当前全部�
 
 ### 音频与动效
 
-音频位于 `apps/web/public/audio/phigros-4.0.1/`，来源、事件映射、剪辑范围和 SHA-256 见该目录的 [说明](apps/web/public/audio/phigros-4.0.1/README.md) 与 [清单](apps/web/public/audio/phigros-4.0.1/manifest.json)。音乐和音效音量独立保存，交互音效默认关闭。
+音频位于 `apps/web/public/audio/phigros-4.0.1/`，来源、事件映射、剪辑范围和 SHA-256 见该目录的 [说明](apps/web/public/audio/phigros-4.0.1/README.md) 与 [清单](apps/web/public/audio/phigros-4.0.1/manifest.json)。音乐和音效音量独立保存，交互音效默认开启；已保存的个人开关设置会保留。
 
 - 主界面、排行榜、设置共用 `ChapterSelect0` 循环音乐，页签切换不重播。
 - 猜曲绘时循环播放第九章里包氛围音乐，切题保持播放进度。
