@@ -1,0 +1,30 @@
+{
+  "songId": "7f43da63-7591-55fc-9ff0-c8a88f5e6dfe",
+  "title": "Igallta",
+  "aliases": [
+    "Igallta",
+    "姐姐",
+    "忿怒之剑",
+    "Iga",
+    "Ig",
+    "姐姐砍我"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：方舟蜃景",
+    "曲师：Se-U-Ra",
+    "标准曲名包含 7 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/06 方舟蜃景/Igallta.png",
+  "chapter": 6,
+  "chapterName": "方舟蜃景",
+  "composer": "Se-U-Ra",
+  "illustrator": "Se-U-Ra",
+  "assets": {
+    "ez": "../../../source/06 方舟蜃景/EZ/Igallta-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

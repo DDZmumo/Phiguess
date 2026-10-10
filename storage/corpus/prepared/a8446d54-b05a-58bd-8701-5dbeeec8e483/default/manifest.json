@@ -1,0 +1,28 @@
+{
+  "songId": "a8446d54-b05a-58bd-8701-5dbeeec8e483",
+  "title": "Retribution",
+  "aliases": [
+    "Retribution",
+    "报应",
+    "rtb",
+    "不穿衣服的羊"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：凌日潮汐",
+    "曲师：nm-y & Kry.exe",
+    "标准曲名包含 11 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/08 凌日潮汐/Retribution.png",
+  "chapter": 8,
+  "chapterName": "凌日潮汐",
+  "composer": "nm-y & Kry.exe",
+  "illustrator": "NerSAN",
+  "assets": {
+    "ez": "../../../source/08 凌日潮汐/EZ/Retribution-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

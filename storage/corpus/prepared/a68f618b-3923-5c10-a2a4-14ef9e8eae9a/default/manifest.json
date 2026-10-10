@@ -1,0 +1,29 @@
+{
+  "songId": "a68f618b-3923-5c10-a2a4-14ef9e8eae9a",
+  "title": "Evanescent",
+  "aliases": [
+    "Evanescent",
+    "消散",
+    "瞬逝",
+    "瞬息即逝",
+    "转瞬即逝"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part1",
+    "曲师：LeaF",
+    "标准曲名包含 10 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Evanescent.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part1",
+  "composer": "LeaF",
+  "illustrator": "海产 feat. 佑木いずみ",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Evanescent-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

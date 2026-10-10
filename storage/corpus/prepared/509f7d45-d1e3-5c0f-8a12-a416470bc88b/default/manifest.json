@@ -1,0 +1,27 @@
+{
+  "songId": "509f7d45-d1e3-5c0f-8a12-a416470bc88b",
+  "title": "[PRAW]",
+  "aliases": [
+    "[PRAW]",
+    "扭曲",
+    "PRAW"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：幽蓝边界",
+    "曲师：Bluewind",
+    "标准曲名包含 6 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/03 幽蓝边界/[PRAW].png",
+  "chapter": 3,
+  "chapterName": "幽蓝边界",
+  "composer": "Bluewind",
+  "illustrator": "老张",
+  "assets": {
+    "ez": "../../../source/03 幽蓝边界/EZ/[PRAW]-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

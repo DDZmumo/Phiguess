@@ -1,0 +1,28 @@
+{
+  "songId": "0e869b40-130c-503b-a3f2-a7a9a3f3ead6",
+  "title": "The Chariot ~REVIIVAL~",
+  "aliases": [
+    "The Chariot ~REVIIVAL~",
+    "Chariot",
+    "战车",
+    "tcr"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：凌日潮汐",
+    "曲师：Attoclef",
+    "标准曲名包含 20 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/08 凌日潮汐/The Chariot ~REVIIVAL~.png",
+  "chapter": 8,
+  "chapterName": "凌日潮汐",
+  "composer": "Attoclef",
+  "illustrator": "翠冷兮",
+  "assets": {
+    "ez": "../../../source/08 凌日潮汐/EZ/The Chariot ~REVIIVAL~-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

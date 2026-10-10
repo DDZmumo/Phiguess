@@ -1,0 +1,115 @@
+{
+  "source": "User-provided Phigros 4.0.1 audio folder",
+  "files": [
+    {
+      "file": "challenge-start.wav",
+      "sha256": "1309bb071d20e249941ca89cce22d5e2f0271fe1cdca4a06940e0cc75a09321c",
+      "seconds": 1.928571
+    },
+    {
+      "file": "panel-close.wav",
+      "sha256": "fba0f827284288fc7a5fc74ec953ce02fa7c1d1b5a3172b354511415a1132a0e",
+      "seconds": 0.812494
+    },
+    {
+      "file": "panel-open.wav",
+      "sha256": "53c0bd9cb299ec62043b368739997d7ef585322aeafd43eac9af428baedd9a0d",
+      "seconds": 0.897324
+    },
+    {
+      "file": "Tap1.wav",
+      "sha256": "04eca96747af6a2f4ae8bf6819e28819c4500f9446aba525296752d684798bc3",
+      "seconds": 0.454739
+    },
+    {
+      "file": "Tap2.wav",
+      "sha256": "f5fd9011b09b6ff4d788f70bbcf04d73aa1c0192bf6ac70ca5d69f7b71d84045",
+      "seconds": 0.456349
+    },
+    {
+      "file": "Tap3.wav",
+      "sha256": "8630ab0741db6a80c2f4314158e47c970f5389ecd9842c242a26995178e9b1b1",
+      "seconds": 0.457483
+    },
+    {
+      "file": "Tap4.wav",
+      "sha256": "97954c58ccaab50b4fa13a9b240ebff35a6e5e0b801452a28ecd3f2fa7af2174",
+      "seconds": 0.496327
+    },
+    {
+      "file": "Tap5.wav",
+      "sha256": "e835c426dc07923795fa55d9845581c0353ea48c69d9cacdc93026a0460fcffe",
+      "seconds": 0.458413
+    },
+    {
+      "file": "Tap6.wav",
+      "sha256": "f2f83d687613d843e75f192aaa66165ead97d05df3c11ea8034897c393b202be",
+      "seconds": 0.496327
+    },
+    {
+      "file": "Tap7.wav",
+      "sha256": "8d84e52e66cf4d4acb433e86027d629e9b3d23dddbbdb2ee488eca304c39b886",
+      "seconds": 1.5
+    },
+    {
+      "file": "ChapterSelect0.wav",
+      "sha256": "08ffa5f33378c0e5ae261e5ef2283581c3bc17e5a8f693ac5057b097b4eb9c46",
+      "seconds": 27.428571428571427,
+      "source": "06_选曲包背景音乐/ChapterSelect0.wav"
+    },
+    {
+      "file": "ds-select-air.wav",
+      "sha256": "73cd16b5dc38f865a3658592b621bda00ec142d007054379c92137fd84f0da46",
+      "seconds": 4.0,
+      "source": "ds unlockEZ.wav",
+      "sourceStart": 0,
+      "sourceEnd": 2,
+      "processing": "2s diffuse tail, 45ms predelay, unchanged playback speed"
+    },
+    {
+      "file": "ds-transition-clean.wav",
+      "sha256": "b0d9100a2228e01c0fda15bc120f6ff7b90bfc0a8af6d02ebec9fd4cc2805170",
+      "seconds": 13.2,
+      "source": "ds unlockEZ.wav",
+      "sourceStart": 2,
+      "sourceEnd": 15.2,
+      "processing": "First 290ms residual removed to silence; original main-impact synchronization retained"
+    },
+    {
+      "file": "EZ_LevelOver0.wav",
+      "sha256": "f15a7e29b803128889b78269a47265a10a915baff59e7d44e2d754f6651a2d6d",
+      "seconds": 27.441972789115646,
+      "source": "08_游戏结算音乐/EZ_LevelOver0.wav"
+    },
+    {
+      "file": "HD_LevelOver1.wav",
+      "sha256": "679aa86217d65b24db65cc382a1d3ba93ef90cbe2b2ae64af631c1eab6339ea8",
+      "seconds": 27.441972789115646,
+      "source": "08_游戏结算音乐/HD_LevelOver1.wav"
+    },
+    {
+      "file": "IN_LevelOver2.wav",
+      "sha256": "89990434e9cd9767fb38e38c8fba843660943c0fb5bb3ebe5656956ff8402f36",
+      "seconds": 27.441972789115646,
+      "source": "08_游戏结算音乐/IN_LevelOver2.wav"
+    },
+    {
+      "file": "AT_LevelOver3.wav",
+      "sha256": "9c2cd2e5b63de9614500d1825d0582f3d274a8a5e1852a7fe8ed3d2f09dbed81",
+      "seconds": 27.441972789115646,
+      "source": "08_游戏结算音乐/AT_LevelOver3.wav"
+    },
+    {
+      "file": "game-ambience.wav",
+      "sha256": "fcfe6a642a4904b97f03debdd19bf5cc0a0a867b918681aa460a9099e475bb11",
+      "seconds": 65.82857142857142,
+      "source": "07_第八章第九章背景音乐/第九章_里包氛围音乐.wav"
+    },
+    {
+      "file": "answer-correct.wav",
+      "sha256": "5b6afc1c4643e4e6874dc24027b8b0851e1d391ab9f68b6882b71b18081414ac",
+      "seconds": 3.6875056689342403,
+      "source": "04_拼图与剧情/演绎转场音_1.wav"
+    }
+  ]
+}

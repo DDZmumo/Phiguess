@@ -1,0 +1,31 @@
+{
+  "songId": "f2acaacb-af25-53cd-be6c-f5d6bbcf783b",
+  "title": "Eradication Catastrophe",
+  "aliases": [
+    "Eradication Catastrophe",
+    "EC",
+    "屠龙",
+    "屠龙者",
+    "根除灾难",
+    "绿衣服姐姐",
+    "莉莉"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：冰封世界",
+    "曲师：NceS",
+    "标准曲名包含 22 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/01 冰封世界/Eradication Catastrophe.png",
+  "chapter": 1,
+  "chapterName": "冰封世界",
+  "composer": "NceS",
+  "illustrator": "海产",
+  "assets": {
+    "ez": "../../../source/01 冰封世界/EZ/Eradication Catastrophe-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

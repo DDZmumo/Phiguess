@@ -1,0 +1,35 @@
+{
+  "songId": "55c3e792-9218-5d17-89d2-84b1e7f7ba48",
+  "title": "Petrichor",
+  "aliases": [
+    "Petrichor",
+    "Petri",
+    "ptr",
+    "ptc",
+    "雨土气息",
+    "初雨气息",
+    "初雨之息",
+    "雨后泥土香",
+    "潮土油",
+    "骗退款",
+    "void"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part2",
+    "曲师：void (Mournfinale)",
+    "标准曲名包含 9 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Petrichor.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part2",
+  "composer": "void (Mournfinale)",
+  "illustrator": "青鸟 feat. 祈莲",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Petrichor-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

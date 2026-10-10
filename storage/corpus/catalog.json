@@ -1,0 +1,2004 @@
+{
+  "version": 1,
+  "sourceHash": "f0e879a6f8ac6678ce69baee5feeca968b7543a22a5a9a9d4256db96615a72b1",
+  "groups": [
+    {
+      "key": "01 冰封世界/Credits",
+      "sourceTitle": "Credits",
+      "chapter": "01 冰封世界",
+      "assets": {
+        "at": "01 冰封世界/AT/Credits-AT.png",
+        "ez": "01 冰封世界/EZ/Credits-EZ.png",
+        "hd": "01 冰封世界/HD/Credits-HD.png",
+        "in": "01 冰封世界/IN/Credits-IN.png"
+      },
+      "songId": "c3a9f1da-3e9e-51d7-b203-af02ff0e2f9b",
+      "providerId": "Credits.Frums",
+      "title": "Credits",
+      "composer": "Frums",
+      "variant": "default",
+      "aliases": [
+        "Credits",
+        "信用",
+        "cre",
+        "天气预报",
+        "制作组",
+        "学分",
+        "信用卡"
+      ],
+      "original": "Raw/01 冰封世界/Credits.png",
+      "hints": [
+        "所属章节：冰封世界",
+        "曲师：Frums",
+        "标准曲名包含 7 个非空白字符。"
+      ],
+      "illustrator": "Ctymax"
+    },
+    {
+      "key": "01 冰封世界/Dlyrotz",
+      "sourceTitle": "Dlyrotz",
+      "chapter": "01 冰封世界",
+      "assets": {
+        "at": "01 冰封世界/AT/Dlyrotz-AT.png",
+        "ez": "01 冰封世界/EZ/Dlyrotz-EZ.png",
+        "hd": "01 冰封世界/HD/Dlyrotz-HD.png",
+        "in": "01 冰封世界/IN/Dlyrotz-IN.png"
+      },
+      "songId": "2e4d5cde-97ec-573b-9ac3-3fc6aac29493",
+      "providerId": "Dlyrotz.Likey",
+      "title": "Dlyrotz",
+      "composer": "Likey",
+      "variant": "default",
+      "aliases": [
+        "Dlyrotz",
+        "逃离",
+        "德利",
+        "得力",
+        "队长",
+        "dlyro"
+      ],
+      "original": "Raw/01 冰封世界/Dlyrotz.png",
+      "hints": [
+        "所属章节：冰封世界",
+        "曲师：Likey",
+        "标准曲名包含 7 个非空白字符。"
+      ],
+      "illustrator": "DoublePian"
+    },
+    {
+      "key": "01 冰封世界/Engine x Start!! (melody mix)",
+      "sourceTitle": "Engine x Start!! (melody mix)",
+      "chapter": "01 冰封世界",
+      "assets": {
+        "at": "01 冰封世界/AT/Engine x Start!! (melody mix)-AT.png",
+        "ez": "01 冰封世界/EZ/Engine x Start!! (melody mix)-EZ.png",
+        "hd": "01 冰封世界/HD/Engine x Start!! (melody mix)-HD.png",
+        "in": "01 冰封世界/IN/Engine x Start!! (melody mix)-IN.png"
+      },
+      "songId": "5c6db8c2-01e7-5bbc-91cf-aecd460ce86c",
+      "providerId": "EnginexStartmelodymix.CrossingSound",
+      "title": "Engine x Start!! (melody mix)",
+      "composer": "CrossingSound",
+      "variant": "default",
+      "aliases": [
+        "Engine x Start!! (melody mix)",
+        "糖果超甜",
+        "糖果森林",
+        "engine x start",
+        "engine start",
+        "EXS",
+        "引擎启动",
+        "能量启动",
+        "E×S",
+        "糖魔王",
+        "糖果",
+        "能量启用"
+      ],
+      "original": "Raw/01 冰封世界/Engine x Start!! (melody mix).png",
+      "hints": [
+        "所属章节：冰封世界",
+        "曲师：CrossingSound",
+        "标准曲名包含 25 个非空白字符。"
+      ],
+      "illustrator": "赤芽"
+    },
+    {
+      "key": "01 冰封世界/Eradication Catastrophe",
+      "sourceTitle": "Eradication Catastrophe",
+      "chapter": "01 冰封世界",
+      "assets": {
+        "at": "01 冰封世界/AT/Eradication Catastrophe-AT.png",
+        "ez": "01 冰封世界/EZ/Eradication Catastrophe-EZ.png",
+        "hd": "01 冰封世界/HD/Eradication Catastrophe-HD.png",
+        "in": "01 冰封世界/IN/Eradication Catastrophe-IN.png"
+      },
+      "songId": "f2acaacb-af25-53cd-be6c-f5d6bbcf783b",
+      "providerId": "EradicationCatastrophe.NceS",
+      "title": "Eradication Catastrophe",
+      "composer": "NceS",
+      "variant": "default",
+      "aliases": [
+        "Eradication Catastrophe",
+        "EC",
+        "屠龙",
+        "屠龙者",
+        "根除灾难",
+        "绿衣服姐姐",
+        "莉莉"
+      ],
+      "original": "Raw/01 冰封世界/Eradication Catastrophe.png",
+      "hints": [
+        "所属章节：冰封世界",
+        "曲师：NceS",
+        "标准曲名包含 22 个非空白字符。"
+      ],
+      "illustrator": "海产"
+    },
+    {
+      "key": "01 冰封世界/Glaciaxion",
+      "sourceTitle": "Glaciaxion",
+      "chapter": "01 冰封世界",
+      "assets": {
+        "at": "01 冰封世界/AT/Glaciaxion-AT.png",
+        "ez": "01 冰封世界/EZ/Glaciaxion-EZ.png",
+        "hd": "01 冰封世界/HD/Glaciaxion-HD.png",
+        "in": "01 冰封世界/IN/Glaciaxion-IN.png"
+      },
+      "songId": "67889350-ef58-5e97-8386-10791b23cbdf",
+      "providerId": "Glaciaxion.SunsetRay",
+      "title": "Glaciaxion",
+      "composer": "SunsetRay",
+      "variant": "default",
+      "aliases": [
+        "Glaciaxion",
+        "冰封世界",
+        "冰川",
+        "梦启地",
+        "梦开始的地方",
+        "骷髅堆",
+        "冰封",
+        "Glacier"
+      ],
+      "original": "Raw/01 冰封世界/Glaciaxion.png",
+      "hints": [
+        "所属章节：冰封世界",
+        "曲师：SunsetRay",
+        "标准曲名包含 10 个非空白字符。"
+      ],
+      "illustrator": "艾若拉"
+    },
+    {
+      "key": "02 废土之下/Cipher： ／2&／／＜｜0",
+      "sourceTitle": "Cipher： ／2&／／＜｜0",
+      "chapter": "02 废土之下",
+      "assets": {
+        "at": "02 废土之下/AT/Cipher： ／2&／／＜｜0-AT.png",
+        "ez": "02 废土之下/EZ/Cipher： ／2&／／＜｜0-EZ.png",
+        "hd": "02 废土之下/HD/Cipher： ／2&／／＜｜0-HD.png",
+        "in": "02 废土之下/IN/Cipher： ／2&／／＜｜0-IN.png"
+      },
+      "songId": "9bda042f-1a4e-57c1-9243-8631d43455c1",
+      "providerId": "Cipher20.TetrajectoryfeatCtymax",
+      "title": "Cipher : /2&//<|0",
+      "composer": "Tetrajectory feat. Ctymax",
+      "variant": "default",
+      "aliases": [
+        "Cipher： ／2&／／＜｜0",
+        "Cipher : /2&//<|0",
+        "病毒代码",
+        "Cipher",
+        "密码",
+        "密码病毒",
+        "乱码"
+      ],
+      "original": "Raw/02 废土之下/Cipher： ／2&／／＜｜0.png",
+      "hints": [
+        "所属章节：废土之下",
+        "曲师：Tetrajectory feat. Ctymax",
+        "标准曲名包含 15 个非空白字符。"
+      ],
+      "illustrator": "IvyTowers"
+    },
+    {
+      "key": "02 废土之下/FULi AUTO SHOOTER",
+      "sourceTitle": "FULi AUTO SHOOTER",
+      "chapter": "02 废土之下",
+      "assets": {
+        "at": "02 废土之下/AT/FULi AUTO SHOOTER-AT.png",
+        "ez": "02 废土之下/EZ/FULi AUTO SHOOTER-EZ.png",
+        "hd": "02 废土之下/HD/FULi AUTO SHOOTER-HD.png",
+        "in": "02 废土之下/IN/FULi AUTO SHOOTER-IN.png"
+      },
+      "songId": "2a37ef65-2472-572e-91b4-399f0e9a4911",
+      "providerId": "FULiAUTOSHOOTER.MYUKKE",
+      "title": "FULi AUTO SHOOTER",
+      "composer": "MYUKKE.",
+      "variant": "default",
+      "aliases": [
+        "FULi AUTO SHOOTER",
+        "福利自动射",
+        "FAS",
+        "SHOOTER",
+        "自动福利射",
+        "福利凹凸射"
+      ],
+      "original": "Raw/02 废土之下/FULi AUTO SHOOTER.png",
+      "hints": [
+        "所属章节：废土之下",
+        "曲师：MYUKKE.",
+        "标准曲名包含 15 个非空白字符。"
+      ],
+      "illustrator": "ViscerA & Psycholine"
+    },
+    {
+      "key": "02 废土之下/Winter ↑cube↓",
+      "sourceTitle": "Winter ↑cube↓",
+      "chapter": "02 废土之下",
+      "assets": {
+        "at": "02 废土之下/AT/Winter ↑cube↓-AT.png",
+        "ez": "02 废土之下/EZ/Winter ↑cube↓-EZ.png",
+        "hd": "02 废土之下/HD/Winter ↑cube↓-HD.png",
+        "in": "02 废土之下/IN/Winter ↑cube↓-IN.png"
+      },
+      "songId": "e0d2d3db-c43b-5f19-b889-8d7b40db1ee5",
+      "providerId": "Wintercube.CtymaxfeatNceS",
+      "title": "Winter ↑cube↓",
+      "composer": "Ctymax feat. NceS",
+      "variant": "default",
+      "aliases": [
+        "Winter ↑cube↓",
+        "冬魔方",
+        "冬立方",
+        "小久住",
+        "冬季方块",
+        "冬天方块",
+        "冬方",
+        "冬方块",
+        "冬块",
+        "哲学神曲",
+        "↑↓"
+      ],
+      "original": "Raw/02 废土之下/Winter ↑cube↓.png",
+      "hints": [
+        "所属章节：废土之下",
+        "曲师：Ctymax feat. NceS",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "翠冷兮"
+    },
+    {
+      "key": "02 废土之下/光",
+      "sourceTitle": "光",
+      "chapter": "02 废土之下",
+      "assets": {
+        "at": "02 废土之下/AT/光-AT.png",
+        "ez": "02 废土之下/EZ/光-EZ.png",
+        "hd": "02 废土之下/HD/光-HD.png",
+        "in": "02 废土之下/IN/光-IN.png"
+      },
+      "songId": "cf15bab7-b84a-585c-aa8a-e24ed77a2264",
+      "providerId": "光.姜米條",
+      "title": "光",
+      "composer": "姜米條",
+      "variant": "default",
+      "aliases": [
+        "光",
+        "Hikari",
+        "木烬"
+      ],
+      "original": "Raw/02 废土之下/光.png",
+      "hints": [
+        "所属章节：废土之下",
+        "曲师：姜米條",
+        "标准曲名包含 1 个非空白字符。"
+      ],
+      "illustrator": "winder"
+    },
+    {
+      "key": "02 废土之下/混乱-Confusion",
+      "sourceTitle": "混乱-Confusion",
+      "chapter": "02 废土之下",
+      "assets": {
+        "at": "02 废土之下/AT/混乱-Confusion-AT.png",
+        "ez": "02 废土之下/EZ/混乱-Confusion-EZ.png",
+        "hd": "02 废土之下/HD/混乱-Confusion-HD.png",
+        "in": "02 废土之下/IN/混乱-Confusion-IN.png"
+      },
+      "songId": "b86738a8-a7ad-5964-959a-3a170ffdba30",
+      "providerId": "混乱Confusion.OnlyMyBlackScore",
+      "title": "混乱-Confusion",
+      "composer": "Only My Black Score",
+      "variant": "default",
+      "aliases": [
+        "混乱-Confusion",
+        "混乱",
+        "Confusion",
+        "乱麻了"
+      ],
+      "original": "Raw/02 废土之下/混乱-Confusion.png",
+      "hints": [
+        "所属章节：废土之下",
+        "曲师：Only My Black Score",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "L-sp4"
+    },
+    {
+      "key": "03 幽蓝边界/Cereris",
+      "sourceTitle": "Cereris",
+      "chapter": "03 幽蓝边界",
+      "assets": {
+        "at": "03 幽蓝边界/AT/Cereris-AT.png",
+        "ez": "03 幽蓝边界/EZ/Cereris-EZ.png",
+        "hd": "03 幽蓝边界/HD/Cereris-HD.png",
+        "in": "03 幽蓝边界/IN/Cereris-IN.png"
+      },
+      "songId": "96ee01a1-3ba1-5070-ae7b-dd1ac4fefb2b",
+      "providerId": "Cereris.SunsetRayNceS",
+      "title": "Cereris",
+      "composer": "SunsetRay/NceS",
+      "variant": "default",
+      "aliases": [
+        "Cereris",
+        "谷神星",
+        "科目二",
+        "老司机",
+        "CARRY YOU FLY"
+      ],
+      "original": "Raw/03 幽蓝边界/Cereris.png",
+      "hints": [
+        "所属章节：幽蓝边界",
+        "曲师：SunsetRay/NceS",
+        "标准曲名包含 7 个非空白字符。"
+      ],
+      "illustrator": "IvyTowers"
+    },
+    {
+      "key": "03 幽蓝边界/HumaN",
+      "sourceTitle": "HumaN",
+      "chapter": "03 幽蓝边界",
+      "assets": {
+        "at": "03 幽蓝边界/AT/HumaN-AT.png",
+        "ez": "03 幽蓝边界/EZ/HumaN-EZ.png",
+        "hd": "03 幽蓝边界/HD/HumaN-HD.png",
+        "in": "03 幽蓝边界/IN/HumaN-IN.png"
+      },
+      "songId": "89f97828-48d0-5b9f-9ffa-40f27ce9bd79",
+      "providerId": "HumaN.SOTUI",
+      "title": "HumaN",
+      "composer": "SOTUI",
+      "variant": "default",
+      "aliases": [
+        "HumaN",
+        "人",
+        "人类",
+        "HN"
+      ],
+      "original": "Raw/03 幽蓝边界/HumaN.png",
+      "hints": [
+        "所属章节：幽蓝边界",
+        "曲师：SOTUI",
+        "标准曲名包含 5 个非空白字符。"
+      ],
+      "illustrator": "CH"
+    },
+    {
+      "key": "03 幽蓝边界/Non-Melodic Ragez (MUG Edit)",
+      "sourceTitle": "Non-Melodic Ragez (MUG Edit)",
+      "chapter": "03 幽蓝边界",
+      "assets": {
+        "at": "03 幽蓝边界/AT/Non-Melodic Ragez (MUG Edit)-AT.png",
+        "ez": "03 幽蓝边界/EZ/Non-Melodic Ragez (MUG Edit)-EZ.png",
+        "hd": "03 幽蓝边界/HD/Non-Melodic Ragez (MUG Edit)-HD.png",
+        "in": "03 幽蓝边界/IN/Non-Melodic Ragez (MUG Edit)-IN.png"
+      },
+      "songId": "7a811fe0-7d82-56ab-9bcf-034c84becfa1",
+      "providerId": "NonMelodicRagezMUGEdit.Normal1zer",
+      "title": "Non-Melodic Ragez (MUG Edit)",
+      "composer": "Normal1zer",
+      "variant": "default",
+      "aliases": [
+        "Non-Melodic Ragez (MUG Edit)",
+        "NMR",
+        "Non-Melodic Ragez",
+        "你骂人",
+        "震楼机",
+        "无旋律暴怒",
+        "核磁共振"
+      ],
+      "original": "Raw/03 幽蓝边界/Non-Melodic Ragez (MUG Edit).png",
+      "hints": [
+        "所属章节：幽蓝边界",
+        "曲师：Normal1zer",
+        "标准曲名包含 25 个非空白字符。"
+      ],
+      "illustrator": "cycats"
+    },
+    {
+      "key": "03 幽蓝边界/Pixel Rebelz",
+      "sourceTitle": "Pixel Rebelz",
+      "chapter": "03 幽蓝边界",
+      "assets": {
+        "at": "03 幽蓝边界/AT/Pixel Rebelz-AT.png",
+        "ez": "03 幽蓝边界/EZ/Pixel Rebelz-EZ.png",
+        "hd": "03 幽蓝边界/HD/Pixel Rebelz-HD.png",
+        "in": "03 幽蓝边界/IN/Pixel Rebelz-IN.png"
+      },
+      "songId": "1205ee66-8815-5f3a-9523-4d2daf356e03",
+      "providerId": "PixelRebelz.Normal1zer",
+      "title": "Pixel Rebelz",
+      "composer": "Normal1zer",
+      "variant": "default",
+      "aliases": [
+        "Pixel Rebelz",
+        "像素三人组",
+        "像素小人",
+        "像素",
+        "背叛像素",
+        "像素反叛者",
+        "像素叛徒"
+      ],
+      "original": "Raw/03 幽蓝边界/Pixel Rebelz.png",
+      "hints": [
+        "所属章节：幽蓝边界",
+        "曲师：Normal1zer",
+        "标准曲名包含 11 个非空白字符。"
+      ],
+      "illustrator": "艾是Abby"
+    },
+    {
+      "key": "03 幽蓝边界/[PRAW]",
+      "sourceTitle": "[PRAW]",
+      "chapter": "03 幽蓝边界",
+      "assets": {
+        "at": "03 幽蓝边界/AT/[PRAW]-AT.png",
+        "ez": "03 幽蓝边界/EZ/[PRAW]-EZ.png",
+        "hd": "03 幽蓝边界/HD/[PRAW]-HD.png",
+        "in": "03 幽蓝边界/IN/[PRAW]-IN.png"
+      },
+      "songId": "509f7d45-d1e3-5c0f-8a12-a416470bc88b",
+      "providerId": "PRAW.Bluewind",
+      "title": "[PRAW]",
+      "composer": "Bluewind",
+      "variant": "default",
+      "aliases": [
+        "[PRAW]",
+        "扭曲",
+        "PRAW"
+      ],
+      "original": "Raw/03 幽蓝边界/[PRAW].png",
+      "hints": [
+        "所属章节：幽蓝边界",
+        "曲师：Bluewind",
+        "标准曲名包含 6 个非空白字符。"
+      ],
+      "illustrator": "老张"
+    },
+    {
+      "key": "04 管道迷宫/-SURREALISM-",
+      "sourceTitle": "-SURREALISM-",
+      "chapter": "04 管道迷宫",
+      "assets": {
+        "at": "04 管道迷宫/AT/-SURREALISM--AT.png",
+        "ez": "04 管道迷宫/EZ/-SURREALISM--EZ.png",
+        "hd": "04 管道迷宫/HD/-SURREALISM--HD.png",
+        "in": "04 管道迷宫/IN/-SURREALISM--IN.png"
+      },
+      "songId": "5058c450-5ecd-5ab4-87ef-b561ca697dd2",
+      "providerId": "SURREALISM.Itsuki",
+      "title": "-SURREALISM-",
+      "composer": "Itsuki",
+      "variant": "default",
+      "aliases": [
+        "-SURREALISM-",
+        "超现实主义",
+        "SURREALISM",
+        "楼梯",
+        "阶梯",
+        "彭罗斯阶梯"
+      ],
+      "original": "Raw/04 管道迷宫/-SURREALISM-.png",
+      "hints": [
+        "所属章节：管道迷宫",
+        "曲师：Itsuki",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "喵n葵"
+    },
+    {
+      "key": "04 管道迷宫/Bonus Time",
+      "sourceTitle": "Bonus Time",
+      "chapter": "04 管道迷宫",
+      "assets": {
+        "at": "04 管道迷宫/AT/Bonus Time-AT.png",
+        "ez": "04 管道迷宫/EZ/Bonus Time-EZ.png",
+        "hd": "04 管道迷宫/HD/Bonus Time-HD.png",
+        "in": "04 管道迷宫/IN/Bonus Time-IN.png"
+      },
+      "songId": "e7e1dd50-e2aa-5ee1-8cd4-4935aca5d4f6",
+      "providerId": "BonusTime.MegaloPaleWhite",
+      "title": "Bonus Time",
+      "composer": "Megalo_PaleWhite",
+      "variant": "default",
+      "aliases": [
+        "Bonus Time",
+        "奖励时间",
+        "奖励时刻",
+        "BT"
+      ],
+      "original": "Raw/04 管道迷宫/Bonus Time.png",
+      "hints": [
+        "所属章节：管道迷宫",
+        "曲师：Megalo_PaleWhite",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "笔记RE"
+    },
+    {
+      "key": "04 管道迷宫/Class Memories",
+      "sourceTitle": "Class Memories",
+      "chapter": "04 管道迷宫",
+      "assets": {
+        "at": "04 管道迷宫/AT/Class Memories-AT.png",
+        "ez": "04 管道迷宫/EZ/Class Memories-EZ.png",
+        "hd": "04 管道迷宫/HD/Class Memories-HD.png",
+        "in": "04 管道迷宫/IN/Class Memories-IN.png"
+      },
+      "songId": "ac098810-65a2-562b-a8ae-39ea786c8821",
+      "providerId": "ClassMemories.AntistarfeatCtymax",
+      "title": "Class Memories",
+      "composer": "Antistar feat. Ctymax",
+      "variant": "default",
+      "aliases": [
+        "Class Memories",
+        "同学录",
+        "课题回忆",
+        "交互课堂",
+        "课堂记忆",
+        "课忆",
+        "类内存",
+        "班级回忆",
+        "班级记忆",
+        "CM"
+      ],
+      "original": "Raw/04 管道迷宫/Class Memories.png",
+      "hints": [
+        "所属章节：管道迷宫",
+        "曲师：Antistar feat. Ctymax",
+        "标准曲名包含 13 个非空白字符。"
+      ],
+      "illustrator": "xperz"
+    },
+    {
+      "key": "04 管道迷宫/ENERGY SYNERGY MATRIX",
+      "sourceTitle": "ENERGY SYNERGY MATRIX",
+      "chapter": "04 管道迷宫",
+      "assets": {
+        "at": "04 管道迷宫/AT/ENERGY SYNERGY MATRIX-AT.png",
+        "ez": "04 管道迷宫/EZ/ENERGY SYNERGY MATRIX-EZ.png",
+        "hd": "04 管道迷宫/HD/ENERGY SYNERGY MATRIX-HD.png",
+        "in": "04 管道迷宫/IN/ENERGY SYNERGY MATRIX-IN.png"
+      },
+      "songId": "c40f0b4b-50bb-50a3-981f-d11c01e306cb",
+      "providerId": "ENERGYSYNERGYMATRIX.Tanchiky",
+      "title": "ENERGY SYNERGY MATRIX",
+      "composer": "Tanchiky",
+      "variant": "default",
+      "aliases": [
+        "ENERGY SYNERGY MATRIX",
+        "ESM",
+        "ESM跑",
+        "三只猫",
+        "三猫",
+        "能量协同矩阵",
+        "能源协同矩阵",
+        "动物园"
+      ],
+      "original": "Raw/04 管道迷宫/ENERGY SYNERGY MATRIX.png",
+      "hints": [
+        "所属章节：管道迷宫",
+        "曲师：Tanchiky",
+        "标准曲名包含 19 个非空白字符。"
+      ],
+      "illustrator": "Karameru"
+    },
+    {
+      "key": "04 管道迷宫/Sultan Rage",
+      "sourceTitle": "Sultan Rage",
+      "chapter": "04 管道迷宫",
+      "assets": {
+        "at": "04 管道迷宫/AT/Sultan Rage-AT.png",
+        "ez": "04 管道迷宫/EZ/Sultan Rage-EZ.png",
+        "hd": "04 管道迷宫/HD/Sultan Rage-HD.png",
+        "in": "04 管道迷宫/IN/Sultan Rage-IN.png"
+      },
+      "songId": "ef2d1659-ac27-5fef-9963-f985afdb8a9f",
+      "providerId": "SultanRage.MonstDeath",
+      "title": "Sultan Rage",
+      "composer": "MonstDeath",
+      "variant": "default",
+      "aliases": [
+        "Sultan Rage",
+        "苏丹",
+        "素檀",
+        "苏丹怒了",
+        "苏丹之怒",
+        "苏丹狂怒",
+        "苏丹怒",
+        "SR"
+      ],
+      "original": "Raw/04 管道迷宫/Sultan Rage.png",
+      "hints": [
+        "所属章节：管道迷宫",
+        "曲师：MonstDeath",
+        "标准曲名包含 10 个非空白字符。"
+      ],
+      "illustrator": "笔记RE"
+    },
+    {
+      "key": "05 霓虹灯牌/JunXion Between Life And Death(VIP Mix)",
+      "sourceTitle": "JunXion Between Life And Death(VIP Mix)",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/JunXion Between Life And Death(VIP Mix)-AT.png",
+        "ez": "05 霓虹灯牌/EZ/JunXion Between Life And Death(VIP Mix)-EZ.png",
+        "hd": "05 霓虹灯牌/HD/JunXion Between Life And Death(VIP Mix)-HD.png",
+        "in": "05 霓虹灯牌/IN/JunXion Between Life And Death(VIP Mix)-IN.png"
+      },
+      "songId": "a32b7ec4-2ce3-52ee-8fb8-416839bdc2ab",
+      "providerId": "JunXionBetweenLifeAndDeathVIPMix.1N6Fs",
+      "title": "JunXion Between Life And Death(VIP Mix)",
+      "composer": "1N6Fs",
+      "variant": "default",
+      "aliases": [
+        "JunXion Between Life And Death(VIP Mix)",
+        "JunXion Between Life And Death(VIP Mix)",
+        "jblad",
+        "俊雄半死不活",
+        "俊雄",
+        "生死交界处",
+        "交于生死之间",
+        "Junction",
+        "JunXion"
+      ],
+      "original": "Raw/05 霓虹灯牌/JunXion Between Life And Death(VIP Mix).png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：1N6Fs",
+        "标准曲名包含 34 个非空白字符。"
+      ],
+      "illustrator": "IvyTowers"
+    },
+    {
+      "key": "05 霓虹灯牌/Leave All Behind",
+      "sourceTitle": "Leave All Behind",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/Leave All Behind-AT.png",
+        "ez": "05 霓虹灯牌/EZ/Leave All Behind-EZ.png",
+        "hd": "05 霓虹灯牌/HD/Leave All Behind-HD.png",
+        "in": "05 霓虹灯牌/IN/Leave All Behind-IN.png"
+      },
+      "songId": "bf505cdd-e0cc-5cf6-b849-d7556cf72cbb",
+      "providerId": "LeaveAllBehind.rider",
+      "title": "Leave All Behind",
+      "composer": "rider",
+      "variant": "default",
+      "aliases": [
+        "Leave All Behind",
+        "LAB",
+        "抛弃一切",
+        "摈弃一切",
+        "黄金左脸"
+      ],
+      "original": "Raw/05 霓虹灯牌/Leave All Behind.png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：rider",
+        "标准曲名包含 14 个非空白字符。"
+      ],
+      "illustrator": "笔记RE"
+    },
+    {
+      "key": "05 霓虹灯牌/NYA!!!(Phigros ver.)",
+      "sourceTitle": "NYA!!!(Phigros ver.)",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/NYA!!!(Phigros ver.)-AT.png",
+        "ez": "05 霓虹灯牌/EZ/NYA!!!(Phigros ver.)-EZ.png",
+        "hd": "05 霓虹灯牌/HD/NYA!!!(Phigros ver.)-HD.png",
+        "in": "05 霓虹灯牌/IN/NYA!!!(Phigros ver.)-IN.png"
+      },
+      "songId": "4343dc8b-a31a-5f1f-9d3d-7a65b2115ca9",
+      "providerId": "NYA.FLuoRiTe姜米條",
+      "title": "NYA!!! (Phigros ver.)",
+      "composer": "FLuoRiTe/姜米條",
+      "variant": "default",
+      "aliases": [
+        "NYA!!!(Phigros ver.)",
+        "NYA!!! (Phigros ver.)",
+        "喵",
+        "黑巧夹心鱼",
+        "NYA",
+        "猫娘沙发"
+      ],
+      "original": "Raw/05 霓虹灯牌/NYA!!!(Phigros ver.).png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：FLuoRiTe/姜米條",
+        "标准曲名包含 19 个非空白字符。"
+      ],
+      "illustrator": "NEKO&海产"
+    },
+    {
+      "key": "05 霓虹灯牌/Reimei",
+      "sourceTitle": "Reimei",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/Reimei-AT.png",
+        "ez": "05 霓虹灯牌/EZ/Reimei-EZ.png",
+        "hd": "05 霓虹灯牌/HD/Reimei-HD.png",
+        "in": "05 霓虹灯牌/IN/Reimei-IN.png"
+      },
+      "songId": "2185c469-862d-5d5a-9195-70fda81edded",
+      "providerId": "Reimei.影虎",
+      "title": "Reimei",
+      "composer": "影虎。",
+      "variant": "default",
+      "aliases": [
+        "Reimei",
+        "黎明",
+        "reimei",
+        "影虎"
+      ],
+      "original": "Raw/05 霓虹灯牌/Reimei.png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：影虎。",
+        "标准曲名包含 6 个非空白字符。"
+      ],
+      "illustrator": "英英英"
+    },
+    {
+      "key": "05 霓虹灯牌/Spasmodic",
+      "sourceTitle": "Spasmodic",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/Spasmodic-AT.png",
+        "ez": "05 霓虹灯牌/EZ/Spasmodic-EZ.png",
+        "hd": "05 霓虹灯牌/HD/Spasmodic-HD.png",
+        "in": "05 霓虹灯牌/IN/Spasmodic-IN.png"
+      },
+      "songId": "bcd5d340-4ef8-5d01-bc02-c8230354a352",
+      "providerId": "Spasmodic.姜米條颶風元力上人",
+      "title": "Spasmodic",
+      "composer": "姜米條☆颶風 ~ ♫元力上人♫",
+      "variant": "default",
+      "aliases": [
+        "Spasmodic",
+        "癫痫",
+        "小姐姐",
+        "久住",
+        "痉挛",
+        "大哥上楼梯",
+        "异瞳粉毛双马尾",
+        "粉毛异瞳",
+        "异瞳粉毛",
+        "异瞳双马尾",
+        "粉毛异瞳双马尾",
+        "粉毛小孩",
+        "spas"
+      ],
+      "original": "Raw/05 霓虹灯牌/Spasmodic.png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：姜米條☆颶風 ~ ♫元力上人♫",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "昔璃☆暴雨 ~ ♫危難聖帝♫"
+    },
+    {
+      "key": "05 霓虹灯牌/cryout",
+      "sourceTitle": "cryout",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/cryout-AT.png",
+        "ez": "05 霓虹灯牌/EZ/cryout-EZ.png",
+        "hd": "05 霓虹灯牌/HD/cryout-HD.png",
+        "in": "05 霓虹灯牌/IN/cryout-IN.png"
+      },
+      "songId": "16e91bbd-5d25-5002-8188-3ef308227aaf",
+      "providerId": "cryout.JuE",
+      "title": "cryout",
+      "composer": "Ju_E",
+      "variant": "default",
+      "aliases": [
+        "cryout",
+        "哭出来",
+        "哭出去",
+        "出去哭",
+        "呐喊",
+        "哭",
+        "蒲公英"
+      ],
+      "original": "Raw/05 霓虹灯牌/cryout.png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：Ju_E",
+        "标准曲名包含 6 个非空白字符。"
+      ],
+      "illustrator": "Haight"
+    },
+    {
+      "key": "05 霓虹灯牌/尊師 ～The Guru～",
+      "sourceTitle": "尊師 ～The Guru～",
+      "chapter": "05 霓虹灯牌",
+      "assets": {
+        "at": "05 霓虹灯牌/AT/尊師 ～The Guru～-AT.png",
+        "ez": "05 霓虹灯牌/EZ/尊師 ～The Guru～-EZ.png",
+        "hd": "05 霓虹灯牌/HD/尊師 ～The Guru～-HD.png",
+        "in": "05 霓虹灯牌/IN/尊師 ～The Guru～-IN.png"
+      },
+      "songId": "02883c95-fdbb-56d8-a3ab-5211ba861158",
+      "providerId": "尊師TheGuru.rider",
+      "title": "尊師 ～The Guru～",
+      "composer": "rider",
+      "variant": "default",
+      "aliases": [
+        "尊師 ～The Guru～",
+        "尊师",
+        "The Guru",
+        "Guru",
+        "孔子搓碟",
+        "尊师古卢",
+        "Sonshi ~The Guru~",
+        "Sonshi",
+        "樽尸"
+      ],
+      "original": "Raw/05 霓虹灯牌/尊師 ～The Guru～.png",
+      "hints": [
+        "所属章节：霓虹灯牌",
+        "曲师：rider",
+        "标准曲名包含 11 个非空白字符。"
+      ],
+      "illustrator": "1B"
+    },
+    {
+      "key": "06 方舟蜃景/Colorful Days♪",
+      "sourceTitle": "Colorful Days♪",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/Colorful Days♪-AT.png",
+        "ez": "06 方舟蜃景/EZ/Colorful Days♪-EZ.png",
+        "hd": "06 方舟蜃景/HD/Colorful Days♪-HD.png",
+        "in": "06 方舟蜃景/IN/Colorful Days♪-IN.png"
+      },
+      "songId": "3ad46496-b577-538c-8aed-d47c226fc5aa",
+      "providerId": "ColorfulDays.P4koofeatつゆり花鈴",
+      "title": "Colorful Days♪",
+      "composer": "P4koo feat. つゆり花鈴",
+      "variant": "default",
+      "aliases": [
+        "Colorful Days♪",
+        "彩日",
+        "Colorful Days",
+        "彩虹之日",
+        "彩色的一天",
+        "彩色之日",
+        "彩色的岁月",
+        "缤纷时光",
+        "多彩的一天",
+        "画家",
+        "cfday",
+        "Colourful Days"
+      ],
+      "original": "Raw/06 方舟蜃景/Colorful Days♪.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：P4koo feat. つゆり花鈴",
+        "标准曲名包含 13 个非空白字符。"
+      ],
+      "illustrator": "Doro-nyong & Ratif"
+    },
+    {
+      "key": "06 方舟蜃景/Igallta",
+      "sourceTitle": "Igallta",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/Igallta-AT.png",
+        "ez": "06 方舟蜃景/EZ/Igallta-EZ.png",
+        "hd": "06 方舟蜃景/HD/Igallta-HD.png",
+        "in": "06 方舟蜃景/IN/Igallta-IN.png"
+      },
+      "songId": "7f43da63-7591-55fc-9ff0-c8a88f5e6dfe",
+      "providerId": "Igallta.SeURa",
+      "title": "Igallta",
+      "composer": "Se-U-Ra",
+      "variant": "default",
+      "aliases": [
+        "Igallta",
+        "姐姐",
+        "忿怒之剑",
+        "Iga",
+        "Ig",
+        "姐姐砍我"
+      ],
+      "original": "Raw/06 方舟蜃景/Igallta.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：Se-U-Ra",
+        "标准曲名包含 7 个非空白字符。"
+      ],
+      "illustrator": "Se-U-Ra"
+    },
+    {
+      "key": "06 方舟蜃景/NO ONE YES MAN",
+      "sourceTitle": "NO ONE YES MAN",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/NO ONE YES MAN-AT.png",
+        "ez": "06 方舟蜃景/EZ/NO ONE YES MAN-EZ.png",
+        "hd": "06 方舟蜃景/HD/NO ONE YES MAN-HD.png",
+        "in": "06 方舟蜃景/IN/NO ONE YES MAN-IN.png"
+      },
+      "songId": "ab9533ed-1b49-5401-8df0-ab7c09959668",
+      "providerId": "NOONEYESMAN.MYUKKE",
+      "title": "NO ONE YES MAN",
+      "composer": "MYUKKE.",
+      "variant": "default",
+      "aliases": [
+        "NO ONE YES MAN",
+        "NOYM",
+        "没人是人",
+        "没有一个是人",
+        "没有一个好男人",
+        "没一个男的",
+        "梅忆阁诗人",
+        "无人奸佞"
+      ],
+      "original": "Raw/06 方舟蜃景/NO ONE YES MAN.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：MYUKKE.",
+        "标准曲名包含 11 个非空白字符。"
+      ],
+      "illustrator": "青鸟"
+    },
+    {
+      "key": "06 方舟蜃景/micro.wav",
+      "sourceTitle": "micro.wav",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/micro.wav-AT.png",
+        "ez": "06 方舟蜃景/EZ/micro.wav-EZ.png",
+        "hd": "06 方舟蜃景/HD/micro.wav-HD.png",
+        "in": "06 方舟蜃景/IN/micro.wav-IN.png"
+      },
+      "songId": "276112f5-4b1b-577a-8ba2-7803c8ce968a",
+      "providerId": "microwav.dandeless",
+      "title": "micro.wav",
+      "composer": "dandeless",
+      "variant": "default",
+      "aliases": [
+        "micro.wav",
+        "微波炉",
+        "微波"
+      ],
+      "original": "Raw/06 方舟蜃景/micro.wav.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：dandeless",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "snake.ribs"
+    },
+    {
+      "key": "06 方舟蜃景/望影の方舟Six",
+      "sourceTitle": "望影の方舟Six",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/望影の方舟Six-AT.png",
+        "ez": "06 方舟蜃景/EZ/望影の方舟Six-EZ.png",
+        "hd": "06 方舟蜃景/HD/望影の方舟Six-HD.png",
+        "in": "06 方舟蜃景/IN/望影の方舟Six-IN.png"
+      },
+      "songId": "f2a2d718-75b4-5226-a037-f4fe45811abc",
+      "providerId": "望影の方舟Six.SeURa",
+      "title": "望影の方舟Six",
+      "composer": "Se-U-Ra",
+      "variant": "default",
+      "aliases": [
+        "望影の方舟Six",
+        "six",
+        "方舟",
+        "守望方舟六号",
+        "望影",
+        "望影方舟"
+      ],
+      "original": "Raw/06 方舟蜃景/望影の方舟Six.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：Se-U-Ra",
+        "标准曲名包含 8 个非空白字符。"
+      ],
+      "illustrator": "鲸弑"
+    },
+    {
+      "key": "06 方舟蜃景/重生",
+      "sourceTitle": "重生",
+      "chapter": "06 方舟蜃景",
+      "assets": {
+        "at": "06 方舟蜃景/AT/重生-AT.png",
+        "ez": "06 方舟蜃景/EZ/重生-EZ.png",
+        "hd": "06 方舟蜃景/HD/重生-HD.png",
+        "in": "06 方舟蜃景/IN/重生-IN.png"
+      },
+      "songId": "69e778b0-f620-58a4-be5c-b7ff5660b40e",
+      "providerId": "重生.姜米條",
+      "title": "重生",
+      "composer": "姜米條",
+      "variant": "default",
+      "aliases": [
+        "重生",
+        "白重生",
+        "重生鸠",
+        "中文重生",
+        "重生姜米條"
+      ],
+      "original": "Raw/06 方舟蜃景/重生.png",
+      "hints": [
+        "所属章节：方舟蜃景",
+        "曲师：姜米條",
+        "标准曲名包含 2 个非空白字符。"
+      ],
+      "illustrator": "昔璃&TNiK"
+    },
+    {
+      "key": "07 时钟链接/Chronologika",
+      "sourceTitle": "Chronologika",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Chronologika-AT.png",
+        "ez": "07 时钟链接/EZ/Chronologika-EZ.png",
+        "hd": "07 时钟链接/HD/Chronologika-HD.png",
+        "in": "07 时钟链接/IN/Chronologika-IN.png"
+      },
+      "songId": "a1ef4f62-8bcc-543c-b688-49399ffb3ba0",
+      "providerId": "Chronologika.Hundotte",
+      "title": "Chronologika",
+      "composer": "Hundotte",
+      "variant": "default",
+      "aliases": [
+        "Chronologika",
+        "时序",
+        "编年史",
+        "鸟嘴人",
+        "乌鸦嘴"
+      ],
+      "original": "Raw/07 时钟链接/Chronologika.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：Hundotte",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "幽灵星"
+    },
+    {
+      "key": "07 时钟链接/Chronomia",
+      "sourceTitle": "Chronomia",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Chronomia-AT.png",
+        "ez": "07 时钟链接/EZ/Chronomia-EZ.png",
+        "hd": "07 时钟链接/HD/Chronomia-HD.png",
+        "in": "07 时钟链接/IN/Chronomia-IN.png"
+      },
+      "songId": "c62ee6f7-f0d0-511f-a45f-fe58e15b4381",
+      "providerId": "Chronomia.Lime",
+      "title": "Chronomia",
+      "composer": "Lime",
+      "variant": "default",
+      "aliases": [
+        "Chronomia",
+        "天文钟",
+        "时空"
+      ],
+      "original": "Raw/07 时钟链接/Chronomia.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：Lime",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "inukoro"
+    },
+    {
+      "key": "07 时钟链接/Chronos Collapse - La Campanella",
+      "sourceTitle": "Chronos Collapse - La Campanella",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Chronos Collapse - La Campanella-AT.png",
+        "ez": "07 时钟链接/EZ/Chronos Collapse - La Campanella-EZ.png",
+        "hd": "07 时钟链接/HD/Chronos Collapse - La Campanella-HD.png",
+        "in": "07 时钟链接/IN/Chronos Collapse - La Campanella-IN.png"
+      },
+      "songId": "58834825-b313-558a-a736-305fec2bec91",
+      "providerId": "ChronosCollapseLaCampanella.SunsetRay",
+      "title": "Chronos Collapse - La Campanella",
+      "composer": "SunsetRay",
+      "variant": "default",
+      "aliases": [
+        "Chronos Collapse - La Campanella",
+        "时崩",
+        "时溃",
+        "钟",
+        "李斯特的钟",
+        "李斯特",
+        "时间崩塌",
+        "时空坍塌",
+        "破钟",
+        "cclc",
+        "La Campanella"
+      ],
+      "original": "Raw/07 时钟链接/Chronos Collapse - La Campanella.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：SunsetRay",
+        "标准曲名包含 28 个非空白字符。"
+      ],
+      "illustrator": "老张"
+    },
+    {
+      "key": "07 时钟链接/Clock Paradox",
+      "sourceTitle": "Clock Paradox",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Clock Paradox-AT.png",
+        "ez": "07 时钟链接/EZ/Clock Paradox-EZ.png",
+        "hd": "07 时钟链接/HD/Clock Paradox-HD.png",
+        "in": "07 时钟链接/IN/Clock Paradox-IN.png"
+      },
+      "songId": "242e2aac-2b02-585f-9cbf-dbfd0e8a5a8b",
+      "providerId": "ClockParadox.WyvernP",
+      "title": "Clock Paradox",
+      "composer": "WyvernP",
+      "variant": "default",
+      "aliases": [
+        "Clock Paradox",
+        "时钟悖论",
+        "时间悖论",
+        "时钟链接",
+        "时悖"
+      ],
+      "original": "Raw/07 时钟链接/Clock Paradox.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：WyvernP",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "汉堡"
+    },
+    {
+      "key": "07 时钟链接/Nick of Time",
+      "sourceTitle": "Nick of Time",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Nick of Time-AT.png",
+        "ez": "07 时钟链接/EZ/Nick of Time-EZ.png",
+        "hd": "07 时钟链接/HD/Nick of Time-HD.png",
+        "in": "07 时钟链接/IN/Nick of Time-IN.png"
+      },
+      "songId": "3efc38cb-a30d-540c-adbd-9826e3cdf4f4",
+      "providerId": "NickofTime.P4koo",
+      "title": "Nick of Time",
+      "composer": "P4koo",
+      "variant": "default",
+      "aliases": [
+        "Nick of Time",
+        "时隙",
+        "关键时刻",
+        "千钧一发",
+        "not"
+      ],
+      "original": "Raw/07 时钟链接/Nick of Time.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：P4koo",
+        "标准曲名包含 10 个非空白字符。"
+      ],
+      "illustrator": "青鸟"
+    },
+    {
+      "key": "07 时钟链接/Rrhar'il",
+      "sourceTitle": "Rrhar'il",
+      "chapter": "07 时钟链接",
+      "assets": {
+        "at": "07 时钟链接/AT/Rrhar'il-AT.png",
+        "ez": "07 时钟链接/EZ/Rrhar'il-EZ.png",
+        "hd": "07 时钟链接/HD/Rrhar'il-HD.png",
+        "in": "07 时钟链接/IN/Rrhar'il-IN.png"
+      },
+      "songId": "ce2dd90e-e50e-5c30-b6f8-29b9f0b98413",
+      "providerId": "Rrharil.TeamGrimoire",
+      "title": "Rrhar'il",
+      "composer": "Team Grimoire",
+      "variant": "default",
+      "aliases": [
+        "Rrhar'il",
+        "rr",
+        "穿越时空的猎犬",
+        "猎犬",
+        "二哈",
+        "弭儿",
+        "啊啊",
+        "猫娘",
+        "时间猫娘",
+        "犬娘",
+        "RRAT",
+        "啊啊挨踢",
+        "老师我作业没写",
+        "老师我没写作业",
+        "老师我的作业怎么在发光",
+        "老师我的作业被烧了",
+        "妈妈快看我的作业会发光",
+        "我的作业会发光"
+      ],
+      "original": "Raw/07 时钟链接/Rrhar'il.png",
+      "hints": [
+        "所属章节：时钟链接",
+        "曲师：Team Grimoire",
+        "标准曲名包含 8 个非空白字符。"
+      ],
+      "illustrator": "犀牛坨动画工坊"
+    },
+    {
+      "key": "08 凌日潮汐/Crave Wave",
+      "sourceTitle": "Crave Wave",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/Crave Wave-AT.png",
+        "ez": "08 凌日潮汐/EZ/Crave Wave-EZ.png",
+        "hd": "08 凌日潮汐/HD/Crave Wave-HD.png",
+        "in": "08 凌日潮汐/IN/Crave Wave-IN.png"
+      },
+      "songId": "37ae51eb-1bf3-5d2f-a935-04705f1979f9",
+      "providerId": "CraveWave.LandRoot",
+      "title": "Crave Wave",
+      "composer": "LandRoot",
+      "variant": "default",
+      "aliases": [
+        "Crave Wave",
+        "CW",
+        "狂波",
+        "奢望之浪",
+        "渴望的浪潮",
+        "欲望"
+      ],
+      "original": "Raw/08 凌日潮汐/Crave Wave.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：LandRoot",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "笔记RE"
+    },
+    {
+      "key": "08 凌日潮汐/DESTRUCTION 3,2,1",
+      "sourceTitle": "DESTRUCTION 3,2,1",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/DESTRUCTION 3,2,1-AT.png",
+        "ez": "08 凌日潮汐/EZ/DESTRUCTION 3,2,1-EZ.png",
+        "hd": "08 凌日潮汐/HD/DESTRUCTION 3,2,1-HD.png",
+        "in": "08 凌日潮汐/IN/DESTRUCTION 3,2,1-IN.png"
+      },
+      "songId": "38f5bd7e-1a2a-5ecc-ad3b-d8eebecfd5d8",
+      "providerId": "DESTRUCTION321.Normal1zervsBrokenNerdz",
+      "title": "DESTRUCTION 3,2,1",
+      "composer": "Normal1zer vs. Broken Nerdz",
+      "variant": "default",
+      "aliases": [
+        "DESTRUCTION 3,2,1",
+        "321",
+        "煤气灶",
+        "蓝色煤气灶",
+        "d321",
+        "幽蓝边界",
+        "毁灭321",
+        "毁灭",
+        "DESTRUCTION"
+      ],
+      "original": "Raw/08 凌日潮汐/DESTRUCTION 3,2,1.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：Normal1zer vs. Broken Nerdz",
+        "标准曲名包含 16 个非空白字符。"
+      ],
+      "illustrator": "rN"
+    },
+    {
+      "key": "08 凌日潮汐/Distorted Fate",
+      "sourceTitle": "Distorted Fate",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/Distorted Fate-AT.png",
+        "ez": "08 凌日潮汐/EZ/Distorted Fate-EZ.png",
+        "hd": "08 凌日潮汐/HD/Distorted Fate-HD.png",
+        "in": "08 凌日潮汐/IN/Distorted Fate-IN.png"
+      },
+      "songId": "a12b593e-549e-5834-b431-e3e9e003e0b6",
+      "providerId": "DistortedFate.Sakuzyo",
+      "title": "Distorted Fate",
+      "composer": "Sakuzyo",
+      "variant": "default",
+      "aliases": [
+        "Distorted Fate",
+        "DF",
+        "削除",
+        "消除",
+        "天鸠食月",
+        "扭曲的命运",
+        "拧巴的命",
+        "扭曲命运",
+        "骨折鸠",
+        "骨折九鸟",
+        "食月鸠",
+        "逃离月面"
+      ],
+      "original": "Raw/08 凌日潮汐/Distorted Fate.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：Sakuzyo",
+        "标准曲名包含 13 个非空白字符。"
+      ],
+      "illustrator": "knife美工刀"
+    },
+    {
+      "key": "08 凌日潮汐/Luminescence",
+      "sourceTitle": "Luminescence",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/Luminescence-AT.png",
+        "ez": "08 凌日潮汐/EZ/Luminescence-EZ.png",
+        "hd": "08 凌日潮汐/HD/Luminescence-HD.png",
+        "in": "08 凌日潮汐/IN/Luminescence-IN.png"
+      },
+      "songId": "999bd9cf-1a0e-5896-aee9-38a60f00704a",
+      "providerId": "Luminescence.米虾Fomiki初云CLoudie",
+      "title": "Luminescence",
+      "composer": "米虾Fomiki & 初云CLoudie",
+      "variant": "default",
+      "aliases": [
+        "Luminescence",
+        "荧冷焰光",
+        "烟花",
+        "冷光",
+        "流光",
+        "大冷光",
+        "烟火",
+        "冷光ce"
+      ],
+      "original": "Raw/08 凌日潮汐/Luminescence.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：米虾Fomiki & 初云CLoudie",
+        "标准曲名包含 12 个非空白字符。"
+      ],
+      "illustrator": "子狼"
+    },
+    {
+      "key": "08 凌日潮汐/Retribution",
+      "sourceTitle": "Retribution",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/Retribution-AT.png",
+        "ez": "08 凌日潮汐/EZ/Retribution-EZ.png",
+        "hd": "08 凌日潮汐/HD/Retribution-HD.png",
+        "in": "08 凌日潮汐/IN/Retribution-IN.png"
+      },
+      "songId": "a8446d54-b05a-58bd-8701-5dbeeec8e483",
+      "providerId": "Retribution.nmyKryexe",
+      "title": "Retribution",
+      "composer": "nm-y & Kry.exe",
+      "variant": "default",
+      "aliases": [
+        "Retribution",
+        "报应",
+        "rtb",
+        "不穿衣服的羊"
+      ],
+      "original": "Raw/08 凌日潮汐/Retribution.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：nm-y & Kry.exe",
+        "标准曲名包含 11 个非空白字符。"
+      ],
+      "illustrator": "NerSAN"
+    },
+    {
+      "key": "08 凌日潮汐/The Chariot ~REVIIVAL~",
+      "sourceTitle": "The Chariot ~REVIIVAL~",
+      "chapter": "08 凌日潮汐",
+      "assets": {
+        "at": "08 凌日潮汐/AT/The Chariot ~REVIIVAL~-AT.png",
+        "ez": "08 凌日潮汐/EZ/The Chariot ~REVIIVAL~-EZ.png",
+        "hd": "08 凌日潮汐/HD/The Chariot ~REVIIVAL~-HD.png",
+        "in": "08 凌日潮汐/IN/The Chariot ~REVIIVAL~-IN.png"
+      },
+      "songId": "0e869b40-130c-503b-a3f2-a7a9a3f3ead6",
+      "providerId": "TheChariotREVIIVAL.Attoclef",
+      "title": "The Chariot ~REVIIVAL~",
+      "composer": "Attoclef",
+      "variant": "default",
+      "aliases": [
+        "The Chariot ~REVIIVAL~",
+        "Chariot",
+        "战车",
+        "tcr"
+      ],
+      "original": "Raw/08 凌日潮汐/The Chariot ~REVIIVAL~.png",
+      "hints": [
+        "所属章节：凌日潮汐",
+        "曲师：Attoclef",
+        "标准曲名包含 20 个非空白字符。"
+      ],
+      "illustrator": "翠冷兮"
+    },
+    {
+      "key": "09 穹顶孤舟/Part1/About The Universe",
+      "sourceTitle": "About The Universe",
+      "chapter": "09 穹顶孤舟/Part1",
+      "assets": {
+        "at": "09 穹顶孤舟/Part1/AT/About The Universe-AT.png",
+        "ez": "09 穹顶孤舟/Part1/EZ/About The Universe-EZ.png",
+        "hd": "09 穹顶孤舟/Part1/HD/About The Universe-HD.png",
+        "in": "09 穹顶孤舟/Part1/IN/About The Universe-IN.png"
+      },
+      "songId": "c7e2b4ad-56d2-5a1d-b516-79d7d9d98f49",
+      "providerId": "AboutTheUniverse.SOTUIMIssionary",
+      "title": "About The Universe",
+      "composer": "SOTUI & MIssionary",
+      "variant": "default",
+      "aliases": [
+        "About The Universe",
+        "ATU",
+        "abo",
+        "关于宇宙",
+        "穹顶之上",
+        "宇宙之上",
+        "宇宙",
+        "关宇",
+        "关宇之歌",
+        "关羽",
+        "关于穹顶"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part1/About The Universe.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part1",
+        "曲师：SOTUI & MIssionary",
+        "标准曲名包含 16 个非空白字符。"
+      ],
+      "illustrator": "MC大神knife美工刀"
+    },
+    {
+      "key": "09 穹顶孤舟/Part1/Entrance to the Chaos",
+      "sourceTitle": "Entrance to the Chaos",
+      "chapter": "09 穹顶孤舟/Part1",
+      "assets": {
+        "at": "09 穹顶孤舟/Part1/AT/Entrance to the Chaos-AT.png",
+        "ez": "09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.png",
+        "hd": "09 穹顶孤舟/Part1/HD/Entrance to the Chaos-HD.png",
+        "in": "09 穹顶孤舟/Part1/IN/Entrance to the Chaos-IN.png"
+      },
+      "songId": "86e26852-2794-5eff-ad10-02b140452e60",
+      "providerId": "EntrancetotheChaos.打打だいずvssiromaru",
+      "title": "Entrance to the Chaos",
+      "composer": "打打だいず vs. siromaru",
+      "variant": "default",
+      "aliases": [
+        "Entrance to the Chaos",
+        "混沌入口",
+        "馄饨入口",
+        "混沌之门",
+        "混沌之扉",
+        "混的入",
+        "超市入口",
+        "穹顶吉诺",
+        "gino伸手",
+        "gino魔王",
+        "chaos",
+        "toChaos",
+        "ettc",
+        "ETC",
+        "Ftom",
+        "进入超市",
+        "吉诺超市",
+        "超市"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part1",
+        "曲师：打打だいず vs. siromaru",
+        "标准曲名包含 18 个非空白字符。"
+      ],
+      "illustrator": "群青kurara"
+    },
+    {
+      "key": "09 穹顶孤舟/Part1/Evanescent",
+      "sourceTitle": "Evanescent",
+      "chapter": "09 穹顶孤舟/Part1",
+      "assets": {
+        "at": "09 穹顶孤舟/Part1/AT/Evanescent-AT.png",
+        "ez": "09 穹顶孤舟/Part1/EZ/Evanescent-EZ.png",
+        "hd": "09 穹顶孤舟/Part1/HD/Evanescent-HD.png",
+        "in": "09 穹顶孤舟/Part1/IN/Evanescent-IN.png"
+      },
+      "songId": "a68f618b-3923-5c10-a2a4-14ef9e8eae9a",
+      "providerId": "Evanescent.LeaF",
+      "title": "Evanescent",
+      "composer": "LeaF",
+      "variant": "default",
+      "aliases": [
+        "Evanescent",
+        "消散",
+        "瞬逝",
+        "瞬息即逝",
+        "转瞬即逝"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part1/Evanescent.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part1",
+        "曲师：LeaF",
+        "标准曲名包含 10 个非空白字符。"
+      ],
+      "illustrator": "海产 feat. 佑木いずみ"
+    },
+    {
+      "key": "09 穹顶孤舟/Part1/Exoplanetary Mirage",
+      "sourceTitle": "Exoplanetary Mirage",
+      "chapter": "09 穹顶孤舟/Part1",
+      "assets": {
+        "at": "09 穹顶孤舟/Part1/AT/Exoplanetary Mirage-AT.png",
+        "ez": "09 穹顶孤舟/Part1/EZ/Exoplanetary Mirage-EZ.png",
+        "hd": "09 穹顶孤舟/Part1/HD/Exoplanetary Mirage-HD.png",
+        "in": "09 穹顶孤舟/Part1/IN/Exoplanetary Mirage-IN.png"
+      },
+      "songId": "3cb7e1ed-3a89-50f0-a9db-908ec6ff4a8f",
+      "providerId": "ExoplanetaryMirage.かめりあ",
+      "title": "Exoplanetary Mirage",
+      "composer": "Camellia",
+      "variant": "default",
+      "aliases": [
+        "Exoplanetary Mirage",
+        "EPTM",
+        "Exo",
+        "EM",
+        "mirage",
+        "系外幻象",
+        "系外行星",
+        "外星幻景",
+        "幻象",
+        "系外行星幻景",
+        "异星幻景",
+        "海市蜃楼",
+        "系外蜃楼",
+        "系外蜃景",
+        "星外虚舟",
+        "穹顶鸠",
+        "黑洞鸠",
+        "仁王盾",
+        "九鸟打狙",
+        "九鸟架狙",
+        "鸠鸠架狙",
+        "谁玩屁股肉我杀谁",
+        "鸠儿狙击怕过谁",
+        "韩国男团",
+        "米垃圾"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part1/Exoplanetary Mirage.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part1",
+        "曲师：Camellia",
+        "标准曲名包含 18 个非空白字符。"
+      ],
+      "illustrator": "神居冰绘 feat. 祈莲"
+    },
+    {
+      "key": "09 穹顶孤舟/Part1/Implexrough",
+      "sourceTitle": "Implexrough",
+      "chapter": "09 穹顶孤舟/Part1",
+      "assets": {
+        "at": "09 穹顶孤舟/Part1/AT/Implexrough-AT.png",
+        "ez": "09 穹顶孤舟/Part1/EZ/Implexrough-EZ.png",
+        "hd": "09 穹顶孤舟/Part1/HD/Implexrough-HD.png",
+        "in": "09 穹顶孤舟/Part1/IN/Implexrough-IN.png"
+      },
+      "songId": "80ee8447-9ed0-5948-80a9-3f204e5a3589",
+      "providerId": "Implexrough.Silentroommommy",
+      "title": "Implexrough",
+      "composer": "Silentroom × mommy",
+      "variant": "default",
+      "aliases": [
+        "Implexrough",
+        "Implex",
+        "强硬交织"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part1/Implexrough.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part1",
+        "曲师：Silentroom × mommy",
+        "标准曲名包含 11 个非空白字符。"
+      ],
+      "illustrator": "Nate"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/Ametrine",
+      "sourceTitle": "Ametrine",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/Ametrine-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/Ametrine-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/Ametrine-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/Ametrine-IN.png"
+      },
+      "songId": "04ffd582-b1cd-59d7-ad53-502038069df0",
+      "providerId": "Ametrine.GRYSCLMIssionary",
+      "title": "Ametrine",
+      "composer": "GRYSCL & MIssionary",
+      "variant": "default",
+      "aliases": [
+        "Ametrine",
+        "紫黄晶",
+        "黄紫晶",
+        "紫黄水晶",
+        "黄紫水晶",
+        "Ame"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/Ametrine.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：GRYSCL & MIssionary",
+        "标准曲名包含 8 个非空白字符。"
+      ],
+      "illustrator": "子狼"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/Desultory Signals",
+      "sourceTitle": "Desultory Signals",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/Desultory Signals-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/Desultory Signals-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/Desultory Signals-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/Desultory Signals-IN.png"
+      },
+      "songId": "837c66e7-b0a3-58cd-8a7c-2b1ad023bf45",
+      "providerId": "DesultorySignals.technoplanet",
+      "title": "Desultory Signals",
+      "composer": "technoplanet",
+      "variant": "default",
+      "aliases": [
+        "Desultory Signals",
+        "DS9",
+        "大DS",
+        "杂乱信号",
+        "零散信号",
+        "散逸信号",
+        "断续信号",
+        "断续讯号",
+        "剑圣鸠",
+        "鸠信号",
+        "DS",
+        "九鸟打大蛇",
+        "九鸟搓螺旋丸"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/Desultory Signals.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：technoplanet",
+        "标准曲名包含 16 个非空白字符。"
+      ],
+      "illustrator": "月光大刺剑"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/Message",
+      "sourceTitle": "Message",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/Message-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/Message-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/Message-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/Message-IN.png"
+      },
+      "songId": "ec0bae13-b8e9-5d65-8472-a16154c40b5c",
+      "providerId": "Message.くるぶっこちゃん",
+      "title": "Message",
+      "composer": "くるぶっこちゃん",
+      "variant": "default",
+      "aliases": [
+        "Message",
+        "消息",
+        "信息",
+        "鸠打电报",
+        "马杀鸡"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/Message.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：くるぶっこちゃん",
+        "标准曲名包含 7 个非空白字符。"
+      ],
+      "illustrator": "神居冰绘 feat. 祈莲"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/Petrichor",
+      "sourceTitle": "Petrichor",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/Petrichor-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/Petrichor-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/Petrichor-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/Petrichor-IN.png"
+      },
+      "songId": "55c3e792-9218-5d17-89d2-84b1e7f7ba48",
+      "providerId": "Petrichor.voidMournfinale",
+      "title": "Petrichor",
+      "composer": "void (Mournfinale)",
+      "variant": "default",
+      "aliases": [
+        "Petrichor",
+        "Petri",
+        "ptr",
+        "ptc",
+        "雨土气息",
+        "初雨气息",
+        "初雨之息",
+        "雨后泥土香",
+        "潮土油",
+        "骗退款",
+        "void"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/Petrichor.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：void (Mournfinale)",
+        "标准曲名包含 9 个非空白字符。"
+      ],
+      "illustrator": "青鸟 feat. 祈莲"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/True Home, True World (Rework)",
+      "sourceTitle": "True Home, True World (Rework)",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/True Home, True World (Rework)-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/True Home, True World (Rework)-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/True Home, True World (Rework)-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/True Home, True World (Rework)-IN.png"
+      },
+      "songId": "e106a875-733d-5ddd-9bfb-03352b302607",
+      "providerId": "TrueHomeTrueWorldRework.816ThreeNumbers",
+      "title": "True Home, True World (Rework)",
+      "composer": "816ThreeNumbers",
+      "variant": "default",
+      "aliases": [
+        "True Home, True World (Rework)",
+        "thtw",
+        "世家"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/True Home, True World (Rework).png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：816ThreeNumbers",
+        "标准曲名包含 26 个非空白字符。"
+      ],
+      "illustrator": "PEZZ"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/What do you want more than a Happy ending？-AT",
+      "sourceTitle": "What do you want more than a Happy ending？-AT",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/What do you want more than a Happy ending？-AT-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-AT-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/What do you want more than a Happy ending？-AT-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/What do you want more than a Happy ending？-AT-IN.png"
+      },
+      "songId": "a8dd3fba-ad2d-5d7c-aec0-a8db1a595f24",
+      "providerId": "WhatdoyouwantmorethanaHappyending.Apo11oHALOprogramft安月名莉子大瀬良あい",
+      "title": "What do you want more than a Happy ending?",
+      "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+      "variant": "illustration-at",
+      "aliases": [
+        "What do you want more than a Happy ending？-AT",
+        "What do you want more than a Happy ending?",
+        "好结局",
+        "快乐结局",
+        "完美结局",
+        "完结撒花",
+        "谢幕曲",
+        "终点列车",
+        "主线尾声",
+        "happy ending",
+        "现实",
+        "HE",
+        "What do you want more than a Happy ending？-EZ",
+        "What do you want more than a Happy ending？-HD",
+        "What do you want more than a Happy ending？-IN"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-AT.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+        "标准曲名包含 34 个非空白字符。"
+      ],
+      "illustrator": "Amor fati"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/What do you want more than a Happy ending？-EZ",
+      "sourceTitle": "What do you want more than a Happy ending？-EZ",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/What do you want more than a Happy ending？-EZ-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-EZ-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/What do you want more than a Happy ending？-EZ-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/What do you want more than a Happy ending？-EZ-IN.png"
+      },
+      "songId": "a8dd3fba-ad2d-5d7c-aec0-a8db1a595f24",
+      "providerId": "WhatdoyouwantmorethanaHappyending.Apo11oHALOprogramft安月名莉子大瀬良あい",
+      "title": "What do you want more than a Happy ending?",
+      "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+      "variant": "illustration-ez",
+      "aliases": [
+        "What do you want more than a Happy ending？-AT",
+        "What do you want more than a Happy ending?",
+        "好结局",
+        "快乐结局",
+        "完美结局",
+        "完结撒花",
+        "谢幕曲",
+        "终点列车",
+        "主线尾声",
+        "happy ending",
+        "现实",
+        "HE",
+        "What do you want more than a Happy ending？-EZ",
+        "What do you want more than a Happy ending？-HD",
+        "What do you want more than a Happy ending？-IN"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-EZ.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+        "标准曲名包含 34 个非空白字符。"
+      ],
+      "illustrator": "Amor fati"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/What do you want more than a Happy ending？-HD",
+      "sourceTitle": "What do you want more than a Happy ending？-HD",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/What do you want more than a Happy ending？-HD-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-HD-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/What do you want more than a Happy ending？-HD-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/What do you want more than a Happy ending？-HD-IN.png"
+      },
+      "songId": "a8dd3fba-ad2d-5d7c-aec0-a8db1a595f24",
+      "providerId": "WhatdoyouwantmorethanaHappyending.Apo11oHALOprogramft安月名莉子大瀬良あい",
+      "title": "What do you want more than a Happy ending?",
+      "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+      "variant": "illustration-hd",
+      "aliases": [
+        "What do you want more than a Happy ending？-AT",
+        "What do you want more than a Happy ending?",
+        "好结局",
+        "快乐结局",
+        "完美结局",
+        "完结撒花",
+        "谢幕曲",
+        "终点列车",
+        "主线尾声",
+        "happy ending",
+        "现实",
+        "HE",
+        "What do you want more than a Happy ending？-EZ",
+        "What do you want more than a Happy ending？-HD",
+        "What do you want more than a Happy ending？-IN"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-HD.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+        "标准曲名包含 34 个非空白字符。"
+      ],
+      "illustrator": "Amor fati"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/What do you want more than a Happy ending？-IN",
+      "sourceTitle": "What do you want more than a Happy ending？-IN",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/What do you want more than a Happy ending？-IN-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-IN-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/What do you want more than a Happy ending？-IN-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/What do you want more than a Happy ending？-IN-IN.png"
+      },
+      "songId": "a8dd3fba-ad2d-5d7c-aec0-a8db1a595f24",
+      "providerId": "WhatdoyouwantmorethanaHappyending.Apo11oHALOprogramft安月名莉子大瀬良あい",
+      "title": "What do you want more than a Happy ending?",
+      "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+      "variant": "illustration-in",
+      "aliases": [
+        "What do you want more than a Happy ending？-AT",
+        "What do you want more than a Happy ending?",
+        "好结局",
+        "快乐结局",
+        "完美结局",
+        "完结撒花",
+        "谢幕曲",
+        "终点列车",
+        "主线尾声",
+        "happy ending",
+        "现实",
+        "HE",
+        "What do you want more than a Happy ending？-EZ",
+        "What do you want more than a Happy ending？-HD",
+        "What do you want more than a Happy ending？-IN"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-IN.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+        "标准曲名包含 34 个非空白字符。"
+      ],
+      "illustrator": "Amor fati"
+    },
+    {
+      "key": "09 穹顶孤舟/Part2/ハテ",
+      "sourceTitle": "ハテ",
+      "chapter": "09 穹顶孤舟/Part2",
+      "assets": {
+        "at": "09 穹顶孤舟/Part2/AT/ハテ-AT.png",
+        "ez": "09 穹顶孤舟/Part2/EZ/ハテ-EZ.png",
+        "hd": "09 穹顶孤舟/Part2/HD/ハテ-HD.png",
+        "in": "09 穹顶孤舟/Part2/IN/ハテ-IN.png"
+      },
+      "songId": "98583e9d-e76d-589c-9cb5-517a8b7019c1",
+      "providerId": "ハテ.rNFrums",
+      "title": "ハテ",
+      "composer": "rN || Frums",
+      "variant": "default",
+      "aliases": [
+        "ハテ",
+        "八亏",
+        "八元",
+        "八块钱",
+        "八铁",
+        "八亍",
+        "八干",
+        "八千",
+        "8000",
+        "八杆",
+        "bug",
+        "八行",
+        "八于",
+        "八爷",
+        "果て",
+        "尽头",
+        "末路",
+        "hate",
+        "恨",
+        "憎恶",
+        "讨厌",
+        "哈特"
+      ],
+      "original": "Raw/09 穹顶孤舟/Part2/ハテ.png",
+      "hints": [
+        "所属章节：穹顶孤舟 · Part2",
+        "曲师：rN || Frums",
+        "标准曲名包含 2 个非空白字符。"
+      ],
+      "illustrator": "宙風みけ || rN"
+    }
+  ]
+}

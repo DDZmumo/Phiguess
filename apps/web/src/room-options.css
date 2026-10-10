@@ -1,0 +1,8 @@
+.room-option-summary{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0}
+.room-option-summary label{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.room-option-summary select{min-width:95px;padding:7px 12px;background:#080b10;color:#eee;border:0;border-bottom:1px solid #ffffff65;font:inherit}
+.room-option-summary select:disabled{opacity:.65;cursor:default}
+.room-option-summary small{font-size:12px;color:#aab4bf;line-height:1.4}
+@media(max-aspect-ratio:1/1){.room-option-summary small{flex-basis:100%;font-size:16px}.room-option-summary{gap:10px 18px}}
+
+.room-option-summary{flex-wrap:wrap;gap:14px}.room-option-summary label{gap:8px}.room-option-summary input[type=checkbox]{accent-color:#eff7e7;width:18px;height:18px}

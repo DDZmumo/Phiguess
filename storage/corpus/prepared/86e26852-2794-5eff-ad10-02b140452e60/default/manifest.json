@@ -1,0 +1,42 @@
+{
+  "songId": "86e26852-2794-5eff-ad10-02b140452e60",
+  "title": "Entrance to the Chaos",
+  "aliases": [
+    "Entrance to the Chaos",
+    "混沌入口",
+    "馄饨入口",
+    "混沌之门",
+    "混沌之扉",
+    "混的入",
+    "超市入口",
+    "穹顶吉诺",
+    "gino伸手",
+    "gino魔王",
+    "chaos",
+    "toChaos",
+    "ettc",
+    "ETC",
+    "Ftom",
+    "进入超市",
+    "吉诺超市",
+    "超市"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part1",
+    "曲师：打打だいず vs. siromaru",
+    "标准曲名包含 18 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part1",
+  "composer": "打打だいず vs. siromaru",
+  "illustrator": "群青kurara",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

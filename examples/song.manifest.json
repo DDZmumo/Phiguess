@@ -1,0 +1,11 @@
+{
+  "songId": "cbfb1d63-c807-4bf4-a197-a181bccad45b",
+  "title": "替换为真实歌曲名",
+  "aliases": ["替换为歌曲别名"],
+  "version": "v1",
+  "hints": ["替换为第一条线索", "替换为第二条线索", "替换为第三条线索"],
+  "chapter": 1,
+  "chapterName": "冰封世界",
+  "composer": "替换为曲师名",
+  "assets": {"ez":"./ez.png","hd":"./hd.svg","in":"./in.svg","at":"./at.svg"}
+}

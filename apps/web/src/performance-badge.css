@@ -1,0 +1,8 @@
+.performance-badge{--badge-edge:#ff7900;--badge-fill:rgba(185,67,27,.42);--badge-glow:rgba(255,93,0,.24);border-left:5px solid var(--badge-edge);border-right:5px solid var(--badge-edge);background:var(--badge-fill);box-shadow:0 0 12px var(--badge-glow)}
+.performance-badge[data-grade=green]{--badge-edge:#58ff00;--badge-fill:rgba(68,140,33,.45);--badge-glow:rgba(64,255,0,.10)}
+.performance-badge[data-grade=blue]{--badge-edge:#00f2f4;--badge-fill:rgba(41,132,164,.42);--badge-glow:rgba(0,223,255,.13)}
+.performance-badge[data-grade=red]{--badge-glow:rgba(255,83,19,.48);box-shadow:0 0 8px 1px #ff791f60,0 0 20px 4px var(--badge-glow)}
+.performance-badge[data-grade=gold]{--badge-edge:#ffff00;--badge-fill:rgba(184,182,0,.55);--badge-glow:rgba(245,255,0,.55);box-shadow:0 0 18px 5px var(--badge-glow)}
+.performance-badge[data-grade=rainbow]{border-left-color:#00d9ff;border-right-color:#ff525c;background:linear-gradient(90deg,#168aaf99,#6bba3b99 45%,#ce604a99);box-shadow:none;isolation:isolate}
+.performance-badge[data-grade=rainbow]::before{content:"";position:absolute;inset:-4px -7px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#00cfffcc 0%,#00cfff99 17%,#55e94b99 42%,#c4e74799 58%,#ff5369bb 83%,#ff5369dd 100%);filter:blur(12px);opacity:.8}
+.performance-badge[data-grade=none]{--badge-edge:#8d97a6;--badge-fill:rgba(93,108,128,.2);--badge-glow:transparent}

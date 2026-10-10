@@ -1,0 +1,29 @@
+{
+  "songId": "69e778b0-f620-58a4-be5c-b7ff5660b40e",
+  "title": "重生",
+  "aliases": [
+    "重生",
+    "白重生",
+    "重生鸠",
+    "中文重生",
+    "重生姜米條"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：方舟蜃景",
+    "曲师：姜米條",
+    "标准曲名包含 2 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/06 方舟蜃景/重生.png",
+  "chapter": 6,
+  "chapterName": "方舟蜃景",
+  "composer": "姜米條",
+  "illustrator": "昔璃&TNiK",
+  "assets": {
+    "ez": "../../../source/06 方舟蜃景/EZ/重生-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

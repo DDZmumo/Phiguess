@@ -1,0 +1,32 @@
+{
+  "songId": "67889350-ef58-5e97-8386-10791b23cbdf",
+  "title": "Glaciaxion",
+  "aliases": [
+    "Glaciaxion",
+    "冰封世界",
+    "冰川",
+    "梦启地",
+    "梦开始的地方",
+    "骷髅堆",
+    "冰封",
+    "Glacier"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：冰封世界",
+    "曲师：SunsetRay",
+    "标准曲名包含 10 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/01 冰封世界/Glaciaxion.png",
+  "chapter": 1,
+  "chapterName": "冰封世界",
+  "composer": "SunsetRay",
+  "illustrator": "艾若拉",
+  "assets": {
+    "ez": "../../../source/01 冰封世界/EZ/Glaciaxion-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

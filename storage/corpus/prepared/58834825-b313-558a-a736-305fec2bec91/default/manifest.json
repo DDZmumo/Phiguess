@@ -1,0 +1,35 @@
+{
+  "songId": "58834825-b313-558a-a736-305fec2bec91",
+  "title": "Chronos Collapse - La Campanella",
+  "aliases": [
+    "Chronos Collapse - La Campanella",
+    "时崩",
+    "时溃",
+    "钟",
+    "李斯特的钟",
+    "李斯特",
+    "时间崩塌",
+    "时空坍塌",
+    "破钟",
+    "cclc",
+    "La Campanella"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：时钟链接",
+    "曲师：SunsetRay",
+    "标准曲名包含 28 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/07 时钟链接/Chronos Collapse - La Campanella.png",
+  "chapter": 7,
+  "chapterName": "时钟链接",
+  "composer": "SunsetRay",
+  "illustrator": "老张",
+  "assets": {
+    "ez": "../../../source/07 时钟链接/EZ/Chronos Collapse - La Campanella-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

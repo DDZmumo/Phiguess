@@ -1,0 +1,30 @@
+{
+  "songId": "2a37ef65-2472-572e-91b4-399f0e9a4911",
+  "title": "FULi AUTO SHOOTER",
+  "aliases": [
+    "FULi AUTO SHOOTER",
+    "福利自动射",
+    "FAS",
+    "SHOOTER",
+    "自动福利射",
+    "福利凹凸射"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：废土之下",
+    "曲师：MYUKKE.",
+    "标准曲名包含 15 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/02 废土之下/FULi AUTO SHOOTER.png",
+  "chapter": 2,
+  "chapterName": "废土之下",
+  "composer": "MYUKKE.",
+  "illustrator": "ViscerA & Psycholine",
+  "assets": {
+    "ez": "../../../source/02 废土之下/EZ/FULi AUTO SHOOTER-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

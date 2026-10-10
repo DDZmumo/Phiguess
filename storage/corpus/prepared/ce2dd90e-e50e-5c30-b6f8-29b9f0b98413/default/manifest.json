@@ -1,0 +1,42 @@
+{
+  "songId": "ce2dd90e-e50e-5c30-b6f8-29b9f0b98413",
+  "title": "Rrhar'il",
+  "aliases": [
+    "Rrhar'il",
+    "rr",
+    "穿越时空的猎犬",
+    "猎犬",
+    "二哈",
+    "弭儿",
+    "啊啊",
+    "猫娘",
+    "时间猫娘",
+    "犬娘",
+    "RRAT",
+    "啊啊挨踢",
+    "老师我作业没写",
+    "老师我没写作业",
+    "老师我的作业怎么在发光",
+    "老师我的作业被烧了",
+    "妈妈快看我的作业会发光",
+    "我的作业会发光"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：时钟链接",
+    "曲师：Team Grimoire",
+    "标准曲名包含 8 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/07 时钟链接/Rrhar'il.png",
+  "chapter": 7,
+  "chapterName": "时钟链接",
+  "composer": "Team Grimoire",
+  "illustrator": "犀牛坨动画工坊",
+  "assets": {
+    "ez": "../../../source/07 时钟链接/EZ/Rrhar'il-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

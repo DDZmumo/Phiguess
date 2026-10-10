@@ -1,0 +1,20 @@
+# Map external NAT TCP port to host HTTP_PORT (container port 80).
+# Certificate must match the domain; obtain/renew using DNS validation externally.
+{
+    auto_https off
+}
+https://:80 {
+    tls /certs/fullchain.pem /certs/privkey.pem
+    encode zstd gzip
+    @backend path /api/* /socket.io/*
+    handle @backend {
+        reverse_proxy api:3000 {
+            header_up X-Forwarded-For {remote_host}
+        }
+    }
+    handle {
+        root * /srv/site
+        try_files {path} /index.html
+        file_server
+    }
+}

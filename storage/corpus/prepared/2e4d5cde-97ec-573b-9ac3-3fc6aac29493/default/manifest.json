@@ -1,0 +1,30 @@
+{
+  "songId": "2e4d5cde-97ec-573b-9ac3-3fc6aac29493",
+  "title": "Dlyrotz",
+  "aliases": [
+    "Dlyrotz",
+    "逃离",
+    "德利",
+    "得力",
+    "队长",
+    "dlyro"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：冰封世界",
+    "曲师：Likey",
+    "标准曲名包含 7 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/01 冰封世界/Dlyrotz.png",
+  "chapter": 1,
+  "chapterName": "冰封世界",
+  "composer": "Likey",
+  "illustrator": "DoublePian",
+  "assets": {
+    "ez": "../../../source/01 冰封世界/EZ/Dlyrotz-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

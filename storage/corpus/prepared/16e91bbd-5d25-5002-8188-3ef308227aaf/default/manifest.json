@@ -1,0 +1,31 @@
+{
+  "songId": "16e91bbd-5d25-5002-8188-3ef308227aaf",
+  "title": "cryout",
+  "aliases": [
+    "cryout",
+    "哭出来",
+    "哭出去",
+    "出去哭",
+    "呐喊",
+    "哭",
+    "蒲公英"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：Ju_E",
+    "标准曲名包含 6 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/cryout.png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "Ju_E",
+  "illustrator": "Haight",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/cryout-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

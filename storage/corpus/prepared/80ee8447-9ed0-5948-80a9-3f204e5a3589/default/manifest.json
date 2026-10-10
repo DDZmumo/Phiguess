@@ -1,0 +1,27 @@
+{
+  "songId": "80ee8447-9ed0-5948-80a9-3f204e5a3589",
+  "title": "Implexrough",
+  "aliases": [
+    "Implexrough",
+    "Implex",
+    "强硬交织"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part1",
+    "曲师：Silentroom × mommy",
+    "标准曲名包含 11 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Implexrough.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part1",
+  "composer": "Silentroom × mommy",
+  "illustrator": "Nate",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Implexrough-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,19 @@
+@font-face{
+  font-family:Aldrich;
+  src:url('/fonts/Aldrich-Regular.ttf') format('truetype');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+.title-enter strong{
+  font-family:Aldrich,sans-serif;
+  font-weight:400;
+  font-size:76px;
+  letter-spacing:-3px;
+  line-height:1.12;
+  color:#f7ffff;
+  text-shadow:0 0 12px #00b5d280,0 0 25px #008bad66;
+}
+@media(max-aspect-ratio:1/1){
+  .title-enter strong{font-size:96px}
+}

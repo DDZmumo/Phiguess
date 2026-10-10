@@ -1,0 +1,28 @@
+{
+  "songId": "2185c469-862d-5d5a-9195-70fda81edded",
+  "title": "Reimei",
+  "aliases": [
+    "Reimei",
+    "黎明",
+    "reimei",
+    "影虎"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：影虎。",
+    "标准曲名包含 6 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/Reimei.png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "影虎。",
+  "illustrator": "英英英",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/Reimei-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

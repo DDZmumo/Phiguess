@@ -1,0 +1,46 @@
+{
+  "songId": "98583e9d-e76d-589c-9cb5-517a8b7019c1",
+  "title": "ハテ",
+  "aliases": [
+    "ハテ",
+    "八亏",
+    "八元",
+    "八块钱",
+    "八铁",
+    "八亍",
+    "八干",
+    "八千",
+    "8000",
+    "八杆",
+    "bug",
+    "八行",
+    "八于",
+    "八爷",
+    "果て",
+    "尽头",
+    "末路",
+    "hate",
+    "恨",
+    "憎恶",
+    "讨厌",
+    "哈特"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：穹顶孤舟 · Part2",
+    "曲师：rN || Frums",
+    "标准曲名包含 2 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/ハテ.png",
+  "chapter": 9,
+  "chapterName": "穹顶孤舟/Part2",
+  "composer": "rN || Frums",
+  "illustrator": "宙風みけ || rN",
+  "assets": {
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/ハテ-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

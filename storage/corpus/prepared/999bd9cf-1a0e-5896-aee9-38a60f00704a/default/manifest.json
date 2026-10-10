@@ -1,0 +1,32 @@
+{
+  "songId": "999bd9cf-1a0e-5896-aee9-38a60f00704a",
+  "title": "Luminescence",
+  "aliases": [
+    "Luminescence",
+    "荧冷焰光",
+    "烟花",
+    "冷光",
+    "流光",
+    "大冷光",
+    "烟火",
+    "冷光ce"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：凌日潮汐",
+    "曲师：米虾Fomiki & 初云CLoudie",
+    "标准曲名包含 12 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/08 凌日潮汐/Luminescence.png",
+  "chapter": 8,
+  "chapterName": "凌日潮汐",
+  "composer": "米虾Fomiki & 初云CLoudie",
+  "illustrator": "子狼",
+  "assets": {
+    "ez": "../../../source/08 凌日潮汐/EZ/Luminescence-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "songId": "bcd5d340-4ef8-5d01-bc02-c8230354a352",
+  "title": "Spasmodic",
+  "aliases": [
+    "Spasmodic",
+    "癫痫",
+    "小姐姐",
+    "久住",
+    "痉挛",
+    "大哥上楼梯",
+    "异瞳粉毛双马尾",
+    "粉毛异瞳",
+    "异瞳粉毛",
+    "异瞳双马尾",
+    "粉毛异瞳双马尾",
+    "粉毛小孩",
+    "spas"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：霓虹灯牌",
+    "曲师：姜米條☆颶風 ~ ♫元力上人♫",
+    "标准曲名包含 9 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/05 霓虹灯牌/Spasmodic.png",
+  "chapter": 5,
+  "chapterName": "霓虹灯牌",
+  "composer": "姜米條☆颶風 ~ ♫元力上人♫",
+  "illustrator": "昔璃☆暴雨 ~ ♫危難聖帝♫",
+  "assets": {
+    "ez": "../../../source/05 霓虹灯牌/EZ/Spasmodic-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

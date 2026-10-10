@@ -1,0 +1,23 @@
+.game-screen .song-input{position:relative}
+.game-screen .song-input.has-answer-notice input{padding-right:142px}
+.input-answer-notice{--notice-color:#ffd46d;--sweep-duration:.48s;--sweep-ease:cubic-bezier(.77,0,.175,1);position:absolute;inset:0;display:block;color:var(--notice-color);pointer-events:none;overflow:hidden;font-size:18px;line-height:1;animation:answer-notice-life 1.65s linear both}
+.input-answer-notice.good{--notice-color:#74d8ff}
+.input-answer-notice.bad{--notice-color:#ff7180}
+.input-answer-notice.miss{--notice-color:#b8bec6}
+.input-answer-notice.persistent{animation:none}
+.input-answer-reveal{position:absolute;inset:0;animation:answer-notice-reveal var(--sweep-duration) var(--sweep-ease) both}
+.input-answer-reveal::before{content:"";position:absolute;inset:0;background:var(--notice-color);opacity:.28;animation:answer-notice-tint .7s ease-out var(--sweep-duration) both}
+.input-answer-notice.persistent .input-answer-reveal::before{animation:none}
+.input-answer-letters{position:absolute;right:14px;top:0;width:116px;height:100%;display:flex;align-items:center;justify-content:center;font-weight:600;letter-spacing:1.5px;transform:skewX(var(--counter-angle,15deg))}
+.input-answer-sweep{position:absolute;inset:0;animation:answer-notice-sweep var(--sweep-duration) var(--sweep-ease) both}
+.input-answer-sweep::after{content:"";position:absolute;right:0;top:0;height:100%;width:64px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--notice-color) 8%,transparent) 35%,color-mix(in srgb,var(--notice-color) 38%,transparent));border-right:2px solid var(--notice-color)}
+@keyframes answer-notice-sweep{0%{transform:translateX(-100%);opacity:1}90%{opacity:1}100%{transform:translateX(0);opacity:0}}
+@keyframes answer-notice-reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes answer-notice-tint{from{opacity:.28}to{opacity:0}}
+@keyframes answer-notice-life{0%,73%{opacity:1}100%{opacity:0}}
+.reduced-motion .input-answer-sweep{display:none}
+.reduced-motion .input-answer-reveal{animation:none;clip-path:none}
+.reduced-motion .input-answer-reveal::before{animation-delay:0s}
+@media(prefers-reduced-motion:reduce){.input-answer-sweep{display:none}.input-answer-reveal{animation:none;clip-path:none}}
+@media(prefers-reduced-motion:reduce){.input-answer-reveal::before{animation-delay:0s}}
+@media(max-aspect-ratio:1/1){.input-answer-notice{font-size:22px}}

@@ -1,0 +1,575 @@
+[
+  {
+    "songId": "c3a9f1da-3e9e-51d7-b203-af02ff0e2f9b",
+    "providerId": "Credits.Frums",
+    "title": "Credits",
+    "composer": "Frums",
+    "sourceTitles": [
+      "Credits"
+    ],
+    "illustrator": "Ctymax"
+  },
+  {
+    "songId": "2e4d5cde-97ec-573b-9ac3-3fc6aac29493",
+    "providerId": "Dlyrotz.Likey",
+    "title": "Dlyrotz",
+    "composer": "Likey",
+    "sourceTitles": [
+      "Dlyrotz"
+    ],
+    "illustrator": "DoublePian"
+  },
+  {
+    "songId": "5c6db8c2-01e7-5bbc-91cf-aecd460ce86c",
+    "providerId": "EnginexStartmelodymix.CrossingSound",
+    "title": "Engine x Start!! (melody mix)",
+    "composer": "CrossingSound",
+    "sourceTitles": [
+      "Engine x Start!! (melody mix)"
+    ],
+    "illustrator": "赤芽"
+  },
+  {
+    "songId": "f2acaacb-af25-53cd-be6c-f5d6bbcf783b",
+    "providerId": "EradicationCatastrophe.NceS",
+    "title": "Eradication Catastrophe",
+    "composer": "NceS",
+    "sourceTitles": [
+      "Eradication Catastrophe"
+    ],
+    "illustrator": "海产"
+  },
+  {
+    "songId": "67889350-ef58-5e97-8386-10791b23cbdf",
+    "providerId": "Glaciaxion.SunsetRay",
+    "title": "Glaciaxion",
+    "composer": "SunsetRay",
+    "sourceTitles": [
+      "Glaciaxion"
+    ],
+    "illustrator": "艾若拉"
+  },
+  {
+    "songId": "9bda042f-1a4e-57c1-9243-8631d43455c1",
+    "providerId": "Cipher20.TetrajectoryfeatCtymax",
+    "title": "Cipher : /2&//<|0",
+    "composer": "Tetrajectory feat. Ctymax",
+    "sourceTitles": [
+      "Cipher： ／2&／／＜｜0"
+    ],
+    "illustrator": "IvyTowers"
+  },
+  {
+    "songId": "2a37ef65-2472-572e-91b4-399f0e9a4911",
+    "providerId": "FULiAUTOSHOOTER.MYUKKE",
+    "title": "FULi AUTO SHOOTER",
+    "composer": "MYUKKE.",
+    "sourceTitles": [
+      "FULi AUTO SHOOTER"
+    ],
+    "illustrator": "ViscerA & Psycholine"
+  },
+  {
+    "songId": "e0d2d3db-c43b-5f19-b889-8d7b40db1ee5",
+    "providerId": "Wintercube.CtymaxfeatNceS",
+    "title": "Winter ↑cube↓",
+    "composer": "Ctymax feat. NceS",
+    "sourceTitles": [
+      "Winter ↑cube↓"
+    ],
+    "illustrator": "翠冷兮"
+  },
+  {
+    "songId": "cf15bab7-b84a-585c-aa8a-e24ed77a2264",
+    "providerId": "光.姜米條",
+    "title": "光",
+    "composer": "姜米條",
+    "sourceTitles": [
+      "光"
+    ],
+    "illustrator": "winder"
+  },
+  {
+    "songId": "b86738a8-a7ad-5964-959a-3a170ffdba30",
+    "providerId": "混乱Confusion.OnlyMyBlackScore",
+    "title": "混乱-Confusion",
+    "composer": "Only My Black Score",
+    "sourceTitles": [
+      "混乱-Confusion"
+    ],
+    "illustrator": "L-sp4"
+  },
+  {
+    "songId": "96ee01a1-3ba1-5070-ae7b-dd1ac4fefb2b",
+    "providerId": "Cereris.SunsetRayNceS",
+    "title": "Cereris",
+    "composer": "SunsetRay/NceS",
+    "sourceTitles": [
+      "Cereris"
+    ],
+    "illustrator": "IvyTowers"
+  },
+  {
+    "songId": "89f97828-48d0-5b9f-9ffa-40f27ce9bd79",
+    "providerId": "HumaN.SOTUI",
+    "title": "HumaN",
+    "composer": "SOTUI",
+    "sourceTitles": [
+      "HumaN"
+    ],
+    "illustrator": "CH"
+  },
+  {
+    "songId": "7a811fe0-7d82-56ab-9bcf-034c84becfa1",
+    "providerId": "NonMelodicRagezMUGEdit.Normal1zer",
+    "title": "Non-Melodic Ragez (MUG Edit)",
+    "composer": "Normal1zer",
+    "sourceTitles": [
+      "Non-Melodic Ragez (MUG Edit)"
+    ],
+    "illustrator": "cycats"
+  },
+  {
+    "songId": "1205ee66-8815-5f3a-9523-4d2daf356e03",
+    "providerId": "PixelRebelz.Normal1zer",
+    "title": "Pixel Rebelz",
+    "composer": "Normal1zer",
+    "sourceTitles": [
+      "Pixel Rebelz"
+    ],
+    "illustrator": "艾是Abby"
+  },
+  {
+    "songId": "509f7d45-d1e3-5c0f-8a12-a416470bc88b",
+    "providerId": "PRAW.Bluewind",
+    "title": "[PRAW]",
+    "composer": "Bluewind",
+    "sourceTitles": [
+      "[PRAW]"
+    ],
+    "illustrator": "老张"
+  },
+  {
+    "songId": "5058c450-5ecd-5ab4-87ef-b561ca697dd2",
+    "providerId": "SURREALISM.Itsuki",
+    "title": "-SURREALISM-",
+    "composer": "Itsuki",
+    "sourceTitles": [
+      "-SURREALISM-"
+    ],
+    "illustrator": "喵n葵"
+  },
+  {
+    "songId": "e7e1dd50-e2aa-5ee1-8cd4-4935aca5d4f6",
+    "providerId": "BonusTime.MegaloPaleWhite",
+    "title": "Bonus Time",
+    "composer": "Megalo_PaleWhite",
+    "sourceTitles": [
+      "Bonus Time"
+    ],
+    "illustrator": "笔记RE"
+  },
+  {
+    "songId": "ac098810-65a2-562b-a8ae-39ea786c8821",
+    "providerId": "ClassMemories.AntistarfeatCtymax",
+    "title": "Class Memories",
+    "composer": "Antistar feat. Ctymax",
+    "sourceTitles": [
+      "Class Memories"
+    ],
+    "illustrator": "xperz"
+  },
+  {
+    "songId": "c40f0b4b-50bb-50a3-981f-d11c01e306cb",
+    "providerId": "ENERGYSYNERGYMATRIX.Tanchiky",
+    "title": "ENERGY SYNERGY MATRIX",
+    "composer": "Tanchiky",
+    "sourceTitles": [
+      "ENERGY SYNERGY MATRIX"
+    ],
+    "illustrator": "Karameru"
+  },
+  {
+    "songId": "ef2d1659-ac27-5fef-9963-f985afdb8a9f",
+    "providerId": "SultanRage.MonstDeath",
+    "title": "Sultan Rage",
+    "composer": "MonstDeath",
+    "sourceTitles": [
+      "Sultan Rage"
+    ],
+    "illustrator": "笔记RE"
+  },
+  {
+    "songId": "a32b7ec4-2ce3-52ee-8fb8-416839bdc2ab",
+    "providerId": "JunXionBetweenLifeAndDeathVIPMix.1N6Fs",
+    "title": "JunXion Between Life And Death(VIP Mix)",
+    "composer": "1N6Fs",
+    "sourceTitles": [
+      "JunXion Between Life And Death(VIP Mix)"
+    ],
+    "illustrator": "IvyTowers"
+  },
+  {
+    "songId": "bf505cdd-e0cc-5cf6-b849-d7556cf72cbb",
+    "providerId": "LeaveAllBehind.rider",
+    "title": "Leave All Behind",
+    "composer": "rider",
+    "sourceTitles": [
+      "Leave All Behind"
+    ],
+    "illustrator": "笔记RE"
+  },
+  {
+    "songId": "4343dc8b-a31a-5f1f-9d3d-7a65b2115ca9",
+    "providerId": "NYA.FLuoRiTe姜米條",
+    "title": "NYA!!! (Phigros ver.)",
+    "composer": "FLuoRiTe/姜米條",
+    "sourceTitles": [
+      "NYA!!!(Phigros ver.)"
+    ],
+    "illustrator": "NEKO&海产"
+  },
+  {
+    "songId": "2185c469-862d-5d5a-9195-70fda81edded",
+    "providerId": "Reimei.影虎",
+    "title": "Reimei",
+    "composer": "影虎。",
+    "sourceTitles": [
+      "Reimei"
+    ],
+    "illustrator": "英英英"
+  },
+  {
+    "songId": "bcd5d340-4ef8-5d01-bc02-c8230354a352",
+    "providerId": "Spasmodic.姜米條颶風元力上人",
+    "title": "Spasmodic",
+    "composer": "姜米條☆颶風 ~ ♫元力上人♫",
+    "sourceTitles": [
+      "Spasmodic"
+    ],
+    "illustrator": "昔璃☆暴雨 ~ ♫危難聖帝♫"
+  },
+  {
+    "songId": "16e91bbd-5d25-5002-8188-3ef308227aaf",
+    "providerId": "cryout.JuE",
+    "title": "cryout",
+    "composer": "Ju_E",
+    "sourceTitles": [
+      "cryout"
+    ],
+    "illustrator": "Haight"
+  },
+  {
+    "songId": "02883c95-fdbb-56d8-a3ab-5211ba861158",
+    "providerId": "尊師TheGuru.rider",
+    "title": "尊師 ～The Guru～",
+    "composer": "rider",
+    "sourceTitles": [
+      "尊師 ～The Guru～"
+    ],
+    "illustrator": "1B"
+  },
+  {
+    "songId": "3ad46496-b577-538c-8aed-d47c226fc5aa",
+    "providerId": "ColorfulDays.P4koofeatつゆり花鈴",
+    "title": "Colorful Days♪",
+    "composer": "P4koo feat. つゆり花鈴",
+    "sourceTitles": [
+      "Colorful Days♪"
+    ],
+    "illustrator": "Doro-nyong & Ratif"
+  },
+  {
+    "songId": "7f43da63-7591-55fc-9ff0-c8a88f5e6dfe",
+    "providerId": "Igallta.SeURa",
+    "title": "Igallta",
+    "composer": "Se-U-Ra",
+    "sourceTitles": [
+      "Igallta"
+    ],
+    "illustrator": "Se-U-Ra"
+  },
+  {
+    "songId": "ab9533ed-1b49-5401-8df0-ab7c09959668",
+    "providerId": "NOONEYESMAN.MYUKKE",
+    "title": "NO ONE YES MAN",
+    "composer": "MYUKKE.",
+    "sourceTitles": [
+      "NO ONE YES MAN"
+    ],
+    "illustrator": "青鸟"
+  },
+  {
+    "songId": "276112f5-4b1b-577a-8ba2-7803c8ce968a",
+    "providerId": "microwav.dandeless",
+    "title": "micro.wav",
+    "composer": "dandeless",
+    "sourceTitles": [
+      "micro.wav"
+    ],
+    "illustrator": "snake.ribs"
+  },
+  {
+    "songId": "f2a2d718-75b4-5226-a037-f4fe45811abc",
+    "providerId": "望影の方舟Six.SeURa",
+    "title": "望影の方舟Six",
+    "composer": "Se-U-Ra",
+    "sourceTitles": [
+      "望影の方舟Six"
+    ],
+    "illustrator": "鲸弑"
+  },
+  {
+    "songId": "69e778b0-f620-58a4-be5c-b7ff5660b40e",
+    "providerId": "重生.姜米條",
+    "title": "重生",
+    "composer": "姜米條",
+    "sourceTitles": [
+      "重生"
+    ],
+    "illustrator": "昔璃&TNiK"
+  },
+  {
+    "songId": "a1ef4f62-8bcc-543c-b688-49399ffb3ba0",
+    "providerId": "Chronologika.Hundotte",
+    "title": "Chronologika",
+    "composer": "Hundotte",
+    "sourceTitles": [
+      "Chronologika"
+    ],
+    "illustrator": "幽灵星"
+  },
+  {
+    "songId": "c62ee6f7-f0d0-511f-a45f-fe58e15b4381",
+    "providerId": "Chronomia.Lime",
+    "title": "Chronomia",
+    "composer": "Lime",
+    "sourceTitles": [
+      "Chronomia"
+    ],
+    "illustrator": "inukoro"
+  },
+  {
+    "songId": "58834825-b313-558a-a736-305fec2bec91",
+    "providerId": "ChronosCollapseLaCampanella.SunsetRay",
+    "title": "Chronos Collapse - La Campanella",
+    "composer": "SunsetRay",
+    "sourceTitles": [
+      "Chronos Collapse - La Campanella"
+    ],
+    "illustrator": "老张"
+  },
+  {
+    "songId": "242e2aac-2b02-585f-9cbf-dbfd0e8a5a8b",
+    "providerId": "ClockParadox.WyvernP",
+    "title": "Clock Paradox",
+    "composer": "WyvernP",
+    "sourceTitles": [
+      "Clock Paradox"
+    ],
+    "illustrator": "汉堡"
+  },
+  {
+    "songId": "3efc38cb-a30d-540c-adbd-9826e3cdf4f4",
+    "providerId": "NickofTime.P4koo",
+    "title": "Nick of Time",
+    "composer": "P4koo",
+    "sourceTitles": [
+      "Nick of Time"
+    ],
+    "illustrator": "青鸟"
+  },
+  {
+    "songId": "ce2dd90e-e50e-5c30-b6f8-29b9f0b98413",
+    "providerId": "Rrharil.TeamGrimoire",
+    "title": "Rrhar'il",
+    "composer": "Team Grimoire",
+    "sourceTitles": [
+      "Rrhar'il"
+    ],
+    "illustrator": "犀牛坨动画工坊"
+  },
+  {
+    "songId": "37ae51eb-1bf3-5d2f-a935-04705f1979f9",
+    "providerId": "CraveWave.LandRoot",
+    "title": "Crave Wave",
+    "composer": "LandRoot",
+    "sourceTitles": [
+      "Crave Wave"
+    ],
+    "illustrator": "笔记RE"
+  },
+  {
+    "songId": "38f5bd7e-1a2a-5ecc-ad3b-d8eebecfd5d8",
+    "providerId": "DESTRUCTION321.Normal1zervsBrokenNerdz",
+    "title": "DESTRUCTION 3,2,1",
+    "composer": "Normal1zer vs. Broken Nerdz",
+    "sourceTitles": [
+      "DESTRUCTION 3,2,1"
+    ],
+    "illustrator": "rN"
+  },
+  {
+    "songId": "a12b593e-549e-5834-b431-e3e9e003e0b6",
+    "providerId": "DistortedFate.Sakuzyo",
+    "title": "Distorted Fate",
+    "composer": "Sakuzyo",
+    "sourceTitles": [
+      "Distorted Fate"
+    ],
+    "illustrator": "knife美工刀"
+  },
+  {
+    "songId": "999bd9cf-1a0e-5896-aee9-38a60f00704a",
+    "providerId": "Luminescence.米虾Fomiki初云CLoudie",
+    "title": "Luminescence",
+    "composer": "米虾Fomiki & 初云CLoudie",
+    "sourceTitles": [
+      "Luminescence"
+    ],
+    "illustrator": "子狼"
+  },
+  {
+    "songId": "a8446d54-b05a-58bd-8701-5dbeeec8e483",
+    "providerId": "Retribution.nmyKryexe",
+    "title": "Retribution",
+    "composer": "nm-y & Kry.exe",
+    "sourceTitles": [
+      "Retribution"
+    ],
+    "illustrator": "NerSAN"
+  },
+  {
+    "songId": "0e869b40-130c-503b-a3f2-a7a9a3f3ead6",
+    "providerId": "TheChariotREVIIVAL.Attoclef",
+    "title": "The Chariot ~REVIIVAL~",
+    "composer": "Attoclef",
+    "sourceTitles": [
+      "The Chariot ~REVIIVAL~"
+    ],
+    "illustrator": "翠冷兮"
+  },
+  {
+    "songId": "c7e2b4ad-56d2-5a1d-b516-79d7d9d98f49",
+    "providerId": "AboutTheUniverse.SOTUIMIssionary",
+    "title": "About The Universe",
+    "composer": "SOTUI & MIssionary",
+    "sourceTitles": [
+      "About The Universe"
+    ],
+    "illustrator": "MC大神knife美工刀"
+  },
+  {
+    "songId": "86e26852-2794-5eff-ad10-02b140452e60",
+    "providerId": "EntrancetotheChaos.打打だいずvssiromaru",
+    "title": "Entrance to the Chaos",
+    "composer": "打打だいず vs. siromaru",
+    "sourceTitles": [
+      "Entrance to the Chaos"
+    ],
+    "illustrator": "群青kurara"
+  },
+  {
+    "songId": "a68f618b-3923-5c10-a2a4-14ef9e8eae9a",
+    "providerId": "Evanescent.LeaF",
+    "title": "Evanescent",
+    "composer": "LeaF",
+    "sourceTitles": [
+      "Evanescent"
+    ],
+    "illustrator": "海产 feat. 佑木いずみ"
+  },
+  {
+    "songId": "3cb7e1ed-3a89-50f0-a9db-908ec6ff4a8f",
+    "providerId": "ExoplanetaryMirage.かめりあ",
+    "title": "Exoplanetary Mirage",
+    "composer": "Camellia",
+    "sourceTitles": [
+      "Exoplanetary Mirage"
+    ],
+    "illustrator": "神居冰绘 feat. 祈莲"
+  },
+  {
+    "songId": "80ee8447-9ed0-5948-80a9-3f204e5a3589",
+    "providerId": "Implexrough.Silentroommommy",
+    "title": "Implexrough",
+    "composer": "Silentroom × mommy",
+    "sourceTitles": [
+      "Implexrough"
+    ],
+    "illustrator": "Nate"
+  },
+  {
+    "songId": "04ffd582-b1cd-59d7-ad53-502038069df0",
+    "providerId": "Ametrine.GRYSCLMIssionary",
+    "title": "Ametrine",
+    "composer": "GRYSCL & MIssionary",
+    "sourceTitles": [
+      "Ametrine"
+    ],
+    "illustrator": "子狼"
+  },
+  {
+    "songId": "837c66e7-b0a3-58cd-8a7c-2b1ad023bf45",
+    "providerId": "DesultorySignals.technoplanet",
+    "title": "Desultory Signals",
+    "composer": "technoplanet",
+    "sourceTitles": [
+      "Desultory Signals"
+    ],
+    "illustrator": "月光大刺剑"
+  },
+  {
+    "songId": "ec0bae13-b8e9-5d65-8472-a16154c40b5c",
+    "providerId": "Message.くるぶっこちゃん",
+    "title": "Message",
+    "composer": "くるぶっこちゃん",
+    "sourceTitles": [
+      "Message"
+    ],
+    "illustrator": "神居冰绘 feat. 祈莲"
+  },
+  {
+    "songId": "55c3e792-9218-5d17-89d2-84b1e7f7ba48",
+    "providerId": "Petrichor.voidMournfinale",
+    "title": "Petrichor",
+    "composer": "void (Mournfinale)",
+    "sourceTitles": [
+      "Petrichor"
+    ],
+    "illustrator": "青鸟 feat. 祈莲"
+  },
+  {
+    "songId": "e106a875-733d-5ddd-9bfb-03352b302607",
+    "providerId": "TrueHomeTrueWorldRework.816ThreeNumbers",
+    "title": "True Home, True World (Rework)",
+    "composer": "816ThreeNumbers",
+    "sourceTitles": [
+      "True Home, True World (Rework)"
+    ],
+    "illustrator": "PEZZ"
+  },
+  {
+    "songId": "a8dd3fba-ad2d-5d7c-aec0-a8db1a595f24",
+    "providerId": "WhatdoyouwantmorethanaHappyending.Apo11oHALOprogramft安月名莉子大瀬良あい",
+    "title": "What do you want more than a Happy ending?",
+    "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
+    "sourceTitles": [
+      "What do you want more than a Happy ending？-AT",
+      "What do you want more than a Happy ending？-EZ",
+      "What do you want more than a Happy ending？-HD",
+      "What do you want more than a Happy ending？-IN"
+    ],
+    "illustrator": "Amor fati"
+  },
+  {
+    "songId": "98583e9d-e76d-589c-9cb5-517a8b7019c1",
+    "providerId": "ハテ.rNFrums",
+    "title": "ハテ",
+    "composer": "rN || Frums",
+    "sourceTitles": [
+      "ハテ"
+    ],
+    "illustrator": "宙風みけ || rN"
+  }
+]

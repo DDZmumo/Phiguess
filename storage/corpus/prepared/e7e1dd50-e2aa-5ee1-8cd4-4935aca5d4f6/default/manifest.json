@@ -1,0 +1,28 @@
+{
+  "songId": "e7e1dd50-e2aa-5ee1-8cd4-4935aca5d4f6",
+  "title": "Bonus Time",
+  "aliases": [
+    "Bonus Time",
+    "奖励时间",
+    "奖励时刻",
+    "BT"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：管道迷宫",
+    "曲师：Megalo_PaleWhite",
+    "标准曲名包含 9 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/04 管道迷宫/Bonus Time.png",
+  "chapter": 4,
+  "chapterName": "管道迷宫",
+  "composer": "Megalo_PaleWhite",
+  "illustrator": "笔记RE",
+  "assets": {
+    "ez": "../../../source/04 管道迷宫/EZ/Bonus Time-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}

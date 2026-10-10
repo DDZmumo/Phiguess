@@ -1,0 +1,12 @@
+{
+  "source": "https://github.com/Catrong/phi-plugin/blob/d3e36b180273cb9bf856d8b72f5d525ae30913db/resources/info/info.csv",
+  "sha256": "6b7c05d2ee93c3f57cca4ec09f34643ddd97be8812c15fce7f0a4c43e41383e0",
+  "songs": 57,
+  "variants": 60,
+  "coverage": {
+    "total": 240,
+    "missing_illustrators": 0,
+    "missing_composers": 0
+  },
+  "at": "2026-10-10T04:34:06.043Z"
+}

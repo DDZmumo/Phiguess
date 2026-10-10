@@ -1,0 +1,16 @@
+# HTTP origin configuration. Use behind provider HTTPS termination or replace
+# with Caddyfile.tls for public high-port TCP forwarding with your own certificate.
+:80 {
+    encode zstd gzip
+    @backend path /api/* /socket.io/*
+    handle @backend {
+        reverse_proxy api:3000 {
+            header_up X-Forwarded-For {remote_host}
+        }
+    }
+    handle {
+        root * /srv/site
+        try_files {path} /index.html
+        file_server
+    }
+}

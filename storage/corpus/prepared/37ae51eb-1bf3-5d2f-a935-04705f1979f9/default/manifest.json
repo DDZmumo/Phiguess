@@ -1,0 +1,30 @@
+{
+  "songId": "37ae51eb-1bf3-5d2f-a935-04705f1979f9",
+  "title": "Crave Wave",
+  "aliases": [
+    "Crave Wave",
+    "CW",
+    "狂波",
+    "奢望之浪",
+    "渴望的浪潮",
+    "欲望"
+  ],
+  "version": "clean64-v1-default",
+  "hints": [
+    "所属章节：凌日潮汐",
+    "曲师：LandRoot",
+    "标准曲名包含 9 个非空白字符。"
+  ],
+  "variant": "default",
+  "original": "../../../source/Raw/08 凌日潮汐/Crave Wave.png",
+  "chapter": 8,
+  "chapterName": "凌日潮汐",
+  "composer": "LandRoot",
+  "illustrator": "笔记RE",
+  "assets": {
+    "ez": "../../../source/08 凌日潮汐/EZ/Crave Wave-EZ.png",
+    "hd": "hd.svg",
+    "in": "in.svg",
+    "at": "at.svg"
+  }
+}
