@@ -1,6 +1,7 @@
 import {DamageFeedback} from './DamageFeedback';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
+import {createRequestId} from './request-id';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import {createPortal} from 'react-dom';
 import { X, SkipForward, ArrowLeft } from 'lucide-react';
@@ -192,8 +193,9 @@ export function Game({id}:{id:string}) {
     if(!match||!capacity||failed||!['playing','reveal'].includes(match.status))return;
     let alive=true;
     const damage=()=>{
+      let request:{requestId:string;round:number};
+      try{request={requestId:createRequestId(),round};}catch(e){if(alive)setError(errorMessage(e));return;}
       noiseDamagePending.current++;
-      const request={requestId:crypto.randomUUID(),round};
       const send=()=>api<MatchView>(`matches/${id}/noise-hits`,'POST',request);
       void send().catch(e=>{if(e instanceof ApiError)throw e;return send();}).then(value=>{if((alive||endingBlack.current)&&value.players.find(p=>p.id===session.user.id)?.health===0&&!noiseDeathSounded.current){noiseDeathSounded.current=true;playSound('answer.wrong');}if(alive)applySnapshot(value);}).catch(e=>{if(alive&&!(e instanceof ApiError&&e.status===409))setError(errorMessage(e));}).finally(()=>{noiseDamagePending.current--;});
     };
@@ -238,9 +240,9 @@ export function Game({id}:{id:string}) {
   },[id,round,started]);
   async function submit(e:FormEvent) {
     e.preventDefault();if(!playing||submitRed||busy||!answer.trim())return;setBusy(true);setError('');
-    if(!pending.current)playSound('ui.confirm');
-    const request=pending.current??{round,answer:answer.trim(),requestId:crypto.randomUUID()};pending.current=request;
     try {
+      if(!pending.current)playSound('ui.confirm');
+      const request=pending.current??{round,answer:answer.trim(),requestId:createRequestId()};pending.current=request;
       const result=await api<{correct:boolean;score:number}>(`matches/${id}/guesses`,'POST',request);
       pending.current=null;
       if(result.correct){if(!noticed.current.has(`${request.round}:perfect`)&&!noticed.current.has(`${request.round}:good`))playSound('answer.correct');showNotice((wrongAttempts.current.get(request.round)??0)===0?'perfect':'good',request.round);}
