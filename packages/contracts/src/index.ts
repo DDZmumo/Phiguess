@@ -63,6 +63,7 @@ export interface MatchView {
   endless?:boolean;
   serverNow: number; startsAt: number; deadline: number; nextAt: number;
   imageUrl: string | null; answer: { id: string; title: string } | null;
+  imageKey?: string;
   players: PlayerView[]; rulesVersion: string;
 }
 export interface RoomView {
