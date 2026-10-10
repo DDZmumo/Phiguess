@@ -257,7 +257,7 @@ export function Game({id}:{id:string}) {
     setHintBusy(true);setError('');
     try{setHints(await api<Hint[]>(`matches/${id}/rounds/${round}/hints/${index}`,'POST'));playSound('ui.select');}catch(e){setError(errorMessage(e));}finally{setHintBusy(false);}
   }
-  const visibleHints=match?.difficulty==='ez'?[0,2]:[0,1,2];
+  const visibleHints=match?.difficulty==='ez'?[0,2]:[0,2,1];
   const imageDifficulty=hints.find(h=>h.kind==='downgrade')?.difficulty??match?.difficulty??'ez';
   const seconds=match?Math.max(0,Math.ceil(((match.status==='reveal'?match.nextAt:started?match.deadline:match.startsAt)-now)/1000)):0;
   if(!match)return <section className="loading-scene"><Back onClick={()=>go('/account')}/><p role="status">{loadError||'正在连接挑战…'}</p></section>;
