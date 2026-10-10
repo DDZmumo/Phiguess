@@ -33,7 +33,7 @@
 .result-course-data{position:relative;width:420px;height:115px;transform:skewX(15deg);transform-origin:top left;z-index:1}
 .result-course-score{position:absolute;right:38px;top:18px}
 .result-total{position:absolute;left:691px;top:459px;width:406px;height:83px;transform:skewX(-15deg);transform-origin:center;z-index:2;isolation:isolate}
-.result-total::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,#050b145e,#040c18d6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.result-total::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,#050b145e,#040c18d6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .result-total>.game-score{position:relative;display:block;height:100%;padding:0;transform:skewX(15deg)}
 .result-total>.game-score>span{position:absolute;left:26px;bottom:12px;font-size:12px;line-height:1.2;letter-spacing:1.5px;color:#cbd5e1}
 .result-total>.game-score>b{position:absolute;right:26px;bottom:15px;font-size:56px;line-height:1;letter-spacing:-.5px;font-weight:400}
