@@ -1,0 +1,7 @@
+.mobile-landscape{position:fixed;inset:0;width:100vw;height:100svh;height:100dvh;max-width:none;max-height:none;margin:0;border:0;padding:32px;background:#141b24;color:#f4f4f5;text-align:center;overflow:hidden}
+.mobile-landscape[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-landscape::backdrop{background:#141b24}
+.mobile-landscape>svg{transform:rotate(90deg);color:#cad7e1;flex:none}
+.mobile-landscape h1{font-size:25px;font-weight:400}
+.mobile-landscape p{max-width:340px;font-size:15px;line-height:1.8;color:#b8c3ce}
+.mobile-landscape button{padding:12px 30px;background:#f4f5f7;color:#171c24;font-size:18px}
