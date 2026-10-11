@@ -1,30 +1,32 @@
-import {usePlayMedia,usePlaySession} from './play-runtime';
+import {useOriginalImages,usePlaySession} from './play-runtime';
+import type {OriginalLease} from './original-image-cache';
 import {useEffect,useRef,useState} from 'react';
 import {gsap,useGSAP} from './visual';
 import {useReducedMotion} from './hooks';
 
 // Both live correct answers and explicit post-game reveals are authorized by their endpoint.
-export function OriginalReveal({id,round,solved,children,revealDelay=0,onOriginalReady,originalUrl,onOriginalError,originalAlt='答对后揭晓的原版曲绘'}:{id:string;round:number;solved:boolean;children:React.ReactNode;revealDelay?:number;onOriginalReady?:(round:number,original:{url:string;ratio:number}|null)=>void;originalUrl?:string;onOriginalError?:()=>void;originalAlt?:string}){
-  const fetch=usePlayMedia(),token=usePlaySession()?.token,root=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
-  const [original,setOriginal]=useState<string|null>(null);
+export function OriginalReveal({id,round,solved,children,revealDelay=0,preloadOriginal=false,onOriginalReady,originalUrl,onOriginalError,originalAlt='答对后揭晓的原版曲绘'}:{id:string;round:number;solved:boolean;children:React.ReactNode;revealDelay?:number;preloadOriginal?:boolean;onOriginalReady?:(round:number,original:{url:string;ratio:number}|null)=>void;originalUrl?:string;onOriginalError?:()=>void;originalAlt?:string}){
+  const originals=useOriginalImages(),token=usePlaySession()?.token,root=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
+  const [original,setOriginal]=useState<{url:string;ratio:number}|null>(null),[loadError,setLoadError]=useState(false),[retry,setRetry]=useState(0);
+  const enabled=preloadOriginal||solved,errorCallback=useRef(onOriginalError);errorCallback.current=onOriginalError;
   useEffect(()=>{
-    if(!solved||!token)return;
-    const abort=new AbortController();let alive=true,url:string|undefined;
-    void fetch(originalUrl??`/api/matches/${id}/rounds/${round}/original`,{headers:{Authorization:`Bearer ${token}`},cache:'no-store',signal:abort.signal})
-      .then(async response=>{
-        if(!response.ok)throw new Error('Original unavailable');
-        const blob=await response.blob();if(!alive)return;
-        url=URL.createObjectURL(blob);const image=new Image();image.src=url;await image.decode();
-        if(alive){setOriginal(url);onOriginalReady?.(round,{url,ratio:image.naturalWidth/image.naturalHeight});}
-      }).catch(()=>{if(alive&&!abort.signal.aborted)onOriginalError?.();});
-    return()=>{alive=false;abort.abort();onOriginalReady?.(round,null);if(url)URL.revokeObjectURL(url);};
-  },[id,round,solved,token,onOriginalReady,originalUrl,onOriginalError]);
+    if(!enabled||!token)return;
+    setOriginal(null);setLoadError(false);
+    const abort=new AbortController();let alive=true,lease:OriginalLease|undefined;
+    void originals.acquire(id,round,Boolean(originalUrl?.endsWith('/result-original')),abort.signal,retry>0)
+      .then(value=>{
+        if(!alive){value.release();return;}lease=value;setOriginal({url:value.url,ratio:value.ratio});
+      }).catch(()=>{if(alive&&!abort.signal.aborted){setLoadError(true);errorCallback.current?.();}});
+    return()=>{alive=false;abort.abort();lease?.release();};
+  },[id,round,enabled,token,originals,originalUrl,retry]);
+  useEffect(()=>{if(!solved||!original)return;onOriginalReady?.(round,original);return()=>onOriginalReady?.(round,null);},[round,solved,original,onOriginalReady]);
   useGSAP(()=>{
-    if(!original)return;
+    if(!original||!solved)return;
     gsap.fromTo(root.current,{'--original-sweep':'0%'},{'--original-sweep':'100%',delay:reduce?0:revealDelay,duration:reduce?.05:.35,ease:'power2.inOut'});
-  },{scope:root,dependencies:[original,reduce,revealDelay],revertOnUpdate:true});
+  },{scope:root,dependencies:[original,solved,reduce,revealDelay],revertOnUpdate:true});
   return <div className="art-reveal-layer" ref={root}>
-    {original&&<img className="art-original" src={original} alt={originalAlt}/>}
+    {original&&solved&&<img className="art-original" src={original.url} alt={originalAlt}/>}
     <div className="art-abstract-layer">{children}</div>
+    {!original&&solved&&(loadError?<button className="art-original-retry" type="button" onClick={()=>setRetry(value=>value+1)}>原图加载未完成，点击重试</button>:<span className="art-original-loading" role="status">正在读取原图…</span>)}
   </div>;
 }

@@ -67,7 +67,7 @@ Caddy 原生配置把 `api:3000` 改为 `127.0.0.1:3000`，将静态文件 root 
 
 ## 备份与恢复
 
-备份必须同时包含 PostgreSQL、`storage/assets`、头像目录（Compose 的 `avatar_data` 卷）与安全保存的配置。源 PNG 和 Raw 原图保存在本地 `storage/corpus/source`，也应另行留存。Compose 数据库备份示例（Linux shell）：
+备份必须同时包含 PostgreSQL、`storage/assets`、头像目录（Compose 的 `avatar_data` 卷）与安全保存的配置。Raw/EZ 的无损 WebP 源图保存在 `storage/corpus/source`，也应另行留存；历史 PNG 校验信息保存在 `storage/corpus/lossless-webp-report.json`。Compose 数据库备份示例（Linux shell）：
 
 ```sh
 mkdir -p backups

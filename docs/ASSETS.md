@@ -9,7 +9,7 @@
 | 内容 | 当前快照 / 口径 |
 |---|---:|
 | 初始完整源库 | 300 PNG：Raw 与四档各 60；不是当前克隆包含的全部文件 |
-| Git 跟踪的源 PNG | 120：Raw 60 + EZ 60 |
+| 源无损 WebP | 120：Raw 60 + EZ 60；对应 PNG 已校验后删除 |
 | 独立歌曲 | 57 个 `songId` |
 | 四档曲绘套组 | 60 个歌曲/变体组，60 份 manifest |
 | Git 跟踪的 HD / IN / AT | 各 60 SVG，共 180 |
@@ -30,7 +30,7 @@ python -c "import json; g=json.load(open('storage/corpus/catalog.json',encoding=
 ## 目录与 Git 边界
 
 ```text
-storage/corpus/source/          克隆包含 Raw/EZ 源 PNG；完整本地加工库可另含 HD/IN/AT PNG
+storage/corpus/source/          克隆包含 Raw/EZ 无损 WebP；完整本地加工库可另含 HD/IN/AT PNG
 storage/corpus/prepared/        每组 manifest + HD/IN/AT SVG；本地重建时另有加工缓存
 storage/corpus/catalog.json     60 套曲绘与标准曲目的对应关系
 storage/corpus/trace-report.json 历史描摹参数与生成阶段统计
@@ -45,15 +45,15 @@ data/catalog/aliases.local.json 本地手工增加的别名
 data/providers/phi-plugin/     社区曲名/别名快照、原许可与来源记录
 ```
 
-manifest 的 EZ 路径指向 `source/<章节>/EZ/*.png`，并非 prepared 下现成的 WebP；Raw 路径指向 `source/Raw/`。当前全部 60 份 manifest 的四档及 Raw 引用均可在克隆中解析。导入器把 EZ 转成 WebP，验证 SVG，并为 Raw 生成运行归档和 WebP 预览。
+manifest 的 EZ 路径指向 `source/<章节>/EZ/*.webp`，并非 prepared 下现成的 WebP；Raw 路径指向 `source/Raw/`。当前全部 60 份 manifest 的四档及 Raw 引用均可在克隆中解析。导入器把 EZ 转成 WebP，验证 SVG，并为 Raw 生成运行归档和 WebP 预览。
 
-Git 保留 catalog、trace-report、prepared 的 manifest/SVG、Raw PNG 和任意章节深度的 EZ PNG（包括 `Part1/EZ` 等）。`.gitignore` 的目录放行规则允许新增这些素材，同时继续忽略 HD/IN/AT 源 PNG、加工 PNG、其他缓存、运行资源、数据库、头像和测试目录。既有已跟踪文件不受 ignore 规则追溯移除。
+Git 保留 catalog、trace-report、prepared 的 manifest/SVG、Raw 无损 WebP 和任意章节深度的 EZ 无损 WebP（包括 `Part1/EZ` 等）。`.gitignore` 的目录放行规则允许新增这些素材，同时继续忽略 HD/IN/AT 源 PNG、加工 PNG、其他缓存、运行资源、数据库、头像和测试目录。既有已跟踪文件不受 ignore 规则追溯移除。
 
 直接运行 `npm run preview:game` 使用已跟踪素材导入本地曲库，不需要原 Windows 目录、Python 描摹环境或 `upstream-commit.json`。全量重新描摹则需要完整原始源库；不要把当前只有 Raw/EZ 的克隆目录当成完整 300 PNG 输入。
 
 ## 去杂色、SVG 与重建
 
-历史描摹只处理 HD/IN/AT 衍生版本：最长边 1280 → 3×3 中值过滤孤立噪点 → 最大覆盖法生成 64 色调色板、3 次颜色细化 → VTracer 彩色路径描摹。原图与源 PNG 保持不变。最大覆盖法用于保留面积小但有意义的主色，避免单纯频率优先量化吞掉细节。
+历史描摹只处理 HD/IN/AT 衍生版本：最长边 1280 → 3×3 中值过滤孤立噪点 → 最大覆盖法生成 64 色调色板、3 次颜色细化 → VTracer 彩色路径描摹。HD/IN/AT 的描摹源 PNG 保持不变；Raw/EZ 转为无损 WebP。最大覆盖法用于保留面积小但有意义的主色，避免单纯频率优先量化吞掉细节。
 
 参数为 RGB 精度 8 bit、相近层差 1、细碎区域过滤 10、轮廓拟合最多 3 轮、路径坐标 1 位小数，不是把位图嵌入 SVG。导入时全部 SVG 须通过 `tools/svg.ts` 的静态子集校验。
 
@@ -110,4 +110,4 @@ node --env-file=storage/preview/runtime.env dist/tools/sync-aliases.js
 
 提示由结构化元数据与曲绘版本生成：`chapter` / `chapterName` 提供章节，`composer` 提供曲师，曲绘 `illustrator` 提供画师。界面按范围、身份、降图排列：EZ 仅前两项，HD/IN/AT 的第三项选取同版本、同变体的下一档题图。服务端 index 分别是 0、2、1；旧 `hints` 文案字段保留兼容，不控制当前提示内容。
 
-Raw 原 PNG 保留在源目录，导入后生成 WebP 归档与预览。公开背景使用预览，启动页与账号资料面板随机更换；本人答对后的 `/original` 和结束/中断后的结果揭晓也返回预览。具体参赛者与回合权限见 [API.md](API.md)，不能把公开背景资源称为完全保密的原图。
+Raw 源目录仅保留无损 WebP，导入后按原参数生成缩小的有损 WebP 归档与预览。公开背景使用预览，启动页与账号资料面板随机更换；本人答对后的 `/original` 和结束/中断后的结果揭晓也返回预览。具体参赛者与回合权限见 [API.md](API.md)，不能把公开背景资源称为完全保密的原图。

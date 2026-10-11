@@ -1,5 +1,6 @@
 import type {MatchView} from '../../../packages/contracts/src';
 import type {Preferences,Session} from './store';
+import type {OriginalImages} from './original-images';
 
 /** A scoped local runtime for the real screens. Unknown operations must never fall through to HTTP. */
 export interface PlayRuntime {
@@ -8,6 +9,8 @@ export interface PlayRuntime {
  clockPaused:boolean;
  request:<T>(path:string,method?:string,body?:unknown,signal?:AbortSignal)=>Promise<T>;
  media:typeof fetch;
+ originalImages?:OriginalImages;
+ canPreloadOriginal?:(round:number)=>boolean;
  subscribe:(listener:()=>void)=>()=>void;
  snapshot:()=>MatchView|null;
  navigate:(path:string)=>void;

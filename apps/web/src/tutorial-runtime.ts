@@ -7,6 +7,9 @@ import {markTutorialDone,tutorialScoreSlides,tutorialDamageSteps,TUTORIAL_VERSIO
 import {parseTutorialCheckpoint} from './tutorial-refresh';
 import {CHARACTER_TRANSITION_MS,CHARACTER_REVEAL_DELAY_MS,randomCharacterRanks,characterTransition} from './character-scramble';
 import {tutorialSongs} from './tutorial-songs';
+import {TutorialMedia} from './tutorial-media';
+import {OriginalImages} from './original-images';
+let tutorialImageScope=0;
 
 export type TutorialScene='difficulty'|'game'|'results'|'done';
 export interface TutorialAnswerCorrection{elapsed:number;frame:number;settled:number;ranks:number[];running:boolean}
@@ -30,8 +33,10 @@ export class TutorialRuntime implements PlayRuntime {
  private clock=Date.now();private runRemaining=0;private rows:ResultRoundView[]=[];private hints:Hint[]=[];
  private results=new Map<string,MatchResultView>();private seen=new Map<string,unknown>();
  private resultReveals=new Set<number>();
+ private mediaCache=new TutorialMedia();
+ originalImages=new OriginalImages(`tutorial:${++tutorialImageScope}`,(_id,round)=>tutorialSongs[round]!.images.original);
  resultId='tutorial-hd';private published=false;
- constructor(private exit:()=>void,checkpoint?:unknown){
+ constructor(private exit:()=>void,checkpoint?:unknown,private options:{skipHoverLesson?:boolean}={}){
   const saved=parseTutorialCheckpoint(checkpoint);if(!saved)return;
   this.resumed=true;this.scene=saved.scene;this.step=saved.step;this.completed=saved.completed;
   this.welcomeSeen=saved.welcomeSeen||saved.step>0||Boolean(saved.view);this.preferences=saved.preferences;
@@ -45,7 +50,11 @@ export class TutorialRuntime implements PlayRuntime {
   if(this.scene==='difficulty'&&this.view){this.scene='game';this.step=2;this.completed=false;this.captionDismissed=false;this.autoStep=-1;this.autoRemaining=0;}
   if(this.scene==='game'&&this.view?.status==='finished'&&saved.result){this.scene='results';this.step=12;this.completed=false;this.captionDismissed=false;this.autoStep=-1;this.autoRemaining=0;}
   this.restoredResult=this.scene==='results'||this.scene==='done';
+  if(this.options.skipHoverLesson&&this.step===10){this.step=11;this.completed=false;this.captionDismissed=false;this.autoStep=-1;this.autoRemaining=0;}
  }
+ disposeMedia=()=>{this.mediaCache.dispose();this.originalImages.clear();};
+ canPreloadOriginal=(round:number)=>round<2;
+ async preloadOpeningOriginals(){for(const round of [0,1]){try{const image=await this.originalImages.acquire('tutorial-hd',round);image.release();}catch{return;}}}
  get challengeSettingsOpen(){return this.scene==='difficulty'&&this.step===1;}
  get revealedRounds(){return [...this.resultReveals];}
  get wrongAttemptsByRound(){return this.rows.map(row=>[row.round,row.wrongAttempts] as const);}
@@ -155,6 +164,7 @@ export class TutorialRuntime implements PlayRuntime {
   if(this.step===4&&this.answerCorrection){this.answerDraft='';this.resetCorrectedInput?.();this.cancelAnswerCorrection();}
   if(this.step===6&&this.aliasLesson){this.aliasLesson=false;this.completed=false;this.captionDismissed=false;this.nextRound();this.notify();return;}
   this.completed=false;this.captionDismissed=false;this.hintLocation=false;this.step++;
+  if(this.step===10&&this.options.skipHoverLesson)this.step=11;
   if(this.step===6){this.aliasLesson=true;this.nextRound();}
   if(this.step===7)this.nextRound();
   if(this.step===7){this.elapsed(27000);this.completed=true;}
@@ -259,6 +269,6 @@ export class TutorialRuntime implements PlayRuntime {
   const original=kind!.includes('original')||(kind==='result-image'&&saved?.rounds[Number(index)]?.correct);
   const difficulty=kind==='image'?(this.hints.find(h=>h.kind==='downgrade')?.difficulty??this.view?.difficulty??'hd'):saved?.difficulty??'hd';
   const song=this.song(Number(index));
-  return fetch(original?song.images.original:song.images[difficulty],{signal:init?.signal});
+  return this.mediaCache.load(original?song.images.original:song.images[difficulty],init?.signal,init?.cache==='reload');
  };
 }

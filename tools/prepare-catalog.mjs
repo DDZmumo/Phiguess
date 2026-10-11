@@ -2,6 +2,7 @@ import { readFile,writeFile,mkdir,readdir,copyFile,stat } from 'node:fs/promises
 import { resolve,relative,dirname,join,basename,sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import YAML from 'yaml';
+import { prepareLosslessCorpus } from './prepare-lossless-corpus.mjs';
 
 const source=resolve(process.argv[2]||'E:/Project/PhiguessAs'),root=resolve('storage/corpus');
 const normalize=s=>s.normalize('NFKC').toLowerCase().replace(/\s+/g,'');
@@ -49,6 +50,7 @@ if(unknown.length){console.log(JSON.stringify({unknown},null,2));process.exitCod
   const catalog={version:1,sourceHash:digest(Buffer.from(JSON.stringify(inventory))),groups:[...groups.values()]};
   const sharedAliases=new Map();for(const group of catalog.groups){if(!sharedAliases.has(group.songId))sharedAliases.set(group.songId,new Set());for(const alias of group.aliases)sharedAliases.get(group.songId).add(alias);}for(const group of catalog.groups)group.aliases=[...sharedAliases.get(group.songId)];
   await writeFile(join(root,'catalog.json'),JSON.stringify(catalog,null,2));
+  await prepareLosslessCorpus({root});
   await mkdir('data/catalog',{recursive:true});
   await writeFile('data/catalog/songs.json',JSON.stringify([...new Map(catalog.groups.map(g=>[g.songId,{songId:g.songId,providerId:g.providerId,title:g.title,composer:g.composer,illustrator:g.illustrator,sourceTitles:catalog.groups.filter(other=>other.songId===g.songId).map(other=>other.sourceTitle)}])).values()],null,2));
   const upstream=JSON.parse((await readFile(join(root,'upstream-commit.json'),'utf8')).replace(/^\uFEFF/,''));

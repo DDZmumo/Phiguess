@@ -28,20 +28,20 @@
     "韩国男团",
     "米垃圾"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part1",
     "曲师：Camellia",
     "标准曲名包含 18 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Exoplanetary Mirage.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Exoplanetary Mirage.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part1",
   "composer": "Camellia",
   "illustrator": "神居冰绘 feat. 祈莲",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Exoplanetary Mirage-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Exoplanetary Mirage-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

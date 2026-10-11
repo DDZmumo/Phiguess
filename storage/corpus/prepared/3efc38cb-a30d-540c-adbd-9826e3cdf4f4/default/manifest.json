@@ -8,20 +8,20 @@
     "千钧一发",
     "not"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：P4koo",
     "标准曲名包含 10 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Nick of Time.png",
+  "original": "../../../source/Raw/07 时钟链接/Nick of Time.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
   "composer": "P4koo",
   "illustrator": "青鸟",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Nick of Time-EZ.png",
+    "ez": "../../../source/07 时钟链接/EZ/Nick of Time-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

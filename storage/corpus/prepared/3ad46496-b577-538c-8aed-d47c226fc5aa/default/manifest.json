@@ -15,20 +15,20 @@
     "cfday",
     "Colourful Days"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：P4koo feat. つゆり花鈴",
     "标准曲名包含 13 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/Colorful Days♪.png",
+  "original": "../../../source/Raw/06 方舟蜃景/Colorful Days♪.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
   "composer": "P4koo feat. つゆり花鈴",
   "illustrator": "Doro-nyong & Ratif",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/Colorful Days♪-EZ.png",
+    "ez": "../../../source/06 方舟蜃景/EZ/Colorful Days♪-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

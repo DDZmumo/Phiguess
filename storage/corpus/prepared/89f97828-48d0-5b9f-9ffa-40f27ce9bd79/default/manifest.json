@@ -7,20 +7,20 @@
     "人类",
     "HN"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：SOTUI",
     "标准曲名包含 5 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/HumaN.png",
+  "original": "../../../source/Raw/03 幽蓝边界/HumaN.webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
   "composer": "SOTUI",
   "illustrator": "CH",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/HumaN-EZ.png",
+    "ez": "../../../source/03 幽蓝边界/EZ/HumaN-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

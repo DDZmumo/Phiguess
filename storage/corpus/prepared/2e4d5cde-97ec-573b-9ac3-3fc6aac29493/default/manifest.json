@@ -9,20 +9,20 @@
     "队长",
     "dlyro"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：冰封世界",
     "曲师：Likey",
     "标准曲名包含 7 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/01 冰封世界/Dlyrotz.png",
+  "original": "../../../source/Raw/01 冰封世界/Dlyrotz.webp",
   "chapter": 1,
   "chapterName": "冰封世界",
   "composer": "Likey",
   "illustrator": "DoublePian",
   "assets": {
-    "ez": "../../../source/01 冰封世界/EZ/Dlyrotz-EZ.png",
+    "ez": "../../../source/01 冰封世界/EZ/Dlyrotz-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

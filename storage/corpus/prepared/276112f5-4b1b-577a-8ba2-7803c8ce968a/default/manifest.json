@@ -6,20 +6,20 @@
     "微波炉",
     "微波"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：dandeless",
     "标准曲名包含 9 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/micro.wav.png",
+  "original": "../../../source/Raw/06 方舟蜃景/micro.wav.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
   "composer": "dandeless",
   "illustrator": "snake.ribs",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/micro.wav-EZ.png",
+    "ez": "../../../source/06 方舟蜃景/EZ/micro.wav-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

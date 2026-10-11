@@ -8,20 +8,20 @@
     "鸠打电报",
     "马杀鸡"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：くるぶっこちゃん",
     "标准曲名包含 7 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Message.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Message.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part2",
   "composer": "くるぶっこちゃん",
   "illustrator": "神居冰绘 feat. 祈莲",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Message-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Message-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

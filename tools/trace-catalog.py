@@ -42,7 +42,7 @@ def main():
             report=future.result();reports.append(report)
             if len(reports)%10==0 or len(reports)==len(tasks):print(f'Traced {len(reports)}/{len(tasks)}; latest={report["song"]}/{report["difficulty"]}; {report["bytes"]} bytes',flush=True)
     for group in groups:
-        folder=ROOT/'prepared'/group['songId']/group['variant'];version=f'clean64-v1-{group["variant"]}'
+        folder=ROOT/'prepared'/group['songId']/group['variant'];version=f'clean64-v2-lossless-{group["variant"]}'
         manifest={'songId':group['songId'],'title':group['title'],'aliases':group['aliases'],'version':version,'variant':group['variant'],'hints':group['hints'],'chapter':int(re.match(r'\d+',group['chapter']).group()),'chapterName':re.sub(r'^\d+\s*','',group['chapter']),'composer':group['composer'],'original':os.path.relpath(ROOT/'source'/group['original'],folder).replace(os.sep,'/'),
           'assets':{'ez':os.path.relpath(ROOT/'source'/group['assets']['ez'],folder).replace(os.sep,'/'),'hd':'hd.svg','in':'in.svg','at':'at.svg'}}
         if group.get('illustrator'): manifest['illustrator']=group['illustrator']
