@@ -130,8 +130,13 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
       assert.equal((await request(`matches/${m.id}/guesses`,'POST',alice.token,{...guess,requestId:randomUUID()})).status,409);
       assert.equal((await db.query('SELECT count(*)::int AS n FROM guesses WHERE match_id=$1',[m.id])).rows[0]!.n,2);
       assert.equal((await request(`matches/${m.id}/progress`,'GET',alice.token)).body[0].correct,true);
+      const original=(await db.query('SELECT a.original_key,a.original_preview_key FROM match_rounds r JOIN artworks a ON a.id=r.artwork_id WHERE r.match_id=$1 AND r.round=0',[m.id])).rows[0]!;
+      assert.notEqual(original.original_key,original.original_preview_key);
+      assert.equal(await games.originalImage(m.id,0,alice.user.id),original.original_preview_key);
       await step(5100);
       const result=(await request(`matches/${m.id}/result`,'GET',alice.token)).body;assert.equal(result.status,'finished');assert.equal(result.players[0].correct,1);
+      assert.deepEqual(await games.resultImage(m.id,0,alice.user.id),{key:original.original_preview_key,mime:'image/webp'});
+      assert.equal((await games.revealResultArtwork(m.id,0,alice.user.id)).key,original.original_preview_key);
       assert.equal((await request('me/active','GET',alice.token)).body.match,null);
     });
     await t.test('free text accepts normalized aliases, preserves idempotency and hides missed titles',async()=>{

@@ -13,20 +13,20 @@
     "班级记忆",
     "CM"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：管道迷宫",
     "曲师：Antistar feat. Ctymax",
     "标准曲名包含 13 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/04 管道迷宫/Class Memories.png",
+  "original": "../../../source/Raw/04 管道迷宫/Class Memories.webp",
   "chapter": 4,
   "chapterName": "管道迷宫",
   "composer": "Antistar feat. Ctymax",
   "illustrator": "xperz",
   "assets": {
-    "ez": "../../../source/04 管道迷宫/EZ/Class Memories-EZ.png",
+    "ez": "../../../source/04 管道迷宫/EZ/Class Memories-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

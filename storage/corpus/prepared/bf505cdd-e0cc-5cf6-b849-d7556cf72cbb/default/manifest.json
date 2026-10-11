@@ -8,20 +8,20 @@
     "摈弃一切",
     "黄金左脸"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：霓虹灯牌",
     "曲师：rider",
     "标准曲名包含 14 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/05 霓虹灯牌/Leave All Behind.png",
+  "original": "../../../source/Raw/05 霓虹灯牌/Leave All Behind.webp",
   "chapter": 5,
   "chapterName": "霓虹灯牌",
   "composer": "rider",
   "illustrator": "笔记RE",
   "assets": {
-    "ez": "../../../source/05 霓虹灯牌/EZ/Leave All Behind-EZ.png",
+    "ez": "../../../source/05 霓虹灯牌/EZ/Leave All Behind-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

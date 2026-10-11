@@ -9,20 +9,20 @@
     "渴望的浪潮",
     "欲望"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：LandRoot",
     "标准曲名包含 9 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Crave Wave.png",
+  "original": "../../../source/Raw/08 凌日潮汐/Crave Wave.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
   "composer": "LandRoot",
   "illustrator": "笔记RE",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Crave Wave-EZ.png",
+    "ez": "../../../source/08 凌日潮汐/EZ/Crave Wave-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

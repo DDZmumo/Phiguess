@@ -9,20 +9,20 @@
     "自动福利射",
     "福利凹凸射"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：废土之下",
     "曲师：MYUKKE.",
     "标准曲名包含 15 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/02 废土之下/FULi AUTO SHOOTER.png",
+  "original": "../../../source/Raw/02 废土之下/FULi AUTO SHOOTER.webp",
   "chapter": 2,
   "chapterName": "废土之下",
   "composer": "MYUKKE.",
   "illustrator": "ViscerA & Psycholine",
   "assets": {
-    "ez": "../../../source/02 废土之下/EZ/FULi AUTO SHOOTER-EZ.png",
+    "ez": "../../../source/02 废土之下/EZ/FULi AUTO SHOOTER-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

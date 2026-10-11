@@ -25,20 +25,20 @@
     "讨厌",
     "哈特"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：rN || Frums",
     "标准曲名包含 2 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/ハテ.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/ハテ.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part2",
   "composer": "rN || Frums",
   "illustrator": "宙風みけ || rN",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/ハテ-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/ハテ-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

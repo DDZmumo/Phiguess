@@ -15,20 +15,20 @@
     "糖果",
     "能量启用"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：冰封世界",
     "曲师：CrossingSound",
     "标准曲名包含 25 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/01 冰封世界/Engine x Start!! (melody mix).png",
+  "original": "../../../source/Raw/01 冰封世界/Engine x Start!! (melody mix).webp",
   "chapter": 1,
   "chapterName": "冰封世界",
   "composer": "CrossingSound",
   "illustrator": "赤芽",
   "assets": {
-    "ez": "../../../source/01 冰封世界/EZ/Engine x Start!! (melody mix)-EZ.png",
+    "ez": "../../../source/01 冰封世界/EZ/Engine x Start!! (melody mix)-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

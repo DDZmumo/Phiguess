@@ -14,6 +14,7 @@ import {tutorialSteps,tutorialDamageSteps,TUTORIAL_WRONG_ANSWER_REBUKE,TUTORIAL_
 import {characterTransition} from './character-scramble';
 import {isNoiseRedAt} from './noise-stage';
 import {readTutorialRefresh,writeTutorialRefresh,clearTutorialRefresh} from './tutorial-refresh';
+import {shouldSkipTutorialHover} from './tutorial-device';
 import './tutorial.css';
 
 const targets=['.difficulty-options button[aria-label^="HD"]','.difficulty-setting-actions button','.art-zoom-trigger','.song-rail-hint','.guess-input-row input','.guess-input-row input','.round-status','.submit-answer','.submit-answer','.submit-answer','.art-frame','.challenge-return','.result-reveal-trigger','','.result-continue-nav,.result-summary-confirm',''];
@@ -42,15 +43,15 @@ function TutorialSubtitle({step,page,summaryOpen,hintLocation,aliasLesson,dismis
  </>;
 }
 export function Tutorial({onComplete}:{onComplete:()=>void}){
- const [runtime]=useState(()=>new TutorialRuntime(()=>go('/account'),readTutorialRefresh()));
+ const [runtime]=useState(()=>new TutorialRuntime(()=>go('/account'),readTutorialRefresh(),{skipHoverLesson:shouldSkipTutorialHover({userAgent:navigator.userAgent,mobileHint:(navigator as Navigator&{userAgentData?:{mobile:boolean}}).userAgentData?.mobile,platform:navigator.platform,touchPoints:navigator.maxTouchPoints,coarsePointer:matchMedia('(pointer: coarse) and (hover: none)').matches})}));
  const [welcome,setWelcome]=useState(!runtime.welcomeSeen),[welcomeCovered,setWelcomeCovered]=useState(runtime.welcomeSeen);
  const coverWelcome=useCallback(()=>setWelcomeCovered(true),[]),finishWelcome=useCallback(()=>{runtime.event('welcome-finished');setWelcome(false);},[runtime]);
  useSyncExternalStore(runtime.subscribe,runtime.version);
  const cue=useRef<SVGCircleElement>(null),screen=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
- const coarse=matchMedia('(pointer: coarse)').matches;
  const guideHidden=welcome||runtime.blackTransition;
  const correctionRunning=Boolean(runtime.answerCorrection?.running);
  useEffect(()=>()=>runtime.cancelAnswerCorrection(true),[runtime]);
+ useEffect(()=>{let cancelled=false;queueMicrotask(()=>{if(!cancelled)void runtime.preloadOpeningOriginals();});return()=>{cancelled=true;runtime.disposeMedia();};},[runtime]);
  useEffect(()=>{
   // Read without consuming in the initializer so StrictMode's second initializer restores too.
   clearTutorialRefresh();const save=()=>writeTutorialRefresh(runtime.exportCheckpoint());
@@ -74,7 +75,9 @@ export function Tutorial({onComplete}:{onComplete:()=>void}){
  useEffect(()=>{
   if(runtime.step===14&&!guideHidden)return;
   const allowed=()=>{
-   if(screen.current?.inert||runtime.blackTransition||runtime.completed||runtime.hintLocation||runtime.answerCorrection?.running)return [];
+   if(screen.current?.inert||runtime.blackTransition||runtime.hintLocation||runtime.answerCorrection?.running)return [];
+   if(runtime.completed)return visibleControls(screen.current,'.art-original-retry');
+   if(runtime.step===12)return [...visibleControls(screen.current,'.result-reveal-trigger').slice(0,1),...visibleControls(screen.current,'.result-image-retry')];
    if(runtime.zoomOpen)return visibleControls(screen.current,'.art-zoom-close');
    if([4,5].includes(runtime.step)||(runtime.step===6&&runtime.aliasLesson))return visibleControls(screen.current,'.song-input input,.submit-answer');
    if([0,1,2,3,6,9,11,12].includes(runtime.step))return visibleControls(screen.current,targets[runtime.step]!).slice(0,1);
@@ -104,10 +107,6 @@ export function Tutorial({onComplete}:{onComplete:()=>void}){
   focus();
   return()=>{window.removeEventListener('pointerdown',pointer,true);window.removeEventListener('click',pointer,true);window.removeEventListener('keydown',keyboard,true);window.removeEventListener('focusin',focus,true);window.removeEventListener('wheel',wheel,true);};
  },[runtime,runtime.step,runtime.completed,runtime.zoomOpen,runtime.aliasLesson,runtime.hintLocation,runtime.summaryOpen,guideHidden,correctionRunning]);
- useEffect(()=>{
-  if(runtime.step!==10||!coarse||runtime.completed)return;
-  const timer=setTimeout(()=>runtime.event('noise-hover'),2500);return()=>clearTimeout(timer);
- },[runtime,runtime.step,runtime.completed,coarse]);
  useEffect(()=>{
   let motion:ReturnType<typeof gsap.to>|undefined,pulse:ReturnType<typeof gsap.to>|undefined,started=false,lastElement:HTMLElement|undefined;
   const locate=()=>{

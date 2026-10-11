@@ -10,20 +10,20 @@
     "学分",
     "信用卡"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：冰封世界",
     "曲师：Frums",
     "标准曲名包含 7 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/01 冰封世界/Credits.png",
+  "original": "../../../source/Raw/01 冰封世界/Credits.webp",
   "chapter": 1,
   "chapterName": "冰封世界",
   "composer": "Frums",
   "illustrator": "Ctymax",
   "assets": {
-    "ez": "../../../source/01 冰封世界/EZ/Credits-EZ.png",
+    "ez": "../../../source/01 冰封世界/EZ/Credits-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

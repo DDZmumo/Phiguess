@@ -1,4 +1,5 @@
-import {createContext,useContext,useSyncExternalStore} from 'react';
+import {createContext,useContext,useMemo,useSyncExternalStore} from 'react';
+import {liveOriginalImages} from './original-images';
 import {api} from './api';
 import {useStore} from './store';
 import type {PlayRuntime} from './runtime-types';
@@ -10,6 +11,7 @@ const navigate=(path:string)=>{window.location.hash=path;};
 const emptySubscribe=()=>()=>{};
 export function usePlayApi(){return usePlayRuntime()?.request??api;}
 export function usePlayMedia(){return usePlayRuntime()?.media??browserFetch;}
+export function useOriginalImages(){const runtime=usePlayRuntime(),token=useStore(s=>s.session?.token);const live=useMemo(()=>liveOriginalImages(token??''),[token]);return runtime?.originalImages??live;}
 export function usePlayNavigation(){return usePlayRuntime()?.navigate??navigate;}
 export function usePlaySession(){const runtime=usePlayRuntime(),session=useStore(s=>s.session);return runtime?.session??session;}
 export function usePlayPreferences(){

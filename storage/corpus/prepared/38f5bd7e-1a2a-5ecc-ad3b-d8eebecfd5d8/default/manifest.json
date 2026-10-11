@@ -12,20 +12,20 @@
     "毁灭",
     "DESTRUCTION"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：Normal1zer vs. Broken Nerdz",
     "标准曲名包含 16 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/DESTRUCTION 3,2,1.png",
+  "original": "../../../source/Raw/08 凌日潮汐/DESTRUCTION 3,2,1.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
   "composer": "Normal1zer vs. Broken Nerdz",
   "illustrator": "rN",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/DESTRUCTION 3,2,1-EZ.png",
+    "ez": "../../../source/08 凌日潮汐/EZ/DESTRUCTION 3,2,1-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

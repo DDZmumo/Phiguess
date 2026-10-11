@@ -31,9 +31,9 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const runtime=usePlayRuntime(),fetch=usePlayMedia(),token=usePlaySession()?.token;
   const [preloader]=useState(()=>new ArtworkPreloader());
   useEffect(()=>()=>preloader.cancel(),[preloader,id,token]);
-  const onOriginalReady=useCallback((originalRound:number,original:{url:string;ratio:number}|null)=>setOriginals(previous=>{
-    const next=new Map(previous);if(original)next.set(originalRound,original);else next.delete(originalRound);return next;
-  }),[]);
+  const onOriginalReady=useCallback((originalRound:number,original:{url:string;ratio:number}|null)=>{
+    setOriginals(previous=>{const next=new Map(previous);if(original)next.set(originalRound,original);else next.delete(originalRound);return next;});
+  },[]);
   useLayoutEffect(()=>{
     if(zoom.current?.open)zoom.current.close();
     setZoomOpen(false);
@@ -82,7 +82,7 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const ready=images.at(-1)?.round===round&&images.at(-1)?.difficulty===difficulty;
   const solvedCurrent=progress.some(p=>p.round===round&&p.correct)||answered,originalCurrent=originals.get(round);
   return <><div className="art-frame" ref={ref}>
-    {images.map((image,i)=>{const solved=progress.some(p=>p.round===image.round&&p.correct)||(image.round===round&&answered);const cover=i===images.length-2&&image.round===images.at(-1)?.round&&image.difficulty!==images.at(-1)?.difficulty;return <div key={image.url} className={`art-slide ${i===images.length-1?'art-new':'art-old'} ${cover?'art-downgrade-cover':''}`}><OriginalReveal id={id} round={image.round} solved={solved} revealDelay={.45} onOriginalReady={onOriginalReady}><img src={image.url} alt={i===images.length-1?'当前难度的猜测曲绘':''}/></OriginalReveal></div>;})}
+    {images.map((image,i)=>{const solved=progress.some(p=>p.round===image.round&&p.correct)||(image.round===round&&answered);const cover=i===images.length-2&&image.round===images.at(-1)?.round&&image.difficulty!==images.at(-1)?.difficulty;return <div key={image.url} className={`art-slide ${i===images.length-1?'art-new':'art-old'} ${cover?'art-downgrade-cover':''}`}><OriginalReveal id={id} round={image.round} solved={solved} preloadOriginal={runtime?.canPreloadOriginal?.(image.round)??false} revealDelay={.45} onOriginalReady={onOriginalReady}><img src={image.url} alt={i===images.length-1?'当前难度的猜测曲绘':''}/></OriginalReveal></div>;})}
     {images.length>0&&<NoiseArtwork skipFlashAt={noiseFlashes.current.get(images.at(-1)!.round)} src={images.at(-1)!.url} image={images.at(-1)!.decoded} showImage={false} alt="" startsAt={images.at(-1)!.startsAt} deadline={noiseDeadlines.current.get(images.at(-1)!.round)??images.at(-1)!.deadline} now={now} solved={progress.some(p=>p.round===images.at(-1)!.round&&p.correct)||(images.at(-1)!.round===round&&answered)} active={true} suspended={zoomOpen} transitionStart={transitionStart} skew={.2679491924}/>}
     <button className="art-zoom-trigger" aria-label="放大查看曲绘" title={solvedCurrent&&!originalCurrent?'正在读取原图':'点击放大查看'} disabled={!ready||(solvedCurrent&&!originalCurrent)} onClick={()=>{setZoomOpen(true);runtime?.event('zoom-open');playSound('panel.open');}}/>
     {!ready&&(started||complete)&&<div className={`art-placeholder ${images.length?'over-old':''}`}><strong>{complete?'φ':'…'}</strong><span>{complete?'挑战结束':'正在读取曲绘'}</span></div>}

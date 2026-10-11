@@ -15,20 +15,20 @@
     "食月鸠",
     "逃离月面"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：Sakuzyo",
     "标准曲名包含 13 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Distorted Fate.png",
+  "original": "../../../source/Raw/08 凌日潮汐/Distorted Fate.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
   "composer": "Sakuzyo",
   "illustrator": "knife美工刀",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Distorted Fate-EZ.png",
+    "ez": "../../../source/08 凌日潮汐/EZ/Distorted Fate-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

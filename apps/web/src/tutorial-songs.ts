@@ -27,7 +27,7 @@ export const tutorialSongs=[
       "hd": "/tutorial/ds-hd.svg",
       "in": "/tutorial/ds-in.svg",
       "at": "/tutorial/ds-at.svg",
-      "original": "/tutorial/ds-original.png"
+      "original": "/tutorial/ds-original.webp"
     }
   },
   {
@@ -69,7 +69,7 @@ export const tutorialSongs=[
       "hd": "/tutorial/mirage-hd.svg",
       "in": "/tutorial/mirage-in.svg",
       "at": "/tutorial/mirage-at.svg",
-      "original": "/tutorial/mirage-original.png"
+      "original": "/tutorial/mirage-original.webp"
     }
   },
   {
@@ -104,7 +104,7 @@ export const tutorialSongs=[
       "hd": "/tutorial/chaos-hd.svg",
       "in": "/tutorial/chaos-in.svg",
       "at": "/tutorial/chaos-at.svg",
-      "original": "/tutorial/chaos-original.png"
+      "original": "/tutorial/chaos-original.webp"
     }
   },
   {
@@ -143,7 +143,7 @@ export const tutorialSongs=[
       "hd": "/tutorial/8000-hd.svg",
       "in": "/tutorial/8000-in.svg",
       "at": "/tutorial/8000-at.svg",
-      "original": "/tutorial/8000-original.png"
+      "original": "/tutorial/8000-original.webp"
     }
   }
 ] as const;

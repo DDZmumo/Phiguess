@@ -19,6 +19,7 @@
     "start": "node --env-file-if-exists=.env dist/apps/server/src/main.js",
     "db:migrate": "npm run build:server && node --env-file-if-exists=.env dist/tools/migrate.js",
     "assets:import": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-assets.js",
+    "assets:lossless": "node tools/prepare-lossless-corpus.mjs",
     "assets:showcase": "npm run build:server && node --env-file-if-exists=.env dist/tools/backfill-showcase.js",
     "assets:catalog": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-catalog.js",
     "aliases:sync": "npm run build:server && node --env-file-if-exists=.env dist/tools/sync-aliases.js",

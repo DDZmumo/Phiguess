@@ -21,20 +21,20 @@
     "吉诺超市",
     "超市"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part1",
     "曲师：打打だいず vs. siromaru",
     "标准曲名包含 18 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part1",
   "composer": "打打だいず vs. siromaru",
   "illustrator": "群青kurara",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

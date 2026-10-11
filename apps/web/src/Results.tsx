@@ -1,4 +1,5 @@
-import {usePlayRuntime,usePlayApi,usePlayMedia,usePlaySession,usePlayNavigation} from './play-runtime';
+import {usePlayRuntime,usePlayApi,usePlayMedia,usePlaySession,usePlayNavigation,useOriginalImages} from './play-runtime';
+import type {OriginalLease} from './original-image-cache';
 import {prepareResultMusic,startResultMusic,stopResultMusic} from './menu-music';
 import {playSound} from './sound';
 import {useCallback,useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react';
@@ -26,12 +27,13 @@ type Preview={mode:'score'|'summary';frame:number};
 type Timeline=ReturnType<typeof gsap.timeline>;
 
 function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{matchId:string;round:ResultRoundView;eager:boolean;onReady:(round:number,url:string)=>void;onRevealed:(round:number)=>void;interactive:boolean}){
- const runtime=usePlayRuntime(),api=usePlayApi(),fetch=usePlayMedia(),token=usePlaySession()?.token;
+ const runtime=usePlayRuntime(),api=usePlayApi(),fetch=usePlayMedia(),originals=useOriginalImages(),token=usePlaySession()?.token;
  const ref=useRef<HTMLDivElement>(null),[visible,setVisible]=useState(eager),[inView,setInView]=useState(eager),[image,setImage]=useState<string|null>(null);
+ const [imageError,setImageError]=useState(false),[imageRetry,setImageRetry]=useState(0);
  const [revealInfo,setRevealInfo]=useState<{title:string;imageUrl:string}|null>(()=>runtime?.resultReveal?.(round.round)??null),[revealedTitle,setRevealedTitle]=useState<string|null>(()=>runtime?.resultReveal?.(round.round)?.title??null),[busy,setBusy]=useState(false),[revealError,setRevealError]=useState(''),[scrambleFrame,setScrambleFrame]=useState(0);
  const revealRequest=useRef<AbortController|null>(null),reduce=useReducedMotion(),title=round.title??revealedTitle;
  useEffect(()=>{
-  const observer=new IntersectionObserver(entries=>{const active=entries.some(e=>e.isIntersecting);setInView(active);if(active)setVisible(true);});
+  let entered=false;const observer=new IntersectionObserver(entries=>{const active=entries.some(e=>e.isIntersecting);setInView(active);if(active){entered=true;setVisible(true);}else if(entered&&round.round!==0)setVisible(false);});
   if(ref.current)observer.observe(ref.current);return()=>observer.disconnect();
  },[]);
  useEffect(()=>{
@@ -51,18 +53,22 @@ function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{mat
   catch(error){if(!controller.signal.aborted){setBusy(false);revealRequest.current=null;setRevealError(errorMessage(error));}}
  }
  useEffect(()=>{
-  if(!visible||!round.imageUrl)return;
-  const controller=new AbortController();let alive=true,url:string|undefined;
-  void fetch(round.imageUrl,{signal:controller.signal,headers:token?{Authorization:`Bearer ${token}`}:{}}).then(async response=>{
-   if(!response.ok)throw new Error('Artwork unavailable');
-   const blob=await response.blob();if(!alive)return;url=URL.createObjectURL(blob);
-   const picture=new Image();picture.src=url;await picture.decode();if(alive){setImage(url);onReady(round.round,url);}
-  }).catch(()=>{});
-  return()=>{alive=false;controller.abort();if(url)URL.revokeObjectURL(url);};
- },[round.imageUrl,round.round,visible,token,onReady]);
+  if(!visible||!round.imageUrl){setImage(null);return;}
+  setImageError(false);
+  const controller=new AbortController();let alive=true,url:string|undefined,lease:OriginalLease|undefined;
+  void (async()=>{
+   if(round.correct){const value=await originals.acquire(matchId,round.round,true,controller.signal,imageRetry>0);if(!alive){value.release();return;}lease=value;url=value.url;}
+   else{const response=await fetch(round.imageUrl!,{signal:controller.signal,cache:imageRetry?'reload':'default',headers:token?{Authorization:`Bearer ${token}`}:{}});
+    if(!response.ok)throw new Error('Artwork unavailable');const blob=await response.blob();if(!alive)return;url=URL.createObjectURL(blob);
+    const picture=new Image();picture.src=url;await picture.decode();}
+   if(alive&&url){setImage(url);onReady(round.round,url);}
+  })().catch(()=>{if(alive&&!controller.signal.aborted)setImageError(true);});
+  return()=>{alive=false;controller.abort();if(lease)lease.release();else if(url)URL.revokeObjectURL(url);};
+ },[round.imageUrl,round.round,round.correct,matchId,visible,token,onReady,imageRetry,originals,fetch]);
  return <div ref={ref} className="result-artwork" data-revealed={Boolean(title)}>
-  <OriginalReveal id={matchId} round={round.round} solved={Boolean(revealInfo)} originalUrl={revealInfo?.imageUrl} originalAlt="揭晓的正确曲绘" revealDelay={.45} onOriginalReady={originalReady} onOriginalError={originalError}>{image&&<img src={image} alt=""/>}</OriginalReveal>
+  {visible&&<OriginalReveal id={matchId} round={round.round} solved={Boolean(revealInfo)} originalUrl={revealInfo?.imageUrl} originalAlt="揭晓的正确曲绘" revealDelay={.45} onOriginalReady={originalReady} onOriginalError={originalError}>{image&&<img src={image} alt=""/>}</OriginalReveal>}
   <div className="result-art-shade"/>
+  {visible&&!image&&(imageError?<button type="button" className="result-image-retry" onClick={()=>setImageRetry(value=>value+1)}>曲绘加载未完成，点击重试</button>:<span className="result-image-loading" role="status">正在读取曲绘…</span>)}
   <span className="result-song-title" title={title??'点击曲绘揭晓曲名'}><SongName title={title} scramble={scrambleSongName(round.round+5,scrambleFrame)} animate reduce={reduce}/></span>
   <span className="result-song-level">{round.difficulty.toUpperCase()}<small>#{String(round.round+1).padStart(2,'0')}</small></span>
   {!round.correct&&!title&&<button className="result-reveal-trigger" type="button" aria-label={`揭晓第 ${round.round+1} 首的正确曲绘和曲名`} title={busy?'正在读取原图':'点击揭晓正确曲绘和曲名'} disabled={!interactive||busy||!image} tabIndex={inView?0:-1} onClick={()=>void reveal()}/>}
@@ -71,7 +77,17 @@ function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{mat
 }
 
 export function ResultScene({result,user,onExit,onPublication,preview}:{result:MatchResultView;user:Session['user'];onExit:()=>void;onPublication:(published:boolean)=>Promise<void>;preview?:Preview}){
- const runtime=usePlayRuntime();
+ const runtime=usePlayRuntime(),originals=useOriginalImages();
+ const cacheLifetime=useRef({generation:0,id:result.id,originals});
+ useEffect(()=>{
+  const generation=cacheLifetime.current.generation+1;cacheLifetime.current={generation,id:result.id,originals};
+  return()=>queueMicrotask(()=>{const current=cacheLifetime.current;if(current.generation===generation||current.id!==result.id||current.originals!==originals)originals.clearMatch(result.id);});
+ },[originals,result.id]);
+ useEffect(()=>{
+  if(preview)return;const controller=new AbortController();let cancelled=false;
+  queueMicrotask(()=>{if(!cancelled)void originals.prefetchMissed(result,controller.signal);});
+  return()=>{cancelled=true;controller.abort();};
+ },[originals,result.id,result.rounds,Boolean(preview)]);
  useEffect(()=>{if(preview)return;prepareResultMusic(result.difficulty);return()=>stopResultMusic(result.id);},[result.id,result.difficulty,Boolean(preview)]);
  const root=useRef<HTMLElement>(null),intro=useRef<Timeline|null>(null),transition=useRef<Timeline|null>(null);
  const [phase,setPhase]=useState<Phase>('intro'),[background,setBackground]=useState<string|null>(null),[layout,setLayout]=useState({scale:1,portrait:false,ready:false});

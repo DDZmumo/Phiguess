@@ -9,20 +9,20 @@
     "黄紫水晶",
     "Ame"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：GRYSCL & MIssionary",
     "标准曲名包含 8 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Ametrine.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Ametrine.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part2",
   "composer": "GRYSCL & MIssionary",
   "illustrator": "子狼",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Ametrine-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Ametrine-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

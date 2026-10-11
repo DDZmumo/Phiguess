@@ -14,20 +14,20 @@
     "关羽",
     "关于穹顶"
   ],
-  "version": "clean64-v1-default",
+  "version": "clean64-v2-lossless-default",
   "hints": [
     "所属章节：穹顶孤舟 · Part1",
     "曲师：SOTUI & MIssionary",
     "标准曲名包含 16 个非空白字符。"
   ],
   "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part1/About The Universe.png",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/About The Universe.webp",
   "chapter": 9,
   "chapterName": "穹顶孤舟/Part1",
   "composer": "SOTUI & MIssionary",
   "illustrator": "MC大神knife美工刀",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/About The Universe-EZ.png",
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/About The Universe-EZ.webp",
     "hd": "hd.svg",
     "in": "in.svg",
     "at": "at.svg"

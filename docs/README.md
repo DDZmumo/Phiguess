@@ -31,6 +31,11 @@
 | [tutorial-songs.ts](../apps/web/src/tutorial-songs.ts) | 四首教学曲目的资源、别名与提示 |
 | [tutorial-model.ts](../apps/web/src/tutorial-model.ts) | 教学步骤、演示参数和教程完成标记 |
 | [tutorial-refresh.ts](../apps/web/src/tutorial-refresh.ts) | 校验标签页临时恢复数据，区分刷新和重新访问 |
+| [tutorial-media.ts](../apps/web/src/tutorial-media.ts) | 共享图片下载与缓存，隔离画面取消和整个教程退出 |
+| [tutorial-device.ts](../apps/web/src/tutorial-device.ts) | 识别手机与触摸设备，跳过鼠标悬停教学 |
+| [original-image-cache.ts](../apps/web/src/original-image-cache.ts) | 已解码原图的 32 MiB 共享缓存、淘汰与引用释放 |
+| [original-images.ts](../apps/web/src/original-images.ts) | 正式游戏与教程的原图下载复用、结算顺序预载 |
+| [LOSSLESS-ASSETS.md](LOSSLESS-ASSETS.md) | Raw/EZ 源 WebP 校验与运行图片导入参数 |
 | [tutorial.css](../apps/web/src/tutorial.css) | 教程页面、入口与交互演示样式 |
 
 计分和综合牌直接复用 `packages/game-core`，生命及难度规则复用 `packages/contracts`。教程运行状态保存在组件内，离开文档时用 `sessionStorage` 暂存刷新恢复数据；刷新续接当前步骤，关闭后重新访问回到游戏主界面，不保留进度。完成标记使用独立的浏览器存储键。
