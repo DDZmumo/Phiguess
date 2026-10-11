@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { GameOptions, GuestInput, LoginInput, GuessInput, InfinityLeaderboardOptions, NoiseHitInput, ReadyInput, ResultPublicationInput, RoomCode, RoundIndex, UUID } from '../../../packages/contracts/src';
 import { AuthGuard, AuthRequest, AuthService } from './auth';
 import { CatalogService } from './catalog';
+import {APP_VERSION} from '../../../packages/contracts/src';
 import { configuration } from './config';
 import { Db } from './db';
 import { GamesService } from './games';
@@ -22,7 +23,7 @@ export function parse<T>(schema: z.ZodType<T>, value: unknown): T {
 @Controller('api')
 export class PublicController {
   constructor(private readonly db: Db, private readonly auth: AuthService, private readonly catalog: CatalogService, private readonly games: GamesService, private readonly media:MediaService) {}
-  @Get('health/live') live() { return { status:'ok',service:'phiguess',version:'0.1.0' }; }
+  @Get('health/live') live() { return { status:'ok',service:'phiguess',version:APP_VERSION }; }
   @Get('health/ready') async ready() {
     try { await this.db.query('SELECT 1 FROM matches LIMIT 1'); return {status:'ok'}; }
     catch { throw new ServiceUnavailableException('Database unavailable or migrations missing'); }

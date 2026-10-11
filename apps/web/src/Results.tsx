@@ -1,3 +1,4 @@
+import {usePlayRuntime,usePlayApi,usePlayMedia,usePlaySession,usePlayNavigation} from './play-runtime';
 import {prepareResultMusic,startResultMusic,stopResultMusic} from './menu-music';
 import {playSound} from './sound';
 import {useCallback,useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react';
@@ -5,8 +6,8 @@ import {ArrowRight,Check,X} from 'lucide-react';
 import type {MatchResultView,ResultRoundView} from '../../../packages/contracts/src';
 import {RULES_VERSION} from '../../../packages/contracts/src';
 import {performanceBadge} from '../../../packages/game-core/src';
-import {api,errorMessage} from './api';
-import {go,useReducedMotion,useResource} from './hooks';
+import {errorMessage} from './api';
+import {useReducedMotion,useResource} from './hooks';
 import {useStore,type Session} from './store';
 import {UserChip,gsap,useGSAP} from './visual';
 import {RESULT_FPS,resultMotion as timing,resultRowEase,resultRowTracks} from './results-motion';
@@ -25,10 +26,10 @@ type Preview={mode:'score'|'summary';frame:number};
 type Timeline=ReturnType<typeof gsap.timeline>;
 
 function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{matchId:string;round:ResultRoundView;eager:boolean;onReady:(round:number,url:string)=>void;onRevealed:(round:number)=>void;interactive:boolean}){
+ const runtime=usePlayRuntime(),api=usePlayApi(),fetch=usePlayMedia(),token=usePlaySession()?.token;
  const ref=useRef<HTMLDivElement>(null),[visible,setVisible]=useState(eager),[inView,setInView]=useState(eager),[image,setImage]=useState<string|null>(null);
- const [revealInfo,setRevealInfo]=useState<{title:string;imageUrl:string}|null>(null),[revealedTitle,setRevealedTitle]=useState<string|null>(null),[busy,setBusy]=useState(false),[revealError,setRevealError]=useState(''),[scrambleFrame,setScrambleFrame]=useState(0);
+ const [revealInfo,setRevealInfo]=useState<{title:string;imageUrl:string}|null>(()=>runtime?.resultReveal?.(round.round)??null),[revealedTitle,setRevealedTitle]=useState<string|null>(()=>runtime?.resultReveal?.(round.round)?.title??null),[busy,setBusy]=useState(false),[revealError,setRevealError]=useState(''),[scrambleFrame,setScrambleFrame]=useState(0);
  const revealRequest=useRef<AbortController|null>(null),reduce=useReducedMotion(),title=round.title??revealedTitle;
- const token=useStore(s=>s.session?.token);
  useEffect(()=>{
   const observer=new IntersectionObserver(entries=>{const active=entries.some(e=>e.isIntersecting);setInView(active);if(active)setVisible(true);});
   if(ref.current)observer.observe(ref.current);return()=>observer.disconnect();
@@ -40,7 +41,7 @@ function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{mat
  },[inView,title,reduce]);
  useEffect(()=>()=>revealRequest.current?.abort(),[]);
  const originalReady=useCallback((_round:number,original:{url:string;ratio:number}|null)=>{
-  if(original&&revealInfo){playSound('panel.open');setRevealedTitle(revealInfo.title);setBusy(false);revealRequest.current=null;onRevealed(round.round);}
+  if(original&&revealInfo){playSound('panel.open');setRevealedTitle(revealInfo.title);setBusy(false);revealRequest.current=null;onRevealed(round.round);runtime?.event('result-revealed');}
  },[revealInfo,onRevealed,round.round]);
  const originalError=useCallback(()=>{setRevealInfo(null);setBusy(false);revealRequest.current=null;setRevealError('原图加载未完成，请点击重试。');},[]);
  async function reveal(){
@@ -70,11 +71,12 @@ function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{mat
 }
 
 export function ResultScene({result,user,onExit,onPublication,preview}:{result:MatchResultView;user:Session['user'];onExit:()=>void;onPublication:(published:boolean)=>Promise<void>;preview?:Preview}){
+ const runtime=usePlayRuntime();
  useEffect(()=>{if(preview)return;prepareResultMusic(result.difficulty);return()=>stopResultMusic(result.id);},[result.id,result.difficulty,Boolean(preview)]);
  const root=useRef<HTMLElement>(null),intro=useRef<Timeline|null>(null),transition=useRef<Timeline|null>(null);
  const [phase,setPhase]=useState<Phase>('intro'),[background,setBackground]=useState<string|null>(null),[layout,setLayout]=useState({scale:1,portrait:false,ready:false});
  const [publicationError,setPublicationError]=useState(''),mounted=useRef(true);
- const [revealedRounds,setRevealedRounds]=useState(()=>new Set<number>());
+ const [revealedRounds,setRevealedRounds]=useState(()=>new Set<number>(runtime?.revealedRounds));
  const markRevealed=useCallback((round:number)=>setRevealedRounds(previous=>previous.has(round)?previous:new Set(previous).add(round)),[]);
  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
  const phaseRef=useRef<Phase>('intro');phaseRef.current=phase;
@@ -85,6 +87,12 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  const failed=Boolean(result.health_capacity&&self?.health===0),interrupted=result.status==='interrupted';
  const scrollEnabled=preview?preview.mode==='score'&&preview.frame>=143:layout.ready&&(phase==='intro'||phase==='ready');
  useResultScroll(root,scrollEnabled,layout.portrait,result.rounds.length,reduce);
+ useLayoutEffect(()=>{
+  if(!runtime||!layout.ready)return;
+  const scroll=root.current?.querySelector<HTMLElement>('.result-scroll');if(!scroll)return;
+  scroll.scrollTop=runtime.resultScrollTop??0;const save=()=>runtime.updateResultScroll?.(scroll.scrollTop);
+  scroll.addEventListener('scroll',save,{passive:true});return()=>scroll.removeEventListener('scroll',save);
+ },[runtime,layout.ready]);
  const artworkReady=useCallback((round:number,url:string)=>{if(round===result.rounds[0]?.round)setBackground(url);},[result.id,result.rounds[0]?.round]);
  useLayoutEffect(()=>{
   const measure=()=>{const element=root.current!;const portrait=element.clientWidth<element.clientHeight;
@@ -93,7 +101,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  },[]);
  function summaryTimeline(paused=false){
   const node=root.current!,s=timing.summary,q=(selector:string)=>node.querySelector(selector);
-  const tl=gsap.timeline({paused,onUpdate:()=>{node.dataset.referenceFrame=String(200+Math.round(tl.time()*RESULT_FPS));},onComplete:()=>{if(!preview)setPhase('summary');}});
+  const tl=gsap.timeline({paused,onUpdate:()=>{node.dataset.referenceFrame=String(200+Math.round(tl.time()*RESULT_FPS));},onComplete:()=>{if(!preview){setPhase('summary');runtime?.event('summary-opened');}}});
   const d=(value:number)=>reduce?Math.min(.12,value):value,p=(value:number)=>reduce?value*.08:value;
   tl.to([q('.result-score-page'),q('.result-user'),q('.result-continue-nav')],{opacity:0,duration:d(s.fade),ease:'phigrosFadeOut'},0)
    .to(q('.result-summary-dim'),{opacity:.5,duration:d(s.fade),ease:'phigrosFadeIn'},0)
@@ -110,7 +118,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
   const node=root.current!,rows=[...node.querySelectorAll<HTMLElement>('.result-course-row')],q=(selector:string)=>node.querySelector(selector);
   setPhase('intro');gsap.set([q('.result-score-page'),q('.result-user'),q('.result-continue-nav')],{opacity:1});gsap.set(q('.result-summary'),{visibility:'hidden'});gsap.set(q('.result-summary-dim'),{opacity:0});
   const tl=gsap.timeline({paused:Boolean(preview),onUpdate:()=>{node.dataset.referenceFrame=String(Math.round(tl.time()*RESULT_FPS));},onComplete:()=>{if(!preview)setPhase('ready');}});intro.current=tl;
-  if(reduce&&!preview){
+  if((reduce||runtime?.restoredResult)&&!preview){
    gsap.set(q('.result-intro-black'),{opacity:0});startResultMusic(result.difficulty,result.id);
    gsap.set([...rows,q('.result-total'),q('.result-user'),...node.querySelectorAll('.result-nav')],{x:0,y:0,opacity:1,scale:1});setPhase('ready');
   }else{
@@ -126,16 +134,18 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
   }
   if(preview?.mode==='summary'){tl.progress(1);transition.current=summaryTimeline(true);transition.current.time(preview.frame/RESULT_FPS);}
   else if(preview)tl.time(preview.frame/RESULT_FPS);
+  else if(runtime?.restoredResult&&runtime.summaryOpen){transition.current=summaryTimeline(true);transition.current.progress(1);}
   return()=>{transition.current?.kill();transition.current=null;};
  },{scope:root,dependencies:[result.id,result.rounds.length,layout.ready,reduce,preview?.mode],revertOnUpdate:true});
  useLayoutEffect(()=>{if(preview)(preview.mode==='summary'?transition.current:intro.current)?.pause().time(preview.frame/RESULT_FPS);},[preview?.frame,preview?.mode]);
  const leave=()=>{
-  if(preview||!['ready','summary','saving-summary'].includes(phaseRef.current))return;setPhase('leaving');phaseRef.current='leaving';transition.current?.kill();stopResultMusic(result.id);
+  if(preview||runtime?.canNavigate?.('/account')===false||!['ready','summary','saving-summary'].includes(phaseRef.current))return;setPhase('leaving');phaseRef.current='leaving';transition.current?.kill();stopResultMusic(result.id);
   transition.current=gsap.timeline().to(root.current!.querySelector('.result-exit-black'),{opacity:1,duration:reduce?.12:timing.summary.exitDuration,ease:'phigrosFadeIn'}).call(onExit);
  };
  const openSummary=()=>{
-  if(preview||phaseRef.current!=='ready')return;playSound('ui.confirm');
-  if(!result.endless||result.status==='interrupted'){leave();return;}setPhase('opening-summary');phaseRef.current='opening-summary';transition.current?.kill();transition.current=summaryTimeline();
+  if(preview||phaseRef.current!=='ready'||runtime?.canNavigate?.('/account')===false)return;playSound('ui.confirm');
+  // The local tutorial demonstrates the badge without changing its result record.
+  if(!runtime&&(!result.endless||result.status==='interrupted')){leave();return;}runtime?.event('caption-dismiss');setPhase('opening-summary');phaseRef.current='opening-summary';transition.current?.kill();transition.current=summaryTimeline();
  };
  const decidePublication=async(published:boolean)=>{
   if(preview||phaseRef.current!=='summary')return;
@@ -175,15 +185,16 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
     {publicationError&&<p className="result-publication-error" role="alert">{publicationError}</p>}
    </div>
   </div>
-  <button className="result-nav result-continue-nav" aria-label={result.endless&&result.status!=='interrupted'?'查看无尽综合成绩':'完成结算，返回主界面'} disabled={Boolean(preview)||phase!=='ready'} onClick={openSummary}><small>NEXT</small><ArrowRight size={48} strokeWidth={1}/></button>
+  <button className="result-nav result-continue-nav" aria-label={runtime?'查看综合成绩':result.endless&&result.status!=='interrupted'?'查看无尽综合成绩':'完成结算，返回主界面'} disabled={Boolean(preview)||phase!=='ready'} onClick={openSummary}><small>NEXT</small><ArrowRight size={48} strokeWidth={1}/></button>
   <div className="result-user"><UserChip user={user} subtitle={`${result.difficulty.toUpperCase()} · ${result.endless?'Infinity':`${result.round_count??result.rounds.length}题`}`}/></div>
   <div className="result-intro-black"/><div className={`result-exit-black ${phase==='leaving'?'active':''}`}/>
  </section>;
 }
 
 export function Results({id}:{id:string}){
- const [retry,setRetry]=useState(0),{data:result,error}=useResource<MatchResultView>(`matches/${id}/result`,retry),user=useStore(s=>s.session!.user);
- useEffect(()=>{if(result&&['finished','interrupted'].includes(result.status)&&useStore.getState().matchId===id)useStore.getState().setMatch(null);},[id,result?.status]);
+ const runtime=usePlayRuntime(),api=usePlayApi(),go=usePlayNavigation();
+ const [retry,setRetry]=useState(0),{data:result,error}=useResource<MatchResultView>(`matches/${id}/result`,retry),user=usePlaySession()!.user;
+ useEffect(()=>{if(!runtime&&result&&['finished','interrupted'].includes(result.status)&&useStore.getState().matchId===id)useStore.getState().setMatch(null);},[id,result?.status]);
  if(!result||!Array.isArray(result.rounds))return <section className="result-loading" aria-label="读取结算" aria-busy={!error&&!result}>{(error||result)&&<><p role="alert">{error||'成绩记录暂未完整加载'}</p><button onClick={()=>setRetry(n=>n+1)}>重试</button><button onClick={()=>go('/account')}>返回主界面</button></>}</section>;
  return <ResultScene key={id} result={result} user={user} onExit={()=>go('/account')} onPublication={async published=>{await api(`matches/${id}/publication`,'POST',{published});}}/>;
 }

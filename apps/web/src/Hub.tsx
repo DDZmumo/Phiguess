@@ -173,7 +173,8 @@ export function Hub({route='/account'}:{route?:string}) {
               </form>:editing?<form onSubmit={profile}><input aria-label="玩家昵称" placeholder="输入玩家昵称" maxLength={24} value={name} onChange={e=>setName(e.target.value)}/><button type="submit" aria-label="保存玩家昵称" disabled={pending||!name.trim()}><Check size={24}/></button></form>:<strong>{session?.user.name}</strong>}
               <span className="hub-player-id">{session&&!loginOpen?`ID  ${session.user.id.slice(0,12)}`:''}</span>
             </div>
-            {session&&!loginOpen&&<button className="hub-signout" onClick={async()=>{try{await api('auth/logout','POST');playSound('ui.back');setSession(null);setName('');setPassword('');setLoginOpen(false);}catch(e){setError(errorMessage(e));}}} aria-label="退出当前玩家身份"><LogOut size={17}/><span>登出</span></button>}
+            {session&&!loginOpen&&<button type="button" className="hub-signout" onClick={async()=>{try{await api('auth/logout','POST');playSound('ui.back');setSession(null);setName('');setPassword('');setLoginOpen(false);}catch(e){setError(errorMessage(e));}}} aria-label="退出当前玩家身份"><span className="hub-profile-action-label"><LogOut size={17}/><span>登出</span></span></button>}
+            <button type="button" className="hub-tutorial-entry" onClick={()=>go('/tutorial')} aria-label="新手教程"><span className="hub-profile-action-label">新手教程<ArrowRight size={18} aria-hidden="true"/></span></button>
           </div>
         </section>
         <div className="hub-play-area hub-play-centered">

@@ -1,11 +1,11 @@
+import {usePlayMedia,usePlaySession} from './play-runtime';
 import {useEffect,useRef,useState} from 'react';
 import {gsap,useGSAP} from './visual';
-import {useStore} from './store';
 import {useReducedMotion} from './hooks';
 
 // Both live correct answers and explicit post-game reveals are authorized by their endpoint.
 export function OriginalReveal({id,round,solved,children,revealDelay=0,onOriginalReady,originalUrl,onOriginalError,originalAlt='答对后揭晓的原版曲绘'}:{id:string;round:number;solved:boolean;children:React.ReactNode;revealDelay?:number;onOriginalReady?:(round:number,original:{url:string;ratio:number}|null)=>void;originalUrl?:string;onOriginalError?:()=>void;originalAlt?:string}){
-  const token=useStore(s=>s.session?.token),root=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
+  const fetch=usePlayMedia(),token=usePlaySession()?.token,root=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
   const [original,setOriginal]=useState<string|null>(null);
   useEffect(()=>{
     if(!solved||!token)return;

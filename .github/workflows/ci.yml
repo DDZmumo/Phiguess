@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    # initdb must run as the hosted runner's non-root user, without sudo.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # Keep optional dependencies and install scripts for embedded PostgreSQL.
+        run: npm ci
+
+      - name: Build server and web
+        run: npm run build
+
+      - name: Run tests
+        # The test runner starts and stops its own temporary PostgreSQL instance.
+        # The source .mjs regression separately checks the web build's CSS.
+        run: |
+          npm test
+          node --test tests/backdrop-build.test.mjs

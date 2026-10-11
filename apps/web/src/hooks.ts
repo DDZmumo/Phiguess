@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 import type { Ack, MatchView, RoomView } from '../../../packages/contracts/src';
 import { api, ApiError, errorMessage } from './api';
 import { useStore } from './store';
+import {usePlayApi,usePlayRuntime,usePlaySession} from './play-runtime';
 
 export function go(path:string) {window.location.hash=path;}
 export function useRoute() {
@@ -17,14 +18,19 @@ export function useReducedMotion() {
   return !enabled||system;
 }
 export function useResource<T>(path:string|null,refresh=0) {
+  const api=usePlayApi();
   const token=useStore(s=>s.session?.token),[data,setData]=useState<T|null>(null),[error,setError]=useState('');
-  useEffect(()=>{setData(null);setError('');if(!path)return;const ctrl=new AbortController();void api<T>(path,'GET',undefined,ctrl.signal).then(setData).catch(e=>{if(!ctrl.signal.aborted)setError(errorMessage(e));});return()=>ctrl.abort();},[path,token,refresh]);
+  useEffect(()=>{setData(null);setError('');if(!path)return;const ctrl=new AbortController();void api<T>(path,'GET',undefined,ctrl.signal).then(setData).catch(e=>{if(!ctrl.signal.aborted)setError(errorMessage(e));});return()=>ctrl.abort();},[path,token,refresh,api]);
   return {data,error};
 }
 export function useLive<T extends MatchView|RoomView>(kind:'match'|'room',id:string) {
-  const token=useStore(s=>s.session?.token);
+  const runtime=usePlayRuntime(),token=usePlaySession()?.token;
   const [data,setData]=useState<T|null>(null),[error,setError]=useState(''),[failure,setFailure]=useState<{kind:string;id:string;token:string;status:number|null}|null>(null),[connected,setConnected]=useState(false);
   useEffect(()=>{
+    if(runtime){
+      const update=()=>{setData(runtime.snapshot() as T|null);setError('');setFailure(null);setConnected(true);};
+      update();return runtime.subscribe(update);
+    }
     if(!token)return;setData(null);setError('');setFailure(null);let alive=true;
     const socket=io({auth:{token},transports:['websocket','polling'],autoConnect:false});
     const connectTimer=setTimeout(()=>socket.connect(),0);
@@ -40,12 +46,13 @@ export function useLive<T extends MatchView|RoomView>(kind:'match'|'room',id:str
     refresh();const poll=setInterval(refresh,10_000);
     const onVisible=()=>{if(document.visibilityState==='visible')refresh();};document.addEventListener('visibilitychange',onVisible);
     return()=>{alive=false;clearTimeout(connectTimer);clearInterval(poll);document.removeEventListener('visibilitychange',onVisible);socket.disconnect();};
-  },[kind,id,token]);
+  },[kind,id,token,runtime]);
   return {data,setData,error,errorStatus:failure?.kind===kind&&failure.id===id&&failure.token===token?failure.status:null,connected};
 }
 export function useServerTime(match:MatchView|null) {
+  const runtime=usePlayRuntime();
   const offset=useRef(0),[now,setNow]=useState(Date.now());
   useEffect(()=>{if(match)offset.current=match.serverNow-Date.now();},[match?.serverNow]);
-  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()+offset.current),100);return()=>clearInterval(timer);},[]);
-  return now;
+  useEffect(()=>{if(runtime)return;const timer=setInterval(()=>setNow(Date.now()+offset.current),100);return()=>clearInterval(timer);},[runtime]);
+  return runtime?match?.serverNow??0:now;
 }

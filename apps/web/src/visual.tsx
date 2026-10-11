@@ -1,3 +1,4 @@
+import {usePlayRuntime} from './play-runtime';
 import {playSound} from './sound';
 import { useRef, type ReactNode } from 'react';
 import gsap from 'gsap';
@@ -29,7 +30,7 @@ export function Back({onClick,label='返回账号界面'}:{onClick:()=>void;labe
   return <button className="back-button" aria-label={label} onClick={()=>{playSound('ui.back');onClick();}}><ArrowLeft size={38} strokeWidth={1.3}/></button>;
 }
 export function UserChip({user:providedUser,subtitle='PHIGUESS'}:{user?:Session['user'];subtitle?:string}={}) {
-  const storedUser=useStore(s=>s.session?.user),user=providedUser??storedUser;
+  const runtime=usePlayRuntime(),storedUser=useStore(s=>s.session?.user),user=providedUser??runtime?.session.user??storedUser;
   return <div className="player-chip" aria-label="当前玩家"><div className="player-chip-avatar"><Avatar user={user}/></div><div className="player-chip-copy"><span className="player-chip-name" title={user?.name||'Guest'}>{user?.name||'Guest'}</span><small title={subtitle}>{subtitle}</small></div></div>;
 }
 export function Avatar({user}:{user?:{name:string;avatarUrl?:string|null}}) {
