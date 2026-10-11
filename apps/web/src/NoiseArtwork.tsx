@@ -1,3 +1,4 @@
+import {usePlayRuntime} from './play-runtime';
 import {useEffect,useRef,useState,type CSSProperties,type RefObject} from 'react';
 import {createPortal} from 'react-dom';
 import type {NoiseRegion} from './noise-domain-renderer';
@@ -14,6 +15,7 @@ interface Props{skipFlashAt?:number;src:string;alt:string;startsAt:number;deadli
 interface Particle{x:number;y:number;size:number;height:number;vx:number;vy:number;seed:number}
 
 export function NoiseArtwork(props:Props){
+ const runtime=usePlayRuntime();
  const root=useRef<HTMLDivElement>(null),canvas=useRef<HTMLCanvasElement>(null),exitCanvas=useRef<HTMLCanvasElement>(null),reduce=useReducedMotion();
  const [ready,setReady]=useState(false);
  useEffect(()=>{if(canvas.current){canvas.current.style.transition='opacity .35s ease-out';canvas.current.style.opacity=props.fadeOut?'0':'1';}},[props.fadeOut]);
@@ -65,9 +67,10 @@ export function NoiseArtwork(props:Props){
    canvas.current!.style.visibility='visible';
   }
   if(props.transitionStart)props.transitionStart.current.update=applyWipe;
-  function point(event:Event){const e=event as PointerEvent,r=canvas.current!.getBoundingClientRect(),v=viewOf(r.width,r.height);renderer?.setPointer((e.clientX-r.left)/v.scale+v.left,(e.clientY-r.top)/v.scale+v.top,Boolean(e.buttons&1));}
+  function point(event:Event){if(event.target instanceof Element&&event.target.closest('[data-noise-safe]')){renderer?.clearPointer();return;}const e=event as PointerEvent,r=canvas.current!.getBoundingClientRect(),v=viewOf(r.width,r.height);renderer?.setPointer((e.clientX-r.left)/v.scale+v.left,(e.clientY-r.top)/v.scale+v.top,Boolean(e.buttons&1));}
   function leave(){renderer?.clearPointer();}
   function click(event:Event){
+   if(event.target instanceof Element&&event.target.closest('[data-noise-safe]'))return;
    if(latest.current.solved||latest.current.suspended||!lastRegions.length||wipeAt!==null||!renderer)return;
    const e=event as MouseEvent,r=canvas.current!.getBoundingClientRect(),v=viewOf(r.width,r.height);
    if(renderer.isRedAt((e.clientX-r.left)/v.scale+v.left,(e.clientY-r.top)/v.scale+v.top)){e.preventDefault();e.stopPropagation();}
@@ -166,7 +169,7 @@ export function NoiseArtwork(props:Props){
     }
     if(exitAt!==null)paintExit(stamp);
     else if(!state.solved){
-     const now=state.now+(stamp-state.anchor),elapsed=Math.max(0,(now-state.startsAt)/1000),duration=(state.deadline-state.startsAt)/1000;
+     const now=state.now+(runtime?.clockPaused?0:stamp-state.anchor),elapsed=Math.max(0,(now-state.startsAt)/1000),duration=(state.deadline-state.startsAt)/1000;
      if(sourceDirty||sourcePicture!==decoded.current.image)drawSource();
      const rect=canvas.current!.getBoundingClientRect();lastRegions=artworkNoiseRegions(elapsed,duration,rect.width,rect.height,state.skew??0,(16-48*(state.skew??0))/logicalView.scale,28/logicalView.scale,28/logicalView.scale,state.skipFlashAt===undefined?undefined:(stamp-state.skipFlashAt)/1000);
      if(Boolean(state.mode)){
@@ -175,7 +178,13 @@ export function NoiseArtwork(props:Props){
       const top=view.top+48/view.scale,shear=(top-360)*skew;
       const left=view.left+(48+(rect.height-96)*skew)/view.scale+shear,right=view.left+(rect.width-48)/view.scale+shear;
       const age=(now-(state.deadline-800))/1000,strength=red?1:age<0?.34:.18+.30*Math.pow(.5+.5*Math.cos(age*Math.PI*18),3);
-      lastRegions=skip||now>=state.deadline-5000?[{rect:[left-(red?32:0)/view.scale,top-(red?20:0)/view.scale,right+(red?32:0)/view.scale,view.top+(rect.height-48+(red?20:0))/view.scale],phase:red?2:1,strength:skip?.strength??strength}]:[];
+      let redTop=top-20/view.scale;
+      const artwork=props.mode==='submit'?frame.closest('.game-screen')?.querySelector('.art-frame')?.getBoundingClientRect():undefined;
+      // The gap between the artwork and button scales with the UI. Join their
+      // settled masks with an overlap in noise coordinates, rather than a fixed
+      // 20px overscan which leaves two rims on larger screens.
+      if(red&&artwork)redTop=Math.min(redTop,view.top+(artwork.bottom+48-60*view.scale-rect.top)/view.scale);
+      lastRegions=skip||now>=state.deadline-5000?[{rect:[left-(red?32:0)/view.scale,red?redTop:top,right+(red?32:0)/view.scale,view.top+(rect.height-48+(red?20:0))/view.scale],phase:red?2:1,strength:skip?.strength??strength}]:[];
      }
      if(!lastRegions.length){canvas.current!.style.visibility='hidden';return;}
      renderer!.setViewportScale(Boolean(state.mode)?viewOf(rect.width,rect.height).scale:undefined);

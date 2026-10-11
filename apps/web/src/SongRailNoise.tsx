@@ -1,3 +1,4 @@
+import {usePlayRuntime} from './play-runtime';
 import {useEffect,useRef,type RefObject} from 'react';
 import type {NoiseRegion} from './noise-domain-renderer';
 import {NoiseLayer as NoiseDomainRenderer,noiseVideo} from './noise-stage';
@@ -11,6 +12,7 @@ type Props={rail:RefObject<HTMLDivElement|null>;clock:Clock;progress:Progress[];
 
 // One renderer and one union mask for every visible song name, including old rows.
 export function SongRailNoise(props:Props){
+ const training=Boolean(usePlayRuntime()?.clockPaused);
  const canvas=useRef<HTMLCanvasElement>(null),latest=useRef(props);
  const anchor=useRef({now:props.clock.now,stamp:performance.now()});
  if(anchor.current.now!==props.clock.now)anchor.current={now:props.clock.now,stamp:performance.now()};
@@ -41,7 +43,7 @@ export function SongRailNoise(props:Props){
     if((!past&&!clock)||state.progress.some(p=>p.round===index&&p.correct))continue;
     // Past unanswered rounds are already red, including after a fresh page load.
     const duration=clock?(clock.deadline-clock.startsAt)/1000:30;
-    const elapsed=clock?(state.clock.now+stamp-anchor.current.stamp-clock.startsAt)/1000:duration;
+    const elapsed=clock?(state.clock.now+(training?0:stamp-anchor.current.stamp)-clock.startsAt)/1000:duration;
     const skip=!past&&state.clock.skipFlashAt!==undefined?skipNoisePhase((stamp-state.clock.skipFlashAt)/1000):undefined;
     const settled=past||elapsed>=duration;
     const age=past?Math.min(duration,25):elapsed-Math.max(0,duration-25);

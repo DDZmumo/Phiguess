@@ -3,7 +3,7 @@
     "target": "ES2022", "module": "commonjs", "moduleResolution": "node",
     "rootDir": ".", "outDir": "dist", "strict": true,
     "esModuleInterop": true, "experimentalDecorators": true,
-    "emitDecoratorMetadata": true, "skipLibCheck": true,
+    "emitDecoratorMetadata": true, "skipLibCheck": true, "resolveJsonModule": true,
     "noUncheckedIndexedAccess": true, "forceConsistentCasingInFileNames": true
   },
   "include": ["apps/server/**/*.ts", "packages/**/*.ts", "tools/**/*.ts", "tests/**/*.ts"]

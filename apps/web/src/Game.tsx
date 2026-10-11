@@ -1,3 +1,4 @@
+import {usePlayRuntime,usePlayApi,usePlayMedia,usePlayNavigation,usePlaySession} from './play-runtime';
 import {DamageFeedback} from './DamageFeedback';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
@@ -6,8 +7,8 @@ import {ArtworkPreloader} from './artwork-preload';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FormEvent } from 'react';
 import {createPortal} from 'react-dom';
 import { X, SkipForward, ArrowLeft } from 'lucide-react';
-import { api, ApiError, errorMessage, type Hint, type Progress } from './api';
-import { go, useLive, useReducedMotion, useServerTime } from './hooks';
+import { ApiError, errorMessage, type Hint, type Progress } from './api';
+import { useLive, useReducedMotion, useServerTime } from './hooks';
 import { useStore } from './store';
 import { Back, gsap, Settings, useGSAP, UserChip } from './visual';
 import { resolveHealthCapacity, type MatchView } from '../../../packages/contracts/src';
@@ -27,7 +28,7 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const transitionStart=useRef({startedAt:0,progress:0,update:undefined as ((progress:number)=>void)|undefined}),urls=useRef(new Set<string>()),ref=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
   const noiseFlashes=useRef(new Map<number,number>());if(skipFlashAt!==undefined)noiseFlashes.current.set(round,skipFlashAt);else noiseFlashes.current.delete(round);
   const noiseDeadlines=useRef(new Map<number,number>());noiseDeadlines.current.set(round,deadline);
-  const token=useStore(s=>s.session?.token);
+  const runtime=usePlayRuntime(),fetch=usePlayMedia(),token=usePlaySession()?.token;
   const [preloader]=useState(()=>new ArtworkPreloader());
   useEffect(()=>()=>preloader.cancel(),[preloader,id,token]);
   const onOriginalReady=useCallback((originalRound:number,original:{url:string;ratio:number}|null)=>setOriginals(previous=>{
@@ -59,7 +60,7 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   useEffect(()=>{
     if(complete){preloader.cancel();return;}
     // The visible image gets the bandwidth first. Keep only the next ciphertext.
-    if(started&&token&&round+1<totalRounds&&images.at(-1)?.round===round)
+    if(!runtime&&started&&token&&round+1<totalRounds&&images.at(-1)?.round===round)
       preloader.preload(id,round+1,token);
   },[preloader,id,round,started,complete,token,totalRounds,images]);
   useEffect(()=>()=>{for(const url of urls.current)URL.revokeObjectURL(url);urls.current.clear();},[]);
@@ -83,20 +84,21 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   return <><div className="art-frame" ref={ref}>
     {images.map((image,i)=>{const solved=progress.some(p=>p.round===image.round&&p.correct)||(image.round===round&&answered);const cover=i===images.length-2&&image.round===images.at(-1)?.round&&image.difficulty!==images.at(-1)?.difficulty;return <div key={image.url} className={`art-slide ${i===images.length-1?'art-new':'art-old'} ${cover?'art-downgrade-cover':''}`}><OriginalReveal id={id} round={image.round} solved={solved} revealDelay={.45} onOriginalReady={onOriginalReady}><img src={image.url} alt={i===images.length-1?'当前难度的猜测曲绘':''}/></OriginalReveal></div>;})}
     {images.length>0&&<NoiseArtwork skipFlashAt={noiseFlashes.current.get(images.at(-1)!.round)} src={images.at(-1)!.url} image={images.at(-1)!.decoded} showImage={false} alt="" startsAt={images.at(-1)!.startsAt} deadline={noiseDeadlines.current.get(images.at(-1)!.round)??images.at(-1)!.deadline} now={now} solved={progress.some(p=>p.round===images.at(-1)!.round&&p.correct)||(images.at(-1)!.round===round&&answered)} active={true} suspended={zoomOpen} transitionStart={transitionStart} skew={.2679491924}/>}
-    <button className="art-zoom-trigger" aria-label="放大查看曲绘" title={solvedCurrent&&!originalCurrent?'正在读取原图':'点击放大查看'} disabled={!ready||(solvedCurrent&&!originalCurrent)} onClick={()=>{setZoomOpen(true);playSound('panel.open');}}/>
+    <button className="art-zoom-trigger" aria-label="放大查看曲绘" title={solvedCurrent&&!originalCurrent?'正在读取原图':'点击放大查看'} disabled={!ready||(solvedCurrent&&!originalCurrent)} onClick={()=>{setZoomOpen(true);runtime?.event('zoom-open');playSound('panel.open');}}/>
     {!ready&&(started||complete)&&<div className={`art-placeholder ${images.length?'over-old':''}`}><strong>{complete?'φ':'…'}</strong><span>{complete?'挑战结束':'正在读取曲绘'}</span></div>}
     {error&&<div className="art-error"><span>{error}</span><button onClick={()=>setRetry(n=>n+1)}>重试</button></div>}
-  </div><dialog className="art-zoom-dialog" ref={zoom} aria-label="放大曲绘" onCancel={e=>{e.preventDefault();setZoomOpen(false);playSound('panel.close');}} onClose={()=>setZoomOpen(false)} onClick={e=>{if(e.target===e.currentTarget){setZoomOpen(false);playSound('panel.close');}}}>
-    <button className="art-zoom-close" aria-label="关闭放大曲绘" autoFocus onClick={()=>{setZoomOpen(false);playSound('panel.close');}}><X size={27}/></button>
+  </div><dialog className="art-zoom-dialog" ref={zoom} aria-label="放大曲绘" onCancel={e=>{e.preventDefault();setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}} onClose={()=>setZoomOpen(false)} onClick={e=>{if(e.target===e.currentTarget){setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}}>
+    <button className="art-zoom-close" aria-label="关闭放大曲绘" autoFocus onClick={()=>{setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}><X size={27}/></button>
     {zoomOpen&&originalCurrent?<img src={originalCurrent.url} alt="当前曲绘的原图" style={{width:`min(100%, calc((92svh - 82px) * ${originalCurrent.ratio}))`}}/>:zoomOpen&&images.at(-1)&&<img src={images.at(-1)!.url} style={{width:`min(100%, calc((92svh - 82px) * ${images.at(-1)!.ratio}))`}} alt="当前曲绘的完整放大图"/>}
     <p>计时继续 · Esc 或点击空白处关闭</p>
   </dialog></>;
 }
 
 export function Game({id}:{id:string}) {
-  const {data:match,setData:setMatchView,error:loadError,errorStatus}=useLive<MatchView>('match',id),now=useServerTime(match),session=useStore(s=>s.session)!;
+  const runtime=usePlayRuntime(),api=usePlayApi(),go=usePlayNavigation();
+  const {data:match,setData:setMatchView,error:loadError,errorStatus}=useLive<MatchView>('match',id),now=useServerTime(match),session=usePlaySession()!;
   const endingBlack=useRef<HTMLDivElement>(null),wasActive=useRef(false),reduce=useReducedMotion();
-  const [settings,setSettings]=useState(false),[answer,setAnswer]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState('');
+  const [settings,setSettings]=useState(false),[answer,setAnswer]=useState(runtime?.answerDraft??''),[busy,setBusy]=useState(false),[error,setError]=useState('');
   const [progress,setProgress]=useState<Progress[]>([]),[hints,setHints]=useState<Hint[]>([]),[hintBusy,setHintBusy]=useState(false);
   const [submitNoise,setSubmitNoise]=useState<{round:number;leaving:boolean;startsAt:number;deadline:number}|null>(null);
   const [notice,setNotice]=useState<AnswerNoticeEvent|null>(null),noticeSerial=useRef(0),noticed=useRef(new Set<string>());
@@ -105,7 +107,7 @@ export function Game({id}:{id:string}) {
   const [abandonArmed,setAbandonArmed]=useState(false),[returnNoiseAt,setReturnNoiseAt]=useState<number|null>(null),[returnBusy,setReturnBusy]=useState(false),returnPending=useRef(false),returnButton=useRef<HTMLButtonElement>(null);
   const submitButton=useRef<HTMLButtonElement>(null);
   const noiseDamagePending=useRef(0),noiseDeathSounded=useRef(false);
-  const wrongAttempts=useRef(new Map<number,number>());
+  const wrongAttempts=useRef(new Map<number,number>(runtime?.wrongAttemptsByRound));
   const showNotice=useCallback((kind:AnswerNoticeEvent['kind'],round:number)=>{
     const key=`${round}:${kind}`;
     if(kind!=='bad'&&noticed.current.has(key))return;
@@ -115,7 +117,12 @@ export function Game({id}:{id:string}) {
   const lastArtRound=useRef<number|null>(null);
   const onArtReady=useCallback((round:number,url:string)=>{if(lastArtRound.current!==null&&round>lastArtRound.current)playSound('round.next');lastArtRound.current=round;setVisualRound(round);setBackground(url);},[]);
   const pending=useRef<{round:number;answer:string;requestId:string}|null>(null);
-  const round=match?.round??0,answered=match?.players.find(p=>p.id===session.user.id)?.answered??false;
+  const preparingAnswer=useRef<AbortController|null>(null);
+  const round=match?.round??runtime?.snapshot()?.round??0,answered=match?.players.find(p=>p.id===session.user.id)?.answered??false;
+  const draftRound=useRef(round);
+  const updateAnswer=useCallback((value:string)=>{setAnswer(value);runtime?.updateAnswerDraft?.(value);},[runtime]);
+  useEffect(()=>{if(!runtime?.updateAnswerDraft)return;const sync=()=>setAnswer(runtime.answerDraft??'');sync();return runtime.subscribe(sync);},[runtime]);
+  useEffect(()=>()=>preparingAnswer.current?.abort(),[id,round,runtime]);
   const capacity=match?resolveHealthCapacity(match.difficulty,match.healthCapacity,match.healthEnabled):0;
   const health=match?.players.find(p=>p.id===session.user.id)?.health??capacity,failed=capacity>0&&health===0;
   const complete=match?.status==='finished';
@@ -127,8 +134,8 @@ export function Game({id}:{id:string}) {
     const instant=failed||!wasActive.current;
     const timeline=gsap.timeline().to(endingBlack.current,{opacity:1,duration:instant?0:reduce?.12:.7,ease:'phigrosFadeIn'});
     timeline.call(()=>{
-      if(useStore.getState().matchId===id)useStore.getState().setMatch(null);
-      if(window.location.hash===`#/play/${id}`)go(`/results/${id}`);
+      if(!runtime&&useStore.getState().matchId===id)useStore.getState().setMatch(null);
+      if(runtime||window.location.hash===`#/play/${id}`)go(`/results/${id}`);
     },undefined,instant?(failed&&wasActive.current&&!reduce?.8:.12):'>');
     return()=>{timeline.kill();};
   },[complete,failed,id,reduce]);
@@ -141,6 +148,7 @@ export function Game({id}:{id:string}) {
   },[id,errorStatus]);
   const applySnapshot=useCallback((value:MatchView)=>setMatchView(previous=>previous&&previous.id===value.id&&previous.serverNow>value.serverNow?previous:value),[setMatchView]);
   const started=Boolean(match&&now>=match.startsAt),playing=Boolean(match&&match.status==='playing'&&started&&now<match.deadline&&!answered&&!failed);
+  useLayoutEffect(()=>{if(runtime&&match)runtime.event('game-ready');},[runtime,Boolean(match)]);
   useEffect(()=>{if(match)prepareGameMusic();},[Boolean(match)]);
   useEffect(()=>{
     if(complete)stopGameMusic(id);else if(started)startGameMusic(id);
@@ -206,12 +214,12 @@ export function Game({id}:{id:string}) {
   useEffect(()=>{
     if(!match||!capacity||failed||!['playing','reveal'].includes(match.status))return;
     let alive=true;
-    const damage=()=>{
+    const damage=(kind:'click'|'hover'='click')=>{
       let request:{requestId:string;round:number};
       try{request={requestId:createRequestId(),round};}catch(e){if(alive)setError(errorMessage(e));return;}
       noiseDamagePending.current++;
       const send=()=>api<MatchView>(`matches/${id}/noise-hits`,'POST',request);
-      void send().catch(e=>{if(e instanceof ApiError)throw e;return send();}).then(value=>{if((alive||endingBlack.current)&&value.players.find(p=>p.id===session.user.id)?.health===0&&!noiseDeathSounded.current){noiseDeathSounded.current=true;playSound('answer.wrong');}if(alive)applySnapshot(value);}).catch(e=>{if(alive&&!(e instanceof ApiError&&e.status===409))setError(errorMessage(e));}).finally(()=>{noiseDamagePending.current--;});
+      void send().catch(e=>{if(e instanceof ApiError)throw e;return send();}).then(value=>{if((alive||endingBlack.current)&&value.players.find(p=>p.id===session.user.id)?.health===0&&!noiseDeathSounded.current){noiseDeathSounded.current=true;playSound('answer.wrong');}if(alive){applySnapshot(value);runtime?.event(`noise-${kind}`);}}).catch(e=>{if(alive&&!(e instanceof ApiError&&e.status===409))setError(errorMessage(e));}).finally(()=>{noiseDamagePending.current--;});
     };
     const unsubscribe=subscribeNoiseHits(damage);
     const onEnter=(event:KeyboardEvent)=>{
@@ -224,17 +232,21 @@ export function Game({id}:{id:string}) {
     document.addEventListener('keydown',onEnter,true);
     return()=>{alive=false;unsubscribe();document.removeEventListener('keydown',onEnter,true);};
   },[id,round,match?.status,capacity,failed,submitRed,applySnapshot]);
-  useEffect(()=>{if(submitStarts&&match)setSubmitNoise(previous=>({round,leaving:previous?.round===round?previous.leaving:false,startsAt:match.startsAt,deadline:match.deadline}));},[submitStarts,round,match?.startsAt,match?.deadline]);
+  useEffect(()=>{if(submitStarts&&match)setSubmitNoise({round,leaving:false,startsAt:match.startsAt,deadline:match.deadline});},[submitStarts,round,match?.startsAt,match?.deadline]);
   useEffect(()=>{
-    if(!submitNoise||visualRound===null||visualRound===submitNoise.round)return;
+    // A slow picture may still show the previous round when the new warning starts.
+    // Only retire a domain after the displayed picture advances beyond its round.
+    if(!submitNoise||visualRound===null||visualRound<=submitNoise.round)return;
     setSubmitNoise(previous=>previous?{...previous,leaving:true}:null);
     const timer=setTimeout(()=>setSubmitNoise(null),350);return()=>clearTimeout(timer);
   },[visualRound,submitNoise?.round]);
   useEffect(()=>{if(failed&&noiseDamagePending.current>0&&!noiseDeathSounded.current){noiseDeathSounded.current=true;playSound('answer.wrong');}},[failed]);
-  const previousTimeoutSnapshot=useRef<MatchView|null>(null),soundedTimeouts=useRef(new Set<number>());
+  const previousTimeoutSnapshot=useRef<Pick<MatchView,'round'|'status'|'deadline'>|null>(null),soundedTimeouts=useRef(new Set<number>());
   useEffect(()=>{
     if(!match)return;
-    const previous=previousTimeoutSnapshot.current;previousTimeoutSnapshot.current=match;
+    // The tutorial mutates its current snapshot before notifying subscribers.
+    // Keep the observed values independent so that transition detection still works.
+    const previous=previousTimeoutSnapshot.current;previousTimeoutSnapshot.current={round:match.round,status:match.status,deadline:match.deadline};
     if(previous?.round===match.round&&previous.status==='playing'&&['reveal','finished'].includes(match.status)&&!answered&&match.serverNow>=previous.deadline&&!soundedTimeouts.current.has(match.round)){
       soundedTimeouts.current.add(match.round);playSound('answer.wrong');
     }
@@ -243,8 +255,8 @@ export function Game({id}:{id:string}) {
   useEffect(()=>{
     if(!answered&&!current?.correct&&(match?.status==='reveal'||match?.status==='finished'))showNotice('miss',round);
   },[answered,current?.correct,match?.status,round,showNotice]);
-  useEffect(()=>{useStore.getState().setMatch(id);},[id]);
-  useEffect(()=>{setAnswer('');setError('');setHints([]);pending.current=null;},[round]);
+  useEffect(()=>{if(!runtime)useStore.getState().setMatch(id);},[id,runtime]);
+  useEffect(()=>{if(draftRound.current!==round){draftRound.current=round;updateAnswer('');}setError('');setHints([]);pending.current=null;},[round,updateAnswer]);
   useEffect(()=>{
     let alive=true;void api<Progress[]>(`matches/${id}/progress`).then(v=>{if(alive)setProgress(v);}).catch(()=>{});return()=>{alive=false;};
   },[id,round,answered,match?.status]);
@@ -254,9 +266,15 @@ export function Game({id}:{id:string}) {
   },[id,round,started]);
   async function submit(e:FormEvent) {
     e.preventDefault();if(!playing||submitRed||busy||!answer.trim())return;setBusy(true);setError('');
+    let preparation:AbortController|undefined;
     try {
       if(!pending.current)playSound('ui.confirm');
-      const request=pending.current??{round,answer:answer.trim(),requestId:createRequestId()};pending.current=request;
+      let request=pending.current;
+      if(!request){
+        let value=answer.trim();
+        if(runtime?.prepareAnswer){preparation=new AbortController();preparingAnswer.current=preparation;value=await runtime.prepareAnswer(value,round,updateAnswer,preparation.signal,reduce);if(preparation.signal.aborted)throw new DOMException('Aborted','AbortError');}
+        request={round,answer:value,requestId:createRequestId()};pending.current=request;
+      }
       const result=await api<{correct:boolean;score:number}>(`matches/${id}/guesses`,'POST',request);
       pending.current=null;
       if(result.correct){if(!noticed.current.has(`${request.round}:perfect`)&&!noticed.current.has(`${request.round}:good`))playSound('answer.correct');showNotice((wrongAttempts.current.get(request.round)??0)===0?'perfect':'good',request.round);}
@@ -264,7 +282,7 @@ export function Game({id}:{id:string}) {
       const [savedProgress,snapshot]=await Promise.all([api<Progress[]>(`matches/${id}/progress`),api<MatchView>(`matches/${id}`)]);
       setProgress(savedProgress);applySnapshot(snapshot);
       setError('');
-    }catch(e){if(e instanceof ApiError)pending.current=null;setError(errorMessage(e));}finally{setBusy(false);}
+    }catch(e){if(e instanceof ApiError)pending.current=null;setError(errorMessage(e));}finally{if(preparingAnswer.current===preparation)preparingAnswer.current=null;setBusy(false);}
   }
   async function reveal(index:number) {
     if(!playing||hintBusy||hints.some(h=>h.index===index))return;
@@ -284,13 +302,13 @@ export function Game({id}:{id:string}) {
     </button>
     <SongRail noiseClock={{skipFlashAt,round:match.round,startsAt:match.startsAt,deadline:match.deadline,now:noiseNow}} match={{...match,round:visualRound??match.round,difficulty:imageDifficulty}} progress={progress}
       hintDisabled={!playing||hintBusy||visibleHints.every(i=>hints.some(h=>h.index===i))}
-      onHint={()=>void reveal(visibleHints.find(i=>!hints.some(h=>h.index===i))??0)} onSettings={()=>{setSettings(true);playSound('ui.confirm');}}/>
+      onHint={()=>void reveal(visibleHints.find(i=>!hints.some(h=>h.index===i))??0)} onSettings={()=>{if(runtime){runtime.event('settings');return;}setSettings(true);playSound('ui.confirm');}}/>
     <div className="game-player-header"><div className="game-score" aria-label="当前分数"><span>SCORE</span><b>{(match.players.find(p=>p.id===session.user.id)?.score??0).toLocaleString()}</b></div><UserChip/></div>
     <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>
-      <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||Boolean(pending.current)} value={answer} onChange={e=>setAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
+      <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||Boolean(pending.current)} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
       <button ref={submitButton} className={`submit-answer ${submitCovered?'submit-covered':''} ${submitFlashing?'submit-flashing':''} ${submitNoise?.leaving?'submit-dissolving':''} ${submitRed?'submit-red':''}`} disabled={!playing||submitRed||busy||!answer.trim()}><span>{busy?'提交中':answered?'已提交':'提交'}</span><NoiseArtwork skipFlashAt={skipFlashAt} mode="submit" target={submitButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={submitNoise?.startsAt??match.startsAt} deadline={submitNoise?.round===round?match.deadline:submitNoise?.deadline??match.deadline} now={noiseNow} solved={false} active={true} suspended={!submitCovered} fadeOut={submitNoise?.leaving} skew={.2679491924} style={{pointerEvents:'none'}}/></button>
     </form>
     <HintStrip indices={visibleHints} hints={hints}/>

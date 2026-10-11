@@ -7,14 +7,16 @@ storage/corpus/*
 !storage/corpus/catalog.json
 !storage/corpus/trace-report.json
 !storage/corpus/prepared/
-!storage/corpus/prepared/**/
 storage/corpus/prepared/**/*
+!storage/corpus/prepared/**/
 !storage/corpus/prepared/**/manifest.json
 !storage/corpus/prepared/**/*.svg
 !storage/corpus/source/
-storage/corpus/source/*
-!storage/corpus/source/Raw/
-!storage/corpus/source/Raw/**
+storage/corpus/source/**/*
+!storage/corpus/source/**/
+# Keep original PNGs and EZ inputs, including nested chapter/Part folders.
+!storage/corpus/source/Raw/**/*.png
+!storage/corpus/source/**/EZ/*.png
 backups/
 *.log
 coverage/
@@ -22,3 +24,11 @@ apps/web/dist/
 output/
 .playwright-mcp/
 .venv-assets/
+
+# Python bytecode and local tooling caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/

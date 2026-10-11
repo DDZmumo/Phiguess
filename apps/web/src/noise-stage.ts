@@ -3,8 +3,9 @@ import {NoiseDomainRenderer,type NoiseRegion} from './noise-domain-renderer';
 import {noiseViewport} from './noise-viewport';
 
 let stage:NoiseStage|undefined;
-const hitListeners=new Set<()=>void>();
-export function subscribeNoiseHits(listener:()=>void){hitListeners.add(listener);return()=>{hitListeners.delete(listener);};}
+export function isNoiseRedAt(x:number,y:number){return stage?.isRedAt(x,y)??false;}
+const hitListeners=new Set<(kind:'click'|'hover')=>void>();
+export function subscribeNoiseHits(listener:(kind:'click'|'hover')=>void){hitListeners.add(listener);return()=>{hitListeners.delete(listener);};}
 let media:{video:HTMLVideoElement;ready:Promise<void>}|undefined;
 export function noiseVideo(){
  if(!media){
@@ -52,9 +53,10 @@ class NoiseStage {
  private pointer:PointerEvent|null=null;
  private nextHoverDamage=0;
  private hoverRegions:NoiseRegion[]=[];private hoverHit=false;private nextHoverPick=0;
+ private tutorial=document.querySelector<HTMLElement>('.tutorial-real-screen');
  private updateHover(){
   const now=performance.now(),pointer=this.pointer;
-  let eligible=Boolean(pointer&&pointer.pointerType!=='touch'&&!document.hidden&&!document.querySelector('dialog[open]')&&this.canvas.style.visibility==='visible');
+  let eligible=Boolean(pointer&&pointer.pointerType!=='touch'&&!(pointer.target instanceof Element&&pointer.target.closest('[data-noise-safe]'))&&!document.hidden&&!document.querySelector('dialog[open]')&&this.canvas.style.visibility==='visible');
   if(eligible&&pointer){
    const v=this.view(),y=v.top+pointer.clientY/v.scale,x=v.left+pointer.clientX/v.scale+(y-360)*.2679491924;
    eligible=this.hoverRegions.some(r=>r.phase===2&&r.strength>.01&&x>=r.rect[0]-40&&x<=r.rect[2]+40&&y>=r.rect[1]-40&&y<=r.rect[3]+40);
@@ -63,23 +65,27 @@ class NoiseStage {
   else if(now>=this.nextHoverPick){this.hoverHit=this.isRedAt(pointer!.clientX,pointer!.clientY);this.nextHoverPick=now+100;}
   const inside=eligible&&this.hoverHit;
   setNoiseMuffled(inside);
-  if(!inside){this.nextHoverDamage=0;return;}
+  // Tutorial restrictions gate damage, while hovering still changes the audio.
+  const damageAllowed=!this.tutorial?.isConnected||!this.tutorial.inert&&this.tutorial.dataset.tutorialStep==='10'&&Boolean(pointer?.target instanceof Element&&pointer.target.closest('.art-frame'));
+  if(!inside||!damageAllowed){this.nextHoverDamage=0;return;}
   if(!this.nextHoverDamage)this.nextHoverDamage=now+2000;
   else if(now>=this.nextHoverDamage){
    // Recheck the actual edge before charging; never charge from a stale hover sample.
    if(!this.isRedAt(pointer!.clientX,pointer!.clientY)){this.hoverHit=false;this.nextHoverDamage=0;setNoiseMuffled(false);return;}
-   this.nextHoverDamage=now+2000;for(const listener of hitListeners)listener();
+   this.nextHoverDamage=now+2000;for(const listener of hitListeners)listener('hover');
   }
  }
 
  private onPointer=(event:PointerEvent)=>{this.pointer=event;this.updateHover();};
  private onLeave=()=>{this.pointer=null;this.renderer.clearPointer();this.nextHoverDamage=0;this.hoverHit=false;this.nextHoverPick=0;setNoiseMuffled(false);};
  private onHit=(event:PointerEvent)=>{
+  if(event.target instanceof Element&&event.target.closest('[data-noise-safe]'))return;
   if(event.button!==0||!event.isPrimary||document.querySelector('dialog[open]')||this.canvas.style.visibility==='hidden'||!this.isRedAt(event.clientX,event.clientY))return;
   event.preventDefault();event.stopImmediatePropagation();this.pointer=event;
-  for(const listener of hitListeners)listener();
+  for(const listener of hitListeners)listener('click');
  };
  private onClick=(event:MouseEvent)=>{
+  if(event.target instanceof Element&&event.target.closest('[data-noise-safe]'))return;
   // Keyboard/implicit form activation has no pointer coordinates; Game handles Enter separately.
   if(event.detail===0)return;
   if(document.querySelector('dialog[open]')||this.canvas.style.visibility==='hidden'||!this.isRedAt(event.clientX,event.clientY))return;
@@ -106,7 +112,7 @@ class NoiseStage {
   this.raf=requestAnimationFrame(tick);
  }
  private view(){const art=document.querySelector('.art-frame')?.getBoundingClientRect();return noiseViewport(innerWidth,innerHeight,art&&art.width?noiseViewport(art.width+96,art.height+96).scale:undefined);}
- isRedAt(x:number,y:number){if(this.contextLost)return false;const v=this.view();return this.renderer.isRedAt(v.left+x/v.scale,v.top+y/v.scale);}
+ isRedAt(x:number,y:number){if(this.contextLost||this.canvas.style.visibility!=='visible')return false;const v=this.view();return this.renderer.isRedAt(v.left+x/v.scale,v.top+y/v.scale);}
  private paint(force?:NoiseLayer){
   if(this.contextLost)return;
   const v=this.view(),items=[...this.layers].filter(l=>l.source&&l.canvas.isConnected&&(l===force||l.canvas.style.visibility==='visible')&&l.regions.length);

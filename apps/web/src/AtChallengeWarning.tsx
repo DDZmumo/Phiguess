@@ -1,22 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { SongName } from './SongName';
+import {CHARACTER_TRANSITION_MS,CHARACTER_REVEAL_DELAY_MS,randomCharacterRanks,scrambledCharacters} from './character-scramble';
 
 const parts=['AT难度下曲绘抽象程度极高','题数无穷 每题限时30秒','血条强制开启','20HP','你确定还要继续挑战吗？'];
 const offsets=parts.map((_,index)=>parts.slice(0,index).join('').length),characterCount=parts.join('').length;
-const CHARACTER_TRANSITION_MS=700;
-function randomRevealRanks(){
-  const order=Array.from({length:characterCount},(_,i)=>i),ranks:number[]=[];
-  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j]!,order[i]!];}
-  order.forEach((index,rank)=>{ranks[index]=rank;});return ranks;
-}
-function scrambled(text:string,frame:number,index:number){
-  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-  let seed=(Math.imul(index+1,0x45d9f3b)^Math.imul(frame+1,0x27d4eb2d))>>>0;
-  return Array.from(text,()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return chars[(seed>>>0)%chars.length];}).join('');
-}
 
 export function AtChallengeWarning({capacity,reduce,concealing,onChange,onReady,onConcealed}:{capacity:20|50;reduce:boolean;concealing:boolean;onChange:(capacity:20|50)=>void;onReady:(ready:boolean)=>void;onConcealed:()=>void}){
-  const [ranks]=useState(randomRevealRanks),[settled,setSettled]=useState(0),[frame,setFrame]=useState(0),[changing,setChanging]=useState(false);
+  const [ranks]=useState(()=>randomCharacterRanks(characterCount)),[settled,setSettled]=useState(0),[frame,setFrame]=useState(0),[changing,setChanging]=useState(false);
   const settledRef=useRef(settled);settledRef.current=settled;
   const revealed=settled===characterCount;
   useEffect(()=>{
@@ -34,7 +24,7 @@ export function AtChallengeWarning({capacity,reduce,concealing,onChange,onReady,
     if(reduce){setSettled(characterCount);onReady(true);return;}
     setSettled(0);const started=performance.now();
     const timer=setInterval(()=>{
-      const count=Math.min(characterCount,Math.max(0,Math.floor((performance.now()-started-650)/CHARACTER_TRANSITION_MS*characterCount)));
+      const count=Math.min(characterCount,Math.max(0,Math.floor((performance.now()-started-CHARACTER_REVEAL_DELAY_MS)/CHARACTER_TRANSITION_MS*characterCount)));
       setFrame(value=>(value+1)%65536);setSettled(count);
       if(count===characterCount){clearInterval(timer);onReady(true);}
     },40);
@@ -45,7 +35,7 @@ export function AtChallengeWarning({capacity,reduce,concealing,onChange,onReady,
     const timer=setTimeout(()=>setChanging(false),reduce?0:450);return()=>clearTimeout(timer);
   },[changing,reduce]);
   const text=(index:number,value=parts[index]!)=>{
-    const noise=scrambled(value,frame,index);
+    const noise=scrambledCharacters(value,frame,index);
     return <span className="at-warning-scramble" aria-label={value}>{Array.from(value,(char,position)=>{
       const done=ranks[offsets[index]!+position]!<settled;
       return <span className="at-warning-character" key={position} data-settled={done} aria-hidden="true"><span className="at-warning-character-size">{char}</span><span className="at-warning-character-glyph">{done?char:noise[position]===char?'?':noise[position]}</span></span>;

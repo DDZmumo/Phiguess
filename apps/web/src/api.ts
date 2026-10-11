@@ -16,6 +16,7 @@ export async function api<T>(path:string,method='GET',body?:unknown,signal?:Abor
   return data;
 }
 export function errorMessage(error:unknown):string {
+  if(error instanceof Error&&error.name==='TutorialActionError')return error.message;
   if(error instanceof ApiError) {
     if(error.message==='Invalid player name or password')return '玩家名或密码不正确。';
     if(error.message==='Player name already registered')return '这个玩家名已注册，请换一个名字。';
