@@ -1,4 +1,4 @@
-import {usePlayRuntime,usePlayApi,usePlayMedia,usePlayNavigation,usePlaySession} from './play-runtime';
+import {usePlayRuntime,usePlayApi,usePlayMedia,usePlayNavigation,usePlaySession,useOriginalImages} from './play-runtime';
 import {DamageFeedback} from './DamageFeedback';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
@@ -28,7 +28,7 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const transitionStart=useRef({startedAt:0,progress:0,update:undefined as ((progress:number)=>void)|undefined}),urls=useRef(new Set<string>()),ref=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
   const noiseFlashes=useRef(new Map<number,number>());if(skipFlashAt!==undefined)noiseFlashes.current.set(round,skipFlashAt);else noiseFlashes.current.delete(round);
   const noiseDeadlines=useRef(new Map<number,number>());noiseDeadlines.current.set(round,deadline);
-  const runtime=usePlayRuntime(),fetch=usePlayMedia(),token=usePlaySession()?.token;
+  const runtime=usePlayRuntime(),fetch=usePlayMedia(),originalImages=useOriginalImages(),token=usePlaySession()?.token;
   const [preloader]=useState(()=>new ArtworkPreloader());
   useEffect(()=>()=>preloader.cancel(),[preloader,id,token]);
   const onOriginalReady=useCallback((originalRound:number,original:{url:string;ratio:number}|null)=>{
@@ -51,12 +51,13 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
         blob=await response.blob();
       }
       if(!alive)return;
+      originalImages.rememberQuestion(id,round,difficulty,blob);
       const url=URL.createObjectURL(blob);urls.current.add(url);
       const decoded=new Image();decoded.src=url;await decoded.decode();if(!alive)return;
       setImages(previous=>[...previous.slice(-1),{url,round,difficulty,ratio:decoded.naturalWidth/decoded.naturalHeight,decoded,startsAt,deadline}]);onReady(round,url);
     })().catch(()=>{if(alive)setError('题图加载未完成');}).finally(()=>clearTimeout(timeout));
     return()=>{alive=false;ctrl.abort();clearTimeout(timeout);};
-  },[id,round,started,token,retry,onReady,difficulty,imageKey,preloader]);
+  },[id,round,started,token,retry,onReady,difficulty,imageKey,preloader,originalImages]);
   useEffect(()=>{
     if(complete){preloader.cancel();return;}
     // The visible image gets the bandwidth first. Keep only the next ciphertext.

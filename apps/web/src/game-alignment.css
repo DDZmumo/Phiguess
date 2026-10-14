@@ -36,7 +36,7 @@
 .art-zoom-dialog[open]{display:flex;align-items:center;justify-content:center}
 .art-zoom-dialog>img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
 .art-zoom-close{position:absolute;top:0;right:0;width:44px;height:44px;display:grid;place-items:center;background:#11151ce6;border:1px solid #ffffff38;cursor:pointer}
-.art-original-loading,.art-original-retry{position:absolute;left:8%;right:8%;bottom:10%;z-index:4;padding:8px 12px;background:#11151ce6;color:#fff;text-align:center;font-size:14px;pointer-events:none}
+.art-original-retry{position:absolute;left:8%;right:8%;bottom:10%;z-index:4;padding:8px 12px;background:#11151ce6;color:#fff;text-align:center;font-size:14px;pointer-events:none}
 .art-original-retry{pointer-events:auto}
 .art-zoom-dialog>p{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:13px;line-height:1.5;color:#c4c9d0;pointer-events:none}
 .game-screen .guess-input-row{

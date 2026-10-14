@@ -1,6 +1,7 @@
 import {configureMenuMusic} from './menu-music';
 import {configureSound} from './sound';
 import {sharedOriginalCache} from './original-image-cache';
+import {sharedQuestionCache} from './question-image-cache';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { normalizeChallengeSettings, INFINITY_ROUNDS } from '../../../packages/contracts/src';
@@ -28,7 +29,7 @@ export const useStore=create<State>()(persist((set)=>({
 configureSound(useStore.getState().preferences);
 configureMenuMusic(useStore.getState().preferences.musicVolume??.3);
 useStore.subscribe((state,previous)=>{
- if(state.session?.token!==previous.session?.token)sharedOriginalCache.clear();
+ if(state.session?.token!==previous.session?.token){sharedOriginalCache.clear();sharedQuestionCache.clear();}
  if(state.preferences.musicVolume!==previous.preferences.musicVolume)configureMenuMusic(state.preferences.musicVolume??.3);
  if(state.preferences.sound!==previous.preferences.sound||state.preferences.volume!==previous.preferences.volume)configureSound(state.preferences);
 });

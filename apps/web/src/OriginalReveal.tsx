@@ -27,6 +27,6 @@ export function OriginalReveal({id,round,solved,children,revealDelay=0,preloadOr
   return <div className="art-reveal-layer" ref={root}>
     {original&&solved&&<img className="art-original" src={original.url} alt={originalAlt}/>}
     <div className="art-abstract-layer">{children}</div>
-    {!original&&solved&&(loadError?<button className="art-original-retry" type="button" onClick={()=>setRetry(value=>value+1)}>原图加载未完成，点击重试</button>:<span className="art-original-loading" role="status">正在读取原图…</span>)}
+    {!original&&solved&&loadError&&<button className="art-original-retry" type="button" onClick={()=>setRetry(value=>value+1)}>原图加载未完成，点击重试</button>}
   </div>;
 }
