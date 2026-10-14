@@ -1,8 +1,11 @@
 import {noiseViewport} from './noise-viewport';
+import {noiseBufferSize,noiseRenderPolicy,NOISE_RESOLUTION_SCALES} from './noise-render-policy';
+import {isMobileScreen} from './landscape';
+import {noiseDrawBounds,type NoiseRegion} from './noise-draw-bounds';
 // One fullscreen compositing pass. The source stays clean; only the region is distorted.
 const vertex=`attribute vec2 position;varying vec2 uv;void main(){uv=position*.5+.5;gl_Position=vec4(position,0.,1.);}`;
 const fragment=`precision highp float;
-varying vec2 uv;uniform sampler2D source;uniform sampler2D noiseGrain;uniform vec2 grainTexel;uniform float time;uniform float enabled;uniform vec4 regions[24];uniform float phases[24];uniform float strengths[24];uniform float regionSkew;
+varying vec2 uv;uniform sampler2D source;uniform sampler2D noiseGrain;uniform vec2 grainTexel;uniform float time;uniform float enabled;uniform vec4 regions[24];uniform float phases[24];uniform float strengths[24];uniform float regionSkew;uniform int regionCount;
 uniform vec4 pointer;uniform float interactionTime;uniform sampler2D contactAtlas;uniform vec2 viewSize;
 uniform float wipeTop;uniform float wipeBottom;uniform float overlay;uniform float picking;uniform vec2 pickPoint;
 // Keep the sine input bounded: large page-uptime offsets can collapse GPU sin()
@@ -13,7 +16,7 @@ float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(ha
 float fbm(vec2 p){return noise(p)*.58+noise(p*2.03+17.)*.27+noise(p*4.01+39.)*.15;}
 float box(vec2 p,vec4 r){vec2 d=abs(p-(r.xy+r.zw)*.5)-(r.zw-r.xy)*.5;return max(d.x,d.y);}
 vec2 regionPoint(vec2 p){return vec2(p.x+(p.y-360.)*regionSkew,p.y);}
-float redDistance(vec2 p){float distance=100000.;for(int i=0;i<24;i++)if(phases[i]>1.5)distance=min(distance,box(regionPoint(p),regions[i]));return max(distance,max(wipeTop-p.y,p.y-wipeBottom));}
+float redDistance(vec2 p){float distance=100000.;for(int i=0;i<24;i++){if(i>=regionCount)break;if(phases[i]>1.5)distance=min(distance,box(regionPoint(p),regions[i]));}return max(distance,max(wipeTop-p.y,p.y-wipeBottom));}
 float evolvingNoise(vec2 p,float tick){
  float frame=mod(floor(tick),4096.),blend=smoothstep(0.,1.,fract(tick));
  vec2 current=wrapNoise(frame*vec2(37.,71.)),next=wrapNoise(mod(frame+1.,4096.)*vec2(37.,71.));
@@ -70,6 +73,7 @@ void main(){
   if(redDistance(pointer.xy)<36.)contact=roughCell(floor(pointer.xy/3.),time);
  }
  for(int i=0;i<24;i++){
+  if(i>=regionCount)break;
   if(phases[i]<.5||phases[i]>1.5)continue;
   float d=box(regionPoint(p),regions[i]);if(d>1.)continue;
   vec3 flecks=grainLight(p/vec2(1280.,960.)+vec2(0.,.125));
@@ -81,7 +85,7 @@ void main(){
  }
  float d=redDistance(p);
  if(d<36.){
-  float strength=0.;for(int i=0;i<24;i++)if(phases[i]>1.5&&box(regionPoint(p),regions[i])<36.)strength=max(strength,strengths[i]);vec3 flecks=grainLight(p/vec2(1280.,960.)+vec2(0.,.125));
+  float strength=0.;for(int i=0;i<24;i++){if(i>=regionCount)break;if(phases[i]>1.5&&box(regionPoint(p),regions[i])<36.)strength=max(strength,strengths[i]);}vec3 flecks=grainLight(p/vec2(1280.,960.)+vec2(0.,.125));
   vec2 cell=floor(p/3.),local=mod(p,3.);float edgeTime=time;
   float mask=1.;vec4 neighbor=vec4(1.);
   if(d> -39.){
@@ -139,7 +143,7 @@ void main(){
  gl_FragColor=vec4(mix(lit,composite,overlay),mix(1.,alpha,overlay));
 }`;
 
-export interface NoiseRegion {rect:[number,number,number,number];phase:0|1|2;strength:number}
+export type {NoiseRegion} from './noise-draw-bounds';
 export function noiseRegions(time:number):NoiseRegion[]{
  const result:NoiseRegion[]=[];
  for(let n=0;n<8;n++){
@@ -163,6 +167,7 @@ export function noiseRegions(time:number):NoiseRegion[]{
 }
 
 export class NoiseDomainRenderer{
+ private readonly policy=noiseRenderPolicy(isMobileScreen());
  private gl:WebGLRenderingContext;private program:WebGLProgram;private texture:WebGLTexture;private grainTexture:WebGLTexture;private contactTexture:WebGLTexture;
  private pickTexture:WebGLTexture;private pickBuffer:WebGLFramebuffer;private pickPixel=new Uint8Array(4);
  private inputPoint:[number,number]|null=null;private contactPoint:[number,number]=[-1000,-1000];private pressed=false;private hovering=false;
@@ -184,19 +189,20 @@ export class NoiseDomainRenderer{
  setRegionSkew(value:number){this.regionSkew=value;}
  setReducedMotion(value:boolean){this.reduced=value;}
  private quality=0;private sampleMs=0;private frameSamples=0;private slowFrames=0;private healthyWindows=0;
- private draws=0;private sourceUploads=0;private videoUploads=0;
+ private draws=0;private sourceUploads=0;private videoUploads=0;private activeRegions=0;private shadedPixels=0;
  invalidateSource(){this.sourceDirty=true;}
  noteFrameInterval(ms:number){
-  if(ms<=0||ms>250)return;
-  this.sampleMs+=ms;this.frameSamples++;if(ms>25)this.slowFrames++;
+  if(ms<=0||ms>1000)return;
+  this.sampleMs+=Math.min(ms,250);this.frameSamples++;if(ms>this.policy.frameMs*1.2)this.slowFrames++;
   if(this.sampleMs<1500)return;
   const slow=this.slowFrames/this.frameSamples;
-  if(slow>.2){this.quality=Math.min(2,this.quality+1);this.sizeDirty=true;this.healthyWindows=0;}
+  if(slow>.2){const next=Math.min(NOISE_RESOLUTION_SCALES.length-1,this.quality+1);if(next!==this.quality){this.quality=next;this.sizeDirty=true;}this.healthyWindows=0;}
   else if(slow<.02){if(++this.healthyWindows>=6&&this.quality>0){this.quality--;this.sizeDirty=true;this.healthyWindows=0;}}
   else this.healthyWindows=0;
   this.sampleMs=0;this.frameSamples=0;this.slowFrames=0;
  }
- get performanceState(){return{draws:this.draws,sourceUploads:this.sourceUploads,videoUploads:this.videoUploads,resolutionScale:[1,.82,.67][this.quality],width:this.canvas.width,height:this.canvas.height};}
+ get resolutionScale(){return NOISE_RESOLUTION_SCALES[this.quality]!;}
+ get performanceState(){return{draws:this.draws,sourceUploads:this.sourceUploads,videoUploads:this.videoUploads,activeRegions:this.activeRegions,shadedPixels:this.shadedPixels,resolutionScale:this.resolutionScale,width:this.canvas.width,height:this.canvas.height};}
  setPointer(x:number,y:number,pressed=false){this.inputPoint=[x,y];this.pressed=pressed;}
  clearPointer(){this.inputPoint=null;this.pressed=false;}
  get interactionActive(){return this.hovering||this.hoverStrength>.001||this.pressStrength>.001;}
@@ -218,7 +224,7 @@ export class NoiseDomainRenderer{
   this.grainTexture=gl.createTexture()!;gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,this.grainTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array([0,0,0,255]));
   this.contactTexture=gl.createTexture()!;gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_2D,this.contactTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,contactImage);
   gl.uniform1i(gl.getUniformLocation(program,'source'),0);gl.uniform1i(gl.getUniformLocation(program,'noiseGrain'),1);gl.uniform1i(gl.getUniformLocation(program,'contactAtlas'),2);
-  for(const name of ['time','enabled','pointer','interactionTime','grainTexel','viewSize','regions[0]','phases[0]','strengths[0]','regionSkew','wipeTop','wipeBottom','overlay','picking','pickPoint'])this.locations[name]=gl.getUniformLocation(program,name);
+  for(const name of ['time','enabled','pointer','interactionTime','grainTexel','viewSize','regions[0]','phases[0]','strengths[0]','regionCount','regionSkew','wipeTop','wipeBottom','overlay','picking','pickPoint'])this.locations[name]=gl.getUniformLocation(program,name);
   this.pickTexture=gl.createTexture()!;gl.activeTexture(gl.TEXTURE3);gl.bindTexture(gl.TEXTURE_2D,this.pickTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,null);
   this.pickBuffer=gl.createFramebuffer()!;gl.bindFramebuffer(gl.FRAMEBUFFER,this.pickBuffer);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,this.pickTexture,0);gl.bindFramebuffer(gl.FRAMEBUFFER,null);
   this.observer=new ResizeObserver(()=>{this.sizeDirty=true;this.requestDraw?.();});this.observer.observe(canvas);
@@ -231,10 +237,9 @@ export class NoiseDomainRenderer{
  render(source:HTMLCanvasElement,time:number,enabled=true,regions=noiseRegions(time)){
   const gl=this.gl;
   if(this.sizeDirty||this.dpr!==devicePixelRatio){
-   const rect=this.canvas.getBoundingClientRect(),quality=[1,.82,.67][this.quality];
+   const rect=this.canvas.getBoundingClientRect(),quality=this.resolutionScale;
    const view=noiseViewport(rect.width,rect.height,this.viewportScale);this.viewWidth=view.width;this.viewHeight=view.height;
-   const scale=Math.min(devicePixelRatio||1,1.5,Math.sqrt(1920*1080/Math.max(1,rect.width*rect.height)))*quality;
-   const w=Math.max(1,Math.round(rect.width*scale)),h=Math.max(1,Math.round(rect.height*scale));
+   const {width:w,height:h}=noiseBufferSize(rect.width,rect.height,devicePixelRatio,this.policy,quality);
    if(this.canvas.width!==w||this.canvas.height!==h){this.canvas.width=w;this.canvas.height=h;}
    this.sizeDirty=false;this.dpr=devicePixelRatio;
   }
@@ -264,8 +269,24 @@ export class NoiseDomainRenderer{
   gl.uniform1f(u.interactionTime,this.reduced?0:stamp/1000);
   gl.uniform2f(u.grainTexel,1/Math.max(1,this.grainVideo.videoWidth),1/Math.max(1,this.grainVideo.videoHeight));
   this.rects.fill(0);this.phases.fill(0);this.strengths.fill(0);
-  for(let i=0;i<Math.min(24,regions.length);i++){this.rects.set(regions[i].rect,i*4);this.phases[i]=regions[i].phase;this.strengths[i]=regions[i].strength;}
-  gl.uniform4fv(u['regions[0]'],this.rects);gl.uniform1fv(u['phases[0]'],this.phases);gl.uniform1fv(u['strengths[0]'],this.strengths);gl.drawArrays(gl.TRIANGLES,0,6);this.draws++;
+  this.activeRegions=Math.min(24,regions.length);gl.uniform1i(u.regionCount,this.activeRegions);
+  for(let i=0;i<this.activeRegions;i++){this.rects.set(regions[i].rect,i*4);this.phases[i]=regions[i].phase;this.strengths[i]=regions[i].strength;}
+  gl.uniform4fv(u['regions[0]'],this.rects);gl.uniform1fv(u['phases[0]'],this.phases);gl.uniform1fv(u['strengths[0]'],this.strengths);
+  // Clear the old overlay, then shade only its occupied bounds. Picking stays unscissored.
+  gl.disable(gl.SCISSOR_TEST);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+  this.shadedPixels=this.canvas.width*this.canvas.height;
+  if(this.overlay&&enabled){
+   const bounds=noiseDrawBounds(regions,this.regionSkew,this.contactPoint,this.hoverStrength);
+   const x=(value:number)=>(value-(1280-this.viewWidth)/2)/this.viewWidth*this.canvas.width;
+   const y=(value:number)=>(value-(720-this.viewHeight)/2)/this.viewHeight*this.canvas.height;
+   const left=bounds?Math.max(0,Math.min(this.canvas.width,Math.floor(x(bounds.left)))):0;
+   const right=bounds?Math.max(left,Math.min(this.canvas.width,Math.ceil(x(bounds.right)))):0;
+   const top=bounds?Math.max(0,Math.min(this.canvas.height,Math.floor(y(bounds.top)))):0;
+   const bottom=bounds?Math.max(top,Math.min(this.canvas.height,Math.ceil(y(bounds.bottom)))):0;
+   gl.enable(gl.SCISSOR_TEST);gl.scissor(left,this.canvas.height-bottom,right-left,bottom-top);
+   this.shadedPixels=(right-left)*(bottom-top);
+  }
+  gl.drawArrays(gl.TRIANGLES,0,6);gl.disable(gl.SCISSOR_TEST);this.draws++;
  }
  dispose(){this.disposed=true;this.observer.disconnect();this.grainVideo.removeEventListener('seeked',this.markGrainDirty);if(this.videoFrameRequest!==undefined)this.grainVideo.cancelVideoFrameCallback(this.videoFrameRequest);this.gl.deleteFramebuffer(this.pickBuffer);this.gl.deleteTexture(this.pickTexture);this.gl.deleteTexture(this.texture);this.gl.deleteTexture(this.grainTexture);this.gl.deleteTexture(this.contactTexture);this.gl.deleteProgram(this.program);/* Keep the reusable canvas context intact for reactivation. */}
 }
