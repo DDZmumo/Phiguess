@@ -1,6 +1,8 @@
 import {setNoiseMuffled} from './audio-output';
 import {NoiseDomainRenderer,type NoiseRegion} from './noise-domain-renderer';
 import {noiseViewport} from './noise-viewport';
+import {noiseBufferSize,noiseRenderPolicy} from './noise-render-policy';
+import {isMobileScreen} from './landscape';
 
 let stage:NoiseStage|undefined;
 export function isNoiseRedAt(x:number,y:number){return stage?.isRedAt(x,y)??false;}
@@ -35,8 +37,7 @@ export class NoiseLayer {
  noteFrameInterval(_ms:number){}
  render(source:HTMLCanvasElement,_time:number,enabled=true,regions:NoiseRegion[]=[]){
   this.source=source;this.regions=enabled?regions:[];
-  const r=this.canvas.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5);
-  const w=Math.max(1,Math.round(r.width*ratio)),h=Math.max(1,Math.round(r.height*ratio));
+  const r=this.canvas.getBoundingClientRect(),{width:w,height:h}=noiseBufferSize(r.width,r.height,devicePixelRatio,this.owner.policy,this.owner.resolutionScale);
   if(this.canvas.width!==w||this.canvas.height!==h){this.canvas.width=w;this.canvas.height=h;}
  }
  setPointer(_x:number,_y:number,_pressed=false){} // Pointer mapping is owned by the shared stage.
@@ -48,8 +49,11 @@ export class NoiseLayer {
 
 class NoiseStage {
  readonly layers=new Set<NoiseLayer>();
+ readonly policy=noiseRenderPolicy(isMobileScreen());
+ get resolutionScale(){return this.renderer.resolutionScale;}
  private canvas=document.createElement('canvas');private source=document.createElement('canvas');
  private renderer:NoiseDomainRenderer;private raf=0;private signature='';private geometry='';private last=0;private contextLost=false;
+ private frameAt=0;private updateAt=0;
  private pointer:PointerEvent|null=null;
  private nextHoverDamage=0;
  private hoverRegions:NoiseRegion[]=[];private hoverHit=false;private nextHoverPick=0;
@@ -104,10 +108,17 @@ class NoiseStage {
   this.canvas.addEventListener('webglcontextlost',this.onContextLost);this.canvas.addEventListener('webglcontextrestored',this.onContextRestored);
   document.addEventListener('pointermove',this.onPointer,{passive:true});document.addEventListener('pointerdown',this.onPointer,{passive:true});document.addEventListener('pointerup',this.onPointer,{passive:true});document.addEventListener('pointerleave',this.onLeave);window.addEventListener('blur',this.onLeave);
   const tick=(stamp:number)=>{
-   this.raf=requestAnimationFrame(tick);if(document.hidden){video.pause();this.onLeave();return;}
-   // Publish every layer's geometry before the single compositing pass.
-   for(const layer of this.layers)layer.update?.(stamp);
-   this.paint();this.updateHover();
+   this.raf=requestAnimationFrame(tick);
+   const interval=this.frameAt?stamp-this.frameAt:0;this.frameAt=stamp;
+   if(document.hidden){video.pause();this.onLeave();return;}
+   if(this.canvas.style.visibility==='visible')this.renderer.noteFrameInterval(interval);
+   // Throttle the contributors too: DOM reads and source painting share one budget.
+   if(stamp-this.updateAt>=this.policy.frameMs-.2){
+    this.updateAt=stamp-Math.max(0,stamp-this.updateAt-this.policy.frameMs)%this.policy.frameMs;
+    for(const layer of this.layers)layer.update?.(stamp);
+    this.paint();
+   }
+   this.updateHover();
   };
   this.raf=requestAnimationFrame(tick);
  }
@@ -119,7 +130,7 @@ class NoiseStage {
   items.sort((a,b)=>this.order(a)-this.order(b));
   if(!items.length){this.hoverRegions=[];this.canvas.style.visibility='hidden';this.video.pause();return;}
   const regions:NoiseRegion[]=[],parts:string[]=[];
-  const ratio=Math.min(1,Math.sqrt(1920*1080/(innerWidth*innerHeight))),w=Math.round(innerWidth*ratio),h=Math.round(innerHeight*ratio);
+  const {width:w,height:h}=noiseBufferSize(innerWidth,innerHeight,1,this.policy,this.resolutionScale);
   if(this.source.width!==w||this.source.height!==h){this.source.width=w;this.source.height=h;this.signature='';}
   for(const layer of items){
    const r=layer.canvas.getBoundingClientRect(),local=noiseViewport(r.width,r.height,layer.scale),s=layer.skew;
@@ -148,7 +159,7 @@ class NoiseStage {
   this.last=stamp;this.geometry=geometry;
   if(signature!==this.signature){
    const c=this.source.getContext('2d')!;c.clearRect(0,0,w,h);
-   for(const layer of items){const r=layer.canvas.getBoundingClientRect();c.drawImage(layer.source!,r.left*ratio,r.top*ratio,r.width*ratio,r.height*ratio);}
+   for(const layer of items){const r=layer.canvas.getBoundingClientRect();c.drawImage(layer.source!,r.left*w/innerWidth,r.top*h/innerHeight,r.width*w/innerWidth,r.height*h/innerHeight);}
    this.signature=signature;this.renderer.invalidateSource();
   }
   this.renderer.setViewportScale(v.scale);this.renderer.setReducedMotion(items.every(l=>l.reduced));
