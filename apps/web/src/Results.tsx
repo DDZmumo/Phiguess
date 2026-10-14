@@ -29,13 +29,19 @@ type Timeline=ReturnType<typeof gsap.timeline>;
 function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{matchId:string;round:ResultRoundView;eager:boolean;onReady:(round:number,url:string)=>void;onRevealed:(round:number)=>void;interactive:boolean}){
  const runtime=usePlayRuntime(),api=usePlayApi(),fetch=usePlayMedia(),originals=useOriginalImages(),token=usePlaySession()?.token;
  const ref=useRef<HTMLDivElement>(null),[visible,setVisible]=useState(eager),[inView,setInView]=useState(eager),[image,setImage]=useState<string|null>(null);
+ const loadPriority=useRef<0|1>(0);loadPriority.current=inView?0:1;
  const [imageError,setImageError]=useState(false),[imageRetry,setImageRetry]=useState(0);
  const [revealInfo,setRevealInfo]=useState<{title:string;imageUrl:string}|null>(()=>runtime?.resultReveal?.(round.round)??null),[revealedTitle,setRevealedTitle]=useState<string|null>(()=>runtime?.resultReveal?.(round.round)?.title??null),[busy,setBusy]=useState(false),[revealError,setRevealError]=useState(''),[scrambleFrame,setScrambleFrame]=useState(0);
  const revealRequest=useRef<AbortController|null>(null),reduce=useReducedMotion(),title=round.title??revealedTitle;
  useEffect(()=>{
-  let entered=false;const observer=new IntersectionObserver(entries=>{const active=entries.some(e=>e.isIntersecting);setInView(active);if(active){entered=true;setVisible(true);}else if(entered&&round.round!==0)setVisible(false);});
-  if(ref.current)observer.observe(ref.current);return()=>observer.disconnect();
+  // Mount within two screens, then retain the image until leaving the result.
+  const element=ref.current;if(!element)return;
+  const root=element.closest('.result-scene');
+  const observer=new IntersectionObserver(entries=>{const active=entries.some(e=>e.isIntersecting);setInView(active);if(active)setVisible(true);},{root});
+  const nearby=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))setVisible(true);},{root,rootMargin:`${Math.max(1,root?.clientHeight??window.innerHeight)*2}px 0px`});
+  observer.observe(element);nearby.observe(element);return()=>{observer.disconnect();nearby.disconnect();};
  },[]);
+ useEffect(()=>{if(inView){originals.prioritize(matchId,round.round);if(!round.correct)originals.prioritize(matchId,round.round,round.difficulty);}},[inView,originals,matchId,round.round,round.correct,round.difficulty]);
  useEffect(()=>{
   if(!inView||title||reduce)return;
   const timer=setInterval(()=>{if(!document.hidden)setScrambleFrame(frame=>(frame+1)%65536);},40);
@@ -57,18 +63,18 @@ function ResultArtwork({matchId,round,eager,onReady,onRevealed,interactive}:{mat
   setImageError(false);
   const controller=new AbortController();let alive=true,url:string|undefined,lease:OriginalLease|undefined;
   void (async()=>{
-   if(round.correct){const value=await originals.acquire(matchId,round.round,true,controller.signal,imageRetry>0);if(!alive){value.release();return;}lease=value;url=value.url;}
-   else{const response=await fetch(round.imageUrl!,{signal:controller.signal,cache:imageRetry?'reload':'default',headers:token?{Authorization:`Bearer ${token}`}:{}});
-    if(!response.ok)throw new Error('Artwork unavailable');const blob=await response.blob();if(!alive)return;url=URL.createObjectURL(blob);
+   if(round.correct){const value=await originals.acquire(matchId,round.round,true,controller.signal,imageRetry>0,loadPriority.current);if(!alive){value.release();return;}lease=value;url=value.url;}
+   else{const blob=await originals.question(matchId,round.round,round.difficulty,round.imageUrl!,fetch,controller.signal,imageRetry>0,loadPriority.current);
+    if(!alive)return;url=URL.createObjectURL(blob);
     const picture=new Image();picture.src=url;await picture.decode();}
    if(alive&&url){setImage(url);onReady(round.round,url);}
   })().catch(()=>{if(alive&&!controller.signal.aborted)setImageError(true);});
   return()=>{alive=false;controller.abort();if(lease)lease.release();else if(url)URL.revokeObjectURL(url);};
- },[round.imageUrl,round.round,round.correct,matchId,visible,token,onReady,imageRetry,originals,fetch]);
+ },[round.imageUrl,round.round,round.correct,round.difficulty,matchId,visible,token,onReady,imageRetry,originals,fetch]);
  return <div ref={ref} className="result-artwork" data-revealed={Boolean(title)}>
   {visible&&<OriginalReveal id={matchId} round={round.round} solved={Boolean(revealInfo)} originalUrl={revealInfo?.imageUrl} originalAlt="揭晓的正确曲绘" revealDelay={.45} onOriginalReady={originalReady} onOriginalError={originalError}>{image&&<img src={image} alt=""/>}</OriginalReveal>}
   <div className="result-art-shade"/>
-  {visible&&!image&&(imageError?<button type="button" className="result-image-retry" onClick={()=>setImageRetry(value=>value+1)}>曲绘加载未完成，点击重试</button>:<span className="result-image-loading" role="status">正在读取曲绘…</span>)}
+  {visible&&!image&&imageError&&<button type="button" className="result-image-retry" onClick={()=>setImageRetry(value=>value+1)}>曲绘加载未完成，点击重试</button>}
   <span className="result-song-title" title={title??'点击曲绘揭晓曲名'}><SongName title={title} scramble={scrambleSongName(round.round+5,scrambleFrame)} animate reduce={reduce}/></span>
   <span className="result-song-level">{round.difficulty.toUpperCase()}<small>#{String(round.round+1).padStart(2,'0')}</small></span>
   {!round.correct&&!title&&<button className="result-reveal-trigger" type="button" aria-label={`揭晓第 ${round.round+1} 首的正确曲绘和曲名`} title={busy?'正在读取原图':'点击揭晓正确曲绘和曲名'} disabled={!interactive||busy||!image} tabIndex={inView?0:-1} onClick={()=>void reveal()}/>}

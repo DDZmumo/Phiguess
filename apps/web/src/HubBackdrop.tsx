@@ -17,12 +17,12 @@ export function HubBackdrop({root,card,clearWindow,trackMovement=false}:{root:Re
         const rect=card.current.getBoundingClientRect(),sx=bounds.width/width,sy=bounds.height/height;
         const x=(rect.left-bounds.left)/sx,y=(rect.top-bounds.top)/sy,w=rect.width/sx,h=rect.height/sy;
         const cut=parseFloat(getComputedStyle(card.current).getPropertyValue('--card-cut'))||0;
-        // Cover the card's anti-aliased edge with one screen pixel of backdrop.
+        // Cover the anti-aliased edge; the bottom needs four screen pixels when scaled.
         // Matching translucent clip edges leave the bright page image exposed.
-        const ix=1/sx,iy=1/sy;
-        if(w>2*ix&&h>2*iy){
+        const ix=1/sx,iy=1/sy,bottomInset=4/sy;
+        if(w>2*ix&&h>iy+bottomInset){
           const slope=cut/h,side=Math.hypot(ix,slope*iy);
-          path+=` M${x+cut-slope*iy+side} ${y+iy}H${x+w-slope*iy-side}L${x+w-cut+slope*iy-side} ${y+h-iy}H${x+slope*iy+side}Z`;
+          path+=` M${x+cut-slope*iy+side} ${y+iy}H${x+w-slope*iy-side}L${x+w-cut+slope*bottomInset-side} ${y+h-bottomInset}H${x+slope*bottomInset+side}Z`;
         }
       }
       if(surface.current)surface.current.style.clipPath=`path(evenodd, "${path}")`;
