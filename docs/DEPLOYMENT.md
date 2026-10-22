@@ -65,6 +65,12 @@ Caddy 原生配置把 `api:3000` 改为 `127.0.0.1:3000`，将静态文件 root 
 
 部署顺序为：上传新版本 → 构建/安装依赖 → 备份 → 重启单实例。重启会中断进行中的比赛，应选维护窗口。
 
+## 宝塔 Nginx 缓存与连接
+
+现用宝塔 Nginx 站点模板见 [phiguess.baota.conf](../deploy/phiguess.baota.conf)，公网 NAT 10291 对应本机 8080。模板为带内容哈希的 `/assets/` 资源设置一年 immutable 缓存，HTML 使用 `no-cache` 以便发布后重新校验；未带哈希的教学和效果文件缓存一小时。宝塔全局 gzip 需已启用，并包含 JavaScript、CSS 和 `image/svg+xml`。
+
+API 通过 HTTP/1.1 与独立 upstream 连接池复用后端连接，清空普通 API 的 `Connection` 头；Socket.IO 保留 Upgrade 配置。模板不启用 API 代理缓存，受保护题图仍遵循后端的 `private, no-store`。修改前备份站点配置，先执行 `/www/server/nginx/sbin/nginx -t`，通过后再用 `nginx -s reload` 平滑加载。静态缓存主要减少重复访问的下载，连接复用减少连接开销，不代表判题本身或公网延迟会大幅缩短。
+
 ## 备份与恢复
 
 备份必须同时包含 PostgreSQL、`storage/assets`、头像目录（Compose 的 `avatar_data` 卷）与安全保存的配置。Raw/EZ 的无损 WebP 源图保存在 `storage/corpus/source`，也应另行留存；历史 PNG 校验信息保存在 `storage/corpus/lossless-webp-report.json`。Compose 数据库备份示例（Linux shell）：
