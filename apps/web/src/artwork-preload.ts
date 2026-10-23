@@ -22,7 +22,7 @@ export class ArtworkPreloader {
       if(!response.ok)throw new Error('Preload unavailable');
       return {bytes:new Uint8Array(await response.arrayBuffer()),mime:response.headers.get('X-Artwork-Mime')??''};
     }).finally(()=>clearTimeout(timer));
-    void promise.catch(()=>{});
+    void promise.catch(()=>{if(this.pending?.promise===promise)this.pending=undefined;});
     this.pending={round,controller,promise};
   }
   async take(round:number,key:string|undefined,signal:AbortSignal):Promise<Blob|undefined> {

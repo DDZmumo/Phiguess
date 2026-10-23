@@ -1,0 +1,22 @@
+{
+  "songId": "7130e62c-1917-506e-849b-82f956bdca38",
+  "title": "Dash",
+  "aliases": [
+    "Dash",
+    "冲",
+    "冲撞",
+    "奔跑"
+  ],
+  "version": "ez-clean-7414b1a37a3c370e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "小红Akane，李祥晖",
+  "illustrator": "艾是Abby",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Dash.小红Akane李祥辉.e998402e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Dash.小红Akane李祥辉.7414b1a3.webp"
+  }
+}

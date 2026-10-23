@@ -1,0 +1,27 @@
+{
+  "songId": "43e316b5-40fa-5b37-821e-f77d966ce2b3",
+  "title": "Secret Illumination",
+  "aliases": [
+    "Secret Illumination",
+    "秘密照明",
+    "秘光寻旅",
+    "仰望天空",
+    "暗照",
+    "神秘光",
+    "密光",
+    "si",
+    "立定跳远"
+  ],
+  "version": "ez-clean-cd5b84f98231d466",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.3.0",
+  "removed": false,
+  "composer": "Yooh",
+  "illustrator": "Juice Black (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/SecretIllumination.Yooh.cd5b84f9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/SecretIllumination.Yooh.cd5b84f9.webp"
+  }
+}

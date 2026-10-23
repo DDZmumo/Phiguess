@@ -1,0 +1,23 @@
+{
+  "songId": "5dce5ecc-9e59-53af-92bf-20f1fc915e0b",
+  "title": "Ramification",
+  "aliases": [
+    "Ramification",
+    "衍生物",
+    "支流",
+    "分叉",
+    "桐谷遥"
+  ],
+  "version": "ez-clean-c75e49f2365383d4",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "rareguy & Reina",
+  "illustrator": "cokeAnut",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/Ramification.rareguyReina.c75e49f2.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/Ramification.rareguyReina.c75e49f2.webp"
+  }
+}

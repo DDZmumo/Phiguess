@@ -11,21 +11,20 @@
     "像素叛徒"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：Normal1zer",
     "标准曲名包含 11 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/Pixel Rebelz.webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Normal1zer",
   "illustrator": "艾是Abby",
+  "original": "../../../source/Raw/03 幽蓝边界/Pixel Rebelz.webp",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/Pixel Rebelz-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/03 幽蓝边界/EZ/Pixel Rebelz-EZ.webp"
   }
 }

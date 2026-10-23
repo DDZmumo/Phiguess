@@ -1,0 +1,23 @@
+{
+  "songId": "384a247c-47e7-5cf7-a4a6-d31fc3624e1a",
+  "title": "いざ、参ります",
+  "aliases": [
+    "いざ、参ります",
+    "参上",
+    "Iza",
+    "izamairimasu",
+    "いざ 、まいります"
+  ],
+  "version": "ez-clean-7beaeef8489f15cb",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.1",
+  "removed": false,
+  "composer": "U-ske feat. 棗いつき",
+  "illustrator": "緑風マルト",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/いざ参ります.Uskefeat棗いつき.754a4e7e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/いざ参ります.Uskefeat棗いつき.7beaeef8.webp"
+  }
+}

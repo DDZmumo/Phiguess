@@ -1,0 +1,23 @@
+{
+  "songId": "84b7ea72-671f-5587-847e-bcf5a0afa790",
+  "title": "雪降り、メリクリ",
+  "aliases": [
+    "雪降り、メリクリ",
+    "雪降",
+    "雪崩",
+    "初音雪降",
+    "Yuki Furi"
+  ],
+  "version": "ez-clean-535e7b60d3c038b9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.2",
+  "removed": false,
+  "composer": "A-39",
+  "illustrator": "犀牛坨动画工坊",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/雪降りメリクリ.A39.e4799ff0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/雪降りメリクリ.A39.535e7b60.webp"
+  }
+}

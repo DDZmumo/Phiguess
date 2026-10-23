@@ -1,0 +1,25 @@
+{
+  "songId": "a899ac21-11d4-5c8f-a842-471f966fae85",
+  "title": "桜樹街道",
+  "aliases": [
+    "桜樹街道",
+    "樱树街道",
+    "樱树",
+    "樱街",
+    "ysjd",
+    "Sakuragi",
+    "樱花雨"
+  ],
+  "version": "ez-clean-fe23e027023492b3",
+  "variant": "default",
+  "chapterName": "Chapter EX-WAVEAT 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.7",
+  "removed": false,
+  "composer": "kozato snow",
+  "illustrator": "あおお/A-ZERO, morph",
+  "original": "../../../source/Raw/Non-main/Chapter EX-WAVEAT 精选集/桜樹街道.kozatosnow.95644f5f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-WAVEAT 精选集/EZ/桜樹街道.kozatosnow.fe23e027.webp"
+  }
+}

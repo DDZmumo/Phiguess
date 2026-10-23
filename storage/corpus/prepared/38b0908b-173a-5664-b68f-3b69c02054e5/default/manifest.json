@@ -1,0 +1,26 @@
+{
+  "songId": "38b0908b-173a-5664-b68f-3b69c02054e5",
+  "title": "Helios",
+  "aliases": [
+    "Helios",
+    "太阳神",
+    "后羿",
+    "河里系统",
+    "hel",
+    "赫利俄斯",
+    "你好",
+    "河狸系统"
+  ],
+  "version": "ez-clean-ab75b08f075c840b",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.14.2",
+  "removed": false,
+  "composer": "NOA(Cortrix) & BotaNya",
+  "illustrator": "Spectro",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Helios.NOABotaNya.d8b7c7d4.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Helios.NOABotaNya.ab75b08f.webp"
+  }
+}

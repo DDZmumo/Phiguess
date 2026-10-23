@@ -1,0 +1,24 @@
+{
+  "songId": "57b1172b-4f35-5a41-83cc-6a69ed704a88",
+  "title": "聖夜讃歌",
+  "aliases": [
+    "聖夜讃歌",
+    "圣夜赞歌",
+    "望夜赞歌",
+    "圣夜",
+    "夜雨笙歌",
+    "syzg"
+  ],
+  "version": "ez-clean-734ca6d08c79ec00",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.1",
+  "removed": false,
+  "composer": "A-39/沙包P",
+  "illustrator": "绀屋",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/聖夜讃歌.A39沙包P.734ca6d0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/聖夜讃歌.A39沙包P.734ca6d0.webp"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "songId": "5bdabf46-0da5-5c2a-907b-a2378434d20f",
+  "title": "Another Me",
+  "aliases": [
+    "Another Me",
+    "Another Me1",
+    "AM1",
+    "AM(KALPA)",
+    "大am",
+    "世另我",
+    "AM15",
+    "Another Me 15"
+  ],
+  "version": "ez-clean-9aa8bca86f870a47",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "D_AAN",
+  "illustrator": "ZG",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/AnotherMe.DAAN.01e263a0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/AnotherMe.DAAN.9aa8bca8.webp"
+  }
+}

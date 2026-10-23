@@ -1,0 +1,23 @@
+{
+  "songId": "5d0f7f15-3688-5007-9de7-e4d226badd2f",
+  "title": "Starduster",
+  "aliases": [
+    "Starduster",
+    "星尘",
+    "星辰",
+    "星尘者",
+    "STAR USER"
+  ],
+  "version": "ez-clean-2a02b8f64df3cd85",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.3",
+  "removed": false,
+  "composer": "Quree",
+  "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Starduster.Quree.1efd0ead.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Starduster.Quree.2a02b8f6.webp"
+  }
+}

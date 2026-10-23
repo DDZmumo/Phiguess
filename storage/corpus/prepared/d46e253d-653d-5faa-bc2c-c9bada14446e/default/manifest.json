@@ -1,0 +1,27 @@
+{
+  "songId": "d46e253d-653d-5faa-bc2c-c9bada14446e",
+  "title": "Bougainvillea",
+  "aliases": [
+    "Bougainvillea",
+    "梳子",
+    "紫方块",
+    "粉方块",
+    "粉色梳子",
+    "三角梅",
+    "叶子花",
+    "九重葛",
+    "尺子"
+  ],
+  "version": "ez-clean-d9490d33ae1d0064",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.0.1",
+  "removed": false,
+  "composer": "Jade",
+  "illustrator": "TNiK",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Bougainvillea.Jade.32b21c3f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Bougainvillea.Jade.d9490d33.webp"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "songId": "46968ae5-15d6-5ead-9dd9-861a38faf4cb",
+  "title": "Temporal Shifting",
+  "aliases": [
+    "Temporal Shifting",
+    "时移",
+    "ts",
+    "时空折转"
+  ],
+  "version": "ez-clean-8ed89e82c7028849",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "Lure Rabbit & V!C",
+  "illustrator": "mology (青鸟&V17AMax Modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/TemporalShifting.LureRabbitVC.ab7f9f02.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/TemporalShifting.LureRabbitVC.8ed89e82.webp"
+  }
+}

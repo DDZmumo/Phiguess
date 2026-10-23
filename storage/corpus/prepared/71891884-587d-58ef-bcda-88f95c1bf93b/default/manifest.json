@@ -1,0 +1,20 @@
+{
+  "songId": "71891884-587d-58ef-bcda-88f95c1bf93b",
+  "title": "Get Ready!! ",
+  "aliases": [
+    "Get Ready!! ",
+    "准备"
+  ],
+  "version": "ez-clean-b04454a01172f8dd",
+  "variant": "default",
+  "chapterName": "Chapter EX-WAVEAT 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.7",
+  "removed": false,
+  "composer": "iF",
+  "illustrator": "あおお/A-ZERO, morph",
+  "original": "../../../source/Raw/Non-main/Chapter EX-WAVEAT 精选集/GetReady.iF.420bff14.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-WAVEAT 精选集/EZ/GetReady.iF.b04454a0.webp"
+  }
+}

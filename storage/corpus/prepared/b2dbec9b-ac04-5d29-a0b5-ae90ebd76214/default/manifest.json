@@ -1,0 +1,29 @@
+{
+  "songId": "b2dbec9b-ac04-5d29-a0b5-ae90ebd76214",
+  "title": "百鬼֎夜行",
+  "aliases": [
+    "百鬼֎夜行",
+    "百鬼夜行",
+    "֎",
+    "百鬼",
+    "BG",
+    "曲奇饼干",
+    "夜行",
+    "亍",
+    "彳亍",
+    "֍",
+    "百鬼֍夜行"
+  ],
+  "version": "ez-clean-bf17693e98a534b8",
+  "variant": "default",
+  "chapterName": "Chapter EX-Liminality 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.17.0",
+  "removed": false,
+  "composer": "Salad Savior",
+  "illustrator": "軽目くお (Ctymax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Liminality 精选集/百鬼夜行.SaladSavior.5fdc9884.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Liminality 精选集/EZ/百鬼夜行.SaladSavior.bf17693e.webp"
+  }
+}

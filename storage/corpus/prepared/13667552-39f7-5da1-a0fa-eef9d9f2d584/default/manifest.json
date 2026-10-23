@@ -1,0 +1,29 @@
+{
+  "songId": "13667552-39f7-5da1-a0fa-eef9d9f2d584",
+  "title": "Dead Soul",
+  "aliases": [
+    "Dead Soul",
+    "死鬼",
+    "死魂",
+    "死鬼踏地板",
+    "亡灵",
+    "迷失灵魂",
+    "地板烫脚",
+    "第四大道",
+    "死灵",
+    "灭蚊灯",
+    "柱子"
+  ],
+  "version": "ez-clean-06a91ae0e4aad74f",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.1",
+  "removed": false,
+  "composer": "Sound Souler",
+  "illustrator": "Photonskyto",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/DeadSoul.SoundSouler.b6b25e4b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/DeadSoul.SoundSouler.06a91ae0.webp"
+  }
+}

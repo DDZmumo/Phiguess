@@ -1,0 +1,22 @@
+{
+  "songId": "2317298c-d15f-52f6-8faa-be4fb50c498e",
+  "title": "Snow Desert",
+  "aliases": [
+    "Snow Desert",
+    "雪沙漠",
+    "雪漠",
+    "sd"
+  ],
+  "version": "ez-clean-fca5c978b3121ba5",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.4",
+  "removed": false,
+  "composer": "WyvernP",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SnowDesert.WyvernP.dc576671.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SnowDesert.WyvernP.fca5c978.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "a3bf36ed-1ad2-5a56-80b2-8ee810602ce4",
+  "title": "Stardust:RAY",
+  "aliases": [
+    "Stardust:RAY",
+    "星辰光",
+    "xcg",
+    "皇城刹那",
+    "星尘射线",
+    "星尘光",
+    "RAY"
+  ],
+  "version": "ez-clean-a97b5b597321e6e8",
+  "variant": "default",
+  "chapterName": "Chapter EX-オンゲキ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.14.0",
+  "removed": false,
+  "composer": "kanone vs. BlackY",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-オンゲキ 精选集/StardustRAY.kanonevsBlackY.a26dc472.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-オンゲキ 精选集/EZ/StardustRAY.kanonevsBlackY.a97b5b59.webp"
+  }
+}

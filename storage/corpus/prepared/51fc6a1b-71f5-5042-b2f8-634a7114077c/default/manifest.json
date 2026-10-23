@@ -1,0 +1,21 @@
+{
+  "songId": "51fc6a1b-71f5-5042-b2f8-634a7114077c",
+  "title": "Rainy Heart",
+  "aliases": [
+    "Rainy Heart",
+    "雨心",
+    "雨之心"
+  ],
+  "version": "ez-clean-1a91ebdd0508b65f",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.1",
+  "removed": false,
+  "composer": "BelieverInYou(阿卡姆巫师)",
+  "illustrator": "Sodhelium",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/RainyHeart.BelieverInYou阿卡姆巫师.faf12f09.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/RainyHeart.BelieverInYou阿卡姆巫师.1a91ebdd.webp"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "songId": "df0f761f-7435-5141-8c6b-7ff8e95a1d0d",
+  "title": "End Me",
+  "aliases": [
+    "End Me",
+    "终我",
+    "终结我",
+    "当gino失去梦想",
+    "终结自我"
+  ],
+  "version": "ez-clean-ccd70a52064cb324",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.2",
+  "removed": false,
+  "composer": "ZxNX as \"Delaina\"",
+  "illustrator": "何呵",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/EndMe.ZxNXasDelaina.93bfb921.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/EndMe.ZxNXasDelaina.ccd70a52.webp"
+  }
+}

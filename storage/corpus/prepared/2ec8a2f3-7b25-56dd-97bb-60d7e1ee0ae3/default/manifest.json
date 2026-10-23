@@ -1,0 +1,35 @@
+{
+  "songId": "2ec8a2f3-7b25-56dd-97bb-60d7e1ee0ae3",
+  "title": "Avataar ~Reincarnation of Kalpa~",
+  "aliases": [
+    "Avataar ~Reincarnation of Kalpa~",
+    "蓝复生",
+    "卡尔帕转世",
+    "转世化身",
+    "蓝色蝴蝶",
+    "阿凡达",
+    "卡帕转世",
+    "转世",
+    "头像",
+    "化身",
+    "ARoK",
+    "梦女",
+    "睡梦中的少女",
+    "蓝魔王",
+    "劫之轮回",
+    "ava",
+    "avataar"
+  ],
+  "version": "ez-clean-864b1c5ccfb12718",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.15.0",
+  "removed": false,
+  "composer": "Scarlette a.k.a CrYmson",
+  "illustrator": "QueseraGames Co., Ltd.",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/AvataarReincarnationofKalpa.ScarletteakaCrYmson.d88f745c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/AvataarReincarnationofKalpa.ScarletteakaCrYmson.864b1c5c.webp"
+  }
+}

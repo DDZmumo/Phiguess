@@ -1,0 +1,25 @@
+{
+  "songId": "8a286256-4b5b-52f2-a930-f888c7129da0",
+  "title": "幻影鬼魅 (PLEASE)",
+  "aliases": [
+    "幻影鬼魅 (PLEASE)",
+    "hygm",
+    "请",
+    "please",
+    "plz",
+    "幻影鬼魅",
+    "幻影"
+  ],
+  "version": "ez-clean-159c27136432cab6",
+  "variant": "default",
+  "chapterName": "Chapter EX-节奏大师 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.0",
+  "removed": false,
+  "composer": "R300K",
+  "illustrator": "RM Design Team (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-节奏大师 精选集/幻影鬼魅PLEASE.R300K.707c8bb3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-节奏大师 精选集/EZ/幻影鬼魅PLEASE.R300K.159c2713.webp"
+  }
+}

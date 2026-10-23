@@ -1,0 +1,24 @@
+{
+  "songId": "3fd8a177-9157-5db8-bae3-29d0280fd7c9",
+  "title": "君往何处 (Quo Vadis)",
+  "aliases": [
+    "君往何处 (Quo Vadis)",
+    "君往何处",
+    "你要去哪",
+    "Quo Vadis",
+    "qv",
+    "jwhc"
+  ],
+  "version": "ez-clean-b7d1a785bdcce2d4",
+  "variant": "default",
+  "chapterName": "Chapter EX-节奏大师 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.1",
+  "removed": false,
+  "composer": "M2U",
+  "illustrator": "LRAY (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-节奏大师 精选集/君往何处QuoVadis.M2U.52ab5f5a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-节奏大师 精选集/EZ/君往何处QuoVadis.M2U.b7d1a785.webp"
+  }
+}

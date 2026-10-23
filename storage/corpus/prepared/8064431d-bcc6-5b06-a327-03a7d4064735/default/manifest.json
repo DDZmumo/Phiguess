@@ -1,0 +1,22 @@
+{
+  "songId": "8064431d-bcc6-5b06-a327-03a7d4064735",
+  "title": "Don't Never Around",
+  "aliases": [
+    "Don't Never Around",
+    "DNA",
+    "脱氧核糖核酸",
+    "永勿徘徊"
+  ],
+  "version": "ez-clean-f89f21ec6c1162b5",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "HAMA",
+  "illustrator": "Arahosi",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/DontNeverAround.HAMA.fc7adb23.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/DontNeverAround.HAMA.f89f21ec.webp"
+  }
+}

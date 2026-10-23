@@ -1,0 +1,28 @@
+{
+  "songId": "9f87629e-fded-556c-a02d-8f79a82f50a5",
+  "title": "Labyrinth in Kowloon: Walled World",
+  "aliases": [
+    "Labyrinth in Kowloon: Walled World",
+    "九龙",
+    "鱼船",
+    "九龙城寨",
+    "九龙迷宫",
+    "LIKWW",
+    "九仙街",
+    "Walled World",
+    "Labyrinth",
+    "大鲸鱼"
+  ],
+  "version": "ez-clean-325c3cf46c52181c",
+  "variant": "default",
+  "chapterName": "Extra Story Chapter 极星卫",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.0",
+  "removed": false,
+  "composer": "かめりあ",
+  "illustrator": "鲸弑",
+  "original": "../../../source/Raw/Non-main/Extra Story Chapter 极星卫/LabyrinthinKowloonWalledWorld.かめりあ.d88897fd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Extra Story Chapter 极星卫/EZ/LabyrinthinKowloonWalledWorld.かめりあ.325c3cf4.webp"
+  }
+}

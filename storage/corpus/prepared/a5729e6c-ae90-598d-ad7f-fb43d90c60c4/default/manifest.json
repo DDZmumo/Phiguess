@@ -1,0 +1,25 @@
+{
+  "songId": "a5729e6c-ae90-598d-ad7f-fb43d90c60c4",
+  "title": "黄金之城 (GOLD TOWN)",
+  "aliases": [
+    "黄金之城 (GOLD TOWN)",
+    "hjzc",
+    "黄金之城",
+    "GT",
+    "黄金",
+    "金城",
+    "GOLD TOWN"
+  ],
+  "version": "ez-clean-6e7b4e1677d75112",
+  "variant": "default",
+  "chapterName": "Chapter EX-节奏大师 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.0",
+  "removed": false,
+  "composer": "MEMME",
+  "illustrator": "RM Design Team (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-节奏大师 精选集/黄金之城GOLDTOWN.Memme.094a3beb.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-节奏大师 精选集/EZ/黄金之城GOLDTOWN.Memme.6e7b4e16.webp"
+  }
+}

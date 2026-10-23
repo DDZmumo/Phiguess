@@ -1,0 +1,30 @@
+{
+  "songId": "25d107e5-53f5-5c53-bbbd-8bacb93c0759",
+  "title": "Re：End of a Dream",
+  "aliases": [
+    "Re：End of a Dream",
+    "终梦",
+    "春梦",
+    "ReDr",
+    "梦境之终",
+    "重置梦境",
+    "中间的春日梦",
+    "中間的春日夢",
+    "百合花开",
+    "女同背靠背",
+    "End of a Dream",
+    "Re End"
+  ],
+  "version": "ez-clean-ef19c0101d6b8899",
+  "variant": "default",
+  "chapterName": "Side Story 3 盗乐行",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.0",
+  "removed": false,
+  "composer": "uma vs. モリモリあつし",
+  "illustrator": "masiro vs. adaptor",
+  "original": "../../../source/Raw/Non-main/Side Story 3 盗乐行/ReEndofaDream.umavsモリモリあつし.20c0a00d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 3 盗乐行/EZ/ReEndofaDream.umavsモリモリあつし.ef19c010.webp"
+  }
+}

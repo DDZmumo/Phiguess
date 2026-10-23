@@ -1,0 +1,23 @@
+{
+  "songId": "50670e21-da77-5dd6-a699-050b8d80269a",
+  "title": "S.A.T.E.L.L.I.T.E.",
+  "aliases": [
+    "S.A.T.E.L.L.I.T.E.",
+    "卫星",
+    "satellite",
+    "花花龙卷风",
+    "🛰️"
+  ],
+  "version": "ez-clean-ad6b77f4fe3f7c93",
+  "variant": "default",
+  "chapterName": "Extra Story Chapter 极星卫",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.0",
+  "removed": false,
+  "composer": "かめりあ",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Extra Story Chapter 极星卫/SATELLITE.かめりあ.c89c3748.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Extra Story Chapter 极星卫/EZ/SATELLITE.かめりあ.ad6b77f4.webp"
+  }
+}

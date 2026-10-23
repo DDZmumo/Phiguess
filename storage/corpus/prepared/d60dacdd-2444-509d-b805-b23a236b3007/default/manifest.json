@@ -1,0 +1,20 @@
+{
+  "songId": "d60dacdd-2444-509d-b805-b23a236b3007",
+  "title": "Bloom",
+  "aliases": [
+    "Bloom",
+    "绽放"
+  ],
+  "version": "ez-clean-77347902597a02a4",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.3",
+  "removed": false,
+  "composer": "targ & 麻团qwq",
+  "illustrator": "注射",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Bloom.targ麻团qwq.87ead4b4.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Bloom.targ麻团qwq.77347902.webp"
+  }
+}

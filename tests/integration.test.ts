@@ -186,7 +186,9 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
       const revealed=await games.snapshot(m.id,alice.user.id);
       assert.equal(revealed.status,'reveal');assert.ok(revealed.nextAt-revealed.serverNow<=2000);
       await step(2050);
-      const next=await games.snapshot(m.id,alice.user.id);
+      // Advancing the test clock does not accelerate the real CPU worker.
+      let next=await games.snapshot(m.id,alice.user.id);
+      for(let attempt=0;next.round===0&&attempt<100;attempt++){await new Promise(r=>setTimeout(r,10));await games.tick();next=await games.snapshot(m.id,alice.user.id);}
       assert.equal(next.round,1);assert.equal(next.status,'playing');assert.ok(next.startsAt<=next.serverNow);
       assert.equal(next.deadline-next.startsAt,15000);
       assert.equal((await request(`matches/${m.id}/rounds/1/image`,'GET',alice.token)).status,200);

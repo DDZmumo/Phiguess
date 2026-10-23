@@ -1,0 +1,22 @@
+{
+  "songId": "100067a5-c692-5cd9-9b2c-b8439780a7ae",
+  "title": "幽世桔梗",
+  "aliases": [
+    "幽世桔梗",
+    "桔梗",
+    "幽世",
+    "ysjg"
+  ],
+  "version": "ez-clean-5fecfd95e12a1e18",
+  "variant": "default",
+  "chapterName": "Chapter EX-SHINOBI SLASH 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.7.0",
+  "removed": false,
+  "composer": "Capchii feat. まるもこ",
+  "illustrator": "瀬名",
+  "original": "../../../source/Raw/Non-main/Chapter EX-SHINOBI SLASH 精选集/幽世桔梗.Capchiifeatまるもこ.628a34a6.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-SHINOBI SLASH 精选集/EZ/幽世桔梗.Capchiifeatまるもこ.5fecfd95.webp"
+  }
+}

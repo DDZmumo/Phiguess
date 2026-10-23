@@ -1,0 +1,30 @@
+{
+  "songId": "5499f024-2e05-5e60-81ae-5b00a6c9a0a2",
+  "title": "Re_Nascence (Psystyle Ver.) ",
+  "aliases": [
+    "Re_Nascence (Psystyle Ver.) ",
+    "Re_Nascence",
+    "瑞纳森斯",
+    "宇航员",
+    "弭儿遨游太空",
+    "rnp",
+    "ren",
+    "Re_",
+    "rn",
+    "新生",
+    "rns",
+    "文艺复兴"
+  ],
+  "version": "ez-clean-72bc8b49a4aac297",
+  "variant": "default",
+  "chapterName": "Side Story 2 弭刻日",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.0",
+  "removed": false,
+  "composer": "Rinth_live",
+  "illustrator": "Tsuioku",
+  "original": "../../../source/Raw/Non-main/Side Story 2 弭刻日/Re_NascencePsystyleVer.Rinth_live.2c5854b7.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 2 弭刻日/EZ/Re_NascencePsystyleVer.Rinth_live.72bc8b49.webp"
+  }
+}

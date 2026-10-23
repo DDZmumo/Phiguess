@@ -74,7 +74,7 @@ export async function prepareLosslessCorpus({root=resolve('storage/corpus'),veri
     group.original=webpPath(group.original);group.assets.ez=webpPath(group.assets.ez);
   }
   const totals=category=>files.filter(file=>!category||file.category===category).reduce((sum,file)=>({files:sum.files+1,pngBytes:sum.pngBytes+file.pngBytes,webpBytes:sum.webpBytes+file.webpBytes}),{files:0,pngBytes:0,webpBytes:0});
-  const report={encoding,scope:'Raw originals and EZ question images; WebP-only sources supported with verified PNG conversion hashes; HD/IN/AT remain SVG',dimensionsAndRgbaEqual:true,totals:totals(),originals:totals('original'),ez:totals('ez'),manifestVersion:'clean64-v2-lossless-{variant}',databaseModified:false,files};
+  const report={encoding,scope:'Raw originals and EZ question images; WebP-only sources supported with verified PNG conversion hashes; HD/IN/AT are generated at runtime',dimensionsAndRgbaEqual:true,totals:totals(),originals:totals('original'),ez:totals('ez'),manifestVersion:'clean64-v2-lossless-{variant}',databaseModified:false,files};
   if(!verifyOnly){
     for(const {path,manifest} of manifests){
       const content=JSON.stringify(manifest,null,2)+'\n';

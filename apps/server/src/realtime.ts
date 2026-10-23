@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { MatchView, RoomCode, RoomView, UUID } from '../../../packages/contracts/src';
 import { AuthService, User } from './auth';
 import { configuration } from './config';
+import {isAllowedOrigin} from './origins';
 import { Events } from './events';
 import { GamesService } from './games';
 import { RoomsService } from './rooms';
@@ -27,7 +28,8 @@ export class RealtimeGateway implements OnGatewayInit, OnGatewayConnection, OnMo
     server.use(async (socket,next) => {
       try {
         const origin = socket.handshake.headers.origin;
-        if (origin && origin!==configuration().PUBLIC_ORIGIN) throw new Error('Origin rejected');
+        const config=configuration();
+        if (origin && !isAllowedOrigin(origin,config.PUBLIC_ORIGIN,config.NODE_ENV)) throw new Error('Origin rejected');
         socket.data.user=await this.auth.authenticate(socket.handshake.auth.token);
         const existing = [...server.sockets.sockets.values()].filter(s=>s.data.user?.id===socket.data.user.id).length;
         if (existing>=3) throw new Error('Too many connections');

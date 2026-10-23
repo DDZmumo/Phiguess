@@ -19,21 +19,20 @@
     "What do you want more than a Happy ending？-IN"
   ],
   "version": "clean64-v2-lossless-illustration-at",
+  "variant": "illustration-at",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
     "标准曲名包含 34 个非空白字符。"
   ],
-  "variant": "illustration-at",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-AT.webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part2",
+  "chapterName": "穹顶孤舟 · Part2",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Apo11o\"HALO\"program ft. 安月名 莉子×大瀬良あい",
   "illustrator": "Amor fati",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/What do you want more than a Happy ending？-AT.webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-AT-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/What do you want more than a Happy ending？-AT-EZ.webp"
   }
 }

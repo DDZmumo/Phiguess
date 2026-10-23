@@ -1,0 +1,23 @@
+{
+  "songId": "f1b20450-9a1c-5827-bd5e-08f5a92b6db2",
+  "title": "明鏡烈火",
+  "aliases": [
+    "明鏡烈火",
+    "明镜烈火",
+    "mjlh",
+    "明镜",
+    "红发小姐姐"
+  ],
+  "version": "ez-clean-dfae28a04422e012",
+  "variant": "default",
+  "chapterName": "Chapter EX-SHINOBI SLASH 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.7.0",
+  "removed": false,
+  "composer": "M-UE vs. Reku Mochizuki",
+  "illustrator": "中本ひょうり",
+  "original": "../../../source/Raw/Non-main/Chapter EX-SHINOBI SLASH 精选集/明鏡烈火.MUEvsRekuMochizuki.beee663f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-SHINOBI SLASH 精选集/EZ/明鏡烈火.MUEvsRekuMochizuki.dfae28a0.webp"
+  }
+}

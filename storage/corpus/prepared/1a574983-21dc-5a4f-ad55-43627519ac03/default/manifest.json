@@ -1,0 +1,22 @@
+{
+  "songId": "1a574983-21dc-5a4f-ad55-43627519ac03",
+  "title": "iL-Artifact",
+  "aliases": [
+    "iL-Artifact",
+    "iL",
+    "无源之光",
+    "流光造物"
+  ],
+  "version": "ez-clean-c033c2775b2c46da",
+  "variant": "default",
+  "chapterName": "Chapter EX-TAKUMI³ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.0",
+  "removed": false,
+  "composer": "Link''0",
+  "illustrator": "Fl00t",
+  "original": "../../../source/Raw/Non-main/Chapter EX-TAKUMI³ 精选集/iLArtifact.Link0.ca931528.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-TAKUMI³ 精选集/EZ/iLArtifact.Link0.c033c277.webp"
+  }
+}

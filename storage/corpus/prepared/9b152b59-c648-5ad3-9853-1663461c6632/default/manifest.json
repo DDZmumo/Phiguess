@@ -1,0 +1,22 @@
+{
+  "songId": "9b152b59-c648-5ad3-9853-1663461c6632",
+  "title": "Another Round",
+  "aliases": [
+    "Another Round",
+    "街头青年",
+    "ar",
+    "再一局"
+  ],
+  "version": "ez-clean-15d117feefd8be0d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.1",
+  "removed": false,
+  "composer": "Justin Dai",
+  "illustrator": "艾是Abby",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/AnotherRound.JustinDai.0ea04d41.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/AnotherRound.JustinDai.15d117fe.webp"
+  }
+}

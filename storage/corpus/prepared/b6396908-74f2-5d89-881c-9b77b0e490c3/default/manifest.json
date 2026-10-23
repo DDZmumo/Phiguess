@@ -1,0 +1,30 @@
+{
+  "songId": "b6396908-74f2-5d89-881c-9b77b0e490c3",
+  "title": "Burn",
+  "aliases": [
+    "Burn",
+    "烤全鸭",
+    "考全押",
+    "烤全押",
+    "烤全压",
+    "烧",
+    "烧全鸭",
+    "bfd",
+    "燃烧",
+    "🚫🚬",
+    "卖火柴的小女孩",
+    "卖核弹的小女孩"
+  ],
+  "version": "ez-clean-d9046e074d31de5a",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.4",
+  "removed": false,
+  "composer": "NceS",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Burn.NceS.9601140a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Burn.NceS.d9046e07.webp"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "songId": "460508db-1923-5158-a7e9-15bbb45757f6",
+  "title": "G.V.N. (Glitter,Vomitus and Neon)",
+  "aliases": [
+    "G.V.N. (Glitter,Vomitus and Neon)",
+    "GVN"
+  ],
+  "version": "ez-clean-d741dc26af5bbc0c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.3",
+  "removed": false,
+  "composer": "Salty Salt & Unfold33",
+  "illustrator": "祈莲",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/GVNGlitterVomitusandNeon.SaltySaltUnfold33.32cf095f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/GVNGlitterVomitusandNeon.SaltySaltUnfold33.d741dc26.webp"
+  }
+}

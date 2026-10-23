@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { SongName } from './SongName';
 import {CHARACTER_TRANSITION_MS,CHARACTER_REVEAL_DELAY_MS,randomCharacterRanks,scrambledCharacters} from './character-scramble';
 
-const parts=['AT难度下曲绘抽象程度极高','题数无穷 每题限时30秒','血条强制开启','20HP','你确定还要继续挑战吗？'];
+const parts=['AT难度下曲绘抽象程度极高','题数无穷 每题限时30秒','范围全曲库 血条强制开启','20HP','你确定还要继续挑战吗？'];
 const offsets=parts.map((_,index)=>parts.slice(0,index).join('').length),characterCount=parts.join('').length;
 
 export function AtChallengeWarning({capacity,reduce,concealing,onChange,onReady,onConcealed}:{capacity:20|50;reduce:boolean;concealing:boolean;onChange:(capacity:20|50)=>void;onReady:(ready:boolean)=>void;onConcealed:()=>void}){

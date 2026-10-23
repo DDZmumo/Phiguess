@@ -6,12 +6,12 @@ storage/*
 storage/corpus/*
 !storage/corpus/catalog.json
 !storage/corpus/lossless-webp-report.json
-!storage/corpus/trace-report.json
+!storage/corpus/non-main-import-source.json
+!storage/corpus/non-main-excluded.json
 !storage/corpus/prepared/
 storage/corpus/prepared/**/*
 !storage/corpus/prepared/**/
 !storage/corpus/prepared/**/manifest.json
-!storage/corpus/prepared/**/*.svg
 !storage/corpus/source/
 storage/corpus/source/**/*
 !storage/corpus/source/**/

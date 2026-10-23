@@ -1,0 +1,24 @@
+{
+  "songId": "149f3869-9ae5-5fac-903a-83c6411b2ec9",
+  "title": "Schadenfreude",
+  "aliases": [
+    "Schadenfreude",
+    "Sch",
+    "sf",
+    "幸灾乐祸",
+    "四川的腐乳",
+    "四川豆腐乳"
+  ],
+  "version": "ez-clean-2e250ca404e3d14e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.1",
+  "removed": false,
+  "composer": "ZxNX",
+  "illustrator": "验光蒸鱼",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Schadenfreude.ZxNX.7ab0b317.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Schadenfreude.ZxNX.2e250ca4.webp"
+  }
+}

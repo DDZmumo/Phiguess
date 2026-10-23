@@ -1,0 +1,32 @@
+{
+  "songId": "9b93b507-cd8a-5c7c-87bc-d3978137c5e6",
+  "title": "Gungnir Fracture",
+  "aliases": [
+    "Gungnir Fracture",
+    "骨折枪",
+    "骨折冈",
+    "圣枪崩痕",
+    "冈裂",
+    "GF",
+    "断矛",
+    "冈格尼尔",
+    "冈格尼尔之裂",
+    "骨折钢",
+    "肛裂",
+    "骨折肛",
+    "神枪破碎",
+    "棍父"
+  ],
+  "version": "ez-clean-98689974328559fb",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.4",
+  "removed": false,
+  "composer": "Kry.exe",
+  "illustrator": "PEZZ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/GungnirFracture.Kryexe.c1e440f3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/GungnirFracture.Kryexe.98689974.webp"
+  }
+}

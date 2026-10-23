@@ -1,0 +1,21 @@
+{
+  "songId": "d6c73833-7925-5300-ad9a-e0d0245a8232",
+  "title": "Initialize",
+  "aliases": [
+    "Initialize",
+    "初始化",
+    "倒计时"
+  ],
+  "version": "ez-clean-fad42e355e663b7b",
+  "variant": "default",
+  "chapterName": "Chapter EX-WAVEAT 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.7",
+  "removed": false,
+  "composer": "iF",
+  "illustrator": "あおお/A-ZERO, morph",
+  "original": "../../../source/Raw/Non-main/Chapter EX-WAVEAT 精选集/Initialize.iF.fbaf3e59.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-WAVEAT 精选集/EZ/Initialize.iF.fad42e35.webp"
+  }
+}

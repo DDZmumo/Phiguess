@@ -1,0 +1,28 @@
+{
+  "songId": "b9a4ca36-08a1-5f48-ba28-6174ead2deb5",
+  "title": "Inverted World",
+  "aliases": [
+    "Inverted World",
+    "iw",
+    "逆天",
+    "反转世界",
+    "倒打世界",
+    "颠倒世界",
+    "倒转世界",
+    "逆转世界",
+    "荷伊偎",
+    "伊洛抱荷珀"
+  ],
+  "version": "ez-clean-593b892f93ac3e96",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.3.0",
+  "removed": false,
+  "composer": "ARForest",
+  "illustrator": "Mechari (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/InvertedWorld.ARForest.593b892f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/InvertedWorld.ARForest.593b892f.webp"
+  }
+}

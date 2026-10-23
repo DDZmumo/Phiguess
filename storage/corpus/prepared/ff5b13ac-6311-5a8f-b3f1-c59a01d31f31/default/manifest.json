@@ -1,0 +1,25 @@
+{
+  "songId": "ff5b13ac-6311-5a8f-b3f1-c59a01d31f31",
+  "title": "贝多芬祝福 (Beethoven Blessing)",
+  "aliases": [
+    "贝多芬祝福 (Beethoven Blessing)",
+    "贝多芬祝福",
+    "Beethoven",
+    "贝多芬",
+    "bdfzf",
+    "贝多芬病毒",
+    "贝多芬诅咒"
+  ],
+  "version": "ez-clean-472869ba6f9c1775",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.11.0",
+  "removed": false,
+  "composer": "Nauts",
+  "illustrator": "RM Design Team (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/贝多芬祝福BeethovenBlessing.Nauts.34a0969c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/贝多芬祝福BeethovenBlessing.Nauts.472869ba.webp"
+  }
+}

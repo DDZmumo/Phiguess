@@ -1,0 +1,24 @@
+{
+  "songId": "2636ea70-958f-5afc-b5d8-9d0dec142cfe",
+  "title": "PANIC PARADISE",
+  "aliases": [
+    "PANIC PARADISE",
+    "可口可乐",
+    "百事可乐",
+    "pp",
+    "恐怖天堂",
+    "恐慌天堂"
+  ],
+  "version": "ez-clean-c86d3ac11ef63be5",
+  "variant": "default",
+  "chapterName": "Side Story 3 盗乐行",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.0",
+  "removed": false,
+  "composer": "DJ SHION.Y",
+  "illustrator": "百九十八",
+  "original": "../../../source/Raw/Non-main/Side Story 3 盗乐行/PANICPARADISE.DJSHIONY.cb361a06.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 3 盗乐行/EZ/PANICPARADISE.DJSHIONY.c86d3ac1.webp"
+  }
+}

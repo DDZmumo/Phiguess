@@ -1,0 +1,25 @@
+{
+  "songId": "53889ddf-6546-5ebe-8d3a-cb76c9fdbc90",
+  "title": "Sparkle New Life",
+  "aliases": [
+    "Sparkle New Life",
+    "闪耀新生活",
+    "SNL",
+    "太空新生活",
+    "闪亮新生活",
+    "向往新生活",
+    "新生活"
+  ],
+  "version": "ez-clean-dc53eb652bfc9277",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.1",
+  "removed": false,
+  "composer": "rider",
+  "illustrator": "1B",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SparkleNewLife.rider.2c15a4bd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SparkleNewLife.rider.dc53eb65.webp"
+  }
+}

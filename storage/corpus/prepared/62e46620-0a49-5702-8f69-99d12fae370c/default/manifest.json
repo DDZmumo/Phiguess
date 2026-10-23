@@ -1,0 +1,21 @@
+{
+  "songId": "62e46620-0a49-5702-8f69-99d12fae370c",
+  "title": "-Arkhei-",
+  "aliases": [
+    "-Arkhei-",
+    "最初的黄昏",
+    "异世界"
+  ],
+  "version": "ez-clean-44bc5c6c1351b792",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.0.0",
+  "removed": false,
+  "composer": "Sera Amagi",
+  "illustrator": "Hachimitsu☆Boy",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Arkhei.SeraAmagi.aca2f451.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Arkhei.SeraAmagi.44bc5c6c.webp"
+  }
+}

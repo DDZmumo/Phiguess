@@ -1,0 +1,22 @@
+{
+  "songId": "70b16cf5-2c59-5e5f-85da-5d6f1f22de47",
+  "title": "Stasis",
+  "aliases": [
+    "Stasis",
+    "船",
+    "炸船",
+    "停滞"
+  ],
+  "version": "ez-clean-736c0329f2e54dfc",
+  "variant": "default",
+  "chapterName": "Chapter EX-Lanota 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.0",
+  "removed": false,
+  "composer": "Maozon",
+  "illustrator": "Lanota © Noxy Games Inc. ",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Lanota 精选集/Stasis.Maozon.736c0329.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Lanota 精选集/EZ/Stasis.Maozon.736c0329.webp"
+  }
+}

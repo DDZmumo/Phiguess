@@ -1,0 +1,38 @@
+{
+  "songId": "dbf05cbb-39f9-551d-8574-c50dcfa76d5f",
+  "title": "雪降り ~雪が降っている~",
+  "aliases": [
+    "雪降り ~雪が降っている~",
+    "小雪崩",
+    "雪降柔和版",
+    "雪降抒情版",
+    "雪崩抒情版",
+    "雪降sp常驻",
+    "雪降常驻版",
+    "雪崩常驻",
+    "三色雪糕",
+    "双雪降",
+    "雪降AT",
+    "二重雪降",
+    "雪降雪降",
+    "新雪降",
+    "后年雪降",
+    "正在下雪",
+    "雪降2",
+    "雪降²",
+    "小雪降sp",
+    "粉雪降"
+  ],
+  "version": "ez-clean-377645f16e958ae4",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.15.1",
+  "removed": false,
+  "composer": "AiSS w/ 夜輪 ft. 結月ゆかり",
+  "illustrator": "Vios.NoFurry.git",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/雪降り雪が降っている.AiSSw夜輪ft結月ゆかり.abe2b8dc.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/雪降り雪が降っている.AiSSw夜輪ft結月ゆかり.377645f1.webp"
+  }
+}

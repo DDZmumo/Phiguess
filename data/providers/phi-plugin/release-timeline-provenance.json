@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-22T15:28:21.676Z",
+  "history": {
+    "repository": "https://github.com/SteveZMTstudios/Phigros-history",
+    "commit": "01b2ba6a4f95c7305570391a79270b084a1b501e",
+    "paths": [
+      "ver_data/VersionList_1.x.md",
+      "ver_data/VersionList_2.x.md",
+      "ver_data/VersionList_3.x.md"
+    ]
+  },
+  "recent": {
+    "repository": "https://github.com/Catrong/phi-plugin",
+    "commit": "0f73cbccab71af2f616a592492c0350eb57db23b",
+    "path": "resources/info/oldInfo/*/info.json"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "songId": "7c7a3b43-2b35-5be0-a362-34ae2d5702f2",
+  "title": "Eternal Snow",
+  "aliases": [
+    "Eternal Snow",
+    "永恒的雪",
+    "ES",
+    "咏雪"
+  ],
+  "version": "ez-clean-ec3cd8fc5490eb26",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.3",
+  "removed": false,
+  "composer": "Abyss Idols",
+  "illustrator": "Sak",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/EternalSnow.AbyssIdols.69e4e15e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/EternalSnow.AbyssIdols.ec3cd8fc.webp"
+  }
+}

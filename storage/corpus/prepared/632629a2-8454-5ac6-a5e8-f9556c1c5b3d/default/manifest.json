@@ -1,0 +1,29 @@
+{
+  "songId": "632629a2-8454-5ac6-a5e8-f9556c1c5b3d",
+  "title": "You are the Miserable",
+  "aliases": [
+    "You are the Miserable",
+    "管风琴",
+    "抽水马桶",
+    "倒霉蛋",
+    "倒霉鬼",
+    "你是个倒霉蛋",
+    "你是倒霉蛋",
+    "倒霉玩意",
+    "YATM",
+    "你真惨",
+    "节操喂狗"
+  ],
+  "version": "ez-clean-f9a7058cadb63563",
+  "variant": "default",
+  "chapterName": "Chapter EX-Lanota 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.0",
+  "removed": false,
+  "composer": "t+pazolite",
+  "illustrator": "Lanota © Noxy Games Inc. ",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Lanota 精选集/YouaretheMiserable.tpazolite.f9a7058c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Lanota 精选集/EZ/YouaretheMiserable.tpazolite.f9a7058c.webp"
+  }
+}

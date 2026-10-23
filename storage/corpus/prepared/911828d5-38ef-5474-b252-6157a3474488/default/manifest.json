@@ -1,0 +1,29 @@
+{
+  "songId": "911828d5-38ef-5474-b252-6157a3474488",
+  "title": "The Mountain Eater",
+  "aliases": [
+    "The Mountain Eater",
+    "食山者",
+    "吞山者",
+    "吃山者",
+    "吃山人",
+    "山吞",
+    "TME",
+    "噬山者",
+    "穿山甲",
+    "吃山",
+    "像素山"
+  ],
+  "version": "ez-clean-9374ef5888a821ba",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.0",
+  "removed": false,
+  "composer": "Paul Bazooka",
+  "illustrator": "START SEED",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/TheMountainEater.PaulBazooka.5c134b4a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/TheMountainEater.PaulBazooka.9374ef58.webp"
+  }
+}

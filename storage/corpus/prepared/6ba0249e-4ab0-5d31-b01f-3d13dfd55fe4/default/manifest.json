@@ -1,0 +1,20 @@
+{
+  "songId": "6ba0249e-4ab0-5d31-b01f-3d13dfd55fe4",
+  "title": "青丘",
+  "aliases": [
+    "青丘",
+    "青灵之泉"
+  ],
+  "version": "ez-clean-fc4cf7798881f5bd",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.6",
+  "removed": false,
+  "composer": "BLACK 0",
+  "illustrator": "BLACK 0",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/青丘.BLACK0.6ab59c28.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/青丘.BLACK0.fc4cf779.webp"
+  }
+}

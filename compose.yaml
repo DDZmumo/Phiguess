@@ -31,9 +31,12 @@ services:
       TRUST_PROXY: "1"
       ASSET_DIR: /app/storage/assets
       AVATAR_DIR: /app/storage/avatars
+      GENERATED_ASSET_DIR: /app/storage/generated
+      GENERATED_CACHE_MIB: "512"
     volumes:
       - ./storage/assets:/app/storage/assets:ro
       - avatar_data:/app/storage/avatars
+      - generated_artwork:/app/storage/generated
     depends_on:
       db: {condition: service_healthy}
     healthcheck:
@@ -67,3 +70,4 @@ volumes:
   caddy_data:
   caddy_config:
   avatar_data:
+  generated_artwork:

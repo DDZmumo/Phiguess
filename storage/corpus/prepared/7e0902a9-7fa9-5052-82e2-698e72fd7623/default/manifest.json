@@ -1,0 +1,26 @@
+{
+  "songId": "7e0902a9-7fa9-5052-82e2-698e72fd7623",
+  "title": "GOODBOUNCE",
+  "aliases": [
+    "GOODBOUNCE",
+    "良弹",
+    "良走",
+    "上学迟到",
+    "白跑一趟",
+    "挤地铁",
+    "今日休息",
+    "没带地铁卡"
+  ],
+  "version": "ez-clean-634ee2c75b9b10b7",
+  "variant": "default",
+  "chapterName": "Chapter EX-GOOD 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.7",
+  "removed": false,
+  "composer": "EBIMAYO",
+  "illustrator": "EBIMAYO",
+  "original": "../../../source/Raw/Non-main/Chapter EX-GOOD 精选集/GOODBOUNCE.EBIMAYO.854c7263.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-GOOD 精选集/EZ/GOODBOUNCE.EBIMAYO.634ee2c7.webp"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "songId": "adcde777-614e-5929-a8ca-6336a4437330",
+  "title": "Swing Skip Drop",
+  "aliases": [
+    "Swing Skip Drop",
+    "SSD",
+    "跳拍"
+  ],
+  "version": "ez-clean-489fddf7f9307146",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.11.1",
+  "removed": false,
+  "composer": "ミハイル",
+  "illustrator": "ディン",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SwingSkipDrop.ミハイル.bfd9800f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SwingSkipDrop.ミハイル.489fddf7.webp"
+  }
+}

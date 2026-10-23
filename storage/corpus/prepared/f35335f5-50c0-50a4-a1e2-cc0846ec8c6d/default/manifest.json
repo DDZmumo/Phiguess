@@ -1,0 +1,29 @@
+{
+  "songId": "f35335f5-50c0-50a4-a1e2-cc0846ec8c6d",
+  "title": "Kerberos",
+  "aliases": [
+    "Kerberos",
+    "三头犬",
+    "刻耳柏洛斯",
+    "刻耳帕洛斯",
+    "刻耳帕诺斯",
+    "刻耳柏诺斯",
+    "🐶🐶🐶",
+    "kb",
+    "刻俄柏",
+    "科尔伯",
+    "刻俄伯"
+  ],
+  "version": "ez-clean-e160b573d38d9670",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.0.0",
+  "removed": false,
+  "composer": "Zris",
+  "illustrator": "Eridani",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Kerberos.Zris.a6254a99.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Kerberos.Zris.e160b573.webp"
+  }
+}

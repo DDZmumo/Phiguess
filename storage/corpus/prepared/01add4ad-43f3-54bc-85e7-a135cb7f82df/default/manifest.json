@@ -1,0 +1,23 @@
+{
+  "songId": "01add4ad-43f3-54bc-85e7-a135cb7f82df",
+  "title": "Indelible Scar",
+  "aliases": [
+    "Indelible Scar",
+    "IS",
+    "永存之伤",
+    "不可磨灭的伤疤",
+    "伤痕"
+  ],
+  "version": "ez-clean-75c8ea2ee41f3aa1",
+  "variant": "default",
+  "chapterName": "Chapter EX-Paradigm：Reboot 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.0",
+  "removed": false,
+  "composer": "Noah",
+  "illustrator": "兜",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Paradigm：Reboot 精选集/IndelibleScar.Noah.cc99019c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Paradigm：Reboot 精选集/EZ/IndelibleScar.Noah.75c8ea2e.webp"
+  }
+}

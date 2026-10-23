@@ -1,0 +1,25 @@
+{
+  "songId": "4e8e8c4a-036d-5aeb-b285-febbc4be317c",
+  "title": "Aphrodite's Child (short ver.)",
+  "aliases": [
+    "Aphrodite's Child (short ver.)",
+    "Aphrodite's Child",
+    "aphrodite",
+    "AC",
+    "爱神之子",
+    "两女孩比心",
+    "两猫娘比心"
+  ],
+  "version": "ez-clean-5dcbc4239c0fa255",
+  "variant": "default",
+  "chapterName": "Chapter EX-Immaculée Sekai 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.13.0",
+  "removed": false,
+  "composer": "RUQOA",
+  "illustrator": "cala for Immaculée Sekai",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Immaculée Sekai 精选集/AphroditesChildshortver.RUQOA.1ea8c93b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Immaculée Sekai 精选集/EZ/AphroditesChildshortver.RUQOA.5dcbc423.webp"
+  }
+}

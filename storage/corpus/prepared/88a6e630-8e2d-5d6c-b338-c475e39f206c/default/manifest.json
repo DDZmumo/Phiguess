@@ -1,0 +1,24 @@
+{
+  "songId": "88a6e630-8e2d-5d6c-b338-c475e39f206c",
+  "title": "Nhelv",
+  "aliases": [
+    "Nhelv",
+    "你和驴",
+    "驴",
+    "红叠",
+    "神经",
+    "2017冠军"
+  ],
+  "version": "ez-clean-b194fa26f2b73750",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.0.0",
+  "removed": false,
+  "composer": "Silentroom",
+  "illustrator": "駿",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Nhelv.Silentroom.b194fa26.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Nhelv.Silentroom.b194fa26.webp"
+  }
+}

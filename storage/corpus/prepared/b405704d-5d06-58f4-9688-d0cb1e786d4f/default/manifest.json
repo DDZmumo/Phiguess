@@ -1,0 +1,21 @@
+{
+  "songId": "b405704d-5d06-58f4-9688-d0cb1e786d4f",
+  "title": "Infinity Heaven",
+  "aliases": [
+    "Infinity Heaven",
+    "无限天堂",
+    "IH"
+  ],
+  "version": "ez-clean-df1099ebeb84cde5",
+  "variant": "default",
+  "chapterName": "Chapter EX-HyuN 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.2",
+  "removed": false,
+  "composer": "HyuN",
+  "illustrator": "DoublePian",
+  "original": "../../../source/Raw/Non-main/Chapter EX-HyuN 精选集/InfinityHeaven.HyuN.87a325cd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-HyuN 精选集/EZ/InfinityHeaven.HyuN.df1099eb.webp"
+  }
+}

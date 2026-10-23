@@ -1,0 +1,25 @@
+{
+  "songId": "e4e0dcfa-b31f-52e9-8602-6e259ab0346d",
+  "title": "Palescreen",
+  "aliases": [
+    "Palescreen",
+    "歌剧院",
+    "男高音",
+    "U盘",
+    "白屏",
+    "苍白屏",
+    "银幕"
+  ],
+  "version": "ez-clean-c34611405c5ad92c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.5",
+  "removed": false,
+  "composer": "WyvernP feat. Madol",
+  "illustrator": "GAMEBAKA",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Palescreen.WyvernPfeatMadol.91cb7d5b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Palescreen.WyvernPfeatMadol.c3461140.webp"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "songId": "14e7600a-419d-5ac5-8940-ef0ef2570bc6",
+  "title": "Radiance",
+  "aliases": [
+    "Radiance",
+    "光辉",
+    "江江",
+    "江江比耶",
+    "光芒",
+    "音击光"
+  ],
+  "version": "ez-clean-80050b2a825f7b7d",
+  "variant": "default",
+  "chapterName": "Chapter EX-オンゲキ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.14.0",
+  "removed": false,
+  "composer": "Nhato",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-オンゲキ 精选集/Radiance.Nhato.dce9b8cd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-オンゲキ 精选集/EZ/Radiance.Nhato.80050b2a.webp"
+  }
+}

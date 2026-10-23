@@ -5,24 +5,25 @@
     "Retribution",
     "报应",
     "rtb",
-    "不穿衣服的羊"
+    "不穿衣服的羊",
+    "Retribution(2024 April Fools' Day)",
+    "Revisit(2024 April Fools' Day)"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：nm-y & Kry.exe",
     "标准曲名包含 11 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Retribution.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
+  "contentKind": "main",
+  "removed": false,
   "composer": "nm-y & Kry.exe",
   "illustrator": "NerSAN",
+  "original": "../../../source/Raw/08 凌日潮汐/Retribution.webp",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Retribution-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/08 凌日潮汐/EZ/Retribution-EZ.webp"
   }
 }

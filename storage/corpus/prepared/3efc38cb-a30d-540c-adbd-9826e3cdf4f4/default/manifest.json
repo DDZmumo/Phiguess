@@ -9,21 +9,20 @@
     "not"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：P4koo",
     "标准曲名包含 10 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Nick of Time.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
+  "contentKind": "main",
+  "removed": false,
   "composer": "P4koo",
   "illustrator": "青鸟",
+  "original": "../../../source/Raw/07 时钟链接/Nick of Time.webp",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Nick of Time-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/07 时钟链接/EZ/Nick of Time-EZ.webp"
   }
 }

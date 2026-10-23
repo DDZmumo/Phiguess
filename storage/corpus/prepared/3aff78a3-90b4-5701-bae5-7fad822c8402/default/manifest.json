@@ -1,0 +1,21 @@
+{
+  "songId": "3aff78a3-90b4-5701-bae5-7fad822c8402",
+  "title": "Realms",
+  "aliases": [
+    "Realms",
+    "领域",
+    "王国"
+  ],
+  "version": "ez-clean-0029c8a06d58b0f7",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.1",
+  "removed": false,
+  "composer": "Hinkik & A Himitsu",
+  "illustrator": "圆规compasses",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Realms.HinkikAHimitsu.5ff1b114.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Realms.HinkikAHimitsu.0029c8a0.webp"
+  }
+}

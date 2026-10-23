@@ -24,9 +24,9 @@ export const tutorialSongs=[
     ],
     "images": {
       "ez": "/tutorial/ds-ez.png",
-      "hd": "/tutorial/ds-hd.svg",
-      "in": "/tutorial/ds-in.svg",
-      "at": "/tutorial/ds-at.svg",
+      "hd": "/api/tutorial-art/ds/hd?v=ez-regions-v1",
+      "in": "/api/tutorial-art/ds/in?v=ez-regions-v1",
+      "at": "/api/tutorial-art/ds/at?v=ez-regions-v1",
       "original": "/tutorial/ds-original.webp"
     }
   },
@@ -66,9 +66,9 @@ export const tutorialSongs=[
     ],
     "images": {
       "ez": "/tutorial/mirage-ez.png",
-      "hd": "/tutorial/mirage-hd.svg",
-      "in": "/tutorial/mirage-in.svg",
-      "at": "/tutorial/mirage-at.svg",
+      "hd": "/api/tutorial-art/mirage/hd?v=ez-regions-v1",
+      "in": "/api/tutorial-art/mirage/in?v=ez-regions-v1",
+      "at": "/api/tutorial-art/mirage/at?v=ez-regions-v1",
       "original": "/tutorial/mirage-original.webp"
     }
   },
@@ -101,9 +101,9 @@ export const tutorialSongs=[
     ],
     "images": {
       "ez": "/tutorial/chaos-ez.png",
-      "hd": "/tutorial/chaos-hd.svg",
-      "in": "/tutorial/chaos-in.svg",
-      "at": "/tutorial/chaos-at.svg",
+      "hd": "/api/tutorial-art/chaos/hd?v=ez-regions-v1",
+      "in": "/api/tutorial-art/chaos/in?v=ez-regions-v1",
+      "at": "/api/tutorial-art/chaos/at?v=ez-regions-v1",
       "original": "/tutorial/chaos-original.webp"
     }
   },
@@ -140,9 +140,9 @@ export const tutorialSongs=[
     ],
     "images": {
       "ez": "/tutorial/8000-ez.png",
-      "hd": "/tutorial/8000-hd.svg",
-      "in": "/tutorial/8000-in.svg",
-      "at": "/tutorial/8000-at.svg",
+      "hd": "/api/tutorial-art/8000/hd?v=ez-regions-v1",
+      "in": "/api/tutorial-art/8000/in?v=ez-regions-v1",
+      "at": "/api/tutorial-art/8000/at?v=ez-regions-v1",
       "original": "/tutorial/8000-original.webp"
     }
   }

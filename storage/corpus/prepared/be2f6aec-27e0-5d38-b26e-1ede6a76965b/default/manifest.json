@@ -1,0 +1,22 @@
+{
+  "songId": "be2f6aec-27e0-5d38-b26e-1ede6a76965b",
+  "title": "Pont des souvenirs",
+  "aliases": [
+    "Pont des souvenirs",
+    "记忆之桥",
+    "记忆桥",
+    "pds"
+  ],
+  "version": "ez-clean-f6034d6c194cbf9f",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.5",
+  "removed": false,
+  "composer": "VeetaCrush vs. [itsu(feat.itsu)]",
+  "illustrator": "林语",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Pontdessouvenirs.VeetaCrushvsitsufeatitsu.71e105f4.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Pontdessouvenirs.VeetaCrushvsitsufeatitsu.f6034d6c.webp"
+  }
+}

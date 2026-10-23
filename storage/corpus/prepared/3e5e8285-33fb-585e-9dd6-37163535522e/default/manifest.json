@@ -1,0 +1,32 @@
+{
+  "songId": "3e5e8285-33fb-585e-9dd6-37163535522e",
+  "title": "Luminous Entities Lost Heart",
+  "aliases": [
+    "Luminous Entities Lost Heart",
+    "LELH",
+    "流明遗心",
+    "发光体",
+    "流明体",
+    "光蚀心",
+    "发光体心灰意冷",
+    "发光实体失去了心",
+    "失心光辉体",
+    "失心发光体",
+    "失心",
+    "失心光体",
+    "群心失落",
+    "冰塔"
+  ],
+  "version": "ez-clean-3a3d655e9ab6a983",
+  "variant": "default",
+  "chapterName": "Chapter EX-EGTS 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.12.0",
+  "removed": false,
+  "composer": "NormalM feat. Usagi Denki",
+  "illustrator": "Transendium",
+  "original": "../../../source/Raw/Non-main/Chapter EX-EGTS 精选集/LuminousEntitiesLostHeart.NormalMfeatUsagiDenki.92adbcc1.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-EGTS 精选集/EZ/LuminousEntitiesLostHeart.NormalMfeatUsagiDenki.3a3d655e.webp"
+  }
+}

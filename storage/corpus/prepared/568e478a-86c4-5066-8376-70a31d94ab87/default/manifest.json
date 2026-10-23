@@ -1,0 +1,24 @@
+{
+  "songId": "568e478a-86c4-5066-8376-70a31d94ab87",
+  "title": "Next Time",
+  "aliases": [
+    "Next Time",
+    "再会",
+    "后会有期",
+    "下次一定",
+    "下一次",
+    "nt"
+  ],
+  "version": "ez-clean-7f18d183c064a0d9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.3.2",
+  "removed": false,
+  "composer": "SaMZIng",
+  "illustrator": "叶藤",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/NextTime.SaMZIng.3bcccaf0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/NextTime.SaMZIng.7f18d183.webp"
+  }
+}

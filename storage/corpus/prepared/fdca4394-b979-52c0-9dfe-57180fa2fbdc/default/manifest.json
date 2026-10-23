@@ -1,0 +1,33 @@
+{
+  "songId": "fdca4394-b979-52c0-9dfe-57180fa2fbdc",
+  "title": "Aleph-0",
+  "aliases": [
+    "Aleph-0",
+    "2016冠军",
+    "a0",
+    "ℵ₀",
+    "谢尔宾斯基三角",
+    "阿列夫0",
+    "阿尔法零",
+    "数学",
+    "数学课堂",
+    "数学小课堂",
+    "草先生的数学课堂",
+    "草先生的数学小课堂",
+    "LeaF的数学课堂",
+    "LeaF数学课堂",
+    "阿列夫零"
+  ],
+  "version": "ez-clean-0318c06df79800d3",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.5",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "Optie",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Aleph0.LeaF.06d77dc8.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Aleph0.LeaF.0318c06d.webp"
+  }
+}

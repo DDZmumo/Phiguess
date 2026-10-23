@@ -1,0 +1,22 @@
+{
+  "songId": "ddc23a9c-71a8-5cd1-b0b8-3f1fb95b21da",
+  "title": "今天不是明天",
+  "aliases": [
+    "今天不是明天",
+    "今非明",
+    "兰音",
+    "今明"
+  ],
+  "version": "ez-clean-85d38902a9ee9c21",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.7.1",
+  "removed": false,
+  "composer": "PIKASONIC feat. 兰音Reine",
+  "illustrator": "KiTA & 一击即溃",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/今天不是明天.PIKASONICfeat兰音Reine.85d38902.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/今天不是明天.PIKASONICfeat兰音Reine.85d38902.webp"
+  }
+}

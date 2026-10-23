@@ -1,0 +1,30 @@
+{
+  "songId": "7f3a2f32-497a-5f44-8836-4739d4bd635a",
+  "title": "星拂云锦 feat. koi",
+  "aliases": [
+    "星拂云锦 feat. koi",
+    "xfyj",
+    "博物馆",
+    "幸福",
+    "云锦",
+    "星拂",
+    "彩云",
+    "koi",
+    "云霞",
+    "云堇",
+    "云锦博物馆",
+    "星拂云锦"
+  ],
+  "version": "ez-clean-84a44d19c6fcff04",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.5",
+  "removed": false,
+  "composer": "S9ryne",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/星拂云锦featkoi.S9ryne.84a44d19.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/星拂云锦featkoi.S9ryne.84a44d19.webp"
+  }
+}

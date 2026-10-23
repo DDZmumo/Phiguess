@@ -1,0 +1,27 @@
+{
+  "songId": "b875d41c-03db-550c-b0d5-d73f7de16809",
+  "title": "Poison AND÷OR Affection",
+  "aliases": [
+    "Poison AND÷OR Affection",
+    "潘多拉",
+    "潘多拉魔盒",
+    "毒药和爱",
+    "Pandora",
+    "÷",
+    "除号",
+    "草潘",
+    "潘"
+  ],
+  "version": "ez-clean-ae284eb445c762a1",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.5.0",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "笔记RE/海产",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/PoisonANDORAffection.LeaF.912748bc.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/PoisonANDORAffection.LeaF.ae284eb4.webp"
+  }
+}

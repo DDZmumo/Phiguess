@@ -21,7 +21,7 @@ import { HealthBar } from './HealthBar';
 import { subscribeNoiseHits } from './noise-stage';
 import './game-results-transition.css';
 
-function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progress,startsAt,deadline,now,answered,imageKey,totalRounds}:{skipFlashAt?:number;id:string;round:number;started:boolean;complete:boolean;difficulty:string;onReady:(round:number,url:string)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean;imageKey?:string;totalRounds:number}) {
+function Artwork({skipFlashAt,id,round,started,canPreload,complete,difficulty,onReady,progress,startsAt,deadline,now,answered,imageKey,totalRounds}:{skipFlashAt?:number;id:string;round:number;started:boolean;canPreload:boolean;complete:boolean;difficulty:string;onReady:(round:number,url:string)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean;imageKey?:string;totalRounds:number}) {
   const [images,setImages]=useState<{url:string;round:number;difficulty:string;ratio:number;decoded:HTMLImageElement;startsAt:number;deadline:number}[]>([]),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [originals,setOriginals]=useState<Map<number,{url:string;ratio:number}>>(()=>new Map());
   const [zoomOpen,setZoomOpen]=useState(false),zoom=useRef<HTMLDialogElement>(null);
@@ -61,9 +61,10 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   useEffect(()=>{
     if(complete){preloader.cancel();return;}
     // The visible image gets the bandwidth first. Keep only the next ciphertext.
-    if(!runtime&&started&&token&&round+1<totalRounds&&images.at(-1)?.round===round)
-      preloader.preload(id,round+1,token);
-  },[preloader,id,round,started,complete,token,totalRounds,images]);
+    if(runtime||!canPreload||!token||round+1>=totalRounds||images.at(-1)?.round!==round)return;
+    const preload=()=>preloader.preload(id,round+1,token);preload();
+    const timer=setInterval(preload,1500);return()=>clearInterval(timer);
+  },[preloader,id,round,canPreload,complete,token,totalRounds,images]);
   useEffect(()=>()=>{for(const url of urls.current)URL.revokeObjectURL(url);urls.current.clear();},[]);
   useGSAP(()=>{
     transitionStart.current.startedAt=performance.now();transitionStart.current.progress=0;
@@ -84,7 +85,7 @@ function Artwork({skipFlashAt,id,round,started,complete,difficulty,onReady,progr
   const solvedCurrent=progress.some(p=>p.round===round&&p.correct)||answered,originalCurrent=originals.get(round);
   return <><div className="art-frame" ref={ref}>
     {images.map((image,i)=>{const solved=progress.some(p=>p.round===image.round&&p.correct)||(image.round===round&&answered);const cover=i===images.length-2&&image.round===images.at(-1)?.round&&image.difficulty!==images.at(-1)?.difficulty;return <div key={image.url} className={`art-slide ${i===images.length-1?'art-new':'art-old'} ${cover?'art-downgrade-cover':''}`}><OriginalReveal id={id} round={image.round} solved={solved} preloadOriginal={runtime?.canPreloadOriginal?.(image.round)??false} revealDelay={.45} onOriginalReady={onOriginalReady}><img src={image.url} alt={i===images.length-1?'当前难度的猜测曲绘':''}/></OriginalReveal></div>;})}
-    {images.length>0&&<NoiseArtwork skipFlashAt={noiseFlashes.current.get(images.at(-1)!.round)} src={images.at(-1)!.url} image={images.at(-1)!.decoded} showImage={false} alt="" startsAt={images.at(-1)!.startsAt} deadline={noiseDeadlines.current.get(images.at(-1)!.round)??images.at(-1)!.deadline} now={now} solved={progress.some(p=>p.round===images.at(-1)!.round&&p.correct)||(images.at(-1)!.round===round&&answered)} active={true} suspended={zoomOpen} transitionStart={transitionStart} skew={.2679491924}/>}
+    {images.length>0&&<NoiseArtwork skipFlashAt={noiseFlashes.current.get(images.at(-1)!.round)} src={images.at(-1)!.url} image={images.at(-1)!.decoded} showImage={false} alt="" startsAt={images.at(-1)!.round===round?startsAt:images.at(-1)!.startsAt} deadline={noiseDeadlines.current.get(images.at(-1)!.round)??images.at(-1)!.deadline} now={now} solved={progress.some(p=>p.round===images.at(-1)!.round&&p.correct)||(images.at(-1)!.round===round&&answered)} active={true} suspended={zoomOpen} transitionStart={transitionStart} skew={.2679491924}/>}
     <button className="art-zoom-trigger" aria-label="放大查看曲绘" title={solvedCurrent&&!originalCurrent?'正在读取原图':'点击放大查看'} disabled={!ready||(solvedCurrent&&!originalCurrent)} onClick={()=>{setZoomOpen(true);runtime?.event('zoom-open');playSound('panel.open');}}/>
     {!ready&&(started||complete)&&<div className={`art-placeholder ${images.length?'over-old':''}`}><strong>{complete?'φ':'…'}</strong><span>{complete?'挑战结束':'正在读取曲绘'}</span></div>}
     {error&&<div className="art-error"><span>{error}</span><button onClick={()=>setRetry(n=>n+1)}>重试</button></div>}
@@ -148,7 +149,8 @@ export function Game({id}:{id:string}) {
     }).catch(()=>{});return()=>controller.abort();
   },[id,errorStatus]);
   const applySnapshot=useCallback((value:MatchView)=>setMatchView(previous=>previous&&previous.id===value.id&&previous.serverNow>value.serverNow?previous:value),[setMatchView]);
-  const started=Boolean(match&&now>=match.startsAt),playing=Boolean(match&&match.status==='playing'&&started&&now<match.deadline&&!answered&&!failed);
+  const started=Boolean(match&&!match.awaitingReady&&now>=match.startsAt),playing=Boolean(match&&match.status==='playing'&&started&&now<match.deadline&&!answered&&!failed);
+  useEffect(()=>{if(!match?.awaitingReady||visualRound!==0)return;let alive=true;const send=()=>{void api<MatchView>(`matches/${id}/ready`,'POST').then(value=>{if(alive)applySnapshot(value);}).catch(()=>{});};send();const timer=setInterval(send,2000);return()=>{alive=false;clearInterval(timer);};},[id,match?.awaitingReady,visualRound,applySnapshot]);
   useLayoutEffect(()=>{if(runtime&&match)runtime.event('game-ready');},[runtime,Boolean(match)]);
   useEffect(()=>{if(match)prepareGameMusic();},[Boolean(match)]);
   useEffect(()=>{
@@ -293,8 +295,9 @@ export function Game({id}:{id:string}) {
   const visibleHints=match?.difficulty==='ez'?[0,2]:[0,2,1];
   const imageDifficulty=hints.find(h=>h.kind==='downgrade')?.difficulty??match?.difficulty??'ez';
   const seconds=match?Math.max(0,Math.ceil(((match.status==='reveal'?match.nextAt:started?match.deadline:match.startsAt)-now)/1000)):0;
-  if(!match)return <section className="loading-scene"><Back onClick={()=>go('/account')}/><p role="status">{loadError||'正在连接挑战…'}</p></section>;
+  if(!match)return <section className="challenge-loading"><Back onClick={()=>go('/account')}/><p role="status">{loadError||'正在连接挑战…'}</p></section>;
   return <section className="game-screen" aria-label="曲绘猜测">
+    {match.awaitingReady&&<div className="challenge-loading" role="status"><strong>正在加载曲绘…</strong><p>加载完成后开始挑战</p><button onClick={()=>location.reload()}>重新加载</button></div>}
     {capacity>0&&<><HealthBar key={id} value={health} maxValue={capacity} fullscreenFlash/><DamageFeedback health={health}/></>}
     {background&&<div className="game-art-backdrop" style={{backgroundImage:`url("${background}")`}}/>}
     <button ref={returnButton} className={`back-button challenge-return ${abandonArmed?'abandon-armed':''} ${returnPink?'return-pink':''}`} type="button" disabled={complete||returnBusy||returnCovered} onClick={()=>void returnChallenge()} aria-label={match.difficulty==='at'?'尝试退出挑战':abandonArmed?'确认放弃挑战':'放弃挑战'} aria-expanded={abandonArmed}>
@@ -305,7 +308,7 @@ export function Game({id}:{id:string}) {
       hintDisabled={!playing||hintBusy||visibleHints.every(i=>hints.some(h=>h.index===i))}
       onHint={()=>void reveal(visibleHints.find(i=>!hints.some(h=>h.index===i))??0)} onSettings={()=>{if(runtime){runtime.event('settings');return;}setSettings(true);playSound('ui.confirm');}}/>
     <div className="game-player-header"><div className="game-score" aria-label="当前分数"><span>SCORE</span><b>{(match.players.find(p=>p.id===session.user.id)?.score??0).toLocaleString()}</b></div><UserChip/></div>
-    <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
+    <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started||Boolean(match.awaitingReady)||visualRound===round} canPreload={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>

@@ -10,13 +10,13 @@ import LocalPostgres from './postgres.mjs';
 const {values}=parseArgs({options:{port:{type:'string'},demo:{type:'boolean',default:false}}});
 const webPort=Number(values.port??process.env.PHIGUESS_PREVIEW_PORT??5174);
 if(!Number.isInteger(webPort)||webPort<1||webPort>65535)throw new Error('Preview port must be an integer from 1 to 65535');
-const publicOrigin=`http://localhost:${webPort}`;
+const publicOrigin=`http://127.0.0.1:${webPort}`;
 const root=resolve('storage/preview');await mkdir(root,{recursive:true});
-const realCatalog=existsSync('storage/corpus/catalog.json')&&existsSync('storage/corpus/trace-report.json')&&!values.demo;
+const realCatalog=existsSync('storage/corpus/catalog.json')&&!values.demo;
 const database=realCatalog?'phiguess_local':'phiguess_preview';
 let config;
 try{config=JSON.parse(await readFile(resolve(root,'config.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;config={password:randomBytes(24).toString('hex'),secret:randomBytes(32).toString('hex')};await writeFile(resolve(root,'config.json'),JSON.stringify(config),{flag:'wx',mode:0o600});}
-const environment={NODE_ENV:'development',PORT:'3000',DATABASE_URL:`postgres://phiguess:${config.password}@127.0.0.1:55433/${database}`,ASSET_DIR:realCatalog?resolve('storage/assets'):resolve(root,'assets'),AVATAR_DIR:realCatalog?resolve('storage/avatars'):resolve(root,'avatars'),PUBLIC_ORIGIN:publicOrigin,PHIGUESS_PREVIEW_PORT:String(webPort),TRUST_PROXY:'0',PHIGUESS_DEMO:realCatalog?'0':'1',VITE_DEMO_CATALOG:realCatalog?'false':'true'};
+const environment={NODE_ENV:'development',PORT:'3000',DATABASE_URL:`postgres://phiguess:${config.password}@127.0.0.1:55433/${database}`,ASSET_DIR:realCatalog?resolve('storage/assets'):resolve(root,'assets'),AVATAR_DIR:realCatalog?resolve('storage/avatars'):resolve(root,'avatars'),GENERATED_ASSET_DIR:resolve(root,'generated'),PUBLIC_ORIGIN:publicOrigin,PHIGUESS_PREVIEW_PORT:String(webPort),TRUST_PROXY:'0',PHIGUESS_DEMO:realCatalog?'0':'1',VITE_DEMO_CATALOG:realCatalog?'false':'true'};
 Object.assign(process.env,environment);
 await writeFile(resolve(root,'runtime.env'),Object.entries(environment).map(([key,value])=>`${key}=${JSON.stringify(value)}`).join('\n'),{mode:0o600});
 const pg=new LocalPostgres({databaseDir:resolve(root,'db'),user:'phiguess',password:config.password,port:55433});

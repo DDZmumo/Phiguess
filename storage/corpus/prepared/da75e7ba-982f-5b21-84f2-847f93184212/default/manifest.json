@@ -1,0 +1,22 @@
+{
+  "songId": "da75e7ba-982f-5b21-84f2-847f93184212",
+  "title": "mechanted",
+  "aliases": [
+    "mechanted",
+    "防毒面具",
+    "机械着迷",
+    "大哥打篮球"
+  ],
+  "version": "ez-clean-2c30840b124b8821",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rising Sun Traxx 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.0",
+  "removed": false,
+  "composer": "rareguy",
+  "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rising Sun Traxx 精选集/mechanted.rareguy.aa3ed197.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rising Sun Traxx 精选集/EZ/mechanted.rareguy.2c30840b.webp"
+  }
+}

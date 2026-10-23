@@ -9,21 +9,20 @@
     "CARRY YOU FLY"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：SunsetRay/NceS",
     "标准曲名包含 7 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/Cereris.webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "SunsetRay/NceS",
   "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/03 幽蓝边界/Cereris.webp",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/Cereris-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/03 幽蓝边界/EZ/Cereris-EZ.webp"
   }
 }

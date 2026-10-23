@@ -68,7 +68,7 @@ export function DifficultySelect(){
     if(!runtime)painter.current?.draw(DIFFICULTY_END,selected,null,reduce);
     setPhase('starting');setError('');
     try{
-      const state=runtime?{preferences:runtime.preferences,updatePreferences:runtime.updatePreferences,setMatch:(_id:string)=>{}}:useStore.getState(),capacity=resolveHealthCapacity(selected,state.preferences.healthCapacity,state.preferences.healthEnabled),options={difficulty:selected,...normalizeChallengeSettings(selected,state.preferences.rounds,state.preferences.roundSeconds),healthEnabled:capacity>0,healthCapacity:capacity};
+      const state=runtime?{preferences:runtime.preferences,updatePreferences:runtime.updatePreferences,setMatch:(_id:string)=>{}}:useStore.getState(),capacity=resolveHealthCapacity(selected,state.preferences.healthCapacity,state.preferences.healthEnabled),options={artworkScopes:selected==='at'?undefined:state.preferences.artworkScopes,difficulty:selected,...normalizeChallengeSettings(selected,state.preferences.rounds,state.preferences.roundSeconds),healthEnabled:capacity>0,healthCapacity:capacity};
       state.updatePreferences({difficulty:selected});
       const match=await api<MatchView>('matches/practice','POST',options);if(!alive.current)return;
       playSound(runtime?'ui.confirm':'challenge.start');state.setMatch(match.id);go(`/play/${match.id}`);
@@ -162,6 +162,7 @@ export function DifficultySelect(){
       <p>{error||activeError||'你还有未完成的挑战。'}</p>
       {active?.match?<button onClick={()=>go(`/play/${active.match!.id}`)}>继续上次挑战</button>:<button onClick={()=>{if(selected)void start();else location.reload();}}>重试</button>}
     </div>}
+    {phase==='starting'&&<div className="challenge-loading" role="status"><strong>正在准备题目…</strong><p>正在生成开局曲绘，请稍候</p></div>}
     <div ref={exitShade} className="difficulty-exit-shade" aria-hidden="true"/>
   </section>;
 }

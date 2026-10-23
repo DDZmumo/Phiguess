@@ -1,0 +1,40 @@
+{
+  "songId": "6324c268-63b2-5f9d-8ccd-9cfcc88b670e",
+  "title": "BANGING STRIKE",
+  "aliases": [
+    "BANGING STRIKE",
+    "斑鸠",
+    "bast",
+    "bang",
+    "bgs",
+    "bs",
+    "砰的一下罢工",
+    "罢工",
+    "惊霆一击",
+    "重击",
+    "砰砰砰",
+    "邦",
+    "PMT2",
+    "PMT2025",
+    "大师赛2",
+    "黄鸠",
+    "橙小鸽",
+    "梆硬打击",
+    "DBS",
+    "梆硬",
+    "敲罢工",
+    "大咩免"
+  ],
+  "version": "ez-clean-825d50f71f90639e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.17.0",
+  "removed": false,
+  "composer": "Dew Pleiades",
+  "illustrator": "Rutumn feat. 汉堡",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BANGINGSTRIKE.DewPleiades.3667daba.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BANGINGSTRIKE.DewPleiades.825d50f7.webp"
+  }
+}

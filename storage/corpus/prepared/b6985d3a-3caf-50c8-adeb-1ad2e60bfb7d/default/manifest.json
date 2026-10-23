@@ -1,0 +1,23 @@
+{
+  "songId": "b6985d3a-3caf-50c8-adeb-1ad2e60bfb7d",
+  "title": "Time to Night Sky (feat. Lee Yu Jin)",
+  "aliases": [
+    "Time to Night Sky (feat. Lee Yu Jin)",
+    "TTNS",
+    "Time to Night Sky",
+    "萨克斯",
+    "夜空之时"
+  ],
+  "version": "ez-clean-c087842f09816942",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "HyuN & KLYDIX",
+  "illustrator": "ZG",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX.b0daab83.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX.c087842f.webp"
+  }
+}

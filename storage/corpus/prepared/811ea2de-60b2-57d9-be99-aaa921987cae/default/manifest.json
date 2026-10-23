@@ -1,0 +1,27 @@
+{
+  "songId": "811ea2de-60b2-57d9-be99-aaa921987cae",
+  "title": "宇宙残骸少女 (Cosmic Dusty Girl)",
+  "aliases": [
+    "宇宙残骸少女 (Cosmic Dusty Girl)",
+    "宇女",
+    "宇宙残骸少女",
+    "Cosmic Dusty Girl",
+    "CDG",
+    "残骸",
+    "宇宙残害少女",
+    "宇宙",
+    "宇残"
+  ],
+  "version": "ez-clean-54957439e6e072d3",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.11.1",
+  "removed": false,
+  "composer": "辻原一郎",
+  "illustrator": "TOTOTO ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/宇宙残骸少女CosmicDustyGirl.辻原一郎.54957439.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/宇宙残骸少女CosmicDustyGirl.辻原一郎.54957439.webp"
+  }
+}

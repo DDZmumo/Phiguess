@@ -1,0 +1,25 @@
+{
+  "songId": "f00dedc5-3637-5c91-abd4-c1e858a74e9c",
+  "title": "Lyrith -迷宮リリス-",
+  "aliases": [
+    "Lyrith -迷宮リリス-",
+    "迷宫",
+    "迷宫莉莉丝",
+    "滚筒洗衣机",
+    "莉莉丝",
+    "Lyrith",
+    "迷宮"
+  ],
+  "version": "ez-clean-611284e82b8792d9",
+  "variant": "default",
+  "chapterName": "Side Story 1 忘忧宫",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.0",
+  "removed": false,
+  "composer": "ユメミド",
+  "illustrator": "何呵",
+  "original": "../../../source/Raw/Non-main/Side Story 1 忘忧宫/Lyrith迷宮リリス.ユメミド.170baf26.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 1 忘忧宫/EZ/Lyrith迷宮リリス.ユメミド.611284e8.webp"
+  }
+}

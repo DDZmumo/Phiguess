@@ -10,7 +10,7 @@
 
 | 方法 | 路径 | 权限 | 请求 / 响应 |
 |---|---|---|---|
-| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.1.1-preview" }` |
+| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.2.0-preview" }` |
 | GET | `/health/ready` | 公开 | 查询数据库 `matches` 表；成功 `{ status: "ok" }`，失败 503 |
 | POST | `/auth/guest` | 公开 | `{ name }` → `{ token, expiresAt, user }`，每次创建新的游客 |
 | POST | `/auth/login` | 公开 | `{ name, password }` → `{ token, expiresAt, user }`；用户名不存在时自动注册，存在时校验密码 |
@@ -61,6 +61,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 | 方法 | 路径 | 请求 / 响应与限制 |
 |---|---|---|
 | POST | `/matches/practice` | `GameOptions` → `MatchView`；创建单人挑战 |
+| POST | `/matches/:id/ready` | 无请求体要求 → `MatchView`；首题下载解码后确认就绪，启动开局倒计时 |
 | GET | `/matches/:id` | `MatchView`；读取快照，必要时从持久化记录恢复已结束比赛的最后一题 |
 | POST | `/matches/:id/guesses` | `{ requestId, round, answer }` 或 `{ requestId, round, songId }` → `{ correct, score, elapsedMs }` |
 | POST | `/matches/:id/return` | 无请求体要求 → `MatchView`；只允许单人，普通难度放弃，AT 设置返回限制 |
@@ -73,6 +74,10 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 | POST | `/matches/:id/publication` | `{ published: boolean }` → `{ published }`；控制本人结果是否参榜 |
 
 ### 判题、计分与重试
+
+正式前端创建单人局时发送 `X-Artwork-Ready: 1`。服务端先生成最多 10 道开局题目，返回 `awaitingReady: true`；此时只允许读取当前首题图，不计时、不接受答案、提示或伤害。浏览器首题解码后调用 `/matches/:id/ready`，再开始 3 秒倒计时。未发送该请求头的旧客户端保留创建后直接倒计时的兼容行为。
+
+非主线曲绘第一条提示为包含首次收录版本的连续 2～3 个真实版本范围，格式如 `非主线 · v3.4.0–v3.5.0`；已删除时另起一行显示“已删除”。愚人节曲绘的第一条提示内容固定为“愚人节曲目”。同曲不同变体分别分类，已解锁提示会持久保存。
 
 `requestId` 是客户端生成的 UUID；猜测的 `answer` 去首尾空白后为 1～200 字符，和 `songId` 必须且只能提供一个。自由文本按 NFKC、去首尾空白、转小写、连续空白归一为单个空格，与开局时曲名/别名快照精确比较，不做模糊匹配。未知自由文本会记为错误作答；不存在或未启用的 `songId` 返回 400。
 
@@ -226,3 +231,7 @@ GET /api/leaderboards?difficulty=at&healthCapacity=20&roundSeconds=30
 仅成员/参赛者可订阅；每个连接最多订阅一个房间和一场比赛。广播 `room:state`、`match:state` 都是完整快照；写操作统一走 HTTP。离房成员退出该房间广播组，但历史比赛订阅资格不因离房撤销。
 
 首次握手、每次订阅均验证会话；每 30 秒重新验证已建立连接，注销后的广播权限最多延迟约 30 秒收回。单身份最多三个已建立连接，每个连接每分钟最多 60 次订阅操作。若握手带 Origin，必须匹配配置的 `PUBLIC_ORIGIN`。
+
+### 曲绘范围（0.2.0 Preview）
+
+创建练习可传 `artworkScopes` 数组：`main`、`non-main`、`removed`、`april-fools`；省略表示全部。数组必须至少包含 `main` 或 `non-main`。已删除与愚人节分别独立分类，愚人节优先于已删除。AT 始终忽略范围筛选，使用全曲库。

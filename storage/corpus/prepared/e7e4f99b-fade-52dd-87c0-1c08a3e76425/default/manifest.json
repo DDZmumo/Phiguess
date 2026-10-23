@@ -1,0 +1,23 @@
+{
+  "songId": "e7e4f99b-fade-52dd-87c0-1c08a3e76425",
+  "title": "MARENOL",
+  "aliases": [
+    "MARENOL",
+    "噩梦醇",
+    "骂人OL",
+    "美穗",
+    "血池地狱"
+  ],
+  "version": "ez-clean-194f06cdfcc6daa0",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "喵n葵",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/MARENOL.LeaF.0fb4bc6f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/MARENOL.LeaF.194f06cd.webp"
+  }
+}

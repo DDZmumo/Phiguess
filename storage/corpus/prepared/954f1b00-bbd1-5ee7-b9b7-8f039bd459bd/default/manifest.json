@@ -1,0 +1,21 @@
+{
+  "songId": "954f1b00-bbd1-5ee7-b9b7-8f039bd459bd",
+  "title": "亂★舞",
+  "aliases": [
+    "亂★舞",
+    "乱舞",
+    "亂舞"
+  ],
+  "version": "ez-clean-313b7d5df277d265",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.2",
+  "removed": false,
+  "composer": "Nekock·LK",
+  "illustrator": "鲸弑",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/亂舞.NekockLK.d5fa3a3b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/亂舞.NekockLK.313b7d5d.webp"
+  }
+}

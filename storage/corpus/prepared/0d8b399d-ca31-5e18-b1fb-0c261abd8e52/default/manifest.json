@@ -1,0 +1,24 @@
+{
+  "songId": "0d8b399d-ca31-5e18-b1fb-0c261abd8e52",
+  "title": "Der Richter",
+  "aliases": [
+    "Der Richter",
+    "法官",
+    "der",
+    "DR",
+    "教官",
+    "跳一跳"
+  ],
+  "version": "ez-clean-ad3a3b485a68c579",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "Ωμεγα",
+  "illustrator": "森灵",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/DerRichter.Ωμεγα.7a3f343c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/DerRichter.Ωμεγα.ad3a3b48.webp"
+  }
+}

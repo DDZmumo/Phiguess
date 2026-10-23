@@ -1,0 +1,23 @@
+{
+  "songId": "569c8cea-28b1-582f-a2b4-9d289d11c810",
+  "title": "Hardcore Kwaya",
+  "aliases": [
+    "Hardcore Kwaya",
+    "非洲土嗨",
+    "土嗨",
+    "部落小人",
+    "硬核卡瓦亚"
+  ],
+  "version": "ez-clean-c5de449a44eeeda3",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.1",
+  "removed": false,
+  "composer": "EnFr",
+  "illustrator": "EnFr",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/HardcoreKwaya.EnFr.9e594b5a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/HardcoreKwaya.EnFr.c5de449a.webp"
+  }
+}

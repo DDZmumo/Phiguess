@@ -1,6 +1,8 @@
 # Raw / EZ 无损 WebP
 
-Raw 就是原图，EZ 是题图。本次转换只处理这两类曲绘 PNG：Raw 60 张、EZ 60 张；HD/IN/AT 的运行 SVG 和本地描摹 PNG 保持原样。Raw/EZ 源目录只保留无损 WebP；删除前已核对全部 PNG/WebP 像素及哈希，历史 PNG 哈希留在转换报告中。favicon、角色图标和描摹中间文件不在转换范围内。
+Raw 就是原图，EZ 是题图。下表记录主线源素材的历史转换：Raw 60 张、EZ 60 张；HD/IN/AT 旧静态资源已退役，改由 EZ 基础图实时生成。Raw/EZ 源目录只保留无损 WebP；删除前已核对全部 PNG/WebP 像素及哈希，历史 PNG 哈希留在转换报告中。favicon、角色图标和描摹中间文件不在转换范围内。
+
+非主线后来补充 291 张 Raw 和 291 张可用 EZ：254 张由图像模型去掉曲名/作者，35 张无相关文字而直接复用，2 张采用用户提供的去字成图。Raw 转 WebP 时与下载 PNG 解码像素一致；模型编辑后的 EZ 与模型输出 PNG 解码像素一致。这里的“无损”描述格式转换，不代表去字后的图与原图逐像素相同。新批次来源及校验记录见 `storage/corpus/non-main-import-source.json`。
 
 | 类别 | 数量 | PNG 字节 | WebP 字节 |
 |---|---:|---:|---:|
@@ -19,7 +21,7 @@ npm.cmd run assets:lossless
 npm.cmd run assets:lossless -- --verify-only
 ```
 
-工具只处理 catalog 的 `original` 和 `assets.ez`，拒绝覆盖像素不一致的既有 WebP。PNG 存在时逐像素验证；仅有 WebP 时按已有转换报告验证文件哈希、尺寸与 RGBA 哈希，不再依赖 PNG。全部图片通过并更新引用后，移除 Raw/EZ PNG。`prepare-catalog.mjs` 会调用同一转换工具，后续 `trace-catalog.py` 生成 `clean64-v2-lossless-{variant}` manifest；HD/IN/AT 继续使用现有 SVG 流程。
+工具只处理 catalog 的 `original` 和 `assets.ez`，拒绝覆盖像素不一致的既有 WebP。PNG 存在时逐像素验证；仅有 WebP 时按已有转换报告验证文件哈希、尺寸与 RGBA 哈希，不再依赖 PNG。全部图片通过并更新引用后，移除 Raw/EZ PNG。`prepare-catalog.mjs` 会调用同一转换工具，随后 `prepare-manifests.mjs` 生成仅引用 Raw/EZ 的清单；HD/IN/AT 使用实时生成流程。
 
 导入器本来就接受 WebP，现在通过 manifest 读取新的无损 WebP 源素材。运行压缩与尺寸策略保持原样：
 
@@ -37,3 +39,5 @@ npm.cmd run assets:lossless -- --verify-only
 60 份 manifest 已改用 WebP 源路径和 `clean64-v2-lossless-{variant}` 新版本；版本名中的 lossless 表示源素材。没有运行生产/现有数据库导入，也没有更改现有资产文件或已发布记录。随后导入新版本会读取这些无损源文件，再应用原有运行缩小、有损参数。已有导入事务保留旧版本，进行中的挑战仍引用其原资产。
 
 本地验证包括服务器 TypeScript 构建、全库两轮源文件 RGBA 校验，以及导入定向测试：无损 WebP 源保留 PNG 像素；运行输出遵守原有四类缩小、有损参数；旧运行资源保留，版本不可覆盖。真实 PostgreSQL 集成测试的现有练习用例也增加了三类揭晓使用原图预览键的断言。
+
+补充：Break Over 与 MARENOL 已采用用户提供的去字 PNG，无损转换并验证解码像素一致。本批次现有 291 张可用 EZ，全部入库。

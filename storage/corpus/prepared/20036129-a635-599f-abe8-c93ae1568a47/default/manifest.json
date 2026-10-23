@@ -1,0 +1,21 @@
+{
+  "songId": "20036129-a635-599f-abe8-c93ae1568a47",
+  "title": "Rainy Season",
+  "aliases": [
+    "Rainy Season",
+    "梅雨",
+    "雨季"
+  ],
+  "version": "ez-clean-6558bb480e156051",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.3",
+  "removed": false,
+  "composer": "Abyss Idols",
+  "illustrator": "Robin",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/RainySeason.AbyssIdols.dda3f3e3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/RainySeason.AbyssIdols.6558bb48.webp"
+  }
+}

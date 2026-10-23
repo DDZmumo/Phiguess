@@ -1,0 +1,23 @@
+{
+  "songId": "be8393d7-63b1-5caf-bfce-db42754852b0",
+  "title": "Wavetapper",
+  "aliases": [
+    "Wavetapper",
+    "大哥打电话",
+    "打电话",
+    "电话",
+    "窃波器"
+  ],
+  "version": "ez-clean-04bd00f83f26dacc",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.5",
+  "removed": false,
+  "composer": "Frums",
+  "illustrator": "百九十八",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Wavetapper.Frums.23b17b4f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Wavetapper.Frums.04bd00f8.webp"
+  }
+}

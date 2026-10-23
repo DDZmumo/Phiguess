@@ -1,0 +1,26 @@
+{
+  "songId": "6df3599b-f27d-53a3-809b-d72b313ed087",
+  "title": "Apocalypse",
+  "aliases": [
+    "Apocalypse",
+    "启示录",
+    "启示录se",
+    "启示录L",
+    "小启示录",
+    "阿波卡利斯",
+    "随手开门",
+    "芝麻开门"
+  ],
+  "version": "ez-clean-d6bf830a43a3cb7d",
+  "variant": "default",
+  "chapterName": "Chapter EX-Lanota 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.0",
+  "removed": false,
+  "composer": "アリスシャッハと魔法の楽団",
+  "illustrator": "Lanota © Noxy Games Inc. ",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Lanota 精选集/Apocalypse.アリスシャッハと魔法の楽団.d6bf830a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Lanota 精选集/EZ/Apocalypse.アリスシャッハと魔法の楽団.d6bf830a.webp"
+  }
+}

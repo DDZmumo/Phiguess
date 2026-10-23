@@ -1,0 +1,35 @@
+{
+  "songId": "370b1601-1130-5b55-95ff-82b67af0ad49",
+  "title": "夢の降る日に",
+  "aliases": [
+    "夢の降る日に",
+    "梦降日",
+    "萝降日",
+    "梦降",
+    "天使鸠",
+    "落梦之日",
+    "萝莉降日",
+    "PMT3",
+    "PMT2026",
+    "花嫁鸠",
+    "婚纱鸠",
+    "蔷薇飘落日",
+    "梦的降临日",
+    "梦境降临之日",
+    "ゆめのふるひに",
+    "萝莉降临日",
+    "萝的降日"
+  ],
+  "version": "ez-clean-95241c9e5d90f987",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.4",
+  "removed": false,
+  "composer": "seatrus",
+  "illustrator": "翠冷兮",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/夢の降る日に.seatrus.bf9a3bfe.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/夢の降る日に.seatrus.95241c9e.webp"
+  }
+}

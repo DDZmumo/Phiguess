@@ -1,0 +1,24 @@
+{
+  "songId": "09677285-59a1-56bf-835b-7ac80d0dfb4a",
+  "title": "Cleyera",
+  "aliases": [
+    "Cleyera",
+    "杨桐",
+    "肖柃",
+    "cl",
+    "克莱耶拉",
+    "黏土时代"
+  ],
+  "version": "ez-clean-0f4cdde3c90cfe38",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.3",
+  "removed": false,
+  "composer": "Riya",
+  "illustrator": "神居冰绘",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Cleyera.Riya.effc750b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Cleyera.Riya.0f4cdde3.webp"
+  }
+}

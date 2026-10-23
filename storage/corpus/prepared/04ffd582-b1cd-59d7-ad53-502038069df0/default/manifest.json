@@ -10,21 +10,20 @@
     "Ame"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：GRYSCL & MIssionary",
     "标准曲名包含 8 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Ametrine.webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part2",
+  "chapterName": "穹顶孤舟 · Part2",
+  "contentKind": "main",
+  "removed": false,
   "composer": "GRYSCL & MIssionary",
   "illustrator": "子狼",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Ametrine.webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Ametrine-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Ametrine-EZ.webp"
   }
 }

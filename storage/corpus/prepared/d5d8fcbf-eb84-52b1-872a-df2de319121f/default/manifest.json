@@ -1,0 +1,22 @@
+{
+  "songId": "d5d8fcbf-eb84-52b1-872a-df2de319121f",
+  "title": "Find_Me",
+  "aliases": [
+    "Find_Me",
+    "寻我",
+    "找我",
+    "寻找自我"
+  ],
+  "version": "ez-clean-5146718519a51e63",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.1",
+  "removed": false,
+  "composer": "K-forest",
+  "illustrator": "YuKiMuMa",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/FindMe.Kforest.64f94447.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/FindMe.Kforest.51467185.webp"
+  }
+}

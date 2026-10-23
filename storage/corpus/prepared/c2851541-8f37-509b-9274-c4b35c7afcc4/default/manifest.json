@@ -1,0 +1,23 @@
+{
+  "songId": "c2851541-8f37-509b-9274-c4b35c7afcc4",
+  "title": "Dreamland",
+  "aliases": [
+    "Dreamland",
+    "梦境",
+    "梦陆",
+    "梦陆地",
+    "梦想之地"
+  ],
+  "version": "ez-clean-08e1d286380267c9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.1",
+  "removed": false,
+  "composer": "z1on & kyrrin",
+  "illustrator": "海产",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Dreamland.z1onkyrrin.5f82e7e6.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Dreamland.z1onkyrrin.08e1d286.webp"
+  }
+}

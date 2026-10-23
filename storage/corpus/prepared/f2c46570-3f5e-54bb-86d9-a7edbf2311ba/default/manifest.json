@@ -1,0 +1,28 @@
+{
+  "songId": "f2c46570-3f5e-54bb-86d9-a7edbf2311ba",
+  "title": "Broken Sky",
+  "aliases": [
+    "Broken Sky",
+    "破空",
+    "破天",
+    "刘佳宜",
+    "bs",
+    "破碎苍穹",
+    "碎天",
+    "破碎天空",
+    "裂空",
+    "天塌了"
+  ],
+  "version": "ez-clean-27461a6509e23096",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.1",
+  "removed": false,
+  "composer": "Jungo & MAX 3 feat. 刘佳宜Snow & 幻影刃shadow",
+  "illustrator": "午苔veeee~",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow.27461a65.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow.27461a65.webp"
+  }
+}

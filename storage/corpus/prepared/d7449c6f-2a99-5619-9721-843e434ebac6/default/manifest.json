@@ -1,0 +1,27 @@
+{
+  "songId": "d7449c6f-2a99-5619-9721-843e434ebac6",
+  "title": "A journey to the moonlight",
+  "aliases": [
+    "A journey to the moonlight",
+    "月球",
+    "月旅",
+    "月光",
+    "月光之旅",
+    "月球之旅",
+    "黄键蛇",
+    "去月亮",
+    "ajttm"
+  ],
+  "version": "ez-clean-9dd11853e7424e97",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "Yesod",
+  "illustrator": "汉堡",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/Ajourneytothemoonlight.Yesod.33639aff.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/Ajourneytothemoonlight.Yesod.9dd11853.webp"
+  }
+}

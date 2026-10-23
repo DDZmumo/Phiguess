@@ -1,0 +1,29 @@
+{
+  "songId": "b8713a38-c8bb-5350-a428-7c291f08bfa8",
+  "title": "Now Is The Time, Do It",
+  "aliases": [
+    "Now Is The Time, Do It",
+    "干他",
+    "现在是时间了，干他",
+    "现在是时间了，干它",
+    "是时候了，干他",
+    "是时候开干了",
+    "时间到了，干他",
+    "Do It",
+    "nittdi",
+    "你已急哭",
+    "机不可失，时不再来"
+  ],
+  "version": "ez-clean-fcf32e624f804338",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.0.1",
+  "removed": false,
+  "composer": "Roy Mikelate",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/NowIsTheTimeDoIt.RoyMikelate.64c3078c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/NowIsTheTimeDoIt.RoyMikelate.fcf32e62.webp"
+  }
+}

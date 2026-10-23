@@ -1,0 +1,32 @@
+{
+  "songId": "9d4ded86-0052-5bad-8b4e-5fc22df05bcd",
+  "title": "ATHAZA",
+  "aliases": [
+    "ATHAZA",
+    "AAA",
+    "ath",
+    "AT哈扎",
+    "阿萨扎",
+    "恐惧症",
+    "aza",
+    "笼中花",
+    "大蓝花",
+    "大兰花",
+    "蓝莲花",
+    "诶踢哈砸",
+    "被遗忘恐惧症",
+    "挨踢哈砸"
+  ],
+  "version": "ez-clean-e0bab3b6b1aa98c0",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "御坂果子",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/ATHAZA.LeaF.67aef384.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/ATHAZA.LeaF.e0bab3b6.webp"
+  }
+}

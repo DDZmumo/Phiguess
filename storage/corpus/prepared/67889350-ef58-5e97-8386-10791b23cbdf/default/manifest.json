@@ -12,21 +12,20 @@
     "Glacier"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：冰封世界",
     "曲师：SunsetRay",
     "标准曲名包含 10 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/01 冰封世界/Glaciaxion.webp",
   "chapter": 1,
   "chapterName": "冰封世界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "SunsetRay",
   "illustrator": "艾若拉",
+  "original": "../../../source/Raw/01 冰封世界/Glaciaxion.webp",
   "assets": {
-    "ez": "../../../source/01 冰封世界/EZ/Glaciaxion-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/01 冰封世界/EZ/Glaciaxion-EZ.webp"
   }
 }

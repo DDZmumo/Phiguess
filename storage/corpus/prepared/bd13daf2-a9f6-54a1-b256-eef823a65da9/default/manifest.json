@@ -1,0 +1,21 @@
+{
+  "songId": "bd13daf2-a9f6-54a1-b256-eef823a65da9",
+  "title": "盏茗",
+  "aliases": [
+    "盏茗",
+    "古筝",
+    "茶"
+  ],
+  "version": "ez-clean-54bff95165868522",
+  "variant": "default",
+  "chapterName": "Chapter EX-茶鸣拾贰律 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.2",
+  "removed": false,
+  "composer": "茶鸣拾贰律",
+  "illustrator": "茶鸣拾贰律",
+  "original": "../../../source/Raw/Non-main/Chapter EX-茶鸣拾贰律 精选集/盏茗.茶鸣拾贰律.54bff951.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-茶鸣拾贰律 精选集/EZ/盏茗.茶鸣拾贰律.54bff951.webp"
+  }
+}

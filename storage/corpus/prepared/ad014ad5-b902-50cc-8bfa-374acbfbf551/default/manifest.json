@@ -1,0 +1,21 @@
+{
+  "songId": "ad014ad5-b902-50cc-8bfa-374acbfbf551",
+  "title": "下一秒",
+  "aliases": [
+    "下一秒",
+    "月兔",
+    "玉兔"
+  ],
+  "version": "ez-clean-2c3f66063c910449",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.1",
+  "removed": false,
+  "composer": "Bob Hou & Sherlock卓智媛 feat. 兰音Reine",
+  "illustrator": "虚拟九点",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/下一秒.BobHouSherlock卓智媛feat兰音Reine.2c3f6606.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/下一秒.BobHouSherlock卓智媛feat兰音Reine.2c3f6606.webp"
+  }
+}

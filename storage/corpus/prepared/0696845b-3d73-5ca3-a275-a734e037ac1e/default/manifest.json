@@ -1,0 +1,28 @@
+{
+  "songId": "0696845b-3d73-5ca3-a275-a734e037ac1e",
+  "title": "彼方へ、名もなき海辺より",
+  "aliases": [
+    "彼方へ、名もなき海辺より",
+    "彼方海边",
+    "无名海滨",
+    "无名海边",
+    "彼方名海边",
+    "彼方",
+    "打打月乃",
+    "向彼方从无名的海边",
+    "去远方",
+    "无名海岸"
+  ],
+  "version": "ez-clean-162db3065bff25ab",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.3",
+  "removed": false,
+  "composer": "打打だいず&月乃",
+  "illustrator": "月乃",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/彼方へ名もなき海辺より.打打だいず&月乃.2926fe21.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/彼方へ名もなき海辺より.打打だいず&月乃.162db306.webp"
+  }
+}

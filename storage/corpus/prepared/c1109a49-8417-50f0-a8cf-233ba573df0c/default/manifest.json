@@ -1,0 +1,21 @@
+{
+  "songId": "c1109a49-8417-50f0-a8cf-233ba573df0c",
+  "title": "bye",
+  "aliases": [
+    "bye",
+    "拜",
+    "再见"
+  ],
+  "version": "ez-clean-b0f5784c63119672",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.1",
+  "removed": false,
+  "composer": "DingerBox",
+  "illustrator": "海产",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/bye.DingerBox.58368f96.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/bye.DingerBox.b0f5784c.webp"
+  }
+}

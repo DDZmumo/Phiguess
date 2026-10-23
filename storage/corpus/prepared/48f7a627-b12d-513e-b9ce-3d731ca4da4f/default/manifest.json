@@ -1,0 +1,22 @@
+{
+  "songId": "48f7a627-b12d-513e-b9ce-3d731ca4da4f",
+  "title": "RIPPER",
+  "aliases": [
+    "RIPPER",
+    "碎嘴说唱",
+    "RAPPER",
+    "撕裂者"
+  ],
+  "version": "ez-clean-c1fd483001293e86",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "Friedwav",
+  "illustrator": "何呵",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/RIPPER.Friedwav.56c57a6a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/RIPPER.Friedwav.c1fd4830.webp"
+  }
+}

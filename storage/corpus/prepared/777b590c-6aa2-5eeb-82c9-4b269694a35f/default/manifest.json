@@ -1,0 +1,20 @@
+{
+  "songId": "777b590c-6aa2-5eeb-82c9-4b269694a35f",
+  "title": "Eltaw",
+  "aliases": [
+    "Eltaw",
+    "解放"
+  ],
+  "version": "ez-clean-594f9181f7a44849",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.6",
+  "removed": false,
+  "composer": "Fl00t",
+  "illustrator": "xperz",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Eltaw.Fl00t.5b520732.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Eltaw.Fl00t.594f9181.webp"
+  }
+}

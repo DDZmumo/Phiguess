@@ -1,0 +1,21 @@
+{
+  "songId": "27558b0d-5cc2-57f0-8857-42fcc3cb72fc",
+  "title": "Devotion",
+  "aliases": [
+    "Devotion",
+    "忠心",
+    "奉献"
+  ],
+  "version": "ez-clean-800d532b8551fafa",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.3",
+  "removed": false,
+  "composer": "Connexio",
+  "illustrator": "Shimoruchiko",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Devotion.Connexio.800d532b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Devotion.Connexio.800d532b.webp"
+  }
+}

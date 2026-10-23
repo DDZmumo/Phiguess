@@ -1,0 +1,26 @@
+{
+  "songId": "f7a3eb95-9e10-5ff8-bf23-0d889d6d485e",
+  "title": "狂喜蘭舞",
+  "aliases": [
+    "狂喜蘭舞",
+    "狂喜",
+    "狂喜兰舞",
+    "狂喜蓝舞",
+    "狂喜澜舞",
+    "俩姐妹",
+    "kxlw",
+    "狂喜乱舞"
+  ],
+  "version": "ez-clean-4c06a34d269a5885",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.1",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "DoublePian",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/狂喜蘭舞.LeaF.133ecaa2.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/狂喜蘭舞.LeaF.4c06a34d.webp"
+  }
+}

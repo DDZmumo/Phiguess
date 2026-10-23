@@ -1,0 +1,24 @@
+{
+  "songId": "3891c19e-6e79-5559-9471-fc8d9ec561a9",
+  "title": "Disorder",
+  "aliases": [
+    "Disorder",
+    "悬溺",
+    "疾病",
+    "紊乱",
+    "失序",
+    "乱序"
+  ],
+  "version": "ez-clean-545ad3363e5d4581",
+  "variant": "default",
+  "chapterName": "Chapter EX-HyuN 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.2",
+  "removed": false,
+  "composer": "HyuN feat. YURI",
+  "illustrator": "Nabom",
+  "original": "../../../source/Raw/Non-main/Chapter EX-HyuN 精选集/Disorder.HyuNfeatYURI.50ce9ad5.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-HyuN 精选集/EZ/Disorder.HyuNfeatYURI.545ad336.webp"
+  }
+}

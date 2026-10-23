@@ -1,0 +1,22 @@
+{
+  "songId": "cdaad54b-b394-594e-9554-0b5bf2fb536b",
+  "title": "Resolver",
+  "aliases": [
+    "Resolver",
+    "溶剂",
+    "解决者",
+    "分解器"
+  ],
+  "version": "ez-clean-833a80da21376841",
+  "variant": "default",
+  "chapterName": "Chapter EX-EGTS 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.12.0",
+  "removed": false,
+  "composer": "Gomadare",
+  "illustrator": "Transendium",
+  "original": "../../../source/Raw/Non-main/Chapter EX-EGTS 精选集/Resolver.Gomadare.91147f5f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-EGTS 精选集/EZ/Resolver.Gomadare.833a80da.webp"
+  }
+}

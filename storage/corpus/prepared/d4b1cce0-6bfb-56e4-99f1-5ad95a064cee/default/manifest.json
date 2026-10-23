@@ -1,0 +1,24 @@
+{
+  "songId": "d4b1cce0-6bfb-56e4-99f1-5ad95a064cee",
+  "title": "千紫万紅",
+  "aliases": [
+    "千紫万紅",
+    "千紫万红",
+    "千恋万花",
+    "万紫千红",
+    "头怼头",
+    "qzwh"
+  ],
+  "version": "ez-clean-dfb906a1d5223322",
+  "variant": "default",
+  "chapterName": "Chapter EX-SHINOBI SLASH 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.7.0",
+  "removed": false,
+  "composer": "r0y vs. WABI",
+  "illustrator": "中本ひょうり",
+  "original": "../../../source/Raw/Non-main/Chapter EX-SHINOBI SLASH 精选集/千紫万紅.r0yvsWABI.97a91f11.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-SHINOBI SLASH 精选集/EZ/千紫万紅.r0yvsWABI.dfb906a1.webp"
+  }
+}

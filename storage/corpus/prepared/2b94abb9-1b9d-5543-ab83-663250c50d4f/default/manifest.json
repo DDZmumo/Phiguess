@@ -1,0 +1,30 @@
+{
+  "songId": "2b94abb9-1b9d-5543-ab83-663250c50d4f",
+  "title": "Protoflicker",
+  "aliases": [
+    "Protoflicker",
+    "点划",
+    "pf",
+    "proto",
+    "守船石",
+    "flicker",
+    "点划教学曲",
+    "最新最热",
+    "最新最热配置",
+    "原闪烁体",
+    "点划天堂",
+    "划键天堂"
+  ],
+  "version": "ez-clean-fec3ed46698125c9",
+  "variant": "default",
+  "chapterName": "Chapter EX-Lanota 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.0",
+  "removed": false,
+  "composer": "Silentroom",
+  "illustrator": "Lanota © Noxy Games Inc. ",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Lanota 精选集/Protoflicker.Silentroom.fec3ed46.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Lanota 精选集/EZ/Protoflicker.Silentroom.fec3ed46.webp"
+  }
+}

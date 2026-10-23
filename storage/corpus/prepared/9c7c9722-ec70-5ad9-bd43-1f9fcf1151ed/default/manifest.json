@@ -1,0 +1,21 @@
+{
+  "songId": "9c7c9722-ec70-5ad9-bd43-1f9fcf1151ed",
+  "title": "Break Over",
+  "aliases": [
+    "Break Over",
+    "BO",
+    "突破"
+  ],
+  "version": "ez-clean-8cd48046c7b4e9bc",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.4",
+  "removed": false,
+  "composer": "K-forest",
+  "illustrator": "圆规compasses",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BreakOver.Kforest.cac40346.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BreakOver.Kforest.8cd48046.webp"
+  }
+}

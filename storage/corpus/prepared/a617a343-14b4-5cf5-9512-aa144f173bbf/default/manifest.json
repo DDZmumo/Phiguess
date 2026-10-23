@@ -1,0 +1,23 @@
+{
+  "songId": "a617a343-14b4-5cf5-9512-aa144f173bbf",
+  "title": "Random",
+  "aliases": [
+    "Random",
+    "Rand",
+    "随机",
+    "2021冠军",
+    "PLYNDB"
+  ],
+  "version": "ez-clean-61d6a1f969ee6da7",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.5.1",
+  "removed": false,
+  "composer": "Sobrem × Silentroom",
+  "illustrator": "Harkiadel",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Random.SobremSilentroom.e110d84d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Random.SobremSilentroom.61d6a1f9.webp"
+  }
+}

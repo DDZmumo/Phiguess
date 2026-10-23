@@ -9,21 +9,20 @@
     "乌鸦嘴"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：Hundotte",
     "标准曲名包含 12 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Chronologika.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Hundotte",
   "illustrator": "幽灵星",
+  "original": "../../../source/Raw/07 时钟链接/Chronologika.webp",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Chronologika-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/07 时钟链接/EZ/Chronologika-EZ.webp"
   }
 }

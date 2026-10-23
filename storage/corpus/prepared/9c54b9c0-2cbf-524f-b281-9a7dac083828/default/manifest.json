@@ -1,0 +1,19 @@
+{
+  "songId": "9c54b9c0-2cbf-524f-b281-9a7dac083828",
+  "title": "青芽",
+  "aliases": [
+    "青芽"
+  ],
+  "version": "ez-clean-08e378999846c873",
+  "variant": "default",
+  "chapterName": "Chapter EX-茶鸣拾贰律 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.2",
+  "removed": false,
+  "composer": "茶鸣拾贰律",
+  "illustrator": "茶鸣拾贰律",
+  "original": "../../../source/Raw/Non-main/Chapter EX-茶鸣拾贰律 精选集/青芽.茶鸣拾贰律.08e37899.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-茶鸣拾贰律 精选集/EZ/青芽.茶鸣拾贰律.08e37899.webp"
+  }
+}

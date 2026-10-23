@@ -1,0 +1,21 @@
+{
+  "songId": "0cdd65be-0997-55ff-947c-dc6f5285a548",
+  "title": "GOODFORTUNE",
+  "aliases": [
+    "GOODFORTUNE",
+    "良幸",
+    "良性"
+  ],
+  "version": "ez-clean-6bfd02b03e77242f",
+  "variant": "default",
+  "chapterName": "Chapter EX-GOOD 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.7",
+  "removed": false,
+  "composer": "EBIMAYO",
+  "illustrator": "Ctymax",
+  "original": "../../../source/Raw/Non-main/Chapter EX-GOOD 精选集/GOODFORTUNE.EBIMAYO.92cd8f19.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-GOOD 精选集/EZ/GOODFORTUNE.EBIMAYO.6bfd02b0.webp"
+  }
+}

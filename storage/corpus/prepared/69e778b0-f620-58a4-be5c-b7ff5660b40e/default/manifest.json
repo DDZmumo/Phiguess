@@ -9,21 +9,20 @@
     "重生姜米條"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：姜米條",
     "标准曲名包含 2 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/重生.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
+  "contentKind": "main",
+  "removed": false,
   "composer": "姜米條",
   "illustrator": "昔璃&TNiK",
+  "original": "../../../source/Raw/06 方舟蜃景/重生.webp",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/重生-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/06 方舟蜃景/EZ/重生-EZ.webp"
   }
 }

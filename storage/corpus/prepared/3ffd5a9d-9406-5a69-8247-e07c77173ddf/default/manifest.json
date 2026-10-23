@@ -1,0 +1,22 @@
+{
+  "songId": "3ffd5a9d-9406-5a69-8247-e07c77173ddf",
+  "title": "Snow Dance",
+  "aliases": [
+    "Snow Dance",
+    "雪舞",
+    "雪舞舞",
+    "sd"
+  ],
+  "version": "ez-clean-339fa50418813e54",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.2",
+  "removed": false,
+  "composer": "悠叶いのり",
+  "illustrator": "群青kurara",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SnowDance.悠叶いのり.c18d9e60.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SnowDance.悠叶いのり.339fa504.webp"
+  }
+}

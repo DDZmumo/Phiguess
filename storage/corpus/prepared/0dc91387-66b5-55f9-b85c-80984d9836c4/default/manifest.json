@@ -1,0 +1,22 @@
+{
+  "songId": "0dc91387-66b5-55f9-b85c-80984d9836c4",
+  "title": "modulus",
+  "aliases": [
+    "modulus",
+    "毛肚丝",
+    "mdl",
+    "模数"
+  ],
+  "version": "ez-clean-eb24c93f8cd36af4",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.3",
+  "removed": false,
+  "composer": "PTB10",
+  "illustrator": "geralt",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/modulus.PTB10.81c2531a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/modulus.PTB10.eb24c93f.webp"
+  }
+}

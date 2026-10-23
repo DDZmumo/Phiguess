@@ -1,0 +1,30 @@
+{
+  "songId": "70376e7a-fb74-5203-b9ff-5a0811f09a4c",
+  "title": "DevIAtiOn (short ver.)",
+  "aliases": [
+    "DevIAtiOn (short ver.)",
+    "dev",
+    "偏差",
+    "偏离",
+    "反叛",
+    "DevlAtiOn",
+    "deviation",
+    "DIAO",
+    "捆绑play",
+    "达微黛",
+    "锁手猫娘",
+    "捆绑猫娘"
+  ],
+  "version": "ez-clean-3e84b4ea1c433187",
+  "variant": "default",
+  "chapterName": "Chapter EX-Immaculée Sekai 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.13.0",
+  "removed": false,
+  "composer": "polysha",
+  "illustrator": "cala for Immaculée Sekai",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Immaculée Sekai 精选集/DevIAtiOnshortver.polysha.e9063a60.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Immaculée Sekai 精选集/EZ/DevIAtiOnshortver.polysha.3e84b4ea.webp"
+  }
+}

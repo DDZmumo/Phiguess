@@ -1,0 +1,22 @@
+{
+  "songId": "8b8f4598-e48a-5e8d-a547-181117602a96",
+  "title": "万吨匿名信",
+  "aliases": [
+    "万吨匿名信",
+    "匿名信",
+    "万吨",
+    "wdnmx"
+  ],
+  "version": "ez-clean-65ffd86023fcb1cc",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/万吨匿名信.闫东炜.25fb24eb.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/万吨匿名信.闫东炜.65ffd860.webp"
+  }
+}

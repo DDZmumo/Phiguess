@@ -1,0 +1,26 @@
+{
+  "songId": "d3b379ab-a133-5342-a2a4-212c79c13357",
+  "title": "GOODTEK",
+  "aliases": [
+    "GOODTEK",
+    "良锤",
+    "好锤",
+    "好锤子",
+    "锤子",
+    "爆蓝的锤子",
+    "丫口",
+    "Yo"
+  ],
+  "version": "ez-clean-aa34645565c89b76",
+  "variant": "default",
+  "chapterName": "Chapter EX-GOOD 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.7",
+  "removed": false,
+  "composer": "EBIMAYO",
+  "illustrator": "Ctymax feat. EBIMAYO",
+  "original": "../../../source/Raw/Non-main/Chapter EX-GOOD 精选集/GOODTEK.EBIMAYO.431680df.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-GOOD 精选集/EZ/GOODTEK.EBIMAYO.aa346455.webp"
+  }
+}

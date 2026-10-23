@@ -7,21 +7,20 @@
     "微波"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：dandeless",
     "标准曲名包含 9 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/micro.wav.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
+  "contentKind": "main",
+  "removed": false,
   "composer": "dandeless",
   "illustrator": "snake.ribs",
+  "original": "../../../source/Raw/06 方舟蜃景/micro.wav.webp",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/micro.wav-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/06 方舟蜃景/EZ/micro.wav-EZ.webp"
   }
 }

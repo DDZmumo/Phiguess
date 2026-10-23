@@ -1,0 +1,20 @@
+{
+  "songId": "1cbae8c9-1cbe-52a7-ac5c-862766ac8f20",
+  "title": "神話",
+  "aliases": [
+    "神話",
+    "神话"
+  ],
+  "version": "ez-clean-b8a3606f916cdfc7",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "Pica & M2U",
+  "illustrator": "mology (青鸟&V17AMax Modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/神話.PicaM2U.b221e6f1.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/神話.PicaM2U.b8a3606f.webp"
+  }
+}

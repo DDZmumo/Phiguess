@@ -1,0 +1,27 @@
+{
+  "songId": "dd4ea7bf-7ce4-520c-9027-478d473714c8",
+  "title": "月詠に鳴る",
+  "aliases": [
+    "月詠に鳴る",
+    "月咏",
+    "月鸣",
+    "月光皎洁",
+    "月咏鸣响",
+    "月脉",
+    "蕾娜",
+    "月咏鸣",
+    "Tsukuyomi ni Naru"
+  ],
+  "version": "ez-clean-e1fd60a6427bec48",
+  "variant": "default",
+  "chapterName": "Chapter EX-CHUNITHM 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "Feryquitous feat.藍月なくる",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CHUNITHM 精选集/月詠に鳴る.Feryquitousfeat藍月なくる.c4fe1964.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CHUNITHM 精选集/EZ/月詠に鳴る.Feryquitousfeat藍月なくる.e1fd60a6.webp"
+  }
+}

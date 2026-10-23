@@ -1,0 +1,21 @@
+{
+  "songId": "eaae2c8d-1cc8-542c-a7fc-fe1d3c2ccd41",
+  "title": "风屿",
+  "aliases": [
+    "风屿",
+    "疯屿",
+    "fy"
+  ],
+  "version": "ez-clean-168c6d4c3249b159",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "cycats",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/风屿.闫东炜.6368d395.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/风屿.闫东炜.168c6d4c.webp"
+  }
+}

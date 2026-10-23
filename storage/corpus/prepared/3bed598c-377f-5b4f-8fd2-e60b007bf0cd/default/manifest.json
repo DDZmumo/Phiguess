@@ -1,0 +1,26 @@
+{
+  "songId": "3bed598c-377f-5b4f-8fd2-e60b007bf0cd",
+  "title": "Cervelle Connexion",
+  "aliases": [
+    "Cervelle Connexion",
+    "企鹅",
+    "大脑链接",
+    "大脑连接",
+    "脑链接",
+    "脑连接",
+    "cc",
+    "CN"
+  ],
+  "version": "ez-clean-10da279aa53be4da",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.3",
+  "removed": false,
+  "composer": "SCTL",
+  "illustrator": "SCTL",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/CervelleConnexion.SCTL.9f54b0b0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/CervelleConnexion.SCTL.10da279a.webp"
+  }
+}

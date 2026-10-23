@@ -7,7 +7,7 @@ import { persist } from 'zustand/middleware';
 import { normalizeChallengeSettings, INFINITY_ROUNDS } from '../../../packages/contracts/src';
 
 export interface Session { token: string; expiresAt: string; user: {id:string;name:string;avatarUrl?:string|null;accountType?:'guest'|'account'} }
-export interface Preferences { motion:boolean; musicVolume?:number; sound:boolean; volume:number; brightness:number; difficulty:'ez'|'hd'|'in'|'at'; rounds:number; roundSeconds:number; healthEnabled?:boolean;healthCapacity?:0|20|50 }
+export interface Preferences { artworkScopes?:import('../../../packages/contracts/src').ArtworkScope[]; motion:boolean; musicVolume?:number; sound:boolean; volume:number; brightness:number; difficulty:'ez'|'hd'|'in'|'at'; rounds:number; roundSeconds:number; healthEnabled?:boolean;healthCapacity?:0|20|50 }
 interface State {
   session:Session|null; preferences:Preferences; matchId:string|null; roomCode:string|null;
   setSession:(session:Session|null)=>void;

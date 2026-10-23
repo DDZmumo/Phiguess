@@ -1,0 +1,22 @@
+{
+  "songId": "5bbea106-2716-5bf9-968e-5df3f9db7da3",
+  "title": "SIGMA",
+  "aliases": [
+    "SIGMA",
+    "西格玛",
+    "Σ",
+    "求和"
+  ],
+  "version": "ez-clean-b8e8b651bbbd2514",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.7",
+  "removed": false,
+  "composer": "Kry.exe",
+  "illustrator": "塔塔",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SIGMA.Kryexe.57955143.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SIGMA.Kryexe.b8e8b651.webp"
+  }
+}

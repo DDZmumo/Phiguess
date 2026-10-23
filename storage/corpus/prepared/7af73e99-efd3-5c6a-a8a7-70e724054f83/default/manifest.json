@@ -1,0 +1,24 @@
+{
+  "songId": "7af73e99-efd3-5c6a-a8a7-70e724054f83",
+  "title": "RESSiSTANCE",
+  "aliases": [
+    "RESSiSTANCE",
+    "电阻",
+    "ress",
+    "绿魔王",
+    "反抗",
+    "绿发小哥哥"
+  ],
+  "version": "ez-clean-90675a01155f484d",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "ぐるたみん",
+  "illustrator": "LINUS",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/RESSiSTANCE.ぐるたみん.439ac0b5.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/RESSiSTANCE.ぐるたみん.90675a01.webp"
+  }
+}

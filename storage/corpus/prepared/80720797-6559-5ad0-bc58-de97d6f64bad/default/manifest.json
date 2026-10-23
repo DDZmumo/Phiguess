@@ -1,0 +1,27 @@
+{
+  "songId": "80720797-6559-5ad0-bc58-de97d6f64bad",
+  "title": "The Whole Rest",
+  "aliases": [
+    "The Whole Rest",
+    "twr",
+    "整个休息",
+    "全都休息",
+    "整休",
+    "全休",
+    "整修",
+    "全休止符",
+    "全部安宁"
+  ],
+  "version": "ez-clean-27c37d787c2f8c8f",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.0",
+  "removed": false,
+  "composer": "KIVΛ",
+  "illustrator": "©2025 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/TheWholeRest.KIVΛ.1ac41513.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/TheWholeRest.KIVΛ.27c37d78.webp"
+  }
+}

@@ -56,3 +56,5 @@
 .at-challenge-warning .at-warning-health:disabled{opacity:1;cursor:default}
 .at-challenge-warning .song-name-cover{background:#ff5267}
 .at-challenge-warning .difficulty-setting-actions button:last-child{color:#ff5267;text-shadow:inherit}
+
+.challenge-loading{position:fixed;inset:0;z-index:10000;background:#000;color:#eee;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}.challenge-loading strong{font-size:clamp(20px,3vw,32px);font-weight:400}.challenge-loading p{color:#9ca5af;font-size:14px}

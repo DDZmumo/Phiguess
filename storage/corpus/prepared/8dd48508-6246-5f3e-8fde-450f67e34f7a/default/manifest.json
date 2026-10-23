@@ -1,0 +1,23 @@
+{
+  "songId": "8dd48508-6246-5f3e-8fde-450f67e34f7a",
+  "title": "Spotlight",
+  "aliases": [
+    "Spotlight",
+    "聚光灯",
+    "游戏模拟器",
+    "贪吃蛇",
+    "多才多艺尼尔桑"
+  ],
+  "version": "ez-clean-a7f67c5522bd1c26",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "Ardolf",
+  "illustrator": "NerSAN",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/Spotlight.Ardolf.d5dbdabe.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/Spotlight.Ardolf.a7f67c55.webp"
+  }
+}

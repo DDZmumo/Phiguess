@@ -1,0 +1,24 @@
+{
+  "songId": "640e294f-4e1c-500b-aab4-e10fcb532e8a",
+  "title": "Trojan",
+  "aliases": [
+    "Trojan",
+    "特洛伊",
+    "图鉴",
+    "tj",
+    "木马",
+    "木马病毒"
+  ],
+  "version": "ez-clean-9fbc2a4f8804bdaf",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "litmus*",
+  "illustrator": "Lapelristar (青鸟&V17AMax Modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/Trojan.litmus.104b54e3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/Trojan.litmus.9fbc2a4f.webp"
+  }
+}

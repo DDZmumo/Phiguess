@@ -1,0 +1,25 @@
+{
+  "songId": "bc95f0b7-e7d7-5ba8-b19d-962fd31e2626",
+  "title": "El Condor Pasa (Phigros Edit)",
+  "aliases": [
+    "El Condor Pasa (Phigros Edit)",
+    "山鹰之歌",
+    "ECP",
+    "二人转",
+    "双人舞",
+    "El Condor Pasa",
+    "二人共舞"
+  ],
+  "version": "ez-clean-0507216c458f8b1a",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.4",
+  "removed": false,
+  "composer": "Plastic Fruits",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/ElCondorPasaPhigrosEdit.PlasticFruits.1416752a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/ElCondorPasaPhigrosEdit.PlasticFruits.0507216c.webp"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "songId": "e1a7cfec-2659-5711-b242-33ff01fe0269",
+  "title": "开心病",
+  "aliases": [
+    "开心病",
+    "失心疯",
+    "丧心病",
+    "kxb"
+  ],
+  "version": "ez-clean-83b594596a688b01",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "昔璃",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/开心病.闫东炜.6b7d9b09.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/开心病.闫东炜.83b59459.webp"
+  }
+}

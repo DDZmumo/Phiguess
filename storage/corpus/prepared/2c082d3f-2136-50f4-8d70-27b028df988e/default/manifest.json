@@ -1,0 +1,25 @@
+{
+  "songId": "2c082d3f-2136-50f4-8d70-27b028df988e",
+  "title": "Doppelganger",
+  "aliases": [
+    "Doppelganger",
+    "二重身",
+    "幽灵",
+    "双重身",
+    "分神灵",
+    "分身灵",
+    "分身"
+  ],
+  "version": "ez-clean-2d023097d68f036d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "海产",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Doppelganger.LeaF.c6fabd67.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Doppelganger.LeaF.2d023097.webp"
+  }
+}

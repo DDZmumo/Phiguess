@@ -1,0 +1,21 @@
+{
+  "songId": "18e6486b-591a-5a41-95fe-2701308cb844",
+  "title": "Devastating History",
+  "aliases": [
+    "Devastating History",
+    "dh",
+    "黑皮大姐姐"
+  ],
+  "version": "ez-clean-707683124742ede6",
+  "variant": "default",
+  "chapterName": "Chapter EX-Liminality 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.20.0",
+  "removed": false,
+  "composer": "NAMV",
+  "illustrator": "わせ (Ctymax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Liminality 精选集/DevastatingHistory.NAMV.30e7c237.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Liminality 精选集/EZ/DevastatingHistory.NAMV.70768312.webp"
+  }
+}

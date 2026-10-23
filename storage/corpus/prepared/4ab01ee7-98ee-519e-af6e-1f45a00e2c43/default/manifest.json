@@ -1,0 +1,21 @@
+{
+  "songId": "4ab01ee7-98ee-519e-af6e-1f45a00e2c43",
+  "title": "Shine After",
+  "aliases": [
+    "Shine After",
+    "sa",
+    "曙光过后"
+  ],
+  "version": "ez-clean-ec4501d65795cc6d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.2",
+  "removed": false,
+  "composer": "ADean & JocularACE",
+  "illustrator": "海里狄七 feat. 存艺",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/ShineAfter.ADeanJocularACE.6ce828b9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/ShineAfter.ADeanJocularACE.ec4501d6.webp"
+  }
+}

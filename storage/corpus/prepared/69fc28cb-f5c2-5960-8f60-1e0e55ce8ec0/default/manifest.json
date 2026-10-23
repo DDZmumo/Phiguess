@@ -1,0 +1,25 @@
+{
+  "songId": "69fc28cb-f5c2-5960-8f60-1e0e55ce8ec0",
+  "title": "Parallel Retrogression(Game Ver.)",
+  "aliases": [
+    "Parallel Retrogression(Game Ver.)",
+    "PR",
+    "parallel",
+    "para",
+    "平行倒退",
+    "碎玻璃",
+    "双人沉思"
+  ],
+  "version": "ez-clean-25ebb0f33f02cbc8",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.3",
+  "removed": false,
+  "composer": "Tetrajectory",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/ParallelRetrogressionGameVer.Tetrajectory.84ac3860.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/ParallelRetrogressionGameVer.Tetrajectory.25ebb0f3.webp"
+  }
+}

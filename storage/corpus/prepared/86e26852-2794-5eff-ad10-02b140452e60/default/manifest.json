@@ -22,21 +22,20 @@
     "超市"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：穹顶孤舟 · Part1",
     "曲师：打打だいず vs. siromaru",
     "标准曲名包含 18 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part1",
+  "chapterName": "穹顶孤舟 · Part1",
+  "contentKind": "main",
+  "removed": false,
   "composer": "打打だいず vs. siromaru",
   "illustrator": "群青kurara",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part1/Entrance to the Chaos.webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part1/EZ/Entrance to the Chaos-EZ.webp"
   }
 }

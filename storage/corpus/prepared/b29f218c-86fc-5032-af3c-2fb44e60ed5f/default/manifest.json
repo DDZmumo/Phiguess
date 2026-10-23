@@ -1,0 +1,24 @@
+{
+  "songId": "b29f218c-86fc-5032-af3c-2fb44e60ed5f",
+  "title": "蝎虎天体 -Lacertid-",
+  "aliases": [
+    "蝎虎天体 -Lacertid-",
+    "蝎虎",
+    "蝎虎天体",
+    "邪乎天体",
+    "邪乎",
+    "xhtt"
+  ],
+  "version": "ez-clean-d486c77d2d4ef30c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.4",
+  "removed": false,
+  "composer": "Cream vs. Daily天利",
+  "illustrator": "白 & 小鹏xpeng",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/蝎虎天体Lacertid.CreamvsDaily天利.d8e17501.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/蝎虎天体Lacertid.CreamvsDaily天利.d486c77d.webp"
+  }
+}

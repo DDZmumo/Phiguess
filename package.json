@@ -1,6 +1,6 @@
 {
   "name": "phiguess",
-  "version": "0.1.1-preview",
+  "version": "0.2.0-preview",
   "private": true,
   "engines": {
     "node": ">=22.14"
@@ -15,10 +15,12 @@
     "build:web": "npm run build --workspace apps/web",
     "dev:web": "npm run dev --workspace apps/web",
     "preview:game": "npm run build:server && node tools/preview.mjs",
+    "preview:abstraction": "npm run build:server && node tools/abstraction/preview-server.mjs",
     "dev": "npm run build:server && node --env-file-if-exists=.env dist/apps/server/src/main.js",
     "start": "node --env-file-if-exists=.env dist/apps/server/src/main.js",
     "db:migrate": "npm run build:server && node --env-file-if-exists=.env dist/tools/migrate.js",
     "assets:import": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-assets.js",
+    "assets:retire-static": "npm run build:server && node --env-file-if-exists=.env dist/tools/migrate-dynamic-artworks.js --apply",
     "assets:lossless": "node tools/prepare-lossless-corpus.mjs",
     "assets:showcase": "npm run build:server && node --env-file-if-exists=.env dist/tools/backfill-showcase.js",
     "assets:catalog": "npm run build:server && node --env-file-if-exists=.env dist/tools/import-catalog.js",

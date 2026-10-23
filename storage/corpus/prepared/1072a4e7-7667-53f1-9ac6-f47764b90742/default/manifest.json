@@ -1,0 +1,27 @@
+{
+  "songId": "1072a4e7-7667-53f1-9ac6-f47764b90742",
+  "title": "NightTheater",
+  "aliases": [
+    "NightTheater",
+    "夜剧院",
+    "午夜剧场",
+    "2020冠军",
+    "夜间剧场",
+    "夜鹿",
+    "夜间鹿",
+    "鹿",
+    "夜剧场"
+  ],
+  "version": "ez-clean-f573edf39e11ba38",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "わかどり",
+  "illustrator": "青鸟",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/NightTheater.わかどり.23f55d09.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/NightTheater.わかどり.f573edf3.webp"
+  }
+}

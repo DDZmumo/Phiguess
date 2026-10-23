@@ -1,0 +1,23 @@
+{
+  "songId": "6d839c95-b955-59df-b772-fd1ed80bf71e",
+  "title": "So laggy! (feat. Uzumaki)",
+  "aliases": [
+    "So laggy! (feat. Uzumaki)",
+    "SL",
+    "so laggy",
+    "太卡了",
+    "小情侣"
+  ],
+  "version": "ez-clean-2c2b472e08374e0f",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.16.1",
+  "removed": false,
+  "composer": "ShrimpCats. (はぁち×後藤涼輔)",
+  "illustrator": "塩焼とまと",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔.859d5030.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔.2c2b472e.webp"
+  }
+}

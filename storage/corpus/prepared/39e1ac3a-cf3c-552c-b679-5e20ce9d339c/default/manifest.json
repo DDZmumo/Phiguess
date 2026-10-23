@@ -1,0 +1,36 @@
+{
+  "songId": "39e1ac3a-cf3c-552c-b679-5e20ce9d339c",
+  "title": "もぺもぺ",
+  "aliases": [
+    "もぺもぺ",
+    "毛八",
+    "八毛",
+    "毛八毛八",
+    "mopemope",
+    "mopamopa",
+    "忧郁",
+    "mpmp",
+    "小蓝花",
+    "小兰花",
+    "儿童邪典",
+    "儿童鞋垫",
+    "花花",
+    "mope",
+    "小花",
+    "陶土花盆",
+    "儿童金曲",
+    "先生买一朵吧"
+  ],
+  "version": "ez-clean-9dfa3436840f3f3e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "LeaF",
+  "illustrator": "cycat",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/もぺもぺ.LeaF.9549c954.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/もぺもぺ.LeaF.9dfa3436.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "7857eb20-0005-5bfe-ae8e-19201c600c0c",
+  "title": "Incyde",
+  "aliases": [
+    "Incyde",
+    "切入",
+    "inside",
+    "inc",
+    "icd",
+    "音赛德",
+    "心象劫"
+  ],
+  "version": "ez-clean-7b657753663f2343",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.2",
+  "removed": false,
+  "composer": "YbeLL",
+  "illustrator": "©2026 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/Incyde.YbeLL.ecd58b2c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/Incyde.YbeLL.7b657753.webp"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "songId": "28d4818b-19c7-52f7-9d65-be0714e9d41e",
+  "title": "c.s.q.n.",
+  "aliases": [
+    "c.s.q.n.",
+    "草酸氢钠",
+    "NaHC₂O₄",
+    "NaHC2O4",
+    "厕所青年",
+    "诚实青年",
+    "城市青年",
+    "csqn",
+    "csgo",
+    "蜂窝",
+    "必要条件",
+    "碳酸氢钠"
+  ],
+  "version": "ez-clean-f7dbbdf8ac0e689b",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.1",
+  "removed": false,
+  "composer": "Aoi",
+  "illustrator": "Ctymax vs. TNiK feat. 出前",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/csqn.Aoi.d3965851.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/csqn.Aoi.f7dbbdf8.webp"
+  }
+}

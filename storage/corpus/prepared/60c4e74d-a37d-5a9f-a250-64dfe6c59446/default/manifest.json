@@ -1,0 +1,22 @@
+{
+  "songId": "60c4e74d-a37d-5a9f-a250-64dfe6c59446",
+  "title": "Artificial Existence",
+  "aliases": [
+    "Artificial Existence",
+    "AE",
+    "人为存在",
+    "para"
+  ],
+  "version": "ez-clean-f72babe5cf6864e9",
+  "variant": "default",
+  "chapterName": "Chapter EX-Paradigm：Reboot 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.0",
+  "removed": false,
+  "composer": "Jun Kuroda",
+  "illustrator": "2AI4wU4",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Paradigm：Reboot 精选集/ArtificialExistence.JunKuroda.145fdd90.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Paradigm：Reboot 精选集/EZ/ArtificialExistence.JunKuroda.f72babe5.webp"
+  }
+}

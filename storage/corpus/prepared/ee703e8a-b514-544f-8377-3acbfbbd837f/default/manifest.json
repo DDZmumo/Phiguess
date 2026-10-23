@@ -1,0 +1,26 @@
+{
+  "songId": "ee703e8a-b514-544f-8377-3acbfbbd837f",
+  "title": "Fixations Toward the Stars",
+  "aliases": [
+    "Fixations Toward the Stars",
+    "ftts",
+    "观星",
+    "向星凝视",
+    "恋恋群星",
+    "望星",
+    "摘星行者",
+    "Fixations"
+  ],
+  "version": "ez-clean-8dbb030e33608e42",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.2",
+  "removed": false,
+  "composer": "Foodbot",
+  "illustrator": "AriaL [edited by Stelli]",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/FixationsTowardtheStars.Foodbot.00fd9d8c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/FixationsTowardtheStars.Foodbot.8dbb030e.webp"
+  }
+}

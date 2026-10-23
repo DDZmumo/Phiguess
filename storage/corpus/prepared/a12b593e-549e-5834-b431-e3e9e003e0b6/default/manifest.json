@@ -13,24 +13,24 @@
     "骨折鸠",
     "骨折九鸟",
     "食月鸠",
-    "逃离月面"
+    "逃离月面",
+    "Distorted Fate(2024 April Fools' Day)"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：Sakuzyo",
     "标准曲名包含 13 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Distorted Fate.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Sakuzyo",
   "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/08 凌日潮汐/Distorted Fate.webp",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Distorted Fate-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/08 凌日潮汐/EZ/Distorted Fate-EZ.webp"
   }
 }

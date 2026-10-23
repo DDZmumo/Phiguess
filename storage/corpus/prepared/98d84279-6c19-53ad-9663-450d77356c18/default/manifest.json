@@ -1,0 +1,21 @@
+{
+  "songId": "98d84279-6c19-53ad-9663-450d77356c18",
+  "title": "Introduction",
+  "aliases": [
+    "Introduction",
+    "新手教程",
+    "新手叫疼"
+  ],
+  "version": "ez-clean-7307bc4296e4f775",
+  "variant": "default",
+  "chapterName": "其他-新手教程",
+  "contentKind": "non-main",
+  "introducedVersion": "2.0.0",
+  "removed": false,
+  "composer": "姜米條 & ElousΛ.-FZ",
+  "illustrator": "L-sp4",
+  "original": "../../../source/Raw/Non-main/其他-新手教程/Introduction.d298a743.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/其他-新手教程/EZ/Introduction.7307bc42.webp"
+  }
+}

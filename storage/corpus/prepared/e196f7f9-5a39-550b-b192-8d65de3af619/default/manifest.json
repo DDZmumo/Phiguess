@@ -1,0 +1,21 @@
+{
+  "songId": "e196f7f9-5a39-550b-b192-8d65de3af619",
+  "title": "Diamond Eyes",
+  "aliases": [
+    "Diamond Eyes",
+    "钻石眼",
+    "星空眼"
+  ],
+  "version": "ez-clean-bc29f617116a61ff",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.1",
+  "removed": false,
+  "composer": "SYNTHETIC",
+  "illustrator": "彗星 feat. 祈莲",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/DiamondEyes.SYNTHETIC.39de40e9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/DiamondEyes.SYNTHETIC.bc29f617.webp"
+  }
+}

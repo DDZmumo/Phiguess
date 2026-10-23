@@ -1,0 +1,20 @@
+{
+  "songId": "72844082-4b88-5762-9c28-2b11371b5374",
+  "title": "Aphasia",
+  "aliases": [
+    "Aphasia",
+    "失语症"
+  ],
+  "version": "ez-clean-d28c6dc930c1e2f3",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "笔记RE",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Aphasia.闫东炜.a45c610a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Aphasia.闫东炜.d28c6dc9.webp"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "songId": "4d8dfaf7-b1e2-57ca-9fcf-d064d92a5b81",
+  "title": "WATER",
+  "aliases": [
+    "WATER",
+    "水",
+    "初音掉水"
+  ],
+  "version": "ez-clean-1b079731456db935",
+  "variant": "default",
+  "chapterName": "Side Story 1 忘忧宫",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.0",
+  "removed": false,
+  "composer": "A-39/沙包P",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/Side Story 1 忘忧宫/WATER.A39沙包P.1b079731.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 1 忘忧宫/EZ/WATER.A39沙包P.1b079731.webp"
+  }
+}

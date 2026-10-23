@@ -11,21 +11,20 @@
     "核磁共振"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：Normal1zer",
     "标准曲名包含 25 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/Non-Melodic Ragez (MUG Edit).webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Normal1zer",
   "illustrator": "cycats",
+  "original": "../../../source/Raw/03 幽蓝边界/Non-Melodic Ragez (MUG Edit).webp",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/Non-Melodic Ragez (MUG Edit)-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/03 幽蓝边界/EZ/Non-Melodic Ragez (MUG Edit)-EZ.webp"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "songId": "6af317c6-7cac-5aa0-a5d1-c7b9911c3dbc",
+  "title": "Bitterblossom",
+  "aliases": [
+    "Bitterblossom",
+    "bb",
+    "比特币",
+    "美女与鬼兽",
+    "苦海无边",
+    "苦茶花",
+    "苦花",
+    "苦涩花开",
+    "鬼绕后"
+  ],
+  "version": "ez-clean-e70d5577eabefd94",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.1",
+  "removed": false,
+  "composer": "imvi",
+  "illustrator": "鲸弑",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Bitterblossom.imvi.1cac01ff.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Bitterblossom.imvi.e70d5577.webp"
+  }
+}

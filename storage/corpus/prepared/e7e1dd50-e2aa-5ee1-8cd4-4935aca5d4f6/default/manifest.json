@@ -8,21 +8,20 @@
     "BT"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：管道迷宫",
     "曲师：Megalo_PaleWhite",
     "标准曲名包含 9 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/04 管道迷宫/Bonus Time.webp",
   "chapter": 4,
   "chapterName": "管道迷宫",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Megalo_PaleWhite",
   "illustrator": "笔记RE",
+  "original": "../../../source/Raw/04 管道迷宫/Bonus Time.webp",
   "assets": {
-    "ez": "../../../source/04 管道迷宫/EZ/Bonus Time-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/04 管道迷宫/EZ/Bonus Time-EZ.webp"
   }
 }

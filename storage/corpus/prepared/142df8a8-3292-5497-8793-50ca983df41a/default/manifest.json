@@ -1,0 +1,22 @@
+{
+  "songId": "142df8a8-3292-5497-8793-50ca983df41a",
+  "title": "月下缭乱",
+  "aliases": [
+    "月下缭乱",
+    "月下",
+    "月缭",
+    "yxll"
+  ],
+  "version": "ez-clean-cbbf10fd758992c0",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.2",
+  "removed": false,
+  "composer": "月見静華 vs. LUNARiUM",
+  "illustrator": "TNiK",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/月下缭乱.月見静華vsLUNARiUM.576c0b7d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/月下缭乱.月見静華vsLUNARiUM.cbbf10fd.webp"
+  }
+}

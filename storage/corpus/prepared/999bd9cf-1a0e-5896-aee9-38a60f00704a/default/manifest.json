@@ -9,24 +9,24 @@
     "流光",
     "大冷光",
     "烟火",
-    "冷光ce"
+    "冷光ce",
+    "Luminescence(2024 April Fools' Day)"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：米虾Fomiki & 初云CLoudie",
     "标准曲名包含 12 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Luminescence.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
+  "contentKind": "main",
+  "removed": false,
   "composer": "米虾Fomiki & 初云CLoudie",
   "illustrator": "子狼",
+  "original": "../../../source/Raw/08 凌日潮汐/Luminescence.webp",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Luminescence-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/08 凌日潮汐/EZ/Luminescence-EZ.webp"
   }
 }

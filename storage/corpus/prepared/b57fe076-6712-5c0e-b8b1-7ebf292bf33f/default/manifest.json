@@ -1,0 +1,23 @@
+{
+  "songId": "b57fe076-6712-5c0e-b8b1-7ebf292bf33f",
+  "title": "Cristalisia",
+  "aliases": [
+    "Cristalisia",
+    "水晶圣歌",
+    "核艺味",
+    "结晶",
+    "352"
+  ],
+  "version": "ez-clean-03d05e11b3606104",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.0",
+  "removed": false,
+  "composer": "onoken",
+  "illustrator": "©2025 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/Cristalisia.onoken.8317b5f6.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/Cristalisia.onoken.03d05e11.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "6e477b2b-11d3-51a6-9b4a-14d15b369a09",
+  "title": "Originally",
+  "aliases": [
+    "Originally",
+    "起源",
+    "原初",
+    "紫鱿鱼娘",
+    "原始",
+    "橘包",
+    "冲浪"
+  ],
+  "version": "ez-clean-edd91d2f1adc1587",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.1",
+  "removed": false,
+  "composer": "SNKS & Mizku",
+  "illustrator": "Keiby.comics",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Originally.SNKSMizku.a11b9389.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Originally.SNKSMizku.edd91d2f.webp"
+  }
+}

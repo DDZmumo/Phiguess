@@ -8,21 +8,20 @@
     "HN"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：SOTUI",
     "标准曲名包含 5 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/HumaN.webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "SOTUI",
   "illustrator": "CH",
+  "original": "../../../source/Raw/03 幽蓝边界/HumaN.webp",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/HumaN-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/03 幽蓝边界/EZ/HumaN-EZ.webp"
   }
 }

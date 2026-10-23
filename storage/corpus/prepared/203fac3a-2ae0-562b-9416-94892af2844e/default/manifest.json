@@ -1,0 +1,20 @@
+{
+  "songId": "203fac3a-2ae0-562b-9416-94892af2844e",
+  "title": "Anomaly",
+  "aliases": [
+    "Anomaly",
+    "异常"
+  ],
+  "version": "ez-clean-89d4aaecc0a0cc8e",
+  "variant": "default",
+  "chapterName": "历史-下架曲目",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.4",
+  "removed": true,
+  "composer": "姜米條 & RocketLant",
+  "illustrator": "姜米條",
+  "original": "../../../source/Raw/Non-main/历史-下架曲目/Anomaly.59643dbe.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/历史-下架曲目/EZ/Anomaly.89d4aaec.webp"
+  }
+}

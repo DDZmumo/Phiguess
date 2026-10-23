@@ -1,0 +1,27 @@
+{
+  "songId": "1da73573-b941-58d7-beeb-4af8e997b51b",
+  "title": "After ZABANIYA (MUG Edit)",
+  "aliases": [
+    "After ZABANIYA (MUG Edit)",
+    "az",
+    "炸板鸭",
+    "咚咚咖喱",
+    "之后咋办呀",
+    "咋办呀",
+    "炼狱余烬",
+    "大黄狗",
+    "After ZABANIYA"
+  ],
+  "version": "ez-clean-6db43c15a9865c0c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.0",
+  "removed": false,
+  "composer": "Daily天利",
+  "illustrator": "Nakaiankow feat. Daily天利",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/AfterZABANIYAMUGEdit.Daily天利.afec7c61.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/AfterZABANIYAMUGEdit.Daily天利.6db43c15.webp"
+  }
+}

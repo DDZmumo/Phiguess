@@ -1,0 +1,23 @@
+{
+  "songId": "0472c024-ee19-5e0e-aa79-64c245a8f5ec",
+  "title": "暗夜苏醒 (REANIMATE)",
+  "aliases": [
+    "暗夜苏醒 (REANIMATE)",
+    "暗夜",
+    "暗夜苏醒",
+    "REANIMATE",
+    "aysx"
+  ],
+  "version": "ez-clean-92178b105ee555d5",
+  "variant": "default",
+  "chapterName": "Chapter EX-节奏大师 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.1",
+  "removed": false,
+  "composer": "Warak",
+  "illustrator": "MHK (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-节奏大师 精选集/暗夜苏醒REANIMATE.Warak.752f69d0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-节奏大师 精选集/EZ/暗夜苏醒REANIMATE.Warak.92178b10.webp"
+  }
+}

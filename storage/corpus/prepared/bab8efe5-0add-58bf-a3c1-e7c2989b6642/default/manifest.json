@@ -1,0 +1,23 @@
+{
+  "songId": "bab8efe5-0add-58bf-a3c1-e7c2989b6642",
+  "title": "GOODWORLD",
+  "aliases": [
+    "GOODWORLD",
+    "良界",
+    "好世界",
+    "地球",
+    "爆蓝的世界"
+  ],
+  "version": "ez-clean-1043c31c08c48d01",
+  "variant": "default",
+  "chapterName": "Chapter EX-GOOD 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.7",
+  "removed": false,
+  "composer": "EBIMAYO",
+  "illustrator": "EBIMAYO",
+  "original": "../../../source/Raw/Non-main/Chapter EX-GOOD 精选集/GOODWORLD.EBIMAYO.4ac3c884.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-GOOD 精选集/EZ/GOODWORLD.EBIMAYO.1043c31c.webp"
+  }
+}

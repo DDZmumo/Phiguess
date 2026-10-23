@@ -1,0 +1,23 @@
+{
+  "songId": "6d623665-00bc-5381-8824-437baa9860c8",
+  "title": "Quantum Hyperspace",
+  "aliases": [
+    "Quantum Hyperspace",
+    "QH",
+    "量子超空间",
+    "量子空间",
+    "超量子空间"
+  ],
+  "version": "ez-clean-8ac9a148a63f603c",
+  "variant": "default",
+  "chapterName": "Side Story 3 盗乐行",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.0",
+  "removed": false,
+  "composer": "D_AAN",
+  "illustrator": "sa1t",
+  "original": "../../../source/Raw/Non-main/Side Story 3 盗乐行/QuantumHyperspace.D_AAN.cc5356bf.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 3 盗乐行/EZ/QuantumHyperspace.D_AAN.8ac9a148.webp"
+  }
+}

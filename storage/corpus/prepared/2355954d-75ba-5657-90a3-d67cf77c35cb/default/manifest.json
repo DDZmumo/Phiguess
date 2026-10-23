@@ -1,0 +1,23 @@
+{
+  "songId": "2355954d-75ba-5657-90a3-d67cf77c35cb",
+  "title": "996",
+  "aliases": [
+    "996",
+    "打工人",
+    "社畜",
+    "支付宝到账",
+    "上班"
+  ],
+  "version": "ez-clean-6571c64e7c3589d5",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.1",
+  "removed": false,
+  "composer": "李化禹",
+  "illustrator": "笔记RE",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/996.李化禹.e8d3d325.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/996.李化禹.6571c64e.webp"
+  }
+}

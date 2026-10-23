@@ -18,10 +18,12 @@ const pg=new LocalPostgres({databaseDir:resolve(testRoot,'postgres'),user:'phigu
 try {
   await pg.initialise(); await pg.start(); await pg.createDatabase('phiguess_test');
   console.log(`Temporary PostgreSQL started on 127.0.0.1:${port}`);
-  const files=(await readdir('dist/tests')).filter(f=>f.endsWith('.test.js')).map(f=>`dist/tests/${f}`);
+  const requested=process.argv.slice(2),available=(await readdir('dist/tests')).filter(f=>f.endsWith('.test.js'));
+  if(requested.some(name=>!available.includes(name)))throw new Error('Unknown test file');
+  const files=available.filter(name=>!requested.length||requested.includes(name)).map(f=>`dist/tests/${f}`);
   const child=spawn(process.execPath,['--test','--test-concurrency=1',...files],{stdio:'inherit',env:{...process.env,
     NODE_ENV:'test',DATABASE_URL:`postgres://phiguess_test:${password}@127.0.0.1:${port}/phiguess_test`,
-    ASSET_DIR:resolve(testRoot,'assets'),AVATAR_DIR:resolve(testRoot,'avatars'),TEST_ROOT:testRoot,
+    ASSET_DIR:resolve(testRoot,'assets'),AVATAR_DIR:resolve(testRoot,'avatars'),GENERATED_ASSET_DIR:resolve(testRoot,'generated'),TEST_ROOT:testRoot,
     PUBLIC_ORIGIN:'http://localhost:3000',TRUST_PROXY:'0'}});
   process.exitCode=await new Promise((r,j)=>{child.on('error',j);child.on('exit',code=>r(code ?? 1));});
 } catch(error) {

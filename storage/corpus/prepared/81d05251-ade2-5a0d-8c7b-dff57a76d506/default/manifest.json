@@ -1,0 +1,33 @@
+{
+  "songId": "81d05251-ade2-5a0d-8c7b-dff57a76d506",
+  "title": "a truth seeker -Communication with Utopia will be lost-",
+  "aliases": [
+    "a truth seeker -Communication with Utopia will be lost-",
+    "寻真者",
+    "a truth seeker",
+    "一个卡车",
+    "求真者",
+    "真理探寻者",
+    "真理寻者",
+    "真理",
+    "理寻",
+    "ats",
+    "安徒生",
+    "真理寻求者",
+    "真寻",
+    "乌托邦",
+    "truth seeker"
+  ],
+  "version": "ez-clean-18250f15ed8d6d3a",
+  "variant": "default",
+  "chapterName": "Chapter EX-TAKUMI³ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.0",
+  "removed": false,
+  "composer": "kuro",
+  "illustrator": "rokopon",
+  "original": "../../../source/Raw/Non-main/Chapter EX-TAKUMI³ 精选集/atruthseekerCommunicationwithUtopiawillbelost.kuro.367aa3bd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-TAKUMI³ 精选集/EZ/atruthseekerCommunicationwithUtopiawillbelost.kuro.18250f15.webp"
+  }
+}

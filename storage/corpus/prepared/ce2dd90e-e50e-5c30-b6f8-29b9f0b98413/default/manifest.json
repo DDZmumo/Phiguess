@@ -22,21 +22,20 @@
     "我的作业会发光"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：Team Grimoire",
     "标准曲名包含 8 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Rrhar'il.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Team Grimoire",
   "illustrator": "犀牛坨动画工坊",
+  "original": "../../../source/Raw/07 时钟链接/Rrhar'il.webp",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Rrhar'il-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/07 时钟链接/EZ/Rrhar'il-EZ.webp"
   }
 }

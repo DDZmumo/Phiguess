@@ -1,0 +1,24 @@
+{
+  "songId": "7a6eb0ce-0fc8-55e3-a724-68efde2bafe8",
+  "title": "Äventyr",
+  "aliases": [
+    "Äventyr",
+    "2012冠军",
+    "天使",
+    "Aventyr",
+    "Äventyr",
+    "冒险"
+  ],
+  "version": "ez-clean-db25667ff50532e7",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.2",
+  "removed": false,
+  "composer": "Grand Thaw / Rigël Theatre",
+  "illustrator": "Grand Thaw / Rigël Theatre",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Aventyr.GrandThawRigelTheatre.1739158a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Aventyr.GrandThawRigelTheatre.db25667f.webp"
+  }
+}
