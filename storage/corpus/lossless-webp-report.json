@@ -4,7 +4,7 @@
     "effort": 6,
     "exact": true
   },
-  "scope": "Raw originals and EZ question images; WebP-only sources supported with verified PNG conversion hashes; HD/IN/AT remain SVG",
+  "scope": "Raw originals and EZ question images; WebP-only sources supported with verified PNG conversion hashes; HD/IN/AT are generated at runtime",
   "dimensionsAndRgbaEqual": true,
   "totals": {
     "files": 120,

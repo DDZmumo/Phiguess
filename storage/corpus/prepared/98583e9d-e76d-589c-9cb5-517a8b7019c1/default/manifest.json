@@ -26,21 +26,20 @@
     "哈特"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：rN || Frums",
     "标准曲名包含 2 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/ハテ.webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part2",
+  "chapterName": "穹顶孤舟 · Part2",
+  "contentKind": "main",
+  "removed": false,
   "composer": "rN || Frums",
   "illustrator": "宙風みけ || rN",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/ハテ.webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/ハテ-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/ハテ-EZ.webp"
   }
 }

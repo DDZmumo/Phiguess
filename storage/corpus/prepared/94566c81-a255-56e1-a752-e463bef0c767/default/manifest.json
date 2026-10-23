@@ -1,0 +1,26 @@
+{
+  "songId": "94566c81-a255-56e1-a752-e463bef0c767",
+  "title": "Another Me",
+  "aliases": [
+    "Another Me",
+    "Another Me2",
+    "AM2",
+    "AM(RST)",
+    "小am",
+    "世另我",
+    "AM13",
+    "Another Me 13"
+  ],
+  "version": "ez-clean-77d43e4010b17462",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rising Sun Traxx 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.0",
+  "removed": false,
+  "composer": "Neutral Moon",
+  "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rising Sun Traxx 精选集/AnotherMe.NeutralMoon.50de398a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rising Sun Traxx 精选集/EZ/AnotherMe.NeutralMoon.77d43e40.webp"
+  }
+}

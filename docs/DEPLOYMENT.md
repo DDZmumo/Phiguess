@@ -53,7 +53,7 @@ npm ci --omit=dev
 
 原生生产部署可将本地 `npm run build` 生成的后端 `dist/` 和前端 `apps/web/dist/` 一并上传。这样服务器安装生产依赖即可，不需要安装用于本机测试的 PostgreSQL 二进制开发依赖；不要上传 Windows 的 `node_modules`。
 
-设置 `.env` 的 `DATABASE_URL`、`PUBLIC_ORIGIN`、`ASSET_DIR=/opt/phiguess/storage/assets`、`AVATAR_DIR=/opt/phiguess/storage/avatars`、`NODE_ENV=production`、`TRUST_PROXY=1`。先创建 `storage/avatars` 并授予 `phiguess` 用户写权限。保护 `.env` 的读取权限。按服务器 Node 路径调整 `deploy/phiguess.service`，然后将其安装为 systemd 单元。
+设置 `.env` 的 `DATABASE_URL`、`PUBLIC_ORIGIN`、`ASSET_DIR=/opt/phiguess/storage/assets`、`AVATAR_DIR=/opt/phiguess/storage/avatars`、`NODE_ENV=production`、`TRUST_PROXY=1`。先创建 `storage/avatars` 与 `storage/generated` 并授予 `phiguess` 用户写权限。发布时同步 `packages/game-core/artwork/`，并按 [实时题图迁移说明](DYNAMIC-ARTWORK.md) 迁移素材。保护 `.env` 的读取权限。按服务器 Node 路径调整 `deploy/phiguess.service`，然后将其安装为 systemd 单元。
 
 ```sh
 sudo cp deploy/phiguess.service /etc/systemd/system/phiguess.service

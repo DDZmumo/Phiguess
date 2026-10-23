@@ -1,0 +1,27 @@
+{
+  "songId": "a2ffea8d-6fa8-589a-9c17-e49fd45ae2c7",
+  "title": "Xenophobia",
+  "aliases": [
+    "Xenophobia",
+    "排外主义",
+    "义和团",
+    "我要洋人死",
+    "仇外",
+    "仇外心理",
+    "陌生恐惧女",
+    "Xenoph",
+    "xe"
+  ],
+  "version": "ez-clean-98b055c66eeab9a9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.4",
+  "removed": false,
+  "composer": "XinG",
+  "illustrator": "Ots-15",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Xenophobia.XinG.5fde3fdf.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Xenophobia.XinG.98b055c6.webp"
+  }
+}

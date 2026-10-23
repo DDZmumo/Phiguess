@@ -64,6 +64,13 @@ test('encrypted next artwork is reusable only after opening the round',{timeout:
     assert.equal(await loader.take(0,undefined,new AbortController().signal),undefined);
     const blob=await loader.take(1,next.imageKey,new AbortController().signal);assert.equal(await blob!.text(),svg);
     assert.equal(downloads,1);assert.equal(priority,'low');
+    let retryDownloads=0;
+    const retrying=new ArtworkPreloader(async()=>++retryDownloads===1?new Response('',{status:403}):new Response(bytes,{headers:{'X-Artwork-Mime':'image/svg+xml'}}));
+    retrying.preload(m.id,1,user.token);
+    await new Promise(resolve=>setTimeout(resolve,0));
+    retrying.preload(m.id,1,user.token);
+    assert.equal(await (await retrying.take(1,next.imageKey,new AbortController().signal))?.text(),svg,'failed early preload must not suppress a later valid request');
+    assert.equal(retryDownloads,2);retrying.cancel();
     const originalFetch=globalThis.fetch;
     globalThis.fetch=function(this:unknown){assert.equal(this,globalThis,'Native fetch needs its browser receiver');return Promise.resolve(new Response(bytes,{headers:{'X-Artwork-Mime':'image/svg+xml'}}));};
     try{

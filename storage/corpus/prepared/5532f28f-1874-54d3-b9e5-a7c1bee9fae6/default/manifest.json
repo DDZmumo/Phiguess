@@ -1,0 +1,26 @@
+{
+  "songId": "5532f28f-1874-54d3-b9e5-a7c1bee9fae6",
+  "title": "Cuvism³",
+  "aliases": [
+    "Cuvism³",
+    "c3",
+    "³",
+    "立方",
+    "三次方",
+    "库维斯",
+    "立体主义",
+    "Cuvism3"
+  ],
+  "version": "ez-clean-ec0d6ba304e40ca0",
+  "variant": "default",
+  "chapterName": "Chapter EX-TAKUMI³ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.0",
+  "removed": false,
+  "composer": "Fl00t vs Halv",
+  "illustrator": "sikkari",
+  "original": "../../../source/Raw/Non-main/Chapter EX-TAKUMI³ 精选集/Cuvism.Fl00tvsHalv.07d9ab4f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-TAKUMI³ 精选集/EZ/Cuvism.Fl00tvsHalv.ec0d6ba3.webp"
+  }
+}

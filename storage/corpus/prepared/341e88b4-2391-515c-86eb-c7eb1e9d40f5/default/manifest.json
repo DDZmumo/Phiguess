@@ -1,0 +1,25 @@
+{
+  "songId": "341e88b4-2391-515c-86eb-c7eb1e9d40f5",
+  "title": "零號車輛",
+  "aliases": [
+    "零號車輛",
+    "零车",
+    "灵车",
+    "零号车辆",
+    "零号列车",
+    "0车",
+    "lhcl"
+  ],
+  "version": "ez-clean-72052e3b791ff115",
+  "variant": "default",
+  "chapterName": "Chapter EX-Paradigm：Reboot 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.5.1",
+  "removed": false,
+  "composer": "seatrus",
+  "illustrator": "2AI4wU4",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Paradigm：Reboot 精选集/零號車輛.seatrus.3570a43d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Paradigm：Reboot 精选集/EZ/零號車輛.seatrus.72052e3b.webp"
+  }
+}

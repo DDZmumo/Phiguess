@@ -1,0 +1,24 @@
+{
+  "songId": "d883126d-5103-50c3-a770-2d8be741b238",
+  "title": "FULi AUTO BUSTER",
+  "aliases": [
+    "FULi AUTO BUSTER",
+    "福利自动爆",
+    "福利自动炸",
+    "FAB",
+    "BUSTER",
+    "自动福利爆"
+  ],
+  "version": "ez-clean-ef60b37acc892328",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.4",
+  "removed": false,
+  "composer": "MYUKKE.",
+  "illustrator": "cycats",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/FULiAUTOBUSTER.MYUKKE.f529f322.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/FULiAUTOBUSTER.MYUKKE.ef60b37a.webp"
+  }
+}

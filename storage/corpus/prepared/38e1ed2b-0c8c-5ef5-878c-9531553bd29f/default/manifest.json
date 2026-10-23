@@ -1,0 +1,25 @@
+{
+  "songId": "38e1ed2b-0c8c-5ef5-878c-9531553bd29f",
+  "title": "Xep+ion",
+  "aliases": [
+    "Xep+ion",
+    "启世之兆",
+    "xep",
+    "xe",
+    "Xeption",
+    "定时炸弹",
+    "警察抓小偷"
+  ],
+  "version": "ez-clean-e80a3b564443615d",
+  "variant": "default",
+  "chapterName": "Chapter EX-Liminality 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.17.0",
+  "removed": false,
+  "composer": "Acotto",
+  "illustrator": "クルス (Ctymax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Liminality 精选集/Xepion.Acotto.d2667f5a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Liminality 精选集/EZ/Xepion.Acotto.e80a3b56.webp"
+  }
+}

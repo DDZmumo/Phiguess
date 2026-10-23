@@ -1,0 +1,23 @@
+{
+  "songId": "216045f9-6c03-5c2e-8d8c-a7830fc71343",
+  "title": "Ark",
+  "aliases": [
+    "Ark",
+    "诺亚方舟",
+    "蓝方舟",
+    "氩钾",
+    "ark15"
+  ],
+  "version": "ez-clean-2326c87c241ff44a",
+  "variant": "default",
+  "chapterName": "Side Story 2 弭刻日",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.0",
+  "removed": false,
+  "composer": "kanoryo",
+  "illustrator": "MOAI WORKS",
+  "original": "../../../source/Raw/Non-main/Side Story 2 弭刻日/Ark.kanoryo.2227b3db.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 2 弭刻日/EZ/Ark.kanoryo.2326c87c.webp"
+  }
+}

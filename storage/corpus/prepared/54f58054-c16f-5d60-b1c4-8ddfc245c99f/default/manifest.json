@@ -1,0 +1,24 @@
+{
+  "songId": "54f58054-c16f-5d60-b1c4-8ddfc245c99f",
+  "title": "萤火虫の怨",
+  "aliases": [
+    "萤火虫の怨",
+    "流萤",
+    "萤火虫",
+    "萤火虫的怨",
+    "萤火虫之怨",
+    "萤火虫之愿"
+  ],
+  "version": "ez-clean-8430551fe5f9b787",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "L-sp4",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/萤火虫の怨.闫东炜.42a679bb.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/萤火虫の怨.闫东炜.8430551f.webp"
+  }
+}

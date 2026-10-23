@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { Db } from '../apps/server/src/db';
 import { importAssets,Manifest } from './import-assets';
 import { backfillOriginalPreviews } from './backfill-showcase';
+import {backfillDynamicSources} from './migrate-dynamic-artworks';
 
 export async function importCatalog(db:Db,catalogPath=resolve('storage/corpus/catalog.json')) {
   const catalog=JSON.parse(await readFile(catalogPath,'utf8')) as {groups:{songId:string;variant:string}[]};
@@ -15,9 +16,11 @@ export async function importCatalog(db:Db,catalogPath=resolve('storage/corpus/ca
       skipped++;
     }else{await importAssets(db,path);imported++;}
     await db.query('UPDATE songs SET chapter=COALESCE($2,chapter),chapter_name=COALESCE($3,chapter_name),composer=COALESCE($4,composer) WHERE id=$1',[manifest.songId,manifest.chapter??null,manifest.chapterName??null,manifest.composer??null]);
+    await db.query('UPDATE artworks SET content_kind=$4,introduced_version=$5,removed=$6 WHERE song_id=$1 AND version=$2 AND variant=$3',[manifest.songId,manifest.version,manifest.variant,manifest.contentKind,manifest.introducedVersion??null,manifest.removed]);
     if(manifest.illustrator)await db.query('UPDATE artworks SET illustrator=COALESCE(NULLIF(illustrator,\'\'),$4) WHERE song_id=$1 AND version=$2 AND variant=$3',[manifest.songId,manifest.version,manifest.variant,manifest.illustrator]);
   }
   await backfillOriginalPreviews(db);
+  await backfillDynamicSources(db,catalogPath);
   const counts=(await db.query("SELECT difficulty,count(*)::int AS count,sum(bytes)::bigint AS bytes FROM artworks WHERE active GROUP BY difficulty ORDER BY difficulty")).rows;
   const result={imported,skipped,songs:(await db.query('SELECT count(*)::int AS n FROM songs WHERE enabled')).rows[0]!.n,artworks:counts};
   await mkdir('storage/corpus',{recursive:true});await writeFile('storage/corpus/import-report.json',JSON.stringify(result,null,2));return result;

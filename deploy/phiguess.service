@@ -17,7 +17,7 @@ PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=true
 ReadOnlyPaths=/opt/phiguess/storage/assets
-ReadWritePaths=/opt/phiguess/storage/avatars
+ReadWritePaths=/opt/phiguess/storage/avatars /opt/phiguess/storage/generated
 
 [Install]
 WantedBy=multi-user.target

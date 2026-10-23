@@ -1,0 +1,22 @@
+{
+  "songId": "7c819f7c-dc05-5f09-a90c-2db66406b8e0",
+  "title": "Cryogenic",
+  "aliases": [
+    "Cryogenic",
+    "低温学",
+    "极低温",
+    "if公交车"
+  ],
+  "version": "ez-clean-da3d37f377f23830",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "4.0.0",
+  "removed": false,
+  "composer": "Camellia ft. Petra Gurin",
+  "illustrator": "アオノアオ + Vormis. (Design: V17AMax)",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Cryogenic.CamelliaftPetraGurin.f003099d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Cryogenic.CamelliaftPetraGurin.da3d37f3.webp"
+  }
+}

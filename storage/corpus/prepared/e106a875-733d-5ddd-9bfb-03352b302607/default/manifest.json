@@ -7,21 +7,20 @@
     "世家"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：816ThreeNumbers",
     "标准曲名包含 26 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/True Home, True World (Rework).webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part2",
+  "chapterName": "穹顶孤舟 · Part2",
+  "contentKind": "main",
+  "removed": false,
   "composer": "816ThreeNumbers",
   "illustrator": "PEZZ",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/True Home, True World (Rework).webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/True Home, True World (Rework)-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/True Home, True World (Rework)-EZ.webp"
   }
 }

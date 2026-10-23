@@ -10,21 +10,20 @@
     "猫娘沙发"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：霓虹灯牌",
     "曲师：FLuoRiTe/姜米條",
     "标准曲名包含 19 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/05 霓虹灯牌/NYA!!!(Phigros ver.).webp",
   "chapter": 5,
   "chapterName": "霓虹灯牌",
+  "contentKind": "main",
+  "removed": false,
   "composer": "FLuoRiTe/姜米條",
   "illustrator": "NEKO&海产",
+  "original": "../../../source/Raw/05 霓虹灯牌/NYA!!!(Phigros ver.).webp",
   "assets": {
-    "ez": "../../../source/05 霓虹灯牌/EZ/NYA!!!(Phigros ver.)-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/05 霓虹灯牌/EZ/NYA!!!(Phigros ver.)-EZ.webp"
   }
 }

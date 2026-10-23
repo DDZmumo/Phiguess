@@ -1,0 +1,20 @@
+{
+  "songId": "144e4754-d684-5731-87b7-c94c2f5501df",
+  "title": "[NWAD]",
+  "aliases": [
+    "[NWAD]",
+    "NWAD"
+  ],
+  "version": "ez-clean-c7c643814f4568e3",
+  "variant": "default",
+  "chapterName": "Chapter EX-Paradigm：Reboot 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.20.0",
+  "removed": false,
+  "composer": "Knighthood",
+  "illustrator": "2Al4wU4",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Paradigm：Reboot 精选集/NWAD.Knighthood.08e16e4b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Paradigm：Reboot 精选集/EZ/NWAD.Knighthood.c7c64381.webp"
+  }
+}

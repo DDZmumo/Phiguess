@@ -28,9 +28,8 @@ export async function seedDemo(db:Db,directory:string) {
     const svg=(level:number)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540"><defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="${e.dark}"/><stop offset="1" stop-color="#0d101a"/></linearGradient></defs><path fill="url(#bg)" d="M0 0H960V540H0Z"/>${shapes}<g transform="translate(${level*27} ${level*9}) rotate(${level*12} 480 270)">${orb}</g><path d="M70 50H230M70 50V180M890 490H730M890 490V360" fill="none" stroke="${e.color}" stroke-width="2" opacity=".5"/>${level>1?`<path d="M340 0H405V540H340ZM660 0H720V540H660Z" fill="${e.dark}" opacity=".7"/>`:''}</svg>`;
     const root=resolve(directory,String(index));await mkdir(root,{recursive:true});
     await sharp(Buffer.from(svg(0))).png().toFile(resolve(root,'ez.png'));
-    for(const [j,difficulty] of ['hd','in','at'].entries())await writeFile(resolve(root,`${difficulty}.svg`),svg(j+1));
     const path=resolve(root,'manifest.json');
-    await writeFile(path,JSON.stringify({songId,title:e.title,aliases:[e.alias],version:'synthetic-v1',chapter:index+1,chapterName:`合成章节 ${index+1}`,composer:'Phiguess Demo',illustrator:'Phiguess Demo',original:'ez.png',hints:e.hints,assets:{ez:'ez.png',hd:'hd.svg',in:'in.svg',at:'at.svg'}}));
+    await writeFile(path,JSON.stringify({songId,title:e.title,aliases:[e.alias],version:'synthetic-v1',chapter:index+1,chapterName:`合成章节 ${index+1}`,composer:'Phiguess Demo',illustrator:'Phiguess Demo',original:'ez.png',hints:e.hints,assets:{ez:'ez.png'}}));
     await importAssets(db,path);
   }
   await backfillShowcase(db);

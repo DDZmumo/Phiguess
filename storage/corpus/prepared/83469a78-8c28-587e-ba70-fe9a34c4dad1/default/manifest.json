@@ -1,0 +1,20 @@
+{
+  "songId": "83469a78-8c28-587e-ba70-fe9a34c4dad1",
+  "title": "華灯爱",
+  "aliases": [
+    "華灯爱",
+    "华灯爱"
+  ],
+  "version": "ez-clean-5303d3cea19800ce",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.0",
+  "removed": false,
+  "composer": "闫东炜",
+  "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/華灯爱.闫东炜.91e38de0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/華灯爱.闫东炜.5303d3ce.webp"
+  }
+}

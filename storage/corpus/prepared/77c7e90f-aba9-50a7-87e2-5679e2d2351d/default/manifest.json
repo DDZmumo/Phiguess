@@ -1,0 +1,22 @@
+{
+  "songId": "77c7e90f-aba9-50a7-87e2-5679e2d2351d",
+  "title": "Break Through The Barrier",
+  "aliases": [
+    "Break Through The Barrier",
+    "BTTB",
+    "2B2T",
+    "打破障碍"
+  ],
+  "version": "ez-clean-c234875a4e85cea4",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rising Sun Traxx 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.0",
+  "removed": false,
+  "composer": "lixound",
+  "illustrator": "Xquid",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rising Sun Traxx 精选集/BreakThroughTheBarrier.lixound.b2ee06ad.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rising Sun Traxx 精选集/EZ/BreakThroughTheBarrier.lixound.c234875a.webp"
+  }
+}

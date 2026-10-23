@@ -1,0 +1,30 @@
+{
+  "songId": "66c4f5a6-8bee-5ed4-93f1-60046a704c43",
+  "title": "sølips",
+  "aliases": [
+    "sølips",
+    "slips",
+    "滑动",
+    "嗦",
+    "一百块",
+    "孤心独映",
+    "孤塔",
+    "唯我论",
+    "∅",
+    "空集",
+    "solips",
+    "cogito"
+  ],
+  "version": "ez-clean-aee7d06bdf669cba",
+  "variant": "default",
+  "chapterName": "Chapter EX-maimai 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.16.0",
+  "removed": false,
+  "composer": "rintaro soma",
+  "illustrator": "SEGA (祈莲 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-maimai 精选集/slips.rintarosoma.e18cb37d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-maimai 精选集/EZ/slips.rintarosoma.aee7d06b.webp"
+  }
+}

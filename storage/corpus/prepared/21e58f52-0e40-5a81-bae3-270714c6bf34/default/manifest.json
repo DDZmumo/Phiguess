@@ -1,0 +1,28 @@
+{
+  "songId": "21e58f52-0e40-5a81-bae3-270714c6bf34",
+  "title": "KIZUNA Resolution",
+  "aliases": [
+    "KIZUNA Resolution",
+    "KIZUNA",
+    "KIZUNA决意",
+    "KIZUNA决心",
+    "KIZUNA决断",
+    "KIZUNA决议",
+    "羁绊决议",
+    "决议",
+    "kr",
+    "紫魔王"
+  ],
+  "version": "ez-clean-e7b2d7bc492e21d7",
+  "variant": "default",
+  "chapterName": "Chapter EX-EGTS 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.12.0",
+  "removed": false,
+  "composer": "TAG",
+  "illustrator": "Transendium",
+  "original": "../../../source/Raw/Non-main/Chapter EX-EGTS 精选集/KIZUNAResolution.TAG.3512ebb7.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-EGTS 精选集/EZ/KIZUNAResolution.TAG.e7b2d7bc.webp"
+  }
+}

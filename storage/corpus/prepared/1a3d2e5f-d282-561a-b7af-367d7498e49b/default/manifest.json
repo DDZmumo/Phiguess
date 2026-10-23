@@ -1,0 +1,26 @@
+{
+  "songId": "1a3d2e5f-d282-561a-b7af-367d7498e49b",
+  "title": "dB doll",
+  "aliases": [
+    "dB doll",
+    "dB",
+    "碉堡玩偶",
+    "大比玩偶",
+    "东北娃娃",
+    "db玩偶",
+    "分贝娃娃",
+    "大比兜"
+  ],
+  "version": "ez-clean-81df9a45e1733194",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "YUE.STEVEN/uen",
+  "illustrator": "何呵",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/dBdoll.YUESTEVENuen.caf15b63.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/dBdoll.YUESTEVENuen.81df9a45.webp"
+  }
+}

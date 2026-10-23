@@ -10,21 +10,20 @@
     "望影方舟"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：Se-U-Ra",
     "标准曲名包含 8 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/望影の方舟Six.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Se-U-Ra",
   "illustrator": "鲸弑",
+  "original": "../../../source/Raw/06 方舟蜃景/望影の方舟Six.webp",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/望影の方舟Six-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/06 方舟蜃景/EZ/望影の方舟Six-EZ.webp"
   }
 }

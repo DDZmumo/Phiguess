@@ -17,21 +17,20 @@
     "spas"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：霓虹灯牌",
     "曲师：姜米條☆颶風 ~ ♫元力上人♫",
     "标准曲名包含 9 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/05 霓虹灯牌/Spasmodic.webp",
   "chapter": 5,
   "chapterName": "霓虹灯牌",
+  "contentKind": "main",
+  "removed": false,
   "composer": "姜米條☆颶風 ~ ♫元力上人♫",
   "illustrator": "昔璃☆暴雨 ~ ♫危難聖帝♫",
+  "original": "../../../source/Raw/05 霓虹灯牌/Spasmodic.webp",
   "assets": {
-    "ez": "../../../source/05 霓虹灯牌/EZ/Spasmodic-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/05 霓虹灯牌/EZ/Spasmodic-EZ.webp"
   }
 }

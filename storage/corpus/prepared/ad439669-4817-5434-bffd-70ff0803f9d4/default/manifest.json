@@ -1,0 +1,23 @@
+{
+  "songId": "ad439669-4817-5434-bffd-70ff0803f9d4",
+  "title": "life flashes before weeb eyes",
+  "aliases": [
+    "life flashes before weeb eyes",
+    "小黄歌",
+    "小黄瓜",
+    "lfbwe",
+    "黄发小姐姐"
+  ],
+  "version": "ez-clean-a0b6c699719e5153",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rising Sun Traxx 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.0",
+  "removed": false,
+  "composer": "BilliumMoto",
+  "illustrator": "百九十八",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rising Sun Traxx 精选集/lifeflashesbeforeweebeyes.BilliumMoto.087ce8b8.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rising Sun Traxx 精选集/EZ/lifeflashesbeforeweebeyes.BilliumMoto.a0b6c699.webp"
+  }
+}

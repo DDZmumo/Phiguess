@@ -1,0 +1,23 @@
+{
+  "songId": "e5d934ba-0922-5ebf-a2aa-12c2a040c7c7",
+  "title": "Orthodox",
+  "aliases": [
+    "Orthodox",
+    "Orod",
+    "orth",
+    "ort",
+    "正统"
+  ],
+  "version": "ez-clean-4478aa1c6a6eb5b4",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.2",
+  "removed": false,
+  "composer": "tokiwa",
+  "illustrator": "cycats",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Orthodox.tokiwa.d151dcc8.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Orthodox.tokiwa.4478aa1c.webp"
+  }
+}

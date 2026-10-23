@@ -1,0 +1,23 @@
+{
+  "songId": "04d93f45-d06c-573c-a106-3248b2f4f434",
+  "title": "On And On!!",
+  "aliases": [
+    "On And On!!",
+    "OAO",
+    "自由飞奔",
+    "勇往直前",
+    "小鸟游六花"
+  ],
+  "version": "ez-clean-cc3c57deb65955e9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.3",
+  "removed": false,
+  "composer": "ETIA. feat. Jenga",
+  "illustrator": "わっふゑ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/OnAndOn.ETIAfeatJenga.6cb96615.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/OnAndOn.ETIAfeatJenga.cc3c57de.webp"
+  }
+}

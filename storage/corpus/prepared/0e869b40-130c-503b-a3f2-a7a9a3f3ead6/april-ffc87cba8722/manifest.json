@@ -1,0 +1,21 @@
+{
+  "songId": "0e869b40-130c-503b-a3f2-a7a9a3f3ead6",
+  "title": "The Chariot ~REVIIVAL~",
+  "aliases": [
+    "The Chariot ~REVIIVAL~",
+    "Chariot",
+    "战车",
+    "tcr",
+    "The Chariot ~REVIIVAL~(2024 April Fools' Day)"
+  ],
+  "version": "ez-clean-a76ed0d850128159",
+  "variant": "april-ffc87cba8722",
+  "chapterName": "特殊-SP与愚人节",
+  "contentKind": "april-fools",
+  "removed": true,
+  "composer": "Attoclef",
+  "original": "../../../source/Raw/Non-main/特殊-SP与愚人节/The Chariot ~REVIIVAL~(2024 April Fools' Day).0cfddb8e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/特殊-SP与愚人节/EZ/The Chariot ~REVIIVAL~(2024 April Fools' Day).a76ed0d8.webp"
+  }
+}

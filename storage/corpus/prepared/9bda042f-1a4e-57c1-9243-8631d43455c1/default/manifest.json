@@ -11,21 +11,20 @@
     "乱码"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：废土之下",
     "曲师：Tetrajectory feat. Ctymax",
     "标准曲名包含 15 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/02 废土之下/Cipher： ／2&／／＜｜0.webp",
   "chapter": 2,
   "chapterName": "废土之下",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Tetrajectory feat. Ctymax",
   "illustrator": "IvyTowers",
+  "original": "../../../source/Raw/02 废土之下/Cipher： ／2&／／＜｜0.webp",
   "assets": {
-    "ez": "../../../source/02 废土之下/EZ/Cipher： ／2&／／＜｜0-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/02 废土之下/EZ/Cipher： ／2&／／＜｜0-EZ.webp"
   }
 }

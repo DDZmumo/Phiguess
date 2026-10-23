@@ -1,0 +1,24 @@
+{
+  "songId": "78539226-674a-5265-be71-100e1ff7fa2c",
+  "title": "DataErr0r",
+  "aliases": [
+    "DataErr0r",
+    "2015冠军",
+    "心态王",
+    "DataError",
+    "数据错误",
+    "d0"
+  ],
+  "version": "ez-clean-de4a8493beaf54f6",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.0",
+  "removed": false,
+  "composer": "Cosmograph",
+  "illustrator": "Photonskyto",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/DataErr0r.Cosmograph.de4a8493.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/DataErr0r.Cosmograph.de4a8493.webp"
+  }
+}

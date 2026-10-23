@@ -1,6 +1,6 @@
 # 文档索引
 
-当前文档对应 **0.1.1 Preview**，版本更改见 [更新记录](CHANGELOG.md)。
+当前文档对应 **0.2.0 Preview**，版本更改见 [更新记录](CHANGELOG.md)。
 
 ## 使用与运行
 
@@ -41,3 +41,5 @@
 计分和综合牌直接复用 `packages/game-core`，生命及难度规则复用 `packages/contracts`。教程运行状态保存在组件内，离开文档时用 `sessionStorage` 暂存刷新恢复数据；刷新续接当前步骤，关闭后重新访问回到游戏主界面，不保留进度。完成标记使用独立的浏览器存储键。
 
 教程相关测试位于 [tutorial-model.test.ts](../tests/tutorial-model.test.ts)、[tutorial-score.test.ts](../tests/tutorial-score.test.ts)、[tutorial-runtime.test.ts](../tests/tutorial-runtime.test.ts) 和 [tutorial-refresh.test.ts](../tests/tutorial-refresh.test.ts)，运行命令见项目 README。
+
+- [实时生成题图与素材迁移](DYNAMIC-ARTWORK.md)

@@ -1,0 +1,20 @@
+{
+  "songId": "a0a36bba-17e9-52d4-8512-07d262504626",
+  "title": "volcanic",
+  "aliases": [
+    "volcanic",
+    "火山"
+  ],
+  "version": "ez-clean-4023b7e95048fb05",
+  "variant": "default",
+  "chapterName": "Chapter EX-WAVEAT 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.7",
+  "removed": false,
+  "composer": "DETRO a.k.a. ルゼ",
+  "illustrator": "あおお/A-ZERO, morph",
+  "original": "../../../source/Raw/Non-main/Chapter EX-WAVEAT 精选集/volcanic.DETROakaルゼ.1d6ec9bd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-WAVEAT 精选集/EZ/volcanic.DETROakaルゼ.4023b7e9.webp"
+  }
+}

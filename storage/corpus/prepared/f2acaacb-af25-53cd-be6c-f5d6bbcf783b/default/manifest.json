@@ -11,21 +11,20 @@
     "莉莉"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：冰封世界",
     "曲师：NceS",
     "标准曲名包含 22 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/01 冰封世界/Eradication Catastrophe.webp",
   "chapter": 1,
   "chapterName": "冰封世界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "NceS",
   "illustrator": "海产",
+  "original": "../../../source/Raw/01 冰封世界/Eradication Catastrophe.webp",
   "assets": {
-    "ez": "../../../source/01 冰封世界/EZ/Eradication Catastrophe-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/01 冰封世界/EZ/Eradication Catastrophe-EZ.webp"
   }
 }

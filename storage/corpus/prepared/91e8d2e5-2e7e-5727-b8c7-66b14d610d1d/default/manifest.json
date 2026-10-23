@@ -1,0 +1,25 @@
+{
+  "songId": "91e8d2e5-2e7e-5727-b8c7-66b14d610d1d",
+  "title": "心の記憶",
+  "aliases": [
+    "心の記憶",
+    "心的记忆",
+    "心跳的记忆",
+    "心忆",
+    "心之记忆",
+    "心记忆",
+    "心记"
+  ],
+  "version": "ez-clean-6aaacc61a7ddda60",
+  "variant": "default",
+  "chapterName": "Side Story 4 无相乡",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "A-39/沙包P",
+  "illustrator": "爱39的Konya",
+  "original": "../../../source/Raw/Non-main/Side Story 4 无相乡/心の記憶.A39沙包P.e547a575.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 4 无相乡/EZ/心の記憶.A39沙包P.6aaacc61.webp"
+  }
+}

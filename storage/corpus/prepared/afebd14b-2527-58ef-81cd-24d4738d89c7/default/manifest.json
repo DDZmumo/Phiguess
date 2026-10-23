@@ -1,0 +1,23 @@
+{
+  "songId": "afebd14b-2527-58ef-81cd-24d4738d89c7",
+  "title": "Shadow",
+  "aliases": [
+    "Shadow",
+    "影子",
+    "影",
+    "啥都",
+    "傻豆"
+  ],
+  "version": "ez-clean-f495b408b9199020",
+  "variant": "default",
+  "chapterName": "Chapter EX-姜米條 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.4",
+  "removed": false,
+  "composer": "姜米條&SumaiLight",
+  "illustrator": "御坂果子",
+  "original": "../../../source/Raw/Non-main/Chapter EX-姜米條 精选集/Shadow.SumaiLightvs姜米條.090a3129.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-姜米條 精选集/EZ/Shadow.SumaiLightvs姜米條.f495b408.webp"
+  }
+}

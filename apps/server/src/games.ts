@@ -13,6 +13,8 @@ import { Artwork, CatalogService } from './catalog';
 import { Db } from './db';
 import { Events } from './events';
 import {withReferencePlayer,type LeaderboardEntry} from './leaderboard-reference';
+import {GeneratedArtworks,type ServedArtwork} from './generated-artworks';
+import {nonMainHint} from './version-hints';
 const compressArtwork=promisify(gzip);
 
 interface Match {
@@ -23,6 +25,11 @@ interface Match {
   status: MatchView['status']; touchedAt: number; returnBlocked?:boolean; returnBlockedAt?:number;
   preloadedImage?: {round:number;key:Buffer;mime:string;body:Promise<Buffer>};
   currentImageKey?: Buffer;
+  preparing?:boolean;
+  awaitingReady?:boolean;
+  preparedRounds?:Set<number>;
+  filling?:boolean;
+  preparedNext?:{round:number;ready:boolean;failures:number;retryAt:number};
 }
 @Injectable()
 export class GamesService implements OnModuleInit, OnModuleDestroy {
@@ -31,7 +38,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
   private readonly queue = new SerialQueue();
   private timer?: NodeJS.Timeout;
   private ticking = false;
-  constructor(private readonly db: Db, private readonly catalog: CatalogService, private readonly events: Events) {}
+  constructor(private readonly db: Db, private readonly catalog: CatalogService, private readonly events: Events,private readonly generated:GeneratedArtworks=new GeneratedArtworks(db)) {}
   async onModuleInit() {
     // This application is deliberately single-instance. Never run two replicas.
     await this.db.query("UPDATE matches SET status='interrupted',finished_at=now() WHERE status='active'");
@@ -43,17 +50,62 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     this.timer.unref();
   }
   async onModuleDestroy() { if (this.timer) clearInterval(this.timer); await this.queue.run(async () => undefined); }
-  async createSolo(user: User, options: GameOptions) {
-    return this.queue.run(async () => {
+  async createSolo(user: User, options: GameOptions,waitForReady=false) {
+    const match=await this.queue.run(async () => {
       const active = [...this.matches.values()].find(m => ['playing','reveal'].includes(m.status) && m.users.some(u => u.id === user.id));
       if (active) throw new ConflictException({ message: 'Already in an active match', matchId: active.id });
-      return this.view(await this.create('practice',[user],options,await this.catalog.choose(options.difficulty,options.rounds)));
+      return this.create('practice',[user],options,await this.catalog.choose(options.difficulty,options.rounds,options.artworkScopes));
     });
+    match.awaitingReady=waitForReady;return this.startPrepared(match);
   }
   async createRoom(users: User[], options: GameOptions) {
-    return this.queue.run(async () => {
+    const match=await this.queue.run(async () => {
       if ([...this.matches.values()].some(m => ['playing','reveal'].includes(m.status) && users.some(u => m.users.some(p => p.id === u.id)))) throw new ConflictException('A player is already in an active match');
-      return this.view(await this.create('room', users, options, await this.catalog.choose(options.difficulty, options.rounds)));
+      return this.create('room', users, options, await this.catalog.choose(options.difficulty, options.rounds));
+    });
+    return this.startPrepared(match);
+  }
+  private async startPrepared(m:Match){
+    await this.generated.createSession(m.id);
+    if(m.preparing){
+      try{m.preparedRounds=new Set();for(let round=0;round<Math.min(10,m.artworks.length);round++){if(m.status!=='playing')throw new Error('Cancelled');await this.generated.prepare(m.id,round,m.artworks[round]!,0);m.preparedRounds.add(round);}}
+      catch{await this.queue.run(async()=>{m.preparing=false;m.status='finished';await this.db.query("UPDATE matches SET status='interrupted',finished_at=now() WHERE id=$1",[m.id]);});this.logger.warn('Initial artwork generation failed');throw new ServiceUnavailableException('Artwork preparation failed; please retry');}
+      await this.queue.run(async()=>{m.preparing=false;if(m.status!=='playing')throw new ConflictException('Match preparation was cancelled');m.startsAt=Date.now()+3000;m.deadline=m.startsAt+m.options.roundSeconds*1000;await this.db.query('UPDATE match_rounds SET starts_at=$2,deadline=$3 WHERE match_id=$1 AND round=0',[m.id,new Date(m.startsAt),new Date(m.deadline)]);});
+    }
+    this.warmNext(m);return this.view(m);
+  }
+  private warmNext(m:Match){
+    if(m.preparing||!['playing','reveal'].includes(m.status))return;
+    const round=m.round+1,art=m.artworks[round];
+    if(art&&(!this.generated.isGenerated(art)||m.preparedRounds?.has(round)))m.preparedNext={round,ready:true,failures:0,retryAt:0};
+    if(m.filling)return;
+    const old=m.preparedNext;
+    if(old&&!old.ready&&(old.failures>=3||Date.now()<old.retryAt))return;
+    m.filling=true;
+    void (async()=>{
+      // Current question counts toward the twenty-question reserve.
+      while(['playing','reveal'].includes(m.status)){
+        const end=Math.min(m.artworks.length,m.round+20);
+        let next=m.round+1;
+        while(next<end&&m.preparedRounds?.has(next))next++;
+        if(next>=end)break;
+        const state={round:next,ready:false,failures:old?.round===next?old.failures:0,retryAt:0};
+        if(next===m.round+1)m.preparedNext=state;
+        try{await this.generated.prepare(m.id,next,m.artworks[next]!,1);(m.preparedRounds??=new Set()).add(next);state.ready=true;if(next===m.round+1)m.preparedNext=state;}
+        catch{state.failures++;state.retryAt=Date.now()+1000;m.preparedNext=state;this.logger.warn('Artwork reserve preparation failed; retry scheduled');break;}
+      }
+    })().finally(()=>{m.filling=false;});
+  }
+  async ready(id:string,userId:string){
+    return this.queue.run(async()=>{
+      const m=this.require(id,userId);
+      if(m.preparing)throw new ConflictException('Artwork preparation is not complete');
+      if(m.awaitingReady&&m.status==='playing'){
+        m.awaitingReady=false;m.startsAt=Date.now()+3000;m.deadline=m.startsAt+m.options.roundSeconds*1000;
+        await this.db.query('UPDATE match_rounds SET starts_at=$2,deadline=$3 WHERE match_id=$1 AND round=0',[id,new Date(m.startsAt),new Date(m.deadline)]);
+        this.events.match(this.view(m));
+      }
+      return this.view(m);
     });
   }
   private async create(mode: MatchView['mode'], users: User[], options: GameOptions, artworks: Artwork[]) {
@@ -63,7 +115,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     const startsAt = Date.now() + 3000;
     const m: Match = { id: randomUUID(), mode, options, artworks, users, scores: new Map(users.map(u => [u.id,0])), answered: new Set(), round: 0,
       health:new Map(users.map(u=>[u.id,capacity])),wrongAttempts:new Map(),
-      startsAt, deadline: startsAt + options.roundSeconds * 1000, nextAt: 0, status: 'playing', touchedAt: Date.now() };
+      startsAt, deadline: startsAt + options.roundSeconds * 1000, nextAt: 0, status: 'playing', touchedAt: Date.now(),preparing:this.generated.isGenerated(artworks[0]!) };
     await this.db.transaction(async sql => {
       await sql.query("INSERT INTO matches(id,mode,difficulty,status,rules_version,round_count,round_seconds,health_enabled,health_capacity) VALUES($1,$2,$3,'active',$4,$5,$6,$7,$8)",[m.id,mode,options.difficulty,RULES_VERSION,options.rounds,options.roundSeconds,options.healthEnabled,capacity]);
       for (const user of users) {
@@ -107,26 +159,31 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     if(!row?.key)throw new ForbiddenException('Original artwork is not available');
     return row.key as string;
   }
-  image(id: string, round: number, userId: string) {
-    return this.queue.run(async () => {
+  async image(id: string, round: number, userId: string) {
+    const selected=await this.queue.run(async () => {
       await this.restoreFinished(id,userId);
       const m = this.require(id,userId); await this.advance(m,Date.now());
-      if (m.round !== round || Date.now() < m.startsAt) throw new ForbiddenException('Image is not available for this round');
+      if (m.preparing||m.round !== round || (!m.awaitingReady&&Date.now() < m.startsAt)) throw new ForbiddenException('Image is not available for this round');
       const hint=(await this.db.query('SELECT artwork_id FROM revealed_hints WHERE match_id=$1 AND round=$2 AND user_id=$3 AND hint_index=1',[id,round,userId])).rows[0];
-      if(hint?.artwork_id)return (await this.db.query<Artwork>('SELECT * FROM artworks WHERE id=$1',[hint.artwork_id])).rows[0]!;
-      return m.artworks[round]!;
+      const base=m.artworks[round]!,art=hint?.artwork_id?(await this.db.query<Artwork>('SELECT * FROM artworks WHERE id=$1',[hint.artwork_id])).rows[0]!:base;
+      return {base,art};
     });
+    const image=await this.generated.render(id,round,this.generated.isGenerated(selected.base)?selected.base:selected.art,selected.art.difficulty);
+    return {...selected.art,storage_key:image.key,mime:image.mime,body:image.body};
   }
   async preloadImage(id:string,round:number,userId:string) {
     const preload=await this.queue.run(async()=>{
       const m=this.require(id,userId);await this.advance(m,Date.now());
-      if(!['playing','reveal'].includes(m.status)||Date.now()<m.startsAt||round!==m.round+1||round>=m.artworks.length)
+      if(m.preparing||m.awaitingReady||!['playing','reveal'].includes(m.status)||Date.now()<m.startsAt||round!==m.round+1||round>=m.artworks.length)
         throw new ForbiddenException('Only the next artwork can be preloaded');
       if(!m.preloadedImage){
         const art=m.artworks[round]!;
-        if(!/^[a-f0-9-]{36}\.(svg|webp)$/.test(art.storage_key))throw new ServiceUnavailableException('Invalid asset key');
         const key=randomBytes(32),nonce=randomBytes(12);
-        const body=readFile(join(configuration().ASSET_DIR,art.storage_key)).then(bytes=>compressArtwork(bytes)).then(bytes=>{
+        const body=this.generated.render(id,round,art,art.difficulty,1).then(image=>{
+          if(image.body)return image.body;
+          if(!/^[a-f0-9-]{36}\.(svg|webp)$/.test(image.key))throw new ServiceUnavailableException('Invalid asset key');
+          return readFile(join(configuration().ASSET_DIR,image.key));
+        }).then(bytes=>compressArtwork(bytes)).then(bytes=>{
           const cipher=createCipheriv('aes-256-gcm',key,nonce);
           return Buffer.concat([nonce,cipher.update(bytes),cipher.final(),cipher.getAuthTag()]);
         });
@@ -150,7 +207,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
         return { correct: old.correct, score: old.score, elapsedMs: old.elapsed_ms };
       }
       await this.advance(m,receivedAt);
-      if (m.status !== 'playing' || input.round !== m.round || receivedAt < m.startsAt || receivedAt >= m.deadline) throw new ConflictException('Round is not accepting answers');
+      if (m.preparing||m.awaitingReady||m.status !== 'playing' || input.round !== m.round || receivedAt < m.startsAt || receivedAt >= m.deadline) throw new ConflictException('Round is not accepting answers');
       if (m.answered.has(userId)) throw new ConflictException('This round is already solved');
       if(m.options.healthCapacity&&m.health.get(userId)===0)throw new ConflictException('No health remaining');
       if (input.songId && !(await this.db.query('SELECT id FROM songs WHERE id=$1 AND enabled', [input.songId])).rows[0]) throw new BadRequestException('Unknown song');
@@ -198,7 +255,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       const m=this.require(id,userId);
       if(m.mode!=='practice')throw new ForbiddenException('Only solo rounds can be skipped');
       await this.advance(m,receivedAt);
-      if(round!==m.round||receivedAt<m.startsAt||m.answered.has(userId))throw new ConflictException('Round cannot be skipped');
+      if(m.preparing||m.awaitingReady||round!==m.round||receivedAt<m.startsAt||m.answered.has(userId))throw new ConflictException('Round cannot be skipped');
       // Retrying a settled round must never charge health again.
       if(m.status==='reveal'||m.status==='finished')return this.view(m);
       await this.advance(m,receivedAt,true);
@@ -215,7 +272,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
         return this.view(m);
       }
       await this.advance(m,receivedAt);
-      if(!m.options.healthCapacity||m.health.get(userId)===0||!['playing','reveal'].includes(m.status)||input.round!==m.round)throw new ConflictException('Noise damage is not available');
+      if(m.preparing||m.awaitingReady||!m.options.healthCapacity||m.health.get(userId)===0||!['playing','reveal'].includes(m.status)||input.round!==m.round)throw new ConflictException('Noise damage is not available');
       const duration=m.deadline-m.startsAt;
       const currentRed=Boolean(m.returnBlocked&&receivedAt>=(m.returnBlockedAt??0)+800)||!m.answered.has(userId)&&receivedAt>=m.startsAt+Math.max(0,duration-25000)+Math.min(duration,25000)/4;
       const pastRed=currentRed?true:(await this.db.query(`SELECT 1 FROM match_rounds r WHERE r.match_id=$1 AND r.round<$2 AND NOT EXISTS
@@ -245,18 +302,22 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
   hints(id: string,userId: string,round: number,index?:number) {
     return this.queue.run(async()=>{
       const m=this.require(id,userId);await this.advance(m,Date.now());
-      if (round!==m.round || Date.now()<m.startsAt || m.status==='finished') throw new ForbiddenException('Hints are not available for this round');
+      if (m.preparing||m.awaitingReady||round!==m.round || Date.now()<m.startsAt || m.status==='finished') throw new ForbiddenException('Hints are not available for this round');
       if(index!==undefined) {
         if(m.status!=='playing')throw new ConflictException('Round is not accepting hints');
         if(m.answered.has(userId)||(m.options.healthCapacity&&m.health.get(userId)===0))throw new ConflictException('Player is not accepting hints');
         const art=m.artworks[round]!;
         let content:string,kind:string,difficulty:string|null=null,artworkId:string|null=null;
         if(index===0){
-          if(!art.chapter)throw new NotFoundException('Chapter metadata unavailable');
-          const known=(await this.db.query('SELECT max(chapter)::int AS chapter FROM songs')).rows[0]?.chapter;
-          const lastChapter=Math.max(art.chapter,known??art.chapter),count=Math.min(lastChapter,randomInt(3,5));
-          const first=randomInt(Math.max(1,art.chapter-count+1),Math.min(art.chapter,lastChapter-count+1)+1);
-          content=`第 ${first} 章-第 ${first+count-1} 章`;kind='range';
+          if(art.content_kind&&art.content_kind!=='main'){
+            content=nonMainHint(art.content_kind,art.introduced_version,art.removed);kind='range';
+          }else{
+            if(!art.chapter)throw new NotFoundException('Chapter metadata unavailable');
+            const known=(await this.db.query('SELECT max(chapter)::int AS chapter FROM songs')).rows[0]?.chapter;
+            const lastChapter=Math.max(art.chapter,known??art.chapter),count=Math.min(lastChapter,randomInt(3,5));
+            const first=randomInt(Math.max(1,art.chapter-count+1),Math.min(art.chapter,lastChapter-count+1)+1);
+            content=`第 ${first} 章-第 ${first+count-1} 章`;kind='range';
+          }
         }else if(index===1){
           const levels=['ez','hd','in','at'],position=levels.indexOf(m.options.difficulty);
           if(position===0)throw new BadRequestException('EZ has only two hints');
@@ -267,12 +328,15 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
         }else{
           if(!art.composer)throw new NotFoundException('Composer metadata unavailable');
           if(m.options.difficulty==='ez'||m.options.difficulty==='hd'){
-            if(!art.chapter)throw new NotFoundException('Chapter metadata unavailable');
-            content=`第 ${art.chapter} 章${art.chapter_name?` · ${art.chapter_name}`:''}\n曲师：${art.composer}`;
+            if(art.content_kind&&art.content_kind!=='main')content=`曲师：${art.composer}`;
+            else{
+              if(!art.chapter)throw new NotFoundException('Chapter metadata unavailable');
+              content=`第 ${art.chapter} 章${art.chapter_name?` · ${art.chapter_name}`:''}\n曲师：${art.composer}`;
+            }
           }else{
             const illustrator=art.illustrator??(await this.db.query('SELECT illustrator FROM artworks WHERE id=$1',[art.id])).rows[0]?.illustrator;
-            if(!illustrator)throw new NotFoundException('Illustrator metadata unavailable');
-            art.illustrator=illustrator;content=`曲师：${art.composer}\n画师：${illustrator}`;
+            if(!illustrator&&(!art.content_kind||art.content_kind==='main'))throw new NotFoundException('Illustrator metadata unavailable');
+            art.illustrator=illustrator;content=`曲师：${art.composer}\n画师：${illustrator||'未收录'}`;
           }
           kind='identity';
         }
@@ -282,6 +346,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     });
   }
   private async advance(m: Match, now: number, forceTimeout=false) {
+    if(m.preparing||m.awaitingReady)return;
     if (m.status === 'playing' && (forceTimeout || now >= m.deadline || m.users.every(u=>m.answered.has(u.id)||(m.options.healthCapacity&&m.health.get(u.id)===0)))) {
       const health=new Map(m.health);
       if((forceTimeout||now>=m.deadline)&&m.options.healthCapacity)for(const u of m.users)if(!m.answered.has(u.id))health.set(u.id,Math.max(0,health.get(u.id)!-timeoutHealthCost(m.wrongAttempts.get(u.id)??0)));
@@ -299,10 +364,19 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
         await this.db.query("UPDATE matches SET status='finished',finished_at=now() WHERE id=$1 AND status='active'", [m.id]);
         m.status = 'finished'; m.touchedAt = now;
       } else {
+        const following=m.artworks[m.round+1]!;
+        if(this.generated.isGenerated(following)){
+          this.warmNext(m);
+          if(!m.preparedNext?.ready){
+            if((m.preparedNext?.failures??0)>=3){await this.db.query("UPDATE matches SET status='interrupted',finished_at=now() WHERE id=$1 AND status='active'",[m.id]);m.status='finished';m.touchedAt=now;this.events.match(this.view(m));}
+            return;
+          }
+        }
         const next = m.round + 1, startsAt = now, deadline = startsAt + m.options.roundSeconds*1000;
         await this.db.query('INSERT INTO match_rounds(match_id,round,artwork_id,starts_at,deadline) VALUES($1,$2,$3,$4,$5)', [m.id,next,m.artworks[next]!.id,new Date(startsAt),new Date(deadline)]);
         Object.assign(m,{ round: next, startsAt, deadline, nextAt: 0, status: 'playing', answered: new Set(),wrongAttempts:new Map(), touchedAt: now,
-          currentImageKey:m.preloadedImage?.round===next?m.preloadedImage.key:undefined,preloadedImage:undefined });
+          currentImageKey:m.preloadedImage?.round===next?m.preloadedImage.key:undefined,preloadedImage:undefined,preparedNext:undefined });
+        this.warmNext(m);
       }
       this.events.match(this.view(m));
     }
@@ -310,7 +384,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
   private view(m: Match): MatchView {
     const artwork = m.artworks[m.round]!;
     return { id: m.id, mode: m.mode, returnBlocked:Boolean(m.returnBlocked),returnBlockedAt:m.returnBlockedAt, healthEnabled:Boolean(m.options.healthCapacity),healthCapacity:m.options.healthCapacity, status: m.status, difficulty: m.options.difficulty, round: m.round, totalRounds: m.options.rounds===INFINITY_ROUNDS?m.artworks.length:m.options.rounds,endless:m.options.rounds===INFINITY_ROUNDS,
-      serverNow: Date.now(), startsAt: m.startsAt, deadline: m.deadline, nextAt: m.nextAt,
+      awaitingReady:Boolean(m.awaitingReady),serverNow: Date.now(), startsAt: m.startsAt, deadline: m.deadline, nextAt: m.nextAt,
       imageUrl: `/api/matches/${m.id}/rounds/${m.round}/image`,
       ...(m.currentImageKey&&Date.now()>=m.startsAt?{imageKey:m.currentImageKey.toString('base64')}:{}),
       answer: ['reveal','finished'].includes(m.status) ? { id: artwork.song_id,title: artwork.title } : null,
@@ -320,6 +394,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     await this.queue.run(async () => {
       for (const [id,m] of this.matches) {
         await this.advance(m,Date.now());
+        this.warmNext(m);
         if (m.status === 'finished' && Date.now()-m.touchedAt > 3600_000) this.matches.delete(id);
       }
     });
@@ -344,15 +419,17 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     return { ...rows[0],players,published:Boolean(rows[0].published),endless:rows[0].round_count===INFINITY_ROUNDS,rounds:rounds.map(r=>({...r,imageUrl:settled?`/api/matches/${id}/rounds/${r.round}/result-image`:null})) };
   }
   async resultImage(id:string,round:number,userId:string){
-    const row=(await this.db.query(`SELECT
+    const row=(await this.db.query(`SELECT a.*,
       CASE WHEN a.original_preview_key IS NOT NULL AND EXISTS(SELECT 1 FROM guesses g WHERE g.match_id=r.match_id AND g.round=r.round AND g.user_id=$3 AND g.correct)
         THEN a.original_preview_key ELSE a.storage_key END AS key,
       CASE WHEN a.original_preview_key IS NOT NULL AND EXISTS(SELECT 1 FROM guesses g WHERE g.match_id=r.match_id AND g.round=r.round AND g.user_id=$3 AND g.correct)
-        THEN 'image/webp' ELSE a.mime END AS mime
+        THEN 'image/webp' ELSE a.mime END AS served_mime,
+      EXISTS(SELECT 1 FROM guesses g WHERE g.match_id=r.match_id AND g.round=r.round AND g.user_id=$3 AND g.correct) AND a.original_preview_key IS NOT NULL AS original
       FROM match_rounds r JOIN matches m ON m.id=r.match_id JOIN match_players p ON p.match_id=m.id AND p.user_id=$3
       JOIN artworks a ON a.id=r.artwork_id WHERE m.id=$1 AND r.round=$2 AND m.status IN ('finished','interrupted')`,[id,round,userId])).rows[0];
     if(!row)throw new NotFoundException('Result artwork is not available');
-    return row as {key:string;mime:string};
+    if(row.original)return {key:row.key as string,mime:row.served_mime as string} as ServedArtwork;
+    return this.generated.render(id,round,row as Artwork);
   }
   async setResultPublication(id:string,userId:string,published:boolean){
     return this.db.transaction(async sql=>{

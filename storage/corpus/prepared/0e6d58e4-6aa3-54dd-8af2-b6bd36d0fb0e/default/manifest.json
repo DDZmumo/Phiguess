@@ -1,0 +1,28 @@
+{
+  "songId": "0e6d58e4-6aa3-54dd-8af2-b6bd36d0fb0e",
+  "title": "Silence is Golden, Speech is Golden",
+  "aliases": [
+    "Silence is Golden, Speech is Golden",
+    "Golden",
+    "沉默是金",
+    "金金",
+    "沉默是金，雄辩是金",
+    "演讲是金",
+    "沉默",
+    "扑克牌",
+    "sgsg",
+    "sissis"
+  ],
+  "version": "ez-clean-addf8eb6bab806b4",
+  "variant": "default",
+  "chapterName": "Chapter EX-EGTS 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.2",
+  "removed": false,
+  "composer": "NIWASHI",
+  "illustrator": "Jerry & OsuMe65",
+  "original": "../../../source/Raw/Non-main/Chapter EX-EGTS 精选集/SilenceisGoldenSpeechisGolden.NIWASHI.5eaca32d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-EGTS 精选集/EZ/SilenceisGoldenSpeechisGolden.NIWASHI.addf8eb6.webp"
+  }
+}

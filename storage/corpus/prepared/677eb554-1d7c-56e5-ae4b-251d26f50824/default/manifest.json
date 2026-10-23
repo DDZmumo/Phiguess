@@ -1,0 +1,26 @@
+{
+  "songId": "677eb554-1d7c-56e5-ae4b-251d26f50824",
+  "title": "BRAIN HACKER",
+  "aliases": [
+    "BRAIN HACKER",
+    "大脑黑客",
+    "牢大",
+    "BH",
+    "脑黑客",
+    "低调的黑客",
+    "脑黑金",
+    "黑人"
+  ],
+  "version": "ez-clean-f2a4de97a326b129",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.2",
+  "removed": false,
+  "composer": "SOMON",
+  "illustrator": "SOMON",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BRAINHACKER.SOMON.0f821f15.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BRAINHACKER.SOMON.f2a4de97.webp"
+  }
+}

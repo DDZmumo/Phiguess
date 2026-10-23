@@ -18,13 +18,16 @@ export const RoundIndex=z.number().int().min(0).max(2147483647);
 export const UUID = z.string().uuid();
 export const GuestInput = z.object({ name: z.string().trim().min(1).max(24) }).strict();
 export const LoginInput=z.object({name:z.string().trim().transform(v=>v.normalize('NFKC')).pipe(z.string().min(1).max(24)),password:z.string().min(8).max(128)}).strict();
+export const ArtworkScope=z.enum(['main','non-main','removed','april-fools']);
+export type ArtworkScope=z.infer<typeof ArtworkScope>;
 export const GameOptions = z.object({
+  artworkScopes:z.array(ArtworkScope).min(1).max(4).refine(scopes=>scopes.includes('main')||scopes.includes('non-main'),{message:'主线和非主线至少选择一个'}).optional(),
   difficulty: Difficulty.default('ez'),
   rounds: z.number().int().min(0).max(20).default(5),
   roundSeconds: z.number().int().min(15).max(90).default(30),
   healthEnabled: z.boolean().optional(),
   healthCapacity: z.union([z.literal(0),z.literal(20),z.literal(50)]).optional(),
-}).strict().refine(v=>v.rounds!==INFINITY_ROUNDS||v.difficulty==='in'||v.difficulty==='at',{path:['rounds'],message:'Infinity is only available in IN and AT'}).transform(v=>v.difficulty==='in'&&v.rounds===INFINITY_ROUNDS?{...v,healthEnabled:true,healthCapacity:(v.healthCapacity===50?50:20) as 20|50}:v.difficulty==='at'?{...v,rounds:INFINITY_ROUNDS,roundSeconds:30,healthEnabled:true,healthCapacity:(v.healthCapacity===50?50:20) as 20|50}:v);
+}).strict().refine(v=>v.rounds!==INFINITY_ROUNDS||v.difficulty==='in'||v.difficulty==='at',{path:['rounds'],message:'Infinity is only available in IN and AT'}).transform(v=>v.difficulty==='in'&&v.rounds===INFINITY_ROUNDS?{...v,healthEnabled:true,healthCapacity:(v.healthCapacity===50?50:20) as 20|50}:v.difficulty==='at'?{...v,artworkScopes:undefined,rounds:INFINITY_ROUNDS,roundSeconds:30,healthEnabled:true,healthCapacity:(v.healthCapacity===50?50:20) as 20|50}:v);
 export type GameOptions = z.infer<typeof GameOptions>;
 export const InfinityLeaderboardOptions=z.object({
   difficulty:z.enum(['in','at']).default('at'),
@@ -54,6 +57,7 @@ export const RULES_VERSION = 'v3-deduction';
 
 export interface PlayerView { id: string; name: string; score: number; answered: boolean; health?:number }
 export interface MatchView {
+  awaitingReady?:boolean;
   returnBlocked?:boolean;
   returnBlockedAt?:number;
   id: string; mode: 'practice' | 'room';

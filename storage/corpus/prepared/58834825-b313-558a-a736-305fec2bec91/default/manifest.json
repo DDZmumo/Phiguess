@@ -15,21 +15,20 @@
     "La Campanella"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：SunsetRay",
     "标准曲名包含 28 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Chronos Collapse - La Campanella.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
+  "contentKind": "main",
+  "removed": false,
   "composer": "SunsetRay",
   "illustrator": "老张",
+  "original": "../../../source/Raw/07 时钟链接/Chronos Collapse - La Campanella.webp",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Chronos Collapse - La Campanella-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/07 时钟链接/EZ/Chronos Collapse - La Campanella-EZ.webp"
   }
 }

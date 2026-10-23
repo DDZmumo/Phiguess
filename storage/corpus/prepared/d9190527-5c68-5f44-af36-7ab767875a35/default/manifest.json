@@ -1,0 +1,22 @@
+{
+  "songId": "d9190527-5c68-5f44-af36-7ab767875a35",
+  "title": "Horizon Blue",
+  "aliases": [
+    "Horizon Blue",
+    "蓝界",
+    "海蓝之界",
+    "地平线蓝"
+  ],
+  "version": "ez-clean-f806dd3079b47a8e",
+  "variant": "default",
+  "chapterName": "Chapter EX-Lanota 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.3.0",
+  "removed": false,
+  "composer": "Nothing But Requiem feat. Aikapin & Chiyoko",
+  "illustrator": "Lanota © Noxy Games Inc. ",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Lanota 精选集/HorizonBlue.NothingButRequiemfeatAikapinChiyoko.f806dd30.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Lanota 精选集/EZ/HorizonBlue.NothingButRequiemfeatAikapinChiyoko.f806dd30.webp"
+  }
+}

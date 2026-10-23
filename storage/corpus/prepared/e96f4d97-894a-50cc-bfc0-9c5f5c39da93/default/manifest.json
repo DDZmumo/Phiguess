@@ -1,0 +1,23 @@
+{
+  "songId": "e96f4d97-894a-50cc-bfc0-9c5f5c39da93",
+  "title": "Miracle Forest (VIP Mix)",
+  "aliases": [
+    "Miracle Forest (VIP Mix)",
+    "油条森林",
+    "奇迹森林",
+    "Miracle Forest",
+    "MF"
+  ],
+  "version": "ez-clean-c15e792067b5e5be",
+  "variant": "default",
+  "chapterName": "Side Story 1 忘忧宫",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.0",
+  "removed": false,
+  "composer": "Rinth_live",
+  "illustrator": "L-sp4",
+  "original": "../../../source/Raw/Non-main/Side Story 1 忘忧宫/MiracleForestVIPMix.Rinthlive.9c07d67d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 1 忘忧宫/EZ/MiracleForestVIPMix.Rinthlive.c15e7920.webp"
+  }
+}

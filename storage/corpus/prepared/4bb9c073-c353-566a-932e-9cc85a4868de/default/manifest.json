@@ -1,0 +1,21 @@
+{
+  "songId": "4bb9c073-c353-566a-932e-9cc85a4868de",
+  "title": "游园地",
+  "aliases": [
+    "游园地",
+    "椒盐菠萝",
+    "遊園地"
+  ],
+  "version": "ez-clean-9dc7537fd6943955",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.10",
+  "removed": false,
+  "composer": "椒盐菠萝",
+  "illustrator": "CEM",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/游园地.椒盐菠萝.40d1a207.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/游园地.椒盐菠萝.9dc7537f.webp"
+  }
+}

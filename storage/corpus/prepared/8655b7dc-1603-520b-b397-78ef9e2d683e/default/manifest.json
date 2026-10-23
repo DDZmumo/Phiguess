@@ -1,0 +1,26 @@
+{
+  "songId": "8655b7dc-1603-520b-b397-78ef9e2d683e",
+  "title": "双重间谍 (Double Agent)",
+  "aliases": [
+    "双重间谍 (Double Agent)",
+    "scjd",
+    "双面间谍",
+    "双重间谍",
+    "间谍",
+    "穿山甲",
+    "Double Agent",
+    "DA"
+  ],
+  "version": "ez-clean-bcb461730138df41",
+  "variant": "default",
+  "chapterName": "Chapter EX-节奏大师 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.0",
+  "removed": false,
+  "composer": "Wav.AV",
+  "illustrator": "RM Design Team (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-节奏大师 精选集/双重间谍DoubleAgent.WAVAV.5801d069.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-节奏大师 精选集/EZ/双重间谍DoubleAgent.WAVAV.bcb46173.webp"
+  }
+}

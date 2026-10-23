@@ -1,0 +1,23 @@
+{
+  "songId": "f09e690b-080c-5069-8a41-1b7c5819b55f",
+  "title": "Khalid",
+  "aliases": [
+    "Khalid",
+    "kh",
+    "哈立德",
+    "洋葱圈",
+    "律动星首都"
+  ],
+  "version": "ez-clean-62bfa94592ed2aea",
+  "variant": "default",
+  "chapterName": "Side Story 3 盗乐行",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.0",
+  "removed": false,
+  "composer": "Dolphin",
+  "illustrator": "HAZUQU",
+  "original": "../../../source/Raw/Non-main/Side Story 3 盗乐行/Khalid.Dolphin.42f3dad9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 3 盗乐行/EZ/Khalid.Dolphin.62bfa945.webp"
+  }
+}

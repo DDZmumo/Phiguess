@@ -1,0 +1,22 @@
+{
+  "songId": "6ae741d2-94e5-50ef-80df-685356438168",
+  "title": "Journey with You",
+  "aliases": [
+    "Journey with You",
+    "与你同行",
+    "和你旅行",
+    "jwy"
+  ],
+  "version": "ez-clean-30970a9258c4fd8e",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.3.0",
+  "removed": false,
+  "composer": "Iris",
+  "illustrator": "BTKCyber (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/JourneywithYou.Iris.30970a92.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/JourneywithYou.Iris.30970a92.webp"
+  }
+}

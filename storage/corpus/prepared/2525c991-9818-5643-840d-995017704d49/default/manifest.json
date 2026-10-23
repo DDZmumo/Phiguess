@@ -1,0 +1,25 @@
+{
+  "songId": "2525c991-9818-5643-840d-995017704d49",
+  "title": "インマイマインド",
+  "aliases": [
+    "インマイマインド",
+    "青蛙",
+    "in my mind",
+    "在我心中",
+    "蜗牛",
+    "In Mai Maindo",
+    "绿衣男孩"
+  ],
+  "version": "ez-clean-4c95c6f6c649e1cb",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.11.0",
+  "removed": false,
+  "composer": "レシオP",
+  "illustrator": "すずか爆弾",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/インマイマインド.レシオP.11ee10ee.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/インマイマインド.レシオP.4c95c6f6.webp"
+  }
+}

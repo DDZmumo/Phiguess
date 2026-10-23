@@ -1,0 +1,23 @@
+{
+  "songId": "ccd0d3e5-ad11-51db-b251-874c43ad4238",
+  "title": "Komplexe",
+  "aliases": [
+    "Komplexe",
+    "复杂",
+    "complex",
+    "黑姬",
+    "雄之助"
+  ],
+  "version": "ez-clean-9628454dbb32187c",
+  "variant": "default",
+  "chapterName": "Chapter EX-maimai 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.16.0",
+  "removed": false,
+  "composer": "雄之助 feat. Sennzai",
+  "illustrator": "SEGA (祈莲 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-maimai 精选集/Komplexe.雄之助featSennzai.e6d1f10e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-maimai 精选集/EZ/Komplexe.雄之助featSennzai.9628454d.webp"
+  }
+}

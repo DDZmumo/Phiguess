@@ -1,0 +1,31 @@
+{
+  "songId": "d68244b7-44d2-5226-bdfa-fe313f23d3a9",
+  "title": "白と黒のバケモノ",
+  "aliases": [
+    "白と黒のバケモノ",
+    "白黑",
+    "黑白",
+    "拉面馆分店",
+    "白与黑的怪物",
+    "白与黑",
+    "黑与白的怪物",
+    "黑白无常",
+    "东雪莲",
+    "東雪蓮",
+    "Bakemono",
+    "小拉面",
+    "二代拉面馆"
+  ],
+  "version": "ez-clean-b41bc2302154328e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.3",
+  "removed": false,
+  "composer": "テヅカ",
+  "illustrator": "久世",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/白と黒のバケモノ.テヅカ.b41bc230.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/白と黒のバケモノ.テヅカ.b41bc230.webp"
+  }
+}

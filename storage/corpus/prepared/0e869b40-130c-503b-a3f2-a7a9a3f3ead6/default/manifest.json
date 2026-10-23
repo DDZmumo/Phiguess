@@ -5,24 +5,24 @@
     "The Chariot ~REVIIVAL~",
     "Chariot",
     "战车",
-    "tcr"
+    "tcr",
+    "The Chariot ~REVIIVAL~(2024 April Fools' Day)"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：Attoclef",
     "标准曲名包含 20 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/The Chariot ~REVIIVAL~.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Attoclef",
   "illustrator": "翠冷兮",
+  "original": "../../../source/Raw/08 凌日潮汐/The Chariot ~REVIIVAL~.webp",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/The Chariot ~REVIIVAL~-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/08 凌日潮汐/EZ/The Chariot ~REVIIVAL~-EZ.webp"
   }
 }

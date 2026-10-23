@@ -10,7 +10,7 @@ export async function uploadAvatar(file:File):Promise<{avatarUrl:string}> {
 }
 export async function api<T>(path:string,method='GET',body?:unknown,signal?:AbortSignal):Promise<T> {
   const token=useStore.getState().session?.token;
-  const response=await fetch(`/api/${path}`,{method,signal,headers:{...(token?{Authorization:`Bearer ${token}`} : {}),...(body!==undefined?{'Content-Type':'application/json'}:{})},body:body===undefined?undefined:JSON.stringify(body)});
+  const response=await fetch(`/api/${path}`,{method,signal,headers:{...(path==='matches/practice'?{'X-Artwork-Ready':'1'}:{}),...(token?{Authorization:`Bearer ${token}`} : {}),...(body!==undefined?{'Content-Type':'application/json'}:{})},body:body===undefined?undefined:JSON.stringify(body)});
   const data=await response.json();
   if(!response.ok) {if(response.status===401&&!path.startsWith('auth/')&&useStore.getState().session?.token===token)useStore.getState().setSession(null);throw new ApiError(response.status,data);}
   return data;

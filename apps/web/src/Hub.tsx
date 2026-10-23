@@ -1,6 +1,6 @@
 import {playSound} from './sound';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowRight, Check, LogOut } from 'lucide-react';
+import { ArrowRight, Check, LogOut, Settings } from 'lucide-react';
 import { type RoomView } from '../../../packages/contracts/src';
 import { api, ApiError, errorMessage, uploadAvatar } from './api';
 import { go, useReducedMotion } from './hooks';
@@ -20,6 +20,11 @@ export function Hub({route='/account'}:{route?:string}) {
   const setMatch=useStore(s=>s.setMatch),setRoom=useStore(s=>s.setRoom),matchId=useStore(s=>s.matchId),roomCode=useStore(s=>s.roomCode);
   const tab:HubTab=route==='/account/leaderboard'?'board':route==='/account/settings'?'settings':'game';
   const [mode,setMode]=useState<'practice'|'room'>('practice');
+  const [soloExpanded,setSoloExpanded]=useState(false),[scopeExpanded,setScopeExpanded]=useState(false);
+  const scopeChoices=[['main','主线'],['non-main','非主线'],['removed','已删除'],['april-fools','愚人节']] as const;
+  const savedScopes=preferences.artworkScopes??scopeChoices.map(([key])=>key);
+  const scopes=savedScopes.some(key=>key==='main'||key==='non-main')?savedScopes:[...savedScopes,'main' as const];
+  useEffect(()=>{if(preferences.artworkScopes&&!preferences.artworkScopes.some(key=>key==='main'||key==='non-main'))useStore.getState().updatePreferences({artworkScopes:[...preferences.artworkScopes,'main']});},[preferences.artworkScopes]);
   const [boardVisited,setBoardVisited]=useState(tab==='board'),[tabPhase,setTabPhase]=useState<'idle'|'sliding'>('idle');
   const [footerExpanded,setFooterExpanded]=useState(false),[footerActivity,setFooterActivity]=useState(0);
   const [returningTitle,setReturningTitle]=useState(false);
@@ -90,7 +95,7 @@ export function Hub({route='/account'}:{route?:string}) {
     if(launchPhase!=='armed')return;
     const dismiss=(event:PointerEvent)=>{
       if(launchLocked.current)return;
-      if(event.target instanceof Node&&!root.current?.querySelector('.hub-mode:first-child')?.contains(event.target))setLaunchPhase('idle');
+      if(event.target instanceof Node&&!root.current?.querySelector('.hub-artwork-mode')?.contains(event.target))setLaunchPhase('idle');
     };
     document.addEventListener('pointerdown',dismiss,true);
     return()=>document.removeEventListener('pointerdown',dismiss,true);
@@ -179,7 +184,16 @@ export function Hub({route='/account'}:{route?:string}) {
         </section>
         <div className="hub-play-area hub-play-centered">
           <section className="hub-mode-column"><h2>选择模式<span>MODE</span></h2><div className="hub-mode-list" aria-label="选择游戏模式">
-            {(['practice','room'] as const).map((m,i)=><button key={m} className={`hub-mode ${mode===m?'selected':''} ${m==='practice'&&launchPhase!=='idle'?'is-armed':''} ${m==='room'&&!MULTIPLAYER_ENABLED?'unavailable':''}`} aria-pressed={mode===m} aria-label={m==='practice'&&launchPhase!=='idle'?'单人游戏，开始':undefined} disabled={(m==='room'&&!MULTIPLAYER_ENABLED)||pending||checkingActive||Boolean(matchId)||launchPhase==='leaving'} onClick={()=>{setMode(m);setError('');void start(m);}}><span className="hub-mode-index">0{i+1}</span><span className="hub-mode-name"><strong>{m==='room'&&!MULTIPLAYER_ENABLED?'多人房间（待开发）':labels[m]}</strong><small>{m==='practice'?'选择难度，开始猜曲':MULTIPLAYER_ENABLED?'邀请好友，同场猜图':'正在绝赞开发中... ...'}</small></span><span className={`hub-mode-arrow ${m==='practice'?'has-start':''}`} aria-hidden="true">{m==='practice'?<span className="hub-mode-start-sweep"><span className="hub-mode-start-label">开始</span><ArrowRight size={25}/></span>:<ArrowRight size={25}/>}</span></button>)}
+            {(['practice','room'] as const).map((m,i)=><button key={m} className={`hub-mode ${mode===m?'selected':''} ${m==='practice'&&soloExpanded?'is-armed is-mode-chosen':''} ${m==='room'&&!MULTIPLAYER_ENABLED?'unavailable':''}`} aria-pressed={m==='practice'?soloExpanded:mode===m} aria-expanded={m==='practice'?soloExpanded:undefined} aria-controls={m==='practice'?'hub-solo-options':undefined} disabled={(m==='room'&&!MULTIPLAYER_ENABLED)||pending||checkingActive||Boolean(matchId)||launchPhase==='leaving'} onClick={()=>{setMode(m);setError('');if(m==='practice'){setSoloExpanded(v=>!v);setLaunchPhase('idle');playSound('ui.select');}else void start(m);}}><span className="hub-mode-index">0{i+1}</span><span className="hub-mode-name"><strong>{m==='room'&&!MULTIPLAYER_ENABLED?'多人房间（待开发）':labels[m]}</strong><small>{m==='practice'?'选择游玩内容':MULTIPLAYER_ENABLED?'邀请好友，同场猜图':'正在绝赞开发中... ...'}</small></span><span className={`hub-mode-arrow ${m==='practice'?'has-start':''}`} aria-hidden="true">{m==='practice'?<span className="hub-mode-start-sweep"><span className="hub-mode-start-label">选中</span>{soloExpanded?<Check size={25}/>:<ArrowRight size={25}/>}</span>:<ArrowRight size={25}/>}</span></button>)}
+          </div>
+          <div id="hub-solo-options" className="hub-solo-options" data-expanded={soloExpanded} aria-hidden={!soloExpanded} inert={!soloExpanded}>
+            <div className="hub-solo-clip"><div className="hub-mode-list" aria-label="选择单人游戏内容">
+              <div className="hub-artwork-option"><button className={`hub-mode hub-artwork-mode selected ${launchPhase!=='idle'?'is-armed':''}`} aria-label={launchPhase==='idle'?'曲绘':'曲绘，开始'} disabled={pending||checkingActive||Boolean(matchId)||launchPhase==='leaving'} onClick={()=>{setError('');void start('practice');}}><span className="hub-mode-name"><strong>曲绘</strong><small>选择难度，开始猜曲</small></span><span className="hub-mode-arrow has-start" aria-hidden="true"><span className="hub-mode-start-sweep"><span className="hub-mode-start-label">开始</span><ArrowRight size={25}/></span></span></button><button type="button" className="hub-mode-settings" aria-label="曲绘范围设置" title="曲绘范围" aria-expanded={scopeExpanded} aria-controls="hub-artwork-scopes" disabled={launchPhase==='leaving'} onClick={()=>{setLaunchPhase('idle');setScopeExpanded(v=>!v);playSound('ui.select');}}><Settings size={17}/></button></div>
+              <button className="hub-mode unavailable" disabled><span className="hub-mode-name"><strong>谱面</strong><small>待开发</small></span><span className="hub-mode-arrow" aria-hidden="true"><ArrowRight size={25}/></span></button>
+            </div>
+            <div id="hub-artwork-scopes" className="hub-scope-reveal" data-expanded={scopeExpanded} aria-hidden={!scopeExpanded} inert={!scopeExpanded}>
+              <div className="hub-scope-clip"><div className="hub-scope-panel"><span>曲绘范围</span><div role="group" aria-label="曲绘范围">{scopeChoices.map(([key,label])=><button type="button" key={key} className="slant" data-scope-glow={(key==='main'||key==='non-main')&&scopes.includes(key)?(scopes.includes('main')&&scopes.includes('non-main')?'orange':'red'):undefined} aria-pressed={scopes.includes(key)} disabled={(key==='main'||key==='non-main')&&scopes.includes(key)&&scopes.filter(s=>s==='main'||s==='non-main').length===1} onClick={()=>{useStore.getState().updatePreferences({artworkScopes:scopes.includes(key)?scopes.filter(s=>s!==key):[...scopes,key]});playSound('ui.select');}}><span>{label}<span className="hub-scope-check" aria-hidden="true"><Check size={13}/></span></span></button>)}</div><p className="hub-scope-help">主线：九个主线章节；非主线：支线、联动及单曲等。<br/>已删除、愚人节曲目单独选择。主线与非主线至少保留一项。<br/>橙色描边表示两项均选；红色描边表示唯一保留项，不能取消。</p>
+            </div></div></div></div>
           </div>
           {matchId&&<div className="hub-actions"><button className="slant white continue-challenge" onClick={()=>go(`/play/${matchId}`)}><span>继续上次挑战<ArrowRight size={23}/></span></button></div>}
           {roomCode&&confirmedRoom?.code===roomCode&&confirmedRoom.token===session?.token&&<button className="hub-return-room" disabled={!MULTIPLAYER_ENABLED||pending} onClick={()=>void returnRoom()}>返回房间 {roomCode}<ArrowRight size={16}/></button>}

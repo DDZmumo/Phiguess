@@ -1,0 +1,24 @@
+{
+  "songId": "b5e12015-06aa-5eec-bdb9-231bbccb3421",
+  "title": "Upshift",
+  "aliases": [
+    "Upshift",
+    "升档",
+    "育碧",
+    "上档",
+    "呐呐呐呐",
+    "上蹲"
+  ],
+  "version": "ez-clean-3a765100f1d03d1c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.5.0",
+  "removed": false,
+  "composer": "Iriss-Frantzz",
+  "illustrator": "Iriss=Frantzz=s-don",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Upshift.Iriss-Frantzz.31f1e2a9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Upshift.Iriss-Frantzz.3a765100.webp"
+  }
+}

@@ -10,21 +10,20 @@
     "彭罗斯阶梯"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：管道迷宫",
     "曲师：Itsuki",
     "标准曲名包含 12 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/04 管道迷宫/-SURREALISM-.webp",
   "chapter": 4,
   "chapterName": "管道迷宫",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Itsuki",
   "illustrator": "喵n葵",
+  "original": "../../../source/Raw/04 管道迷宫/-SURREALISM-.webp",
   "assets": {
-    "ez": "../../../source/04 管道迷宫/EZ/-SURREALISM--EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/04 管道迷宫/EZ/-SURREALISM--EZ.webp"
   }
 }

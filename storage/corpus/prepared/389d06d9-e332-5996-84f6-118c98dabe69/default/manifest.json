@@ -1,0 +1,26 @@
+{
+  "songId": "389d06d9-e332-5996-84f6-118c98dabe69",
+  "title": "Khronostasis Katharsis",
+  "aliases": [
+    "Khronostasis Katharsis",
+    "紫时停",
+    "小时停",
+    "KK",
+    "停表现象",
+    "时溃",
+    "紫皇帝",
+    "紫伞"
+  ],
+  "version": "ez-clean-16d71981ea3d70b6",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.3",
+  "removed": false,
+  "composer": "Halv",
+  "illustrator": "utosao",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/KhronostasisKatharsis.Halv.7a53bd1a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/KhronostasisKatharsis.Halv.16d71981.webp"
+  }
+}

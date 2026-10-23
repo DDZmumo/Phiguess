@@ -17,21 +17,20 @@
     "九鸟搓螺旋丸"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：穹顶孤舟 · Part2",
     "曲师：technoplanet",
     "标准曲名包含 16 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Desultory Signals.webp",
   "chapter": 9,
-  "chapterName": "穹顶孤舟/Part2",
+  "chapterName": "穹顶孤舟 · Part2",
+  "contentKind": "main",
+  "removed": false,
   "composer": "technoplanet",
   "illustrator": "月光大刺剑",
+  "original": "../../../source/Raw/09 穹顶孤舟/Part2/Desultory Signals.webp",
   "assets": {
-    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Desultory Signals-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/09 穹顶孤舟/Part2/EZ/Desultory Signals-EZ.webp"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "songId": "253d00d6-e26d-5979-bb5c-54c353f42e93",
+  "title": "Better Graphic Animation",
+  "aliases": [
+    "Better Graphic Animation",
+    "BGA",
+    "玩电脑",
+    "纵连之王",
+    "更好的图像动画",
+    "电脑",
+    "黑客"
+  ],
+  "version": "ez-clean-ecec1bbc5fde4e8c",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.7",
+  "removed": false,
+  "composer": "ルゼ",
+  "illustrator": "A-Zero Project",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BetterGraphicAnimation.ルゼ.05e60025.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BetterGraphicAnimation.ルゼ.ecec1bbc.webp"
+  }
+}

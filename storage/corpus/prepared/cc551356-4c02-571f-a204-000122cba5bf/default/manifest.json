@@ -1,0 +1,20 @@
+{
+  "songId": "cc551356-4c02-571f-a204-000122cba5bf",
+  "title": "Comet",
+  "aliases": [
+    "Comet",
+    "彗星"
+  ],
+  "version": "ez-clean-06bfce57d04cb415",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.2",
+  "removed": false,
+  "composer": "CNHKSS feat. 符白牙",
+  "illustrator": "小黄鸡叽叽叽叽叽叽修复中",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/CometFeat符白牙.CNHKSS.06bfce57.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/CometFeat符白牙.CNHKSS.06bfce57.webp"
+  }
+}

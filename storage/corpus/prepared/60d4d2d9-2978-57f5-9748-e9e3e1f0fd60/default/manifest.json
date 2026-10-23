@@ -1,0 +1,25 @@
+{
+  "songId": "60d4d2d9-2978-57f5-9748-e9e3e1f0fd60",
+  "title": "Flutter Echo",
+  "aliases": [
+    "Flutter Echo",
+    "颤动回声",
+    "回声",
+    "颤动回波",
+    "FE",
+    "潜声传感器",
+    "飘荡回音"
+  ],
+  "version": "ez-clean-0765a344467be225",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.15.0",
+  "removed": false,
+  "composer": "Cansol",
+  "illustrator": "Taurell",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/FlutterEcho.Cansol.adcce1c1.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/FlutterEcho.Cansol.0765a344.webp"
+  }
+}

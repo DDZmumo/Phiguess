@@ -1,0 +1,24 @@
+{
+  "songId": "ee9db80d-e044-5c85-9689-bfd9a8468858",
+  "title": "Unorthodox Thoughts",
+  "aliases": [
+    "Unorthodox Thoughts",
+    "UT",
+    "雾林",
+    "异教徒思想",
+    "非正统思想",
+    "迷雾森林"
+  ],
+  "version": "ez-clean-d4c3e3179db14e07",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.9",
+  "removed": false,
+  "composer": "Joulez",
+  "illustrator": "ASXX",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/UnorthodoxThoughts.Joulez.cedde1ea.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/UnorthodoxThoughts.Joulez.d4c3e317.webp"
+  }
+}

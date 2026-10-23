@@ -1,0 +1,21 @@
+{
+  "songId": "06a55333-7468-5dce-a208-8bfda0feef83",
+  "title": "Shelter",
+  "aliases": [
+    "Shelter",
+    "避难所",
+    "庇护所"
+  ],
+  "version": "ez-clean-dfd9c51e5582d731",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.4",
+  "removed": false,
+  "composer": "MeatyRabbit & NceS",
+  "illustrator": "诡异童话",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Shelter.MeatyRabbitNceS.339bc402.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Shelter.MeatyRabbitNceS.dfd9c51e.webp"
+  }
+}

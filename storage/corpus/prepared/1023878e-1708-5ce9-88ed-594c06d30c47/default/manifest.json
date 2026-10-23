@@ -1,0 +1,21 @@
+{
+  "songId": "1023878e-1708-5ce9-88ed-594c06d30c47",
+  "title": "GOODRAGE",
+  "aliases": [
+    "GOODRAGE",
+    "良怒",
+    "好生气"
+  ],
+  "version": "ez-clean-dbef7e196c87fb5a",
+  "variant": "default",
+  "chapterName": "Chapter EX-GOOD 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.7",
+  "removed": false,
+  "composer": "EBIMAYO",
+  "illustrator": "Ctymax feat. EBIMAYO",
+  "original": "../../../source/Raw/Non-main/Chapter EX-GOOD 精选集/GOODRAGE.EBIMAYO.bd827048.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-GOOD 精选集/EZ/GOODRAGE.EBIMAYO.dbef7e19.webp"
+  }
+}

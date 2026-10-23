@@ -1,0 +1,27 @@
+{
+  "songId": "eab12c8b-450e-5b6c-bf9a-7d761958325b",
+  "title": "Triumph & Regret",
+  "aliases": [
+    "Triumph & Regret",
+    "T&R",
+    "tr",
+    "胜利&遗憾",
+    "胜利与遗憾",
+    "火枪手",
+    "吉诺拿手枪",
+    "吉诺打枪",
+    "穿越火线"
+  ],
+  "version": "ez-clean-378c0cf8ce5ead7d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.3",
+  "removed": false,
+  "composer": "typeMARS",
+  "illustrator": "何呵",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/TriumphRegret.typeMARS.21976308.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/TriumphRegret.typeMARS.378c0cf8.webp"
+  }
+}

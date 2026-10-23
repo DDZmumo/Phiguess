@@ -1,0 +1,26 @@
+{
+  "songId": "046c624b-58f5-5e98-a397-6fe12f6fbf7b",
+  "title": "インフェルノシティ",
+  "aliases": [
+    "インフェルノシティ",
+    "地狱城市",
+    "地狱之城",
+    "罪恶都市",
+    "地狱城",
+    "inferno city",
+    "ic",
+    "Inferuno Shiti"
+  ],
+  "version": "ez-clean-e23f299610852161",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.5.0",
+  "removed": false,
+  "composer": "Ponchi♪ feat. はぁち",
+  "illustrator": "LESYEF & 藍瀬 まなみ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/インフェルノシティ.Ponchifeatはぁち.7c5fff9a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/インフェルノシティ.Ponchifeatはぁち.e23f2996.webp"
+  }
+}

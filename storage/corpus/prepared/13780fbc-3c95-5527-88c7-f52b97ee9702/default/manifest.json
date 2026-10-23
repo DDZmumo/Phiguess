@@ -1,0 +1,26 @@
+{
+  "songId": "13780fbc-3c95-5527-88c7-f52b97ee9702",
+  "title": "valor/starcross",
+  "aliases": [
+    "valor/starcross",
+    "v/s",
+    "vs",
+    "星交",
+    "澄闪",
+    "星穿",
+    "穿星",
+    "valor"
+  ],
+  "version": "ez-clean-713a9e5e6d5a1931",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.2",
+  "removed": false,
+  "composer": "Lundy vs. Wyvren",
+  "illustrator": "AriaL & 57_dayo [edited by Stelli]",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/valorstarcross.LundyvsWyvren.e44be69d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/valorstarcross.LundyvsWyvren.713a9e5e.webp"
+  }
+}

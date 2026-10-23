@@ -1,0 +1,22 @@
+{
+  "songId": "f2b39277-2832-59e4-9420-c9334f013e14",
+  "title": "Feast远东之宴",
+  "aliases": [
+    "Feast远东之宴",
+    "远东之宴",
+    "远东",
+    "Feast"
+  ],
+  "version": "ez-clean-f3458bd6422f63b9",
+  "variant": "default",
+  "chapterName": "Chapter EX-茶鸣拾贰律 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.7",
+  "removed": false,
+  "composer": "茶鸣拾贰律",
+  "illustrator": "茶鸣拾贰律",
+  "original": "../../../source/Raw/Non-main/Chapter EX-茶鸣拾贰律 精选集/Feast远东之宴.茶鸣拾贰律.400d6ead.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-茶鸣拾贰律 精选集/EZ/Feast远东之宴.茶鸣拾贰律.f3458bd6.webp"
+  }
+}

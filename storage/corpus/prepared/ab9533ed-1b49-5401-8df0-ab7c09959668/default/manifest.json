@@ -12,21 +12,20 @@
     "无人奸佞"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：方舟蜃景",
     "曲师：MYUKKE.",
     "标准曲名包含 11 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/06 方舟蜃景/NO ONE YES MAN.webp",
   "chapter": 6,
   "chapterName": "方舟蜃景",
+  "contentKind": "main",
+  "removed": false,
   "composer": "MYUKKE.",
   "illustrator": "青鸟",
+  "original": "../../../source/Raw/06 方舟蜃景/NO ONE YES MAN.webp",
   "assets": {
-    "ez": "../../../source/06 方舟蜃景/EZ/NO ONE YES MAN-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/06 方舟蜃景/EZ/NO ONE YES MAN-EZ.webp"
   }
 }

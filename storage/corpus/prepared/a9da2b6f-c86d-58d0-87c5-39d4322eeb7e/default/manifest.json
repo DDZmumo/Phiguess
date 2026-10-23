@@ -1,0 +1,25 @@
+{
+  "songId": "a9da2b6f-c86d-58d0-87c5-39d4322eeb7e",
+  "title": "Locomotive",
+  "aliases": [
+    "Locomotive",
+    "机车",
+    "火车",
+    "风车",
+    "列车",
+    "远行",
+    "小包"
+  ],
+  "version": "ez-clean-f20eab744dd2930e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.1",
+  "removed": false,
+  "composer": "♠K",
+  "illustrator": "Otaku_宅",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Locomotive.K.4b6ddc10.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Locomotive.K.f20eab74.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "7762ef77-5a01-579b-8a6d-0371d025c888",
+  "title": "Crush BETA",
+  "aliases": [
+    "Crush BETA",
+    "拜年",
+    "过年回家",
+    "心动测试版",
+    "怦然心动",
+    "CB",
+    "beta"
+  ],
+  "version": "ez-clean-fb1bfd4d395c188d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.3",
+  "removed": false,
+  "composer": "shadow_bling",
+  "illustrator": "笔记RE",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/CrushBETA.shadow_bling.a6c7e849.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/CrushBETA.shadow_bling.fb1bfd4d.webp"
+  }
+}

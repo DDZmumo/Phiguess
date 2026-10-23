@@ -1,0 +1,23 @@
+{
+  "songId": "eccdd944-200d-5303-a713-9088e01ed976",
+  "title": "最高傑作",
+  "aliases": [
+    "最高傑作",
+    "杰作",
+    "最高杰作",
+    "zgjz",
+    "PYKAMIA"
+  ],
+  "version": "ez-clean-430e00067168de3a",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.1",
+  "removed": false,
+  "composer": "PYKAMIA",
+  "illustrator": "Nai Guozi",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/最高傑作.PYKAMIA.430e0006.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/最高傑作.PYKAMIA.430e0006.webp"
+  }
+}

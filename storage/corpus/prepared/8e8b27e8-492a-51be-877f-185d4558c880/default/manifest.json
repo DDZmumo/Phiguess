@@ -1,0 +1,22 @@
+{
+  "songId": "8e8b27e8-492a-51be-877f-185d4558c880",
+  "title": "HAZARD",
+  "aliases": [
+    "HAZARD",
+    "牛角",
+    "危险",
+    "危害"
+  ],
+  "version": "ez-clean-0981ab7d17fd0313",
+  "variant": "default",
+  "chapterName": "Chapter EX-KALPA 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "Limpid",
+  "illustrator": "ZG",
+  "original": "../../../source/Raw/Non-main/Chapter EX-KALPA 精选集/HAZARD.Limpid.445f68f5.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-KALPA 精选集/EZ/HAZARD.Limpid.0981ab7d.webp"
+  }
+}

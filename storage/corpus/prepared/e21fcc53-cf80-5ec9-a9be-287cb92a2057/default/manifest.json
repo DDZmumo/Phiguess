@@ -1,0 +1,23 @@
+{
+  "songId": "e21fcc53-cf80-5ec9-a9be-287cb92a2057",
+  "title": "Final Step!",
+  "aliases": [
+    "Final Step!",
+    "最后一步",
+    "Final Step",
+    "终步",
+    "fs"
+  ],
+  "version": "ez-clean-44270e11cabec135",
+  "variant": "default",
+  "chapterName": "Chapter EX-Muse Dash 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.8",
+  "removed": false,
+  "composer": "Lime",
+  "illustrator": "谷地（青鸟 modified）",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Muse Dash 精选集/FinalStep.Lime.0437523b.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Muse Dash 精选集/EZ/FinalStep.Lime.44270e11.webp"
+  }
+}

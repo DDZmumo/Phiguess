@@ -1,0 +1,27 @@
+{
+  "songId": "077aadc4-34ca-5d79-8cc6-5672c4dcbd9d",
+  "title": "000 -Ain Soph Aur-",
+  "aliases": [
+    "000 -Ain Soph Aur-",
+    "OOO",
+    "000",
+    "Ain Soph Aur",
+    "无限光",
+    "无限之光",
+    "贤者时间",
+    "ASA",
+    "角边角"
+  ],
+  "version": "ez-clean-a0748a6afdffeedf",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.16.1",
+  "removed": false,
+  "composer": "Yumeji",
+  "illustrator": "NerSAN",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/000AinSophAur.Yumeji.a0748a6a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/000AinSophAur.Yumeji.a0748a6a.webp"
+  }
+}

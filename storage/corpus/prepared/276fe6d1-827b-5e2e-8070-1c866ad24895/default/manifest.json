@@ -1,0 +1,25 @@
+{
+  "songId": "276fe6d1-827b-5e2e-8070-1c866ad24895",
+  "title": "inferior",
+  "aliases": [
+    "inferior",
+    "下等",
+    "低劣",
+    "低等",
+    "蝴蝶",
+    "次品",
+    "卑微"
+  ],
+  "version": "ez-clean-bbf50bc625fd6dbe",
+  "variant": "default",
+  "chapterName": "Chapter EX-姜米條 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.0",
+  "removed": false,
+  "composer": "姜米條",
+  "illustrator": "群青kurara",
+  "original": "../../../source/Raw/Non-main/Chapter EX-姜米條 精选集/inferior.姜米條.d780815e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-姜米條 精选集/EZ/inferior.姜米條.bbf50bc6.webp"
+  }
+}

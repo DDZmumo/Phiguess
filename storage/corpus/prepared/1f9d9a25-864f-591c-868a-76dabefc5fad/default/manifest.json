@@ -1,0 +1,25 @@
+{
+  "songId": "1f9d9a25-864f-591c-868a-76dabefc5fad",
+  "title": "Bounded Quietude",
+  "aliases": [
+    "Bounded Quietude",
+    "bq",
+    "束缚之静",
+    "业内之寂",
+    "大咩兔",
+    "大师赛1",
+    "PMT2024"
+  ],
+  "version": "ez-clean-173c0f0e355c5366",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.8.0",
+  "removed": false,
+  "composer": "Finite Limit vs SiLiS",
+  "illustrator": "Hiro vs Zeth",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BoundedQuietude.FiniteLimitvsSiLiS.1dba24d7.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BoundedQuietude.FiniteLimitvsSiLiS.173c0f0e.webp"
+  }
+}

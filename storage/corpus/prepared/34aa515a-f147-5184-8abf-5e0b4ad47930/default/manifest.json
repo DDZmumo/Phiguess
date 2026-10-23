@@ -1,0 +1,21 @@
+{
+  "songId": "34aa515a-f147-5184-8abf-5e0b4ad47930",
+  "title": "Speed Up!",
+  "aliases": [
+    "Speed Up!",
+    "加速",
+    "赛车"
+  ],
+  "version": "ez-clean-da1fea3108280714",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.3",
+  "removed": false,
+  "composer": "DarTokki",
+  "illustrator": "TNiK",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/SpeedUp.DarTokki.43b62acb.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/SpeedUp.DarTokki.da1fea31.webp"
+  }
+}

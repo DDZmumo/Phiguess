@@ -1,0 +1,27 @@
+{
+  "songId": "57c0f669-fa0a-5c0f-af40-2b610ae990ba",
+  "title": "Apocalyptic",
+  "aliases": [
+    "Apocalyptic",
+    "启示录",
+    "南瓜头",
+    "世界末日",
+    "灾难",
+    "陨石",
+    "天灾",
+    "灾变",
+    "启示录tic"
+  ],
+  "version": "ez-clean-2a734345159d76de",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.10",
+  "removed": false,
+  "composer": "Z ClaxX & SumaiLight",
+  "illustrator": "佑木いずみ & Ctymax",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Apocalyptic.ZClaxxSumaiLight.5d273bdd.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Apocalyptic.ZClaxxSumaiLight.2a734345.webp"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "songId": "76b2d7a3-3c20-5156-a8ac-6be820d3f9fc",
+  "title": "Verrückt",
+  "aliases": [
+    "Verrückt",
+    "Ve",
+    "verru",
+    "Verruckt",
+    "疯癫",
+    "维生素e",
+    "荒唐狂热",
+    "彻底疯狂",
+    "疯了",
+    "疯狂",
+    "癫狂",
+    "蓝魔王",
+    "果宝机甲",
+    "疯暴",
+    "verr",
+    "发疯",
+    "疯狗",
+    "坤"
+  ],
+  "version": "ez-clean-90e42dd3a21b963f",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.4",
+  "removed": false,
+  "composer": "Raimukun",
+  "illustrator": "AiLANE",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Verruckt.Raimukun.90e42dd3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Verruckt.Raimukun.90e42dd3.webp"
+  }
+}

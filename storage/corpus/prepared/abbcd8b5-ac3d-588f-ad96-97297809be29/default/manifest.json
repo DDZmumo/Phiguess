@@ -1,0 +1,24 @@
+{
+  "songId": "abbcd8b5-ac3d-588f-ad96-97297809be29",
+  "title": "大和撫子 -Wild Dances-",
+  "aliases": [
+    "大和撫子 -Wild Dances-",
+    "大和抚子",
+    "大和",
+    "大和无子",
+    "太和舞子",
+    "野舞"
+  ],
+  "version": "ez-clean-e0d05fa9c11a26df",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.6",
+  "removed": false,
+  "composer": "adaptor vs DRIVE.",
+  "illustrator": "りゅうら",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/大和撫子WildDances.adapatorvsDRIVE.e0d05fa9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/大和撫子WildDances.adapatorvsDRIVE.e0d05fa9.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "137b9883-3a18-53b3-8b87-f1715ac9c253",
+  "title": "Grimheart",
+  "aliases": [
+    "Grimheart",
+    "冰心",
+    "冷心",
+    "冷酷的心",
+    "冷酷之心",
+    "冰冷的心",
+    "GH"
+  ],
+  "version": "ez-clean-6100825991dc2112",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.0",
+  "removed": false,
+  "composer": "Puru",
+  "illustrator": "临时工 & 倪尔",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Grimheart.Puru.cb3a9803.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Grimheart.Puru.61008259.webp"
+  }
+}

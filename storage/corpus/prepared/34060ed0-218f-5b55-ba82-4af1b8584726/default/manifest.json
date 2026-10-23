@@ -1,0 +1,20 @@
+{
+  "songId": "34060ed0-218f-5b55-ba82-4af1b8584726",
+  "title": "Antithese",
+  "aliases": [
+    "Antithese",
+    "反命题"
+  ],
+  "version": "ez-clean-2a7c09c7b99706cb",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.1",
+  "removed": false,
+  "composer": "Blacklolita",
+  "illustrator": "釜飯轟々丸 + jht (Design: 祈莲)",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Antithese.Blacklolita.7ac72ea8.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Antithese.Blacklolita.2a7c09c7.webp"
+  }
+}

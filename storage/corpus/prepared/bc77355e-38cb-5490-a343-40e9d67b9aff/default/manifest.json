@@ -1,0 +1,25 @@
+{
+  "songId": "bc77355e-38cb-5490-a343-40e9d67b9aff",
+  "title": "Drop It",
+  "aliases": [
+    "Drop It",
+    "掉它",
+    "搓碟",
+    "打碟",
+    "丢下它",
+    "放下",
+    "di"
+  ],
+  "version": "ez-clean-135ddbb4e31c53e9",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "Asuka",
+  "illustrator": "TNiK",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/DropIt.Asuka.bf8a12e7.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/DropIt.Asuka.135ddbb4.webp"
+  }
+}

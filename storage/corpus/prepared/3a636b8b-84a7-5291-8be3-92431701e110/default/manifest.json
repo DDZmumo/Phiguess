@@ -1,0 +1,21 @@
+{
+  "songId": "3a636b8b-84a7-5291-8be3-92431701e110",
+  "title": "瓷岁",
+  "aliases": [
+    "瓷岁",
+    "烟花",
+    "新年"
+  ],
+  "version": "ez-clean-dd0d75ee99c1dd24",
+  "variant": "default",
+  "chapterName": "Chapter EX-茶鸣拾贰律 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.7",
+  "removed": false,
+  "composer": "茶鸣拾贰律",
+  "illustrator": "茶鸣拾贰律",
+  "original": "../../../source/Raw/Non-main/Chapter EX-茶鸣拾贰律 精选集/瓷岁.茶鸣拾贰律.6f982120.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-茶鸣拾贰律 精选集/EZ/瓷岁.茶鸣拾贰律.dd0d75ee.webp"
+  }
+}

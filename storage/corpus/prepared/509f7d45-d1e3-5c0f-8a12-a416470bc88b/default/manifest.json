@@ -7,21 +7,20 @@
     "PRAW"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：幽蓝边界",
     "曲师：Bluewind",
     "标准曲名包含 6 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/03 幽蓝边界/[PRAW].webp",
   "chapter": 3,
   "chapterName": "幽蓝边界",
+  "contentKind": "main",
+  "removed": false,
   "composer": "Bluewind",
   "illustrator": "老张",
+  "original": "../../../source/Raw/03 幽蓝边界/[PRAW].webp",
   "assets": {
-    "ez": "../../../source/03 幽蓝边界/EZ/[PRAW]-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/03 幽蓝边界/EZ/[PRAW]-EZ.webp"
   }
 }

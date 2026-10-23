@@ -14,6 +14,7 @@ import { Db } from './db';
 import { GamesService } from './games';
 import { RoomsService } from './rooms';
 import { MediaService } from './media';
+import {GeneratedArtworks} from './generated-artworks';
 
 export function parse<T>(schema: z.ZodType<T>, value: unknown): T {
   const result = schema.safeParse(value);
@@ -22,7 +23,12 @@ export function parse<T>(schema: z.ZodType<T>, value: unknown): T {
 }
 @Controller('api')
 export class PublicController {
-  constructor(private readonly db: Db, private readonly auth: AuthService, private readonly catalog: CatalogService, private readonly games: GamesService, private readonly media:MediaService) {}
+  constructor(private readonly db: Db, private readonly auth: AuthService, private readonly catalog: CatalogService, private readonly games: GamesService, private readonly media:MediaService,private readonly generated:GeneratedArtworks=new GeneratedArtworks(db)) {}
+  @Get('tutorial-art/:slug/:difficulty') async tutorialArt(@Param('slug') slug:string,@Param('difficulty') difficulty:string,@Res({passthrough:true}) res:Response){
+    const name=parse(z.enum(['ds','mirage','chaos','8000']),slug),level=parse(z.enum(['hd','in','at']),difficulty);
+    const body=await this.generated.tutorial(name,level);res.setHeader('Cache-Control','public, max-age=3600');res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");
+    return new StreamableFile(body,{type:'image/svg+xml'});
+  }
   @Get('health/live') live() { return { status:'ok',service:'phiguess',version:APP_VERSION }; }
   @Get('health/ready') async ready() {
     try { await this.db.query('SELECT 1 FROM matches LIMIT 1'); return {status:'ok'}; }
@@ -56,7 +62,8 @@ export class GameController {
   @Get('me/history') async history(@Req() req: AuthRequest) {
     return (await this.db.query('SELECT m.id,m.mode,m.difficulty,m.status,m.created_at,p.score,p.correct FROM match_players p JOIN matches m ON m.id=p.match_id WHERE p.user_id=$1 ORDER BY m.created_at DESC LIMIT 50',[req.user.id])).rows;
   }
-  @Post('matches/practice') practice(@Req() req: AuthRequest,@Body() body: unknown) { return this.games.createSolo(req.user,parse(GameOptions,body)); }
+  @Post('matches/practice') practice(@Req() req: AuthRequest,@Body() body: unknown) { return this.games.createSolo(req.user,parse(GameOptions,body),req.headers['x-artwork-ready']==='1'); }
+  @Post('matches/:id/ready') matchReady(@Req() req:AuthRequest,@Param('id') id:string){return this.games.ready(parse(UUID,id),req.user.id);}
   @Get('matches/:id') snapshot(@Req() req: AuthRequest,@Param('id') id: string) { return this.games.snapshot(parse(UUID,id),req.user.id); }
   @Get('matches/:id/rounds/:round/preload')
   async preloadImage(@Req() req:AuthRequest,@Res({passthrough:true}) res:Response,@Param('id') id:string,@Param('round') round:string){
@@ -78,6 +85,7 @@ export class GameController {
   }
   @Get('matches/:id/rounds/:round/result-image') async resultImage(@Req() req:AuthRequest,@Res({passthrough:true}) res:Response,@Param('id') id:string,@Param('round') round:string){
     const image=await this.games.resultImage(parse(UUID,id),parse(RoundIndex,Number(round)),req.user.id);
+    if(image.body){res.setHeader('Cache-Control','private, no-store');res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");return new StreamableFile(image.body,{type:image.mime});}
     if(!/^[a-f0-9-]{36}\.(svg|webp)$/.test(image.key))throw new ServiceUnavailableException('Invalid asset key');
     const path=join(configuration().ASSET_DIR,image.key);try{await stat(path);}catch{throw new ServiceUnavailableException('Artwork file missing');}
     res.setHeader('Cache-Control','private, no-store');res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");
@@ -100,6 +108,7 @@ export class GameController {
   }
   @Get('matches/:id/rounds/:round/image') async image(@Req() req: AuthRequest,@Res({passthrough:true}) res: Response,@Param('id') id: string,@Param('round') round: string) {
     const art = await this.games.image(parse(UUID,id),parse(RoundIndex,Number(round)),req.user.id);
+    if(art.body){res.setHeader('Cache-Control','private, no-store');res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");return new StreamableFile(art.body,{type:art.mime});}
     if (!/^[a-f0-9-]+\.(svg|webp)$/.test(art.storage_key)) throw new ServiceUnavailableException('Invalid asset key');
     const path = join(configuration().ASSET_DIR,art.storage_key);
     try { await stat(path); } catch { throw new ServiceUnavailableException('Artwork file missing'); }

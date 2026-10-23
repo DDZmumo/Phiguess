@@ -1,0 +1,28 @@
+{
+  "songId": "391fc6e2-68fd-599e-8607-120dd322e2ce",
+  "title": "Frozen Heart",
+  "aliases": [
+    "Frozen Heart",
+    "冰心",
+    "冰之心",
+    "氷の心",
+    "fh",
+    "冻心",
+    "冰封之心",
+    "霜心",
+    "冰霜之心",
+    "极寒风暴"
+  ],
+  "version": "ez-clean-7fc060768d8223fc",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.14.1",
+  "removed": false,
+  "composer": "A-39 / 沙包P",
+  "illustrator": "山山奇",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/FrozenHeart.A39沙包P.100a54c0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/FrozenHeart.A39沙包P.7fc06076.webp"
+  }
+}

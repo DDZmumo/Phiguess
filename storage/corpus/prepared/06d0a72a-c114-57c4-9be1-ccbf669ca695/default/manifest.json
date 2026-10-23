@@ -1,0 +1,22 @@
+{
+  "songId": "06d0a72a-c114-57c4-9be1-ccbf669ca695",
+  "title": "Electron",
+  "aliases": [
+    "Electron",
+    "电子",
+    "绿色药水",
+    "队长喝绿水"
+  ],
+  "version": "ez-clean-3af708a8f58fd9c0",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.5.7",
+  "removed": false,
+  "composer": "ElousΛ.-FZ",
+  "illustrator": "DoublePian",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Electron.ElousFZ.04e6d04a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Electron.ElousFZ.3af708a8.webp"
+  }
+}

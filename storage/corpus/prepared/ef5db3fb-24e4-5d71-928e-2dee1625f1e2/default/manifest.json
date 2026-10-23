@@ -1,0 +1,26 @@
+{
+  "songId": "ef5db3fb-24e4-5d71-928e-2dee1625f1e2",
+  "title": "Diamond Dust",
+  "aliases": [
+    "Diamond Dust",
+    "DD",
+    "钻石尘",
+    "钻石之尘",
+    "钻尘",
+    "钻石星尘",
+    "尘钻",
+    "高濑梨绪"
+  ],
+  "version": "ez-clean-0a029b7a50b574bf",
+  "variant": "default",
+  "chapterName": "Chapter EX-オンゲキ 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.14.0",
+  "removed": false,
+  "composer": "Masahiro “Godspeed” Aoki",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-オンゲキ 精选集/DiamondDust.MasahiroGodspeedAoki.12096a7f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-オンゲキ 精选集/EZ/DiamondDust.MasahiroGodspeedAoki.0a029b7a.webp"
+  }
+}

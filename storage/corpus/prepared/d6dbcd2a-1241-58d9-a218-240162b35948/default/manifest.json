@@ -1,0 +1,21 @@
+{
+  "songId": "d6dbcd2a-1241-58d9-a218-240162b35948",
+  "title": "opia",
+  "aliases": [
+    "opia",
+    "眼病",
+    "藕片"
+  ],
+  "version": "ez-clean-20c6991ca9626fce",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.1",
+  "removed": false,
+  "composer": "rN",
+  "illustrator": "rN @ 湯元画伯",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/opia.rN.d446c8a4.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/opia.rN.20c6991c.webp"
+  }
+}

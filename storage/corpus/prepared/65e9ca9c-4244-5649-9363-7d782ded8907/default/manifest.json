@@ -1,0 +1,24 @@
+{
+  "songId": "65e9ca9c-4244-5649-9363-7d782ded8907",
+  "title": "Thrash force",
+  "aliases": [
+    "Thrash force",
+    "TF",
+    "force",
+    "forse",
+    "震荡之力",
+    "Thrash"
+  ],
+  "version": "ez-clean-b7c2774bc2893167",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.9.1",
+  "removed": false,
+  "composer": "KAH vs. E0ri4",
+  "illustrator": "自動車 原付 vs. GAMEBAKA",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Thrashforce.KAHvsE0ri4.958dc94e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Thrashforce.KAHvsE0ri4.b7c2774b.webp"
+  }
+}

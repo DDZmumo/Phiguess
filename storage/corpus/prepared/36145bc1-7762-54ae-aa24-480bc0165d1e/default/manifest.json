@@ -1,0 +1,30 @@
+{
+  "songId": "36145bc1-7762-54ae-aa24-480bc0165d1e",
+  "title": "Manifold Hypothesis",
+  "aliases": [
+    "Manifold Hypothesis",
+    "MH",
+    "无限假设",
+    "多元假说",
+    "流形假说",
+    "流形假设",
+    "矿洞",
+    "矿工",
+    "挖矿",
+    "我的世界",
+    "铁镐",
+    "挖矿石"
+  ],
+  "version": "ez-clean-b017e25fec00c92a",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.2",
+  "removed": false,
+  "composer": "cybermiso feat. tigerlily",
+  "illustrator": "阿清 (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/ManifoldHypothesis.cybermisofeattigerlily.b017e25f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/ManifoldHypothesis.cybermisofeattigerlily.b017e25f.webp"
+  }
+}

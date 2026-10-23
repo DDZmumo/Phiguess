@@ -1,0 +1,26 @@
+{
+  "songId": "99dd2f04-b588-577b-a2d2-ce4536a759db",
+  "title": "El último baile",
+  "aliases": [
+    "El último baile",
+    "最后的舞蹈",
+    "El",
+    "EUB",
+    "El ultimo baile",
+    "小提琴",
+    "终之舞",
+    "终舞"
+  ],
+  "version": "ez-clean-627ab4e1a17a209d",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "Θ",
+  "illustrator": "mology (青鸟&V17AMax Modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/Elúltimobaile.Θ.b86fb0a4.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/Elúltimobaile.Θ.627ab4e1.webp"
+  }
+}

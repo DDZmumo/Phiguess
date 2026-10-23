@@ -1,0 +1,22 @@
+{
+  "songId": "5c0dcb06-799c-50e2-9206-0ff9f5e477c4",
+  "title": "Christmas",
+  "aliases": [
+    "Christmas",
+    "圣诞SP",
+    "圣诞快乐",
+    "圣诞"
+  ],
+  "version": "ez-clean-746fe3627c6690c6",
+  "variant": "default",
+  "chapterName": "特殊-SP与愚人节",
+  "contentKind": "non-main",
+  "introducedVersion": "1.2.4",
+  "removed": true,
+  "composer": "姜米條",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/特殊-SP与愚人节/Christmas.ce8a8335.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/特殊-SP与愚人节/EZ/Christmas.746fe362.webp"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "songId": "423d5e2c-b08b-5552-b1f1-3e2e8529fe18",
+  "title": "ストレイソウル・アラウンド",
+  "aliases": [
+    "ストレイソウル・アラウンド",
+    "游魂",
+    "stray soul around",
+    "游荡的灵魂",
+    "游荡之魂",
+    "流浪灵魂",
+    "游荡灵魂",
+    "四处游荡的灵魂",
+    "手举音符",
+    "螺旋丸"
+  ],
+  "version": "ez-clean-3ad1f88c4aeb3b5f",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.2",
+  "removed": false,
+  "composer": "みーに",
+  "illustrator": "伊恩 (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/ストレイソウルアラウンド.みーに.3ad1f88c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/ストレイソウルアラウンド.みーに.3ad1f88c.webp"
+  }
+}

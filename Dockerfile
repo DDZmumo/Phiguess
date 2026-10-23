@@ -21,7 +21,7 @@ COPY --from=build /app/packages ./packages
 COPY package*.json ./
 COPY db ./db
 COPY --chown=node:node data ./data
-RUN mkdir -p /app/storage/assets /app/storage/avatars && chown -R node:node /app/storage
+RUN mkdir -p /app/storage/assets /app/storage/avatars /app/storage/generated && chown -R node:node /app/storage
 USER node
 EXPOSE 3000
 CMD ["sh", "-c", "node dist/tools/migrate.js && exec node dist/apps/server/src/main.js"]

@@ -1,0 +1,26 @@
+{
+  "songId": "4aa2b138-b6dc-5a93-98f3-87591631dcbc",
+  "title": "Dance with Silence",
+  "aliases": [
+    "Dance with Silence",
+    "与沉默共舞",
+    "静舞",
+    "dws",
+    "寂舞",
+    "沉默之舞",
+    "默舞",
+    "携静同舞"
+  ],
+  "version": "ez-clean-e27bb1e379be985a",
+  "variant": "default",
+  "chapterName": "Extra Story Chapter 极星卫",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.0",
+  "removed": false,
+  "composer": "かめりあ",
+  "illustrator": "林语",
+  "original": "../../../source/Raw/Non-main/Extra Story Chapter 极星卫/DancewithSilence.かめりあ.bcd4e5ee.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Extra Story Chapter 极星卫/EZ/DancewithSilence.かめりあ.e27bb1e3.webp"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "songId": "5938479d-1ce0-5640-ab90-6aa14b548f28",
+  "title": "K.Moe (VIP)",
+  "aliases": [
+    "K.Moe (VIP)",
+    "K萌",
+    "k猫",
+    "km",
+    "雌魔王",
+    "kmoe",
+    "莫娜"
+  ],
+  "version": "ez-clean-31d950f3a084b8a9",
+  "variant": "default",
+  "chapterName": "Chapter EX-Rotaeno 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.2",
+  "removed": false,
+  "composer": "ZxNX",
+  "illustrator": "BTKCyber (青鸟 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Rotaeno 精选集/KMoeVIP.ZxNX.31d950f3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Rotaeno 精选集/EZ/KMoeVIP.ZxNX.31d950f3.webp"
+  }
+}

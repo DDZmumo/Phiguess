@@ -1,0 +1,34 @@
+{
+  "songId": "cdff48ec-7b43-5ed8-baef-5ed86a4bc502",
+  "title": "Der Schneid",
+  "aliases": [
+    "Der Schneid",
+    "法官2",
+    "教官2",
+    "法官二",
+    "魄力",
+    "勇气",
+    "尚竞之勇",
+    "尚竟之勇",
+    "跳一跳2",
+    "DS",
+    "小DS",
+    "DS2",
+    "切割",
+    "大师赛3",
+    "pmt3",
+    "PMT2026"
+  ],
+  "version": "ez-clean-23f6f36215e1e142",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.19.4",
+  "removed": false,
+  "composer": "Ωμεγα",
+  "illustrator": "群青kurara feat. 祈莲 & 夏宇Detristy",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/DerSchneid.Ωμεγα.c4cbfe9c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/DerSchneid.Ωμεγα.23f6f362.webp"
+  }
+}

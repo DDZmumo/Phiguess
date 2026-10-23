@@ -1,0 +1,29 @@
+{
+  "songId": "b1e30ef4-3123-5739-bee0-db55f1dd8b0d",
+  "title": "Le temps perdu",
+  "aliases": [
+    "Le temps perdu",
+    "逝去的时光",
+    "流逝的时间",
+    "时间的流逝",
+    "时愿无归",
+    "向日葵",
+    "黄时停",
+    "ltp",
+    "站台",
+    "Le",
+    "perdu"
+  ],
+  "version": "ez-clean-ad6f87ea59162a64",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.1",
+  "removed": false,
+  "composer": "Daison",
+  "illustrator": "子狼",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Letempsperdu.Daison.eaf67ec7.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Letempsperdu.Daison.ad6f87ea.webp"
+  }
+}

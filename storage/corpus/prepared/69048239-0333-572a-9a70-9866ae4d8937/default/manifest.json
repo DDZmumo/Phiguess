@@ -1,0 +1,24 @@
+{
+  "songId": "69048239-0333-572a-9a70-9866ae4d8937",
+  "title": "Demonkin",
+  "aliases": [
+    "Demonkin",
+    "墓地",
+    "地下隧道",
+    "坟",
+    "魔族",
+    "恶魔血统"
+  ],
+  "version": "ez-clean-4415c388096aa7a2",
+  "variant": "default",
+  "chapterName": "Side Story 2 弭刻日",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.0",
+  "removed": false,
+  "composer": "Forged Reigns",
+  "illustrator": "Jeffery",
+  "original": "../../../source/Raw/Non-main/Side Story 2 弭刻日/Demonkin.ForgedReigns.4da53db6.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 2 弭刻日/EZ/Demonkin.ForgedReigns.4415c388.webp"
+  }
+}

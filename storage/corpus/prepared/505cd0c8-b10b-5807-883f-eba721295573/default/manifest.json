@@ -1,0 +1,23 @@
+{
+  "songId": "505cd0c8-b10b-5807-883f-eba721295573",
+  "title": "With You",
+  "aliases": [
+    "With You",
+    "与你一起",
+    "和你",
+    "和我",
+    "wy"
+  ],
+  "version": "ez-clean-e9a8ed2de5ab6ab2",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.9",
+  "removed": false,
+  "composer": "Cashew",
+  "illustrator": "ADZUKI",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/WithYou.Cashew.e9a8ed2d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/WithYou.Cashew.e9a8ed2d.webp"
+  }
+}

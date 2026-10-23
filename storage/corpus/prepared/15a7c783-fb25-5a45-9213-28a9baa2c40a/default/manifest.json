@@ -1,0 +1,28 @@
+{
+  "songId": "15a7c783-fb25-5a45-9213-28a9baa2c40a",
+  "title": "Freaky Undulations ~Noble Knights of Tune~",
+  "aliases": [
+    "Freaky Undulations ~Noble Knights of Tune~",
+    "音律骑士",
+    "Freaky Undulations",
+    "高贵音韵之士",
+    "Freaky",
+    "音调骑士",
+    "funkot",
+    "曲调骑士",
+    "万圣节",
+    "fu"
+  ],
+  "version": "ez-clean-88d928864e695bc1",
+  "variant": "default",
+  "chapterName": "Side Story 3 盗乐行",
+  "contentKind": "non-main",
+  "introducedVersion": "3.5.0",
+  "removed": false,
+  "composer": "Jehezukiel + KURORAK",
+  "illustrator": "PEZZ feat. 祈莲 & CattoHato",
+  "original": "../../../source/Raw/Non-main/Side Story 3 盗乐行/FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK.21ab21a2.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 3 盗乐行/EZ/FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK.88d92886.webp"
+  }
+}

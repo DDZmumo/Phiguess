@@ -1,0 +1,24 @@
+{
+  "songId": "35be3cbd-9750-5881-b0cc-be5d8f44bd5b",
+  "title": "Brave Notes",
+  "aliases": [
+    "Brave Notes",
+    "勇气之音",
+    "BN",
+    "勇敢的蓝键",
+    "勇敢音符",
+    "勇敢的音符"
+  ],
+  "version": "ez-clean-2164ac018a5c2c34",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.1",
+  "removed": false,
+  "composer": "Turquoise(DRIVE.+Nota)",
+  "illustrator": "林语",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/BraveNotes.TurquoiseDRIVENota.f3dd61a2.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/BraveNotes.TurquoiseDRIVENota.2164ac01.webp"
+  }
+}

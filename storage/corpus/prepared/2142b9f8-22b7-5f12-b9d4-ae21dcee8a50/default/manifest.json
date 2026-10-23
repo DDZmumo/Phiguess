@@ -1,0 +1,22 @@
+{
+  "songId": "2142b9f8-22b7-5f12-b9d4-ae21dcee8a50",
+  "title": "云女孩",
+  "aliases": [
+    "云女孩",
+    "云女鬼",
+    "炸云",
+    "ynh"
+  ],
+  "version": "ez-clean-7d3aadd166784135",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.0.0",
+  "removed": false,
+  "composer": "符白牙/SiYFics",
+  "illustrator": "御坂果子",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/云女孩.符白牙SiYFics.a081e545.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/云女孩.符白牙SiYFics.7d3aadd1.webp"
+  }
+}

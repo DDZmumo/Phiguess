@@ -1,0 +1,26 @@
+{
+  "songId": "d10872f5-17b8-57eb-b079-0509dd799f7e",
+  "title": "Archidoxen",
+  "aliases": [
+    "Archidoxen",
+    "元枢要义",
+    "元义",
+    "acdx",
+    "archi",
+    "Ar",
+    "阿奇多森",
+    "条形码"
+  ],
+  "version": "ez-clean-58d0741cf1983c13",
+  "variant": "default",
+  "chapterName": "Chapter EX-Liminality 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.17.0",
+  "removed": false,
+  "composer": "Se_IRA",
+  "illustrator": "n/a (Ctymax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Liminality 精选集/Archidoxen.Se_IRA.c91f2589.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Liminality 精选集/EZ/Archidoxen.Se_IRA.58d0741c.webp"
+  }
+}

@@ -7,24 +7,24 @@
     "狂波",
     "奢望之浪",
     "渴望的浪潮",
-    "欲望"
+    "欲望",
+    "Crave Wave(2024 April Fools' Day)"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：凌日潮汐",
     "曲师：LandRoot",
     "标准曲名包含 9 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/08 凌日潮汐/Crave Wave.webp",
   "chapter": 8,
   "chapterName": "凌日潮汐",
+  "contentKind": "main",
+  "removed": false,
   "composer": "LandRoot",
   "illustrator": "笔记RE",
+  "original": "../../../source/Raw/08 凌日潮汐/Crave Wave.webp",
   "assets": {
-    "ez": "../../../source/08 凌日潮汐/EZ/Crave Wave-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/08 凌日潮汐/EZ/Crave Wave-EZ.webp"
   }
 }

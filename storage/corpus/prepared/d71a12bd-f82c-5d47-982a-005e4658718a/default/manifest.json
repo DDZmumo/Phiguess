@@ -1,0 +1,24 @@
+{
+  "songId": "d71a12bd-f82c-5d47-982a-005e4658718a",
+  "title": "MOBILYS",
+  "aliases": [
+    "MOBILYS",
+    "灯泡",
+    "灯球",
+    "光球",
+    "夜灯",
+    "灯"
+  ],
+  "version": "ez-clean-c3e26c275a2aa5b5",
+  "variant": "default",
+  "chapterName": "Side Story 1 忘忧宫",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.0",
+  "removed": false,
+  "composer": "Dachs",
+  "illustrator": "わっふゑ",
+  "original": "../../../source/Raw/Non-main/Side Story 1 忘忧宫/MOBILYS.Dachs.c3e26c27.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 1 忘忧宫/EZ/MOBILYS.Dachs.c3e26c27.webp"
+  }
+}

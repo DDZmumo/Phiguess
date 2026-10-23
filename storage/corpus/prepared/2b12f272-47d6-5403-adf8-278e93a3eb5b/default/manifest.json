@@ -1,0 +1,28 @@
+{
+  "songId": "2b12f272-47d6-5403-adf8-278e93a3eb5b",
+  "title": "Kirakira Noel Story!!",
+  "aliases": [
+    "Kirakira Noel Story!!",
+    "圣诞公交车",
+    "拼好歌",
+    "圣诞拼好歌",
+    "圣诞故事",
+    "kirakira",
+    "kira",
+    "kns",
+    "闪耀圣诞往事",
+    "kkns"
+  ],
+  "version": "ez-clean-c8946c4c3f27372e",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.10.3",
+  "removed": false,
+  "composer": "Reku Mochizuki",
+  "illustrator": "ナナシ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/KirakiraNoelStory.RekuMochizuki.c8946c4c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/KirakiraNoelStory.RekuMochizuki.c8946c4c.webp"
+  }
+}

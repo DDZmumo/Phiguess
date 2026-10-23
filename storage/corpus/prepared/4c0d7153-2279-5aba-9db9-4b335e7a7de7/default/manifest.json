@@ -1,0 +1,28 @@
+{
+  "songId": "4c0d7153-2279-5aba-9db9-4b335e7a7de7",
+  "title": "Magenta Potion",
+  "aliases": [
+    "Magenta Potion",
+    "MP",
+    "骂人药水",
+    "品红色药水",
+    "洋红色药水",
+    "抖音药水",
+    "假酒害人",
+    "防脱发药水",
+    "紫色毒药",
+    "品红药水"
+  ],
+  "version": "ez-clean-ac1c7a6327129d46",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.3",
+  "removed": false,
+  "composer": "EmoCo.",
+  "illustrator": "NOISER",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/MagentaPotion.EmoCo.e78bcfd1.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/MagentaPotion.EmoCo.ac1c7a63.webp"
+  }
+}

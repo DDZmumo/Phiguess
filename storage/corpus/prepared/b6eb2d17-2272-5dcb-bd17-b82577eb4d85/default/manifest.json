@@ -1,0 +1,28 @@
+{
+  "songId": "b6eb2d17-2272-5dcb-bd17-b82577eb4d85",
+  "title": "Cthugha",
+  "aliases": [
+    "Cthugha",
+    "火球",
+    "火神",
+    "古神",
+    "克图格亚",
+    "清华",
+    "地狱火",
+    "旧日",
+    "红烧骷髅头",
+    "骷髅头着火"
+  ],
+  "version": "ez-clean-920b5470daced427",
+  "variant": "default",
+  "chapterName": "Chapter EX-Muse Dash 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.8",
+  "removed": false,
+  "composer": "USAO",
+  "illustrator": "谷地（青鸟 modified）",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Muse Dash 精选集/Cthugha.USAO.2ffc4d6a.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Muse Dash 精选集/EZ/Cthugha.USAO.920b5470.webp"
+  }
+}

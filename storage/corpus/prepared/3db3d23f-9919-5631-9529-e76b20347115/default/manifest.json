@@ -1,0 +1,22 @@
+{
+  "songId": "3db3d23f-9919-5631-9529-e76b20347115",
+  "title": "Alb",
+  "aliases": [
+    "Alb",
+    "白裳",
+    "阿拉伯",
+    "按喇叭"
+  ],
+  "version": "ez-clean-ba0cdac614591a5f",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.2",
+  "removed": false,
+  "composer": "Avans",
+  "illustrator": "©2026 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/Alb.Avans.58c3dc83.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/Alb.Avans.ba0cdac6.webp"
+  }
+}

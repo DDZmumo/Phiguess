@@ -1,0 +1,23 @@
+{
+  "songId": "5da94ec2-73fe-5285-9398-090b2910b2b3",
+  "title": "XING",
+  "aliases": [
+    "XING",
+    "行",
+    "性",
+    "星",
+    "性歌"
+  ],
+  "version": "ez-clean-183082a523d7b7e2",
+  "variant": "default",
+  "chapterName": "Chapter EX-Muse Dash 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.8",
+  "removed": false,
+  "composer": "ginkiha",
+  "illustrator": "打雷打人（青鸟 modified）",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Muse Dash 精选集/XING.ginkiha.49c5531c.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Muse Dash 精选集/EZ/XING.ginkiha.183082a5.webp"
+  }
+}

@@ -9,21 +9,20 @@
     "时悖"
   ],
   "version": "clean64-v2-lossless-default",
+  "variant": "default",
   "hints": [
     "所属章节：时钟链接",
     "曲师：WyvernP",
     "标准曲名包含 12 个非空白字符。"
   ],
-  "variant": "default",
-  "original": "../../../source/Raw/07 时钟链接/Clock Paradox.webp",
   "chapter": 7,
   "chapterName": "时钟链接",
+  "contentKind": "main",
+  "removed": false,
   "composer": "WyvernP",
   "illustrator": "汉堡",
+  "original": "../../../source/Raw/07 时钟链接/Clock Paradox.webp",
   "assets": {
-    "ez": "../../../source/07 时钟链接/EZ/Clock Paradox-EZ.webp",
-    "hd": "hd.svg",
-    "in": "in.svg",
-    "at": "at.svg"
+    "ez": "../../../source/07 时钟链接/EZ/Clock Paradox-EZ.webp"
   }
 }

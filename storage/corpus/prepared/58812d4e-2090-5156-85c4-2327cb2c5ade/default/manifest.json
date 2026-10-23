@@ -1,0 +1,29 @@
+{
+  "songId": "58812d4e-2090-5156-85c4-2327cb2c5ade",
+  "title": "Hydra",
+  "aliases": [
+    "Hydra",
+    "海德拉",
+    "骇爪",
+    "九头蛇",
+    "九头蛇怪",
+    "水螅体",
+    "长蛇座",
+    "海爪",
+    "嗨爪",
+    "放送中",
+    "NEKO BASS"
+  ],
+  "version": "ez-clean-4c2a076f18d4c47f",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.0",
+  "removed": false,
+  "composer": "James Landino X Akira Complex",
+  "illustrator": "©2025 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/Hydra.JamesLandinoXAkiraComplex.1d723622.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/Hydra.JamesLandinoXAkiraComplex.4c2a076f.webp"
+  }
+}

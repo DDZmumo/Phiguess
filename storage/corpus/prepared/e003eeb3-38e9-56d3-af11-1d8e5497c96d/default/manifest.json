@@ -1,0 +1,28 @@
+{
+  "songId": "e003eeb3-38e9-56d3-af11-1d8e5497c96d",
+  "title": "Fractured Angel",
+  "aliases": [
+    "Fractured Angel",
+    "堕天使",
+    "Angel",
+    "骨折天使",
+    "折翼天使",
+    "FA",
+    "折翼",
+    "羽毛",
+    "禁飞",
+    "墨羽"
+  ],
+  "version": "ez-clean-28c36407aba8d5ea",
+  "variant": "default",
+  "chapterName": "Chapter EX-EGTS 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.2.2",
+  "removed": false,
+  "composer": "DJ Raisei",
+  "illustrator": "OsuMe65",
+  "original": "../../../source/Raw/Non-main/Chapter EX-EGTS 精选集/FracturedAngel.DJRaisei.da7eba0e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-EGTS 精选集/EZ/FracturedAngel.DJRaisei.28c36407.webp"
+  }
+}

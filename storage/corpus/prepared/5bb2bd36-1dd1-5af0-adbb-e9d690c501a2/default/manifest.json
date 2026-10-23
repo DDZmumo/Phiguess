@@ -1,0 +1,27 @@
+{
+  "songId": "5bb2bd36-1dd1-5af0-adbb-e9d690c501a2",
+  "title": "ρars/ey",
+  "aliases": [
+    "ρars/ey",
+    "芹菜",
+    "pras/ey",
+    "蔬菜切切乐",
+    "parsley",
+    "欧芹",
+    "切菜",
+    "切蔬菜",
+    "不吃欧芹"
+  ],
+  "version": "ez-clean-6a4355d59d562d44",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.0.1",
+  "removed": false,
+  "composer": "siqlo",
+  "illustrator": "出前 x nekomiya",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/parsey.siqlo.e0d4b4fe.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/parsey.siqlo.6a4355d5.webp"
+  }
+}

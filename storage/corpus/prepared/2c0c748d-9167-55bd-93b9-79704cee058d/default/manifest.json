@@ -1,0 +1,22 @@
+{
+  "songId": "2c0c748d-9167-55bd-93b9-79704cee058d",
+  "title": "Xenolith",
+  "aliases": [
+    "Xenolith",
+    "捕虏体",
+    "捕虏岩",
+    "Xe"
+  ],
+  "version": "ez-clean-4ae9405d755e9f57",
+  "variant": "default",
+  "chapterName": "Chapter EX-Paradigm：Reboot 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.6.0",
+  "removed": false,
+  "composer": "Tatsh",
+  "illustrator": "2AI4wU4",
+  "original": "../../../source/Raw/Non-main/Chapter EX-Paradigm：Reboot 精选集/Xenolith.Tatsh.0823f942.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-Paradigm：Reboot 精选集/EZ/Xenolith.Tatsh.4ae9405d.webp"
+  }
+}

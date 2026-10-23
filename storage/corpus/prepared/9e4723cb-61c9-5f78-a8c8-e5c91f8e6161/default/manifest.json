@@ -1,0 +1,23 @@
+{
+  "songId": "9e4723cb-61c9-5f78-a8c8-e5c91f8e6161",
+  "title": "Rubbish Sorting",
+  "aliases": [
+    "Rubbish Sorting",
+    "你是什么垃圾",
+    "垃圾分类",
+    "rs",
+    "垃圾管理"
+  ],
+  "version": "ez-clean-fe7ee2c0a9f7fb3d",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.3.2",
+  "removed": false,
+  "composer": "Ctymax vs. NceS",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/RubbishSorting.CtymaxvsNceS.c1dfe542.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/RubbishSorting.CtymaxvsNceS.fe7ee2c0.webp"
+  }
+}

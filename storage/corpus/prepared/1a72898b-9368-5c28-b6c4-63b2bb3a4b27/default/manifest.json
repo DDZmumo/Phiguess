@@ -1,0 +1,24 @@
+{
+  "songId": "1a72898b-9368-5c28-b6c4-63b2bb3a4b27",
+  "title": "After Dawn",
+  "aliases": [
+    "After Dawn",
+    "AD",
+    "黎明之后",
+    "破晓之后",
+    "汤姆惨叫曲",
+    "广告"
+  ],
+  "version": "ez-clean-b012380d4048bd9e",
+  "variant": "default",
+  "chapterName": "Side Story 2 弭刻日",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.0",
+  "removed": false,
+  "composer": "S9ryne",
+  "illustrator": "月亮酱",
+  "original": "../../../source/Raw/Non-main/Side Story 2 弭刻日/AfterDawn.S9ryne.339130c0.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 2 弭刻日/EZ/AfterDawn.S9ryne.b012380d.webp"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "songId": "d440ab15-a11b-52d2-b41a-a41e703274bc",
+  "title": "Future Mind",
+  "aliases": [
+    "Future Mind",
+    "FM",
+    "ftrmd",
+    "未来头脑",
+    "未来之心"
+  ],
+  "version": "ez-clean-30eda9a92883c879",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.2",
+  "removed": false,
+  "composer": "Ray Nautica & Reku Mochizuki",
+  "illustrator": "Keiby.comics",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/FutureMind.RayNauticaRekuMochizuki.26f6676e.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/FutureMind.RayNauticaRekuMochizuki.30eda9a9.webp"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "songId": "f7a2812d-5bff-5227-9a80-ddcbd2c6d3ff",
+  "title": "CROSS†SOUL",
+  "aliases": [
+    "CROSS†SOUL",
+    "穿魂",
+    "魂穿",
+    "穿越灵魂",
+    "十字架",
+    "十字路口",
+    "†",
+    "无极的纵连遗产"
+  ],
+  "version": "ez-clean-d46f4a8451ad0395",
+  "variant": "default",
+  "chapterName": "Chapter EX-HyuN 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.2",
+  "removed": false,
+  "composer": "HyuN feat. Syepias",
+  "illustrator": "knife美工刀",
+  "original": "../../../source/Raw/Non-main/Chapter EX-HyuN 精选集/CROSSSOUL.HyuNfeatSyepias.750a68a6.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-HyuN 精选集/EZ/CROSSSOUL.HyuNfeatSyepias.d46f4a84.webp"
+  }
+}

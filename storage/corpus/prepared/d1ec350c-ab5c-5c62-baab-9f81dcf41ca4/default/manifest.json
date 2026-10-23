@@ -1,0 +1,25 @@
+{
+  "songId": "d1ec350c-ab5c-5c62-baab-9f81dcf41ca4",
+  "title": "TECHNOPOLIS 2085",
+  "aliases": [
+    "TECHNOPOLIS 2085",
+    "2085",
+    "科技城2085",
+    "TECHNOPOLIS",
+    "锁手天堂",
+    "科技城邦2085",
+    "TECHNO"
+  ],
+  "version": "ez-clean-e3c66920edafb67d",
+  "variant": "default",
+  "chapterName": "Chapter EX-CHUNITHM 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.0",
+  "removed": false,
+  "composer": "PRASTIK DANCEFLOOR",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CHUNITHM 精选集/TECHNOPOLIS2085.PRASTIKDANCEFLOOR.98979b22.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CHUNITHM 精选集/EZ/TECHNOPOLIS2085.PRASTIKDANCEFLOOR.e3c66920.webp"
+  }
+}

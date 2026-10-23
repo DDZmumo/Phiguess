@@ -1,0 +1,19 @@
+{
+  "songId": "35ba01f8-df73-53bb-8563-4cacbb3871ff",
+  "title": "テリトリーバトル",
+  "aliases": [
+    "テリトリーバトル"
+  ],
+  "version": "ez-clean-ee1dd3a7230e44b7",
+  "variant": "default",
+  "chapterName": "历史-下架曲目",
+  "contentKind": "non-main",
+  "introducedVersion": "3.4.0",
+  "removed": true,
+  "composer": "ツユ",
+  "illustrator": "SEGA (V17AMax modified)",
+  "original": "../../../source/Raw/Non-main/历史-下架曲目/テリトリーバトル.TUYU.97006eb8.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/历史-下架曲目/EZ/テリトリーバトル.TUYU.ee1dd3a7.webp"
+  }
+}

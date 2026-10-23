@@ -1,0 +1,22 @@
+{
+  "songId": "5d0362cd-e306-5171-99ee-450b312d8191",
+  "title": "彩",
+  "aliases": [
+    "彩",
+    "菜",
+    "唐三",
+    "Aya"
+  ],
+  "version": "ez-clean-4562761a71ebc2d7",
+  "variant": "default",
+  "chapterName": "Chapter EX-CYTUS II 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.18.2",
+  "removed": false,
+  "composer": "MisoilePunch♪",
+  "illustrator": "©2026 Rayark Inc. CYTUS II®",
+  "original": "../../../source/Raw/Non-main/Chapter EX-CYTUS II 精选集/彩.MisoilePunch.c58b19b9.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-CYTUS II 精选集/EZ/彩.MisoilePunch.4562761a.webp"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "songId": "b174a466-4e83-508b-abf5-af750e1dc726",
+  "title": "Ad astra per aspera",
+  "aliases": [
+    "Ad astra per aspera",
+    "太阳",
+    "太阳氢闪",
+    "氦闪",
+    "循此苦旅 直抵群星",
+    "广告",
+    "Ad",
+    "Ad钙奶",
+    "ada",
+    "Aapa",
+    "大太阳",
+    "马桶塞",
+    "群星",
+    "星旅",
+    "啊啊怕"
+  ],
+  "version": "ez-clean-b1633acc4c4ba2fc",
+  "variant": "default",
+  "chapterName": "Chapter EX-OverRapid 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.1.0",
+  "removed": false,
+  "composer": "Rabbit House",
+  "illustrator": "Lyrebird Ferdinant (青鸟&V17AMax Modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-OverRapid 精选集/Adastraperaspera.RabbitHouse.04dafcc3.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-OverRapid 精选集/EZ/Adastraperaspera.RabbitHouse.b1633acc.webp"
+  }
+}

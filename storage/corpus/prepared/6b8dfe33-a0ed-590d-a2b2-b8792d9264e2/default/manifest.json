@@ -1,0 +1,22 @@
+{
+  "songId": "6b8dfe33-a0ed-590d-a2b2-b8792d9264e2",
+  "title": "Träne",
+  "aliases": [
+    "Träne",
+    "Trane",
+    "Träne",
+    "眼泪"
+  ],
+  "version": "ez-clean-cff50f89b86fa147",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.2",
+  "removed": false,
+  "composer": "MALVA.",
+  "illustrator": "しえろ",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Trane.MALVA.cff50f89.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Trane.MALVA.cff50f89.webp"
+  }
+}

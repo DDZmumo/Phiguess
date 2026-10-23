@@ -1,0 +1,24 @@
+{
+  "songId": "17e66452-acb5-571a-91d1-722aa57fb2a4",
+  "title": "Ποσειδών",
+  "aliases": [
+    "Ποσειδών",
+    "波塞冬",
+    "海神",
+    "海底捞",
+    "Poseidon",
+    "波塞东"
+  ],
+  "version": "ez-clean-361770447d23d5f0",
+  "variant": "default",
+  "chapterName": "Side Story 1 忘忧宫",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.0",
+  "removed": false,
+  "composer": "1112 vs. Star＊",
+  "illustrator": "老张",
+  "original": "../../../source/Raw/Non-main/Side Story 1 忘忧宫/Poseidon.1112vsStar.efd2370d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Side Story 1 忘忧宫/EZ/Poseidon.1112vsStar.36177044.webp"
+  }
+}

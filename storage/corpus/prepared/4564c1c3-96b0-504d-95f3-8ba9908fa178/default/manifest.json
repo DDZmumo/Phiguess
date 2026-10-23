@@ -1,0 +1,23 @@
+{
+  "songId": "4564c1c3-96b0-504d-95f3-8ba9908fa178",
+  "title": "アンビバレンス",
+  "aliases": [
+    "アンビバレンス",
+    "矛盾",
+    "矛盾相生",
+    "Ambivalence",
+    "矛盾心理"
+  ],
+  "version": "ez-clean-3e3e55292b89b155",
+  "variant": "default",
+  "chapterName": "Chapter EX-maimai 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.16.0",
+  "removed": false,
+  "composer": "すりぃ×相沢",
+  "illustrator": "SEGA (祈莲 modified)",
+  "original": "../../../source/Raw/Non-main/Chapter EX-maimai 精选集/アンビバレンス.すりぃ相沢.2846f164.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-maimai 精选集/EZ/アンビバレンス.すりぃ相沢.3e3e5529.webp"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "songId": "33fef2c7-3987-55a1-9d3b-7abdd0c59842",
+  "title": "Destination",
+  "aliases": [
+    "Destination",
+    "目的地",
+    "终点"
+  ],
+  "version": "ez-clean-e4565860ac8ca006",
+  "variant": "default",
+  "chapterName": "历史-下架曲目",
+  "contentKind": "non-main",
+  "introducedVersion": "1.6.4",
+  "removed": true,
+  "composer": "姜米條 & RocketLant",
+  "illustrator": "Rallxkurara",
+  "original": "../../../source/Raw/Non-main/历史-下架曲目/Destination.444d4b86.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/历史-下架曲目/EZ/Destination.e4565860.webp"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "songId": "88f2c34e-e353-547b-afbd-ad0bdf07274c",
+  "title": "I Must Say No",
+  "aliases": [
+    "I Must Say No",
+    "imsn",
+    "我必须说不",
+    "异议",
+    "反对"
+  ],
+  "version": "ez-clean-d16a3a01f6018bfa",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.2.1",
+  "removed": false,
+  "composer": "TangJuan",
+  "illustrator": "cycats",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/IMustSayNo.TangJuan.940227ab.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/IMustSayNo.TangJuan.d16a3a01.webp"
+  }
+}

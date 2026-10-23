@@ -1,0 +1,31 @@
+{
+  "songId": "52a4194d-e5e6-5c96-a1eb-053ce3acff82",
+  "title": "ニライカナイ (NiraicA_nai Mix)",
+  "aliases": [
+    "ニライカナイ (NiraicA_nai Mix)",
+    "小红鸠",
+    "红鸠",
+    "niraikanai",
+    "ニライカナイ",
+    "龙宫",
+    "每天遇见你",
+    "NiraicA_nai",
+    "二力",
+    "一堆吉诺",
+    "鸠打电话",
+    "养吉场",
+    "一墙吉诺"
+  ],
+  "version": "ez-clean-053a7252fa2cb8ba",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "3.11.0",
+  "removed": false,
+  "composer": "roop from STR",
+  "illustrator": "3z",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/ニライカナイNiraicA_naiMix.roopfromSTR.5efc62ff.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/ニライカナイNiraicA_naiMix.roopfromSTR.053a7252.webp"
+  }
+}

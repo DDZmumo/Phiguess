@@ -1,0 +1,22 @@
+{
+  "songId": "902ca57b-d2fe-507a-9bbd-17bc5c20ac94",
+  "title": "Get Back",
+  "aliases": [
+    "Get Back",
+    "回来",
+    "返回",
+    "gb"
+  ],
+  "version": "ez-clean-9a815347863225f3",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "1.4.4",
+  "removed": false,
+  "composer": "CAP3",
+  "illustrator": "TNiK",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/GetBack.CAP3.602b991f.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/GetBack.CAP3.9a815347.webp"
+  }
+}

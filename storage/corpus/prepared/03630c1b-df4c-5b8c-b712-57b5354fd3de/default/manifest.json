@@ -1,0 +1,27 @@
+{
+  "songId": "03630c1b-df4c-5b8c-b712-57b5354fd3de",
+  "title": "ジングルベル(Jingle Bell)",
+  "aliases": [
+    "ジングルベル(Jingle Bell)",
+    "初音机关枪",
+    "零元购",
+    "Jingle Bell",
+    "Jinb",
+    "叙利亚圣诞节",
+    "铃儿响叮当",
+    "jb",
+    "Jinguru Beru"
+  ],
+  "version": "ez-clean-e8c6fed57f0f3f32",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "A-39/沙包P",
+  "illustrator": "爱39的Konya",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/ジングルベルJingleBell.A39沙包P.cb96ec24.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/ジングルベルJingleBell.A39沙包P.e8c6fed5.webp"
+  }
+}

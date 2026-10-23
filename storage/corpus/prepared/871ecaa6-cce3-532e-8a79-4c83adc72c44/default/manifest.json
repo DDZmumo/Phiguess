@@ -1,0 +1,22 @@
+{
+  "songId": "871ecaa6-cce3-532e-8a79-4c83adc72c44",
+  "title": "心之所向",
+  "aliases": [
+    "心之所向",
+    "心之向往",
+    "反方向的hold",
+    "xzsx"
+  ],
+  "version": "ez-clean-73248e7e7b0027dd",
+  "variant": "default",
+  "chapterName": "Chapter EX-姜米條 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.4.0",
+  "removed": false,
+  "composer": "姜米條",
+  "illustrator": "笔记RE",
+  "original": "../../../source/Raw/Non-main/Chapter EX-姜米條 精选集/心之所向.姜米條.5b20ff9d.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Chapter EX-姜米條 精选集/EZ/心之所向.姜米條.73248e7e.webp"
+  }
+}

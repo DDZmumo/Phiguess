@@ -1,0 +1,25 @@
+{
+  "songId": "46583bdc-945e-55a3-8839-261b0d15adf7",
+  "title": "Concvssion",
+  "aliases": [
+    "Concvssion",
+    "脑震荡",
+    "tell me your secret",
+    "劲爆四押",
+    "水晶砖",
+    "震荡领域",
+    "Concussion"
+  ],
+  "version": "ez-clean-8e2495cde73f6b35",
+  "variant": "default",
+  "chapterName": "Single-单曲 精选集",
+  "contentKind": "non-main",
+  "introducedVersion": "2.1.0",
+  "removed": false,
+  "composer": "Halv",
+  "illustrator": "汉堡",
+  "original": "../../../source/Raw/Non-main/Single-单曲 精选集/Concvssion.Halv.15bbff09.webp",
+  "assets": {
+    "ez": "../../../source/Non-main/Single-单曲 精选集/EZ/Concvssion.Halv.8e2495cd.webp"
+  }
+}
