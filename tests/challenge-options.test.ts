@@ -130,11 +130,11 @@ test('non-main version ranges contain two or three actual releases including the
     assert([2,3].includes(last-first+1));assert(first<=position&&position<=last);
   }
   assert.match(nonMainHint('non-main','1.6.4',true),/\n已删除$/);
-  assert.equal(nonMainHint('april-fools',null,true),'愚人节曲目');
+  assert.equal(nonMainHint('april-fools',null,true),'愚人节曲目/特殊曲绘');
   assert.throws(()=>nonMainHint('non-main','99.0.0'),/metadata unavailable/);
 });
 
-test('non-main hints persist their version range; April Fools only displays the five required characters',async()=>{
+test('non-main hints persist their version range; April Fools displays the special artwork label',async()=>{
   const realNow=Date.now;let now=realNow();Date.now=()=>now;
   try{
     for(const kind of ['non-main','april-fools'] as const){
@@ -143,7 +143,7 @@ test('non-main hints persist their version range; April Fools only displays the 
       try{
         const match=await games.createSolo(user,GameOptions.parse({difficulty:'hd',rounds:1,roundSeconds:30,healthCapacity:0}));now=match.startsAt;
         const first=(await games.hints(match.id,user.id,0,0))[0]!;
-        if(kind==='april-fools')assert.equal(first.content,'愚人节曲目');else assert.match(first.content,/^非主线 · v[\d.]+–v[\d.]+\n已删除$/);
+        if(kind==='april-fools')assert.equal(first.content,'愚人节曲目/特殊曲绘');else assert.match(first.content,/^非主线 · v[\d.]+–v[\d.]+\n已删除$/);
         assert.deepEqual(await games.hints(match.id,user.id,0,0),[first]);
         const identity=(await games.hints(match.id,user.id,0,2)).find(h=>h.index===2)!;
         assert.equal(identity.content,'曲师：Fixture Composer');

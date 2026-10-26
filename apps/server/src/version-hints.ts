@@ -4,7 +4,7 @@ import timeline from '../../../data/providers/phi-plugin/release-timeline.json';
 export type ContentKind='main'|'non-main'|'april-fools';
 export const RELEASE_VERSIONS=[...new Set(timeline.map(release=>release.version))];
 export function nonMainHint(kind:ContentKind,introducedVersion?:string|null,removed=false){
-  if(kind==='april-fools')return '愚人节曲目';
+  if(kind==='april-fools')return '愚人节曲目/特殊曲绘';
   const position=RELEASE_VERSIONS.indexOf(introducedVersion??'');
   if(position<0)throw new Error('Introduction version metadata unavailable');
   const count=randomInt(2,4);

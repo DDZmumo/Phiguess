@@ -64,7 +64,7 @@ node --env-file=storage/preview/runtime.env dist/tools/sync-aliases.js
 
 提示由结构化元数据与曲绘版本生成：`chapter` / `chapterName` 提供章节，`composer` 提供曲师，曲绘 `illustrator` 提供画师。界面按范围、身份、降图排列：EZ 仅前两项，HD/IN/AT 的第三项选取同版本、同变体的下一档题图。服务端 index 分别是 0、2、1；旧 `hints` 文案字段保留兼容，不控制当前提示内容。
 
-非主线导入清单设 `contentKind: "non-main"`、`introducedVersion`（如 `"3.4.0"`）及可选 `removed: true`。第一条提示显示“非主线”与包含首次收录版本的连续 2～3 个真实版本范围；已删除曲目追加“已删除”。范围首次揭示后持久保存，重复请求不会改变。`contentKind: "april-fools"` 的第一条提示只显示“愚人节曲目”五个字。普通歌曲仅拥有愚人节谱面时仍按普通曲目处理，特殊曲绘变体单独分类。非主线 EZ/HD 的身份提示只显示曲师，不显示主线章节。
+非主线导入清单设 `contentKind: "non-main"`、`introducedVersion`（如 `"3.4.0"`）及可选 `removed: true`。第一条提示显示“非主线”与包含首次收录版本的连续 2～3 个真实版本范围；已删除曲目追加“已删除”。范围首次揭示后持久保存，重复请求不会改变。`contentKind: "april-fools"` 的第一条提示只显示“愚人节曲目/特殊曲绘”。普通歌曲仅拥有愚人节谱面时仍按普通曲目处理，特殊曲绘变体单独分类。非主线 EZ/HD 的身份提示只显示曲师，不显示主线章节。
 
 分类和版本保存在每个曲绘版本上；同曲的主线原版、非主线或愚人节变体不会互相覆盖提示规则。特殊曲绘没有可靠画师记录时，显示“画师：未收录”。
 

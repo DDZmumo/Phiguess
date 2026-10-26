@@ -37,7 +37,7 @@ test('non-main import persists classification and produces usable hints without 
     assert.deepEqual((await db.query("SELECT DISTINCT content_kind FROM artworks WHERE song_id=$1 ORDER BY content_kind",[songId])).rows.map(r=>r.content_kind),['april-fools','non-main']);
     await db.query("UPDATE artworks SET active=false WHERE song_id=$1 AND variant='default'",[songId]);
     const april=await games.createSolo(user,{difficulty:'in',rounds:1,roundSeconds:15,healthCapacity:0});clock=april.startsAt;
-    assert.equal((await games.hints(april.id,userId,0,0))[0]!.content,'愚人节曲目');
+    assert.equal((await games.hints(april.id,userId,0,0))[0]!.content,'愚人节曲目/特殊曲绘');
     assert.equal((await games.hints(april.id,userId,0,2)).find(h=>h.index===2)!.content,'曲师：Fixture Composer\n画师：Fixture Illustrator');
   }finally{
     Date.now=realNow;await games.onModuleDestroy();await generated.onModuleDestroy();await db.close();process.env.DATABASE_URL=previousUrl;await admin.query(`DROP SCHEMA "${schema}" CASCADE`);await admin.close();
