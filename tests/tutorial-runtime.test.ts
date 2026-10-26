@@ -200,5 +200,5 @@ test('tutorial third hint uses the shared reduced scoring ceiling without changi
  await runtime.request(`${path}/guesses`,'POST',{round:0,answer:'wrong'});runtime.tick(1350);
  const answer=await runtime.request<{correct:boolean;score:number;elapsedMs:number}>(`${path}/guesses`,'POST',{round:0,answer:'DS'});
  assert.equal(answer.correct,true);assert.equal(answer.score,scoreAnswer('hd',answer.elapsedMs,30000,1,true));
- assert.equal(runtime.snapshot()!.difficulty,'hd');assert.ok(answer.score<=500);
+ assert.equal(runtime.snapshot()!.difficulty,'hd');assert.ok(answer.score<=850);
 });

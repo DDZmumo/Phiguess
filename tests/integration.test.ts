@@ -153,7 +153,7 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
         }
         const guess={requestId:randomUUID(),round:0,songId:await answerFor(match.id,0)};
         const answer=(await request(`matches/${match.id}/guesses`,'POST',user.token,guess)).body;
-        assert.equal(answer.correct,true);assert.equal(answer.score,scoreAnswer(difficulty,answer.elapsedMs,30000,0,true));
+        assert.equal(answer.correct,true);assert.equal(answer.score,scoreAnswer(difficulty,answer.elapsedMs,30000,0,true));assert.equal(answer.score,{hd:850,in:1700,at:2550}[difficulty]);
         assert.deepEqual((await request(`matches/${match.id}/guesses`,'POST',user.token,guess)).body,answer);
         const result=(await request(`matches/${match.id}/result`,'GET',user.token)).body;
         assert.equal(result.difficulty,difficulty);assert.equal(result.rounds[0].difficulty,difficulty);

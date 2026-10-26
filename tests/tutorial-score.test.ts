@@ -17,11 +17,11 @@ test('tutorial scoring rules use additive penalties and preserve the timeout bou
 
 test('third hint lowers earned score while the original difficulty remains the badge denominator', () => {
   assert.deepEqual([0, 1, 2, 3].map(correctHealthGain), [5, 3, 2, 1]);
-  for (const [difficulty,lower] of [['hd','ez'],['in','hd'],['at','in']] as const) {
+  for (const [difficulty,ceiling] of [['hd',850],['in',1700],['at',2550]] as const) {
     assert.equal(scoreAnswer(difficulty, 5_000, 30_000, 0, false),SONG_MAX_SCORE[difficulty]);
-    assert.equal(scoreAnswer(difficulty, 5_000, 30_000, 0, true),SONG_MAX_SCORE[lower]);
+    assert.equal(scoreAnswer(difficulty, 5_000, 30_000, 0, true),ceiling);
     const score=scoreAnswer(difficulty,17_500,30_000,1,true);
-    assert.equal(score,SONG_MAX_SCORE[lower]*.65);
+    assert.equal(score,Math.round(ceiling*.65));
     const badge=performanceBadge([{correct:true,score}],difficulty);
     assert.equal(badge.maximum,SONG_MAX_SCORE[difficulty]);
     assert.equal(badge.ratio,score/SONG_MAX_SCORE[difficulty]);

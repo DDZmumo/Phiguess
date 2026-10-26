@@ -1,6 +1,6 @@
 # HTTP 与实时接口
 
-本文对应当前 `v4-downgrade` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
+本文对应当前 `v5-hint85` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
 
 成功 GET 通常为 200，成功 POST 默认 201。校验失败为 400，未登录或会话失效为 401，权限不足为 403，资源不存在或不可用为 404，状态冲突为 409，限流为 429，数据库/素材等暂不可用为 503；上传超限也可能返回 413。比赛快照的时间为 Unix 毫秒，数据库结果的时间为 ISO 字符串。
 
@@ -83,12 +83,12 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 
 答题仅接受 `playing`、当前题、`startsAt <= 收到请求时间 < deadline`、本人尚未答对且开启 HP 时仍有血量的状态。错误可继续尝试，正确后该题锁定。`players[].answered` 表示本题已经答对，不表示已经尝试过。
 
-当前规则版本为 `v4-downgrade`。每题满分按开局 EZ/HD/IN/AT 为 500/1000/2000/3000：
+当前规则版本为 `v5-hint85`。每题满分按开局 EZ/HD/IN/AT 为 500/1000/2000/3000：
 
 - 前 1/6 答题时限无时间扣分，剩余 5/6 按耗时线性扣分，最多扣计分上限的 50%。
 - 此前每次错误尝试扣计分上限的 10%，最多扣 50%。时间扣分与错误扣分相加，剩余比例最低为 0，最终四舍五入到整数。
 - 只有答对时记分；错误、超时、跳过或未猜出计 0。到截止时刻不再接受答案，计分函数对达到时限的输入也返回 0。
-- 前两条提示不降低计分上限；第三条提示为“得分减少，难度下降”，题图降低一档后，按该档的上限计算耗时和错答扣分：HD→EZ 为 500、IN→HD 为 1000、AT→IN 为 2000。题目应得满分、结果中的 difficulty 和综合牌分母仍使用开局难度，例如 AT 降至 IN 后仍以 3000 分为结算基准。提示不延长时限，提示次数仍影响答对回血。
+- 前两条提示不降低计分上限；第三条提示为“得分减少，难度下降”，题图降低一档后，按原难度满分的 85% 为上限计算耗时和错答扣分：HD 为 850、IN 为 1700、AT 为 2550。题目应得满分、结果中的 difficulty 和综合牌分母仍使用开局难度，例如 AT 降至 IN 后仍以 3000 分为结算基准。提示不延长时限，提示次数仍影响答对回血。
 
 猜测重试须保留原 `requestId` 和原始有效输入。同一用户的同一请求 ID 换比赛、回合或答案返回 409；匹配的重试返回首次 `{ correct, score, elapsedMs }`，不重复记分/扣血。在比赛仍驻留内存时，这也适用于已换题后的重试；该写接口不会主动恢复已被回收的比赛。
 
@@ -154,7 +154,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
   "imageUrl": "/api/matches/比赛UUID/rounds/0/image",
   "answer": null,
   "players": [{"id":"用户UUID","name":"玩家","score":0,"answered":false,"health":20}],
-  "rulesVersion": "v4-downgrade"
+  "rulesVersion": "v5-hint85"
 }
 ```
 
@@ -187,7 +187,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 - `players`：`[{ user_id, name, score, correct, health }]`，按总分降序、用户 ID 排序，包含该场全体参赛者。
 - `rounds`：本人每个已持久化回合的 `{ round, title, difficulty, score, correct, attempts, wrongAttempts, hintsUsed, noiseHits, elapsedMs, imageUrl }`。未答对的 `title` 为 null；`difficulty` 为开局题图档位；进行中场次的 `imageUrl` 为 null。错题耗时按本题开始至 deadline/场次结束/当前时间的适用较早时刻计算。
 
-`publication` 只改变本人的 `published` 标记。设为 true 必须满足：数据库状态为 `finished`、单人 `practice`、Infinity（`round_count=0`）、IN/AT、开启 20/50HP、规则为当前 `v4-downgrade`；否则 409。血量归零也可能正常落为 `finished`，无需答完整个曲库才可发布。设为 false 可取消本人的标记，不要求以上参榜条件。发布不会开放结果或题图接口给非参赛者。
+`publication` 只改变本人的 `published` 标记。设为 true 必须满足：数据库状态为 `finished`、单人 `practice`、Infinity（`round_count=0`）、IN/AT、开启 20/50HP、规则为当前 `v5-hint85`；否则 409。血量归零也可能正常落为 `finished`，无需答完整个曲库才可发布。设为 false 可取消本人的标记，不要求以上参榜条件。发布不会开放结果或题图接口给非参赛者。
 
 排行榜查询为严格对象：
 

@@ -72,7 +72,7 @@ test('publishing a current score replaces only that player legacy entry for the 
    const id=randomUUID();await db.query("INSERT INTO matches(id,mode,difficulty,status,rules_version,health_enabled,health_capacity,round_count,round_seconds) VALUES($1,'practice','at','finished',$2,true,$3,0,30)",[id,rules,capacity]);
    await db.query('INSERT INTO match_players(match_id,user_id,score,correct,health,result_published) VALUES($1,$2,$3,1,0,$4)',[id,user,score,published]);return id;
   };
-  const old=await seed('v3-deduction',3000,true),otherBoard=await seed('v3-deduction',3000,true,50),current=await seed(RULES_VERSION,1000,false);
+  const old=await seed('v4-downgrade',3000,true),otherBoard=await seed('v3-deduction',3000,true,50),current=await seed(RULES_VERSION,1000,false);
   const options={difficulty:'at' as const,healthCapacity:20 as const,roundSeconds:30 as const};
   const before=(await games.leaderboard(options)).find(row=>row.id===user)!;assert.equal(before.rank,'--');assert.equal(before.score,3000);
   await games.setResultPublication(current,user,true);

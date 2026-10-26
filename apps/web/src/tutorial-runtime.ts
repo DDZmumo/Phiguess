@@ -238,7 +238,7 @@ export class TutorialRuntime implements PlayRuntime {
   if(operation.match(/^rounds\/\d+\/hints\/\d$/)){
    if(this.step!==3)this.fail('先完成当前教学步骤，再使用提示。');
    const index=Number(operation.at(-1));if(!this.hints.some(h=>h.index===index))this.hints.push({index,content:index===2?DOWNGRADE_HINT_LABEL:this.song().hints[index]!,kind:index===2?'downgrade':index===0?'range':'identity',difficulty:index===2?'ez':null});
-   row.hintsUsed=this.hints.length;this.completed=true;this.feedback='第一条是章节范围。前两条不降低计分上限；第三条会降低题图和计分上限，结算基准仍按开局难度。';response=[...this.hints];
+   row.hintsUsed=this.hints.length;this.completed=true;this.feedback='第一条是章节范围。前两条不降低计分上限；第三条将题图降低一档，计分上限改为原满分的 85%，结算基准保持不变。';response=[...this.hints];
   }else if(operation==='guesses'){
    if((![4,5,7].includes(this.step)&&!(this.step===6&&this.aliasLesson))||m.players[0]!.answered)this.fail('请跟随当前教学步骤操作。');
    if(this.correctionInput||(this.step===4&&this.completed))this.fail('请等待当前教学反馈完成。');
