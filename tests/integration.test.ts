@@ -13,6 +13,8 @@ import { Db } from '../apps/server/src/db';
 import { GamesService } from '../apps/server/src/games';
 import { CatalogService } from '../apps/server/src/catalog';
 import { migrate } from '../tools/migrate';
+import {DOWNGRADE_HINT_LABEL,RULES_VERSION} from '../packages/contracts/src';
+import {scoreAnswer,performanceBadge} from '../packages/game-core/src';
 import { importAssets } from '../tools/import-assets';
 
 function once(socket: Socket,event: string): Promise<any[]> {
@@ -138,6 +140,31 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
       assert.deepEqual(await games.resultImage(m.id,0,alice.user.id),{key:original.original_preview_key,mime:'image/webp'});
       assert.equal((await games.revealResultArtwork(m.id,0,alice.user.id)).key,original.original_preview_key);
       assert.equal((await request('me/active','GET',alice.token)).body.match,null);
+    });
+    await t.test('third hint lowers earned-score ceiling but preserves original difficulty and settlement maximum',async()=>{
+      for(const difficulty of ['hd','in','at'] as const){
+        const user=(await request('auth/guest','POST',undefined,{name:`Downgrade-${difficulty}`})).body;
+        const match=(await request('matches/practice','POST',user.token,{difficulty,rounds:2,roundSeconds:30,healthCapacity:0,healthEnabled:false})).body;
+        await step(3100);
+        assert.equal(match.difficulty,difficulty);assert.equal(match.rulesVersion,RULES_VERSION);
+        for(const index of [0,2,1]){
+          const hints=(await request(`matches/${match.id}/rounds/0/hints/${index}`,'POST',user.token)).body;
+          if(index===1)assert.equal(hints.find((h:any)=>h.kind==='downgrade').content,DOWNGRADE_HINT_LABEL);
+        }
+        const guess={requestId:randomUUID(),round:0,songId:await answerFor(match.id,0)};
+        const answer=(await request(`matches/${match.id}/guesses`,'POST',user.token,guess)).body;
+        assert.equal(answer.correct,true);assert.equal(answer.score,scoreAnswer(difficulty,answer.elapsedMs,30000,0,true));
+        assert.deepEqual((await request(`matches/${match.id}/guesses`,'POST',user.token,guess)).body,answer);
+        const result=(await request(`matches/${match.id}/result`,'GET',user.token)).body;
+        assert.equal(result.difficulty,difficulty);assert.equal(result.rounds[0].difficulty,difficulty);
+        assert.equal(performanceBadge(result.rounds,difficulty).maximum,{hd:1000,in:2000,at:3000}[difficulty]);
+        await step(2100);
+        for(const index of [0,2])await request(`matches/${match.id}/rounds/1/hints/${index}`,'POST',user.token);
+        const withoutDowngrade=(await request(`matches/${match.id}/guesses`,'POST',user.token,{requestId:randomUUID(),round:1,songId:await answerFor(match.id,1)})).body;
+        assert.equal(withoutDowngrade.correct,true);assert.equal(withoutDowngrade.score,scoreAnswer(difficulty,withoutDowngrade.elapsedMs,30000));
+        const settled=(await request(`matches/${match.id}/result`,'GET',user.token)).body;
+        assert.equal(performanceBadge(settled.rounds,difficulty).maximum,2*{hd:1000,in:2000,at:3000}[difficulty]);
+      }
     });
     await t.test('free text accepts normalized aliases, preserves idempotency and hides missed titles',async()=>{
       const match=(await request('matches/practice','POST',bob.token,{difficulty:'in',rounds:1,roundSeconds:15})).body;

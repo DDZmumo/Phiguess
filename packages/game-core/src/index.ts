@@ -1,11 +1,13 @@
 import type { Difficulty } from '../../contracts/src';
 
 export const SONG_MAX_SCORE:Record<Difficulty,number>={ez:500,hd:1000,in:2000,at:3000};
-export function scoreAnswer(difficulty:Difficulty,elapsedMs:number,durationMs:number,wrongAttempts=0):number{
+const LOWER_DIFFICULTY:Record<Difficulty,Difficulty>={ez:'ez',hd:'ez',in:'hd',at:'in'};
+export function scoreAnswer(difficulty:Difficulty,elapsedMs:number,durationMs:number,wrongAttempts=0,downgraded=false):number{
   if(durationMs<=0||elapsedMs>=durationMs)return 0;
   const timeLoss=Math.max(0,Math.min(1,(elapsedMs-durationMs/6)/(durationMs*5/6)))*.5;
   const wrongLoss=Math.min(.5,Math.max(0,Math.floor(wrongAttempts))*.1);
-  return Math.round(SONG_MAX_SCORE[difficulty]*Math.max(0,1-timeLoss-wrongLoss));
+  const scoringDifficulty=downgraded?LOWER_DIFFICULTY[difficulty]:difficulty;
+  return Math.round(SONG_MAX_SCORE[scoringDifficulty]*Math.max(0,1-timeLoss-wrongLoss));
 }
 export type PerformanceGrade='none'|'green'|'blue'|'red'|'gold'|'rainbow';
 export function performanceBadge(rounds:ReadonlyArray<{correct:boolean;score:number}>,difficulty:Difficulty){

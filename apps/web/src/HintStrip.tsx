@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Lightbulb } from 'lucide-react';
 import type { Hint } from './api';
+import {DOWNGRADE_HINT_LABEL} from '../../../packages/contracts/src';
 
 function HintContent({content}:{content:string}){
   const text=useRef<HTMLSpanElement>(null);
@@ -24,7 +25,7 @@ export function HintStrip({indices,hints}:{indices:number[];hints:Hint[]}){
     {indices.map((index,order)=>{
       const hint=hints.find(value=>value.index===index);
       return <div key={index} className={`hint-cell ${hint?'revealed':''}`} aria-label={`第 ${order+1} 个提示${hint?'已解锁':'未解锁'}`}>
-        <div className="hint-inner">{hint?<HintContent content={hint.content}/>:<span className="hint-order">{['1st','2nd','3rd'][order]}</span>}</div>
+        <div className="hint-inner">{hint?<HintContent content={hint.kind==='downgrade'?DOWNGRADE_HINT_LABEL:hint.content}/>:<span className="hint-order">{['1st','2nd','3rd'][order]}</span>}</div>
       </div>;
     })}
   </div>;

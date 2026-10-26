@@ -53,7 +53,8 @@ export type GuessInput = z.infer<typeof GuessInput>;
 export const RoomCode = z.string().regex(/^[A-Z2-9]{6}$/);
 export const JoinInput = z.object({ code: RoomCode }).strict();
 export const ReadyInput = z.object({ ready: z.boolean() }).strict();
-export const RULES_VERSION = 'v3-deduction';
+export const RULES_VERSION = 'v4-downgrade';
+export const DOWNGRADE_HINT_LABEL = '得分减少，难度下降';
 
 export interface PlayerView { id: string; name: string; score: number; answered: boolean; health?:number }
 export interface MatchView {

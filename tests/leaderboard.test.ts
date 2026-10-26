@@ -52,3 +52,34 @@ test('Infinity leaderboards isolate difficulty, HP and time and count exhausted 
   for(const query of [{difficulty:'hd'},{healthCapacity:'0'},{difficulty:'at',roundSeconds:'60'},{rounds:'5'},{mode:'room'}])assert.throws(()=>controller.leaderboard(query),e=>(e as {getStatus():number}).getStatus()===400);
  }finally{await db.close();}
 });
+
+
+test('legacy scores remain unranked on the same board and do not change the 325 reference',()=>{
+ const rows=withReferencePlayer([
+  {id:'legacy',name:'Legacy',avatarUrl:null,rank:'1',score:9999999,correct:1,totalRounds:1,isGuest:false,isLegacy:true},
+  {id:'current-a',name:'Current A',avatarUrl:null,rank:'2',score:1000,correct:1,totalRounds:1,isGuest:false},
+  {id:'current-b',name:'Current B',avatarUrl:null,rank:'3',score:1000,correct:1,totalRounds:1,isGuest:false},
+ ],'at');
+ assert.equal(rows[0]!.isReference,true);assert.equal(rows[0]!.rank,'1');assert.equal(rows[0]!.score,975000);assert.equal(rows[0]!.correct,325);assert.equal(rows[0]!.totalRounds,325);
+ assert.deepEqual(rows.slice(1).map(row=>[row.id,row.rank]),[['current-a','2'],['current-b','2'],['legacy','--']]);
+});
+
+test('publishing a current score replaces only that player legacy entry for the same board',async()=>{
+ const db=new Db();try{
+  await migrate(db);const user=randomUUID();await db.query('INSERT INTO users(id,name) VALUES($1,$2)',[user,'Legacy replacement']);
+  const games=new GamesService(db,{} as CatalogService,{} as Events);
+  const seed=async(rules:string,score:number,published:boolean,capacity=20)=>{
+   const id=randomUUID();await db.query("INSERT INTO matches(id,mode,difficulty,status,rules_version,health_enabled,health_capacity,round_count,round_seconds) VALUES($1,'practice','at','finished',$2,true,$3,0,30)",[id,rules,capacity]);
+   await db.query('INSERT INTO match_players(match_id,user_id,score,correct,health,result_published) VALUES($1,$2,$3,1,0,$4)',[id,user,score,published]);return id;
+  };
+  const old=await seed('v3-deduction',3000,true),otherBoard=await seed('v3-deduction',3000,true,50),current=await seed(RULES_VERSION,1000,false);
+  const options={difficulty:'at' as const,healthCapacity:20 as const,roundSeconds:30 as const};
+  const before=(await games.leaderboard(options)).find(row=>row.id===user)!;assert.equal(before.rank,'--');assert.equal(before.score,3000);
+  await games.setResultPublication(current,user,true);
+  const after=(await games.leaderboard(options)).find(row=>row.id===user)!;assert.notEqual(after.rank,'--');assert.equal(after.score,1000);assert.equal(after.isLegacy,false);
+  const flags=(await db.query('SELECT match_id,result_published FROM match_players WHERE user_id=$1',[user])).rows;
+  assert.equal(flags.find(row=>row.match_id===old)!.result_published,false);assert.equal(flags.find(row=>row.match_id===otherBoard)!.result_published,true);
+  await games.setResultPublication(current,user,false);assert.equal((await games.leaderboard(options)).some(row=>row.id===user),false);
+  assert.equal((await db.query('SELECT count(*)::int AS count FROM matches WHERE id=$1',[old])).rows[0]!.count,1);
+ }finally{await db.close();}
+});

@@ -18,14 +18,14 @@ function SettingRange({label,value,min=0,onChange}:{label:string;value:number;mi
   </div>
  </div>;
 }
-function SettingSwitch({label,description,checked,onChange}:{label:string;description:string;checked:boolean;onChange:(checked:boolean)=>void}){
+export function SettingSwitch({label,description,checked,onChange,className=''}:{label:string;description?:string;checked:boolean;onChange:(checked:boolean)=>void;className?:string}){
  const id=useId();
- return <div className="setting-row setting-toggle">
+ return <div className={`setting-row setting-toggle ${className}`}>
   <div className="setting-heading"><label htmlFor={id}>{label}</label><span className="setting-switch">
    <input id={id} type="checkbox" role="switch" checked={checked} onChange={e=>{onChange(e.target.checked);playSound('ui.toggle',e.target.checked&&label==='交互音效');}}/>
    <span className="setting-switch-track" aria-hidden="true"><Check size={20}/><i/></span>
   </span></div>
-  <p>{description}</p>
+  {description&&<p>{description}</p>}
  </div>;
 }
 export function SettingsPanel(){

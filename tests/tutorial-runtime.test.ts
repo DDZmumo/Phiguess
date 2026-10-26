@@ -2,7 +2,8 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {TutorialRuntime} from '../apps/web/src/tutorial-runtime';
 import {tutorialScoreSlides,TUTORIAL_WRONG_ANSWER_REBUKE,TUTORIAL_SCORE_FAST_FADE_MS,TUTORIAL_SCORE_REDUCED_FADE_MS} from '../apps/web/src/tutorial-model';
-import type {MatchView,MatchResultView} from '../packages/contracts/src';
+import {DOWNGRADE_HINT_LABEL,type MatchView,type MatchResultView} from '../packages/contracts/src';
+import {scoreAnswer} from '../packages/game-core/src';
 import {tutorialSongs} from '../apps/web/src/tutorial-songs';
 import {CHARACTER_TRANSITION_MS,CHARACTER_REVEAL_DELAY_MS,randomCharacterRanks,characterTransition} from '../apps/web/src/character-scramble';
 
@@ -185,4 +186,19 @@ test('four-song tutorial accepts aliases, extends its flash and preserves the re
  }
  assert.equal(runtime.step,14);assert.equal(runtime.canNavigate('/account'),true);assert.equal(runtime.resultId,match.id);
  runtime.navigate('/account');assert.equal(runtime.step,15);assert.equal(runtime.scene,'done');
+});
+
+
+test('tutorial third hint uses the shared reduced scoring ceiling without changing the lesson difficulty',async()=>{
+ const runtime=new TutorialRuntime(()=>{}),path='matches/tutorial-hd';
+ const match=await runtime.request<MatchView>('matches/practice','POST',{difficulty:'hd',rounds:5,roundSeconds:30,healthCapacity:20});
+ runtime.navigate(`/play/${match.id}`);runtime.event('zoom-close');runtime.tick(1200);
+ for(const index of [0,1,2])await runtime.request(`${path}/rounds/0/hints/${index}`,'POST');
+ const hints=await runtime.request<{kind:string;content:string}[]>(`${path}/rounds/0/hints`);
+ assert.equal(hints.find(h=>h.kind==='downgrade')!.content,DOWNGRADE_HINT_LABEL);
+ runtime.tick(1200);runtime.tick(3000);assert.equal(runtime.step,4);
+ await runtime.request(`${path}/guesses`,'POST',{round:0,answer:'wrong'});runtime.tick(1350);
+ const answer=await runtime.request<{correct:boolean;score:number;elapsedMs:number}>(`${path}/guesses`,'POST',{round:0,answer:'DS'});
+ assert.equal(answer.correct,true);assert.equal(answer.score,scoreAnswer('hd',answer.elapsedMs,30000,1,true));
+ assert.equal(runtime.snapshot()!.difficulty,'hd');assert.ok(answer.score<=500);
 });

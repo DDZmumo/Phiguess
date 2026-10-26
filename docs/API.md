@@ -1,6 +1,6 @@
 # HTTP 与实时接口
 
-本文对应当前 `v3-deduction` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
+本文对应当前 `v4-downgrade` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
 
 成功 GET 通常为 200，成功 POST 默认 201。校验失败为 400，未登录或会话失效为 401，权限不足为 403，资源不存在或不可用为 404，状态冲突为 409，限流为 429，数据库/素材等暂不可用为 503；上传超限也可能返回 413。比赛快照的时间为 Unix 毫秒，数据库结果的时间为 ISO 字符串。
 
@@ -10,7 +10,7 @@
 
 | 方法 | 路径 | 权限 | 请求 / 响应 |
 |---|---|---|---|
-| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.2.0-preview" }` |
+| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.2.1-preview" }` |
 | GET | `/health/ready` | 公开 | 查询数据库 `matches` 表；成功 `{ status: "ok" }`，失败 503 |
 | POST | `/auth/guest` | 公开 | `{ name }` → `{ token, expiresAt, user }`，每次创建新的游客 |
 | POST | `/auth/login` | 公开 | `{ name, password }` → `{ token, expiresAt, user }`；用户名不存在时自动注册，存在时校验密码 |
@@ -83,12 +83,12 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 
 答题仅接受 `playing`、当前题、`startsAt <= 收到请求时间 < deadline`、本人尚未答对且开启 HP 时仍有血量的状态。错误可继续尝试，正确后该题锁定。`players[].answered` 表示本题已经答对，不表示已经尝试过。
 
-当前规则版本为 `v3-deduction`。每题满分按开局 EZ/HD/IN/AT 为 500/1000/2000/3000：
+当前规则版本为 `v4-downgrade`。每题满分按开局 EZ/HD/IN/AT 为 500/1000/2000/3000：
 
-- 前 1/6 答题时限无时间扣分，剩余 5/6 按耗时线性扣分，最多扣满分的 50%。
-- 此前每次错误尝试扣满分的 10%，最多扣 50%。时间扣分与错误扣分相加，剩余比例最低为 0，最终四舍五入到整数。
+- 前 1/6 答题时限无时间扣分，剩余 5/6 按耗时线性扣分，最多扣计分上限的 50%。
+- 此前每次错误尝试扣计分上限的 10%，最多扣 50%。时间扣分与错误扣分相加，剩余比例最低为 0，最终四舍五入到整数。
 - 只有答对时记分；错误、超时、跳过或未猜出计 0。到截止时刻不再接受答案，计分函数对达到时限的输入也返回 0。
-- 提示不直接扣分，也不延长时限；降低题图难度后仍按开局难度计分，但提示次数会影响答对回血。
+- 前两条提示不降低计分上限；第三条提示为“得分减少，难度下降”，题图降低一档后，按该档的上限计算耗时和错答扣分：HD→EZ 为 500、IN→HD 为 1000、AT→IN 为 2000。题目应得满分、结果中的 difficulty 和综合牌分母仍使用开局难度，例如 AT 降至 IN 后仍以 3000 分为结算基准。提示不延长时限，提示次数仍影响答对回血。
 
 猜测重试须保留原 `requestId` 和原始有效输入。同一用户的同一请求 ID 换比赛、回合或答案返回 409；匹配的重试返回首次 `{ correct, score, elapsedMs }`，不重复记分/扣血。在比赛仍驻留内存时，这也适用于已换题后的重试；该写接口不会主动恢复已被回收的比赛。
 
@@ -154,7 +154,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
   "imageUrl": "/api/matches/比赛UUID/rounds/0/image",
   "answer": null,
   "players": [{"id":"用户UUID","name":"玩家","score":0,"answered":false,"health":20}],
-  "rulesVersion": "v3-deduction"
+  "rulesVersion": "v4-downgrade"
 }
 ```
 
@@ -187,7 +187,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 - `players`：`[{ user_id, name, score, correct, health }]`，按总分降序、用户 ID 排序，包含该场全体参赛者。
 - `rounds`：本人每个已持久化回合的 `{ round, title, difficulty, score, correct, attempts, wrongAttempts, hintsUsed, noiseHits, elapsedMs, imageUrl }`。未答对的 `title` 为 null；`difficulty` 为开局题图档位；进行中场次的 `imageUrl` 为 null。错题耗时按本题开始至 deadline/场次结束/当前时间的适用较早时刻计算。
 
-`publication` 只改变本人的 `published` 标记。设为 true 必须满足：数据库状态为 `finished`、单人 `practice`、Infinity（`round_count=0`）、IN/AT、开启 20/50HP、规则为当前 `v3-deduction`；否则 409。血量归零也可能正常落为 `finished`，无需答完整个曲库才可发布。设为 false 可取消本人的标记，不要求以上参榜条件。发布不会开放结果或题图接口给非参赛者。
+`publication` 只改变本人的 `published` 标记。设为 true 必须满足：数据库状态为 `finished`、单人 `practice`、Infinity（`round_count=0`）、IN/AT、开启 20/50HP、规则为当前 `v4-downgrade`；否则 409。血量归零也可能正常落为 `finished`，无需答完整个曲库才可发布。设为 false 可取消本人的标记，不要求以上参榜条件。发布不会开放结果或题图接口给非参赛者。
 
 排行榜查询为严格对象：
 
@@ -195,9 +195,9 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 GET /api/leaderboards?difficulty=at&healthCapacity=20&roundSeconds=30
 ```
 
-`difficulty` 仅 IN/AT，默认 AT；`healthCapacity` 仅 20/50，默认 20；`roundSeconds` 仅 15/30/60，默认 30，AT 必须为 30。旧 `mode`、`rounds` 参数会被拒绝。只比较同难度、同血量上限、同时限、当前规则下已发布的完成单人 Infinity 成绩，每位玩家取最佳分数（同分时优先答对数），相同分数同名次。
+`difficulty` 仅 IN/AT，默认 AT；`healthCapacity` 仅 20/50，默认 20；`roundSeconds` 仅 15/30/60，默认 30，AT 必须为 30。旧 `mode`、`rounds` 参数会被拒绝。同难度、同血量上限、同时限下的已发布完成单人 Infinity 成绩显示在同一榜单。旧规则成绩标记 `isLegacy: true`、排名 `rank: "--"`，排在新排名之后；当前规则重新排名。每位玩家优先选当前规则最佳成绩（同分时优先答对数），没有新成绩时保留旧规则最佳记录。公布新规则成绩会取消该玩家同条件旧成绩的榜单公布标记，历史比赛记录不删除。相同新规则分数同名次。
 
-返回最多 100 条 `[{ id, name, avatarUrl, rank, score, correct, totalRounds, isGuest, isReference? }]`，`rank` 为字符串。`totalRounds` 是该条成绩已创建回合记录的数量。当前实现会合入 `HATE_GEOPELIA` 静态参考角色（`isReference: true`，325 题满分）并重新排名；它不是一次真实比赛或当前曲库数量。
+返回最多 100 条 `[{ id, name, avatarUrl, rank, score, correct, totalRounds, isGuest, isReference?, isLegacy? }]`，`rank` 为字符串。`totalRounds` 是该条成绩已创建回合记录的数量。当前实现会合入 `HATE_GEOPELIA` 静态参考角色（`isReference: true`，325 题满分）并重新排名；它不是一次真实比赛或当前曲库数量。
 
 每日挑战及旧每日榜路由不再提供，返回 404；旧数据库表只作历史存档。
 
@@ -232,6 +232,6 @@ GET /api/leaderboards?difficulty=at&healthCapacity=20&roundSeconds=30
 
 首次握手、每次订阅均验证会话；每 30 秒重新验证已建立连接，注销后的广播权限最多延迟约 30 秒收回。单身份最多三个已建立连接，每个连接每分钟最多 60 次订阅操作。若握手带 Origin，必须匹配配置的 `PUBLIC_ORIGIN`。
 
-### 曲绘范围（0.2.0 Preview）
+### 曲绘范围（0.2.1 Preview）
 
 创建练习可传 `artworkScopes` 数组：`main`、`non-main`、`removed`、`april-fools`；省略表示全部。数组必须至少包含 `main` 或 `non-main`。已删除与愚人节分别独立分类，愚人节优先于已删除。AT 始终忽略范围筛选，使用全曲库。

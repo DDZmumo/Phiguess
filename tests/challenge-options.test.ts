@@ -23,7 +23,7 @@ function fixture(count:number,maxChapter=9) {
       queries.push({sql,values});
       if(sql.startsWith('SELECT a.*,s.title'))return {rows};
       if(sql.startsWith('SELECT max(chapter)'))return {rows:[{chapter:maxChapter}]};
-      if(sql.startsWith('SELECT count(*)::int AS count FROM revealed_hints'))return {rows:[{count:0}]};
+      if(sql.startsWith('SELECT count(*)::int AS count,COALESCE(bool_or('))return {rows:[{count:0,downgraded:false}]};
       if(sql.startsWith('INSERT INTO revealed_hints')){const key=values.slice(0,4).join('/');if(!hints.has(key))hints.set(key,{index:values[3],content:values[4],kind:values[5],difficulty:null});}
       if(sql.startsWith('SELECT hint_index AS index'))return {rows:[...hints.entries()].filter(([key])=>key.startsWith(values.slice(0,3).join('/')+'/')).map(([,hint])=>hint)};
       if(sql.startsWith('INSERT INTO match_rounds'))rounds.push({round:sql.includes('VALUES($1,0,')?0:values[1],artworkId:sql.includes('VALUES($1,0,')?values[1]:values[2]});

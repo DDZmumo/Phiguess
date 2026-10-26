@@ -9,7 +9,7 @@ import { useStore, type Session } from './store';
 import { Avatar, gsap, modeTransitionDuration, titleTransitionTiming, useGSAP } from './visual';
 import { useCover } from './Showcase';
 import { HubBackdrop } from './HubBackdrop';
-import {SettingsPanel} from './Settings';
+import {SettingsPanel,SettingSwitch} from './Settings';
 import { Leaderboard } from './Leaderboard';
 
 const labels={practice:'单人游戏',room:'多人房间'};
@@ -179,7 +179,10 @@ export function Hub({route='/account'}:{route?:string}) {
               <span className="hub-player-id">{session&&!loginOpen?`ID  ${session.user.id.slice(0,12)}`:''}</span>
             </div>
             {session&&!loginOpen&&<button type="button" className="hub-signout" onClick={async()=>{try{await api('auth/logout','POST');playSound('ui.back');setSession(null);setName('');setPassword('');setLoginOpen(false);}catch(e){setError(errorMessage(e));}}} aria-label="退出当前玩家身份"><span className="hub-profile-action-label"><LogOut size={17}/><span>登出</span></span></button>}
-            <button type="button" className="hub-tutorial-entry" onClick={()=>go('/tutorial')} aria-label="新手教程"><span className="hub-profile-action-label">新手教程<ArrowRight size={18} aria-hidden="true"/></span></button>
+            <div className="hub-tutorial-actions">
+              <SettingSwitch className="hub-skip-transition" label="跳过难度选择过场" checked={preferences.skipDifficultyTransition??false} onChange={skipDifficultyTransition=>useStore.getState().updatePreferences({skipDifficultyTransition})}/>
+              <button type="button" className="hub-tutorial-entry" onClick={()=>go('/tutorial')} aria-label="新手教程"><span className="hub-profile-action-label">新手教程<ArrowRight size={18} aria-hidden="true"/></span></button>
+            </div>
           </div>
         </section>
         <div className="hub-play-area hub-play-centered">

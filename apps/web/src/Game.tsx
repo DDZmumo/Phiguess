@@ -100,7 +100,8 @@ export function Game({id}:{id:string}) {
   const runtime=usePlayRuntime(),api=usePlayApi(),go=usePlayNavigation();
   const {data:match,setData:setMatchView,error:loadError,errorStatus}=useLive<MatchView>('match',id),now=useServerTime(match),session=usePlaySession()!;
   const endingBlack=useRef<HTMLDivElement>(null),wasActive=useRef(false),reduce=useReducedMotion();
-  const [settings,setSettings]=useState(false),[answer,setAnswer]=useState(runtime?.answerDraft??''),[busy,setBusy]=useState(false),[error,setError]=useState('');
+  const [settings,setSettings]=useState(false),[answer,setAnswer]=useState(runtime?.answerDraft??''),[submission,setSubmission]=useState<{round:number}|null>(null),[error,setError]=useState('');
+  const submissionRef=useRef<{round:number}|null>(null);
   const [progress,setProgress]=useState<Progress[]>([]),[hints,setHints]=useState<Hint[]>([]),[hintBusy,setHintBusy]=useState(false);
   const [submitNoise,setSubmitNoise]=useState<{round:number;leaving:boolean;startsAt:number;deadline:number}|null>(null);
   const [notice,setNotice]=useState<AnswerNoticeEvent|null>(null),noticeSerial=useRef(0),noticed=useRef(new Set<string>());
@@ -121,6 +122,8 @@ export function Game({id}:{id:string}) {
   const pending=useRef<{round:number;answer:string;requestId:string}|null>(null);
   const preparingAnswer=useRef<AbortController|null>(null);
   const round=match?.round??runtime?.snapshot()?.round??0,answered=match?.players.find(p=>p.id===session.user.id)?.answered??false;
+  const currentRound=useRef(round);currentRound.current=round;
+  const busy=submission?.round===round;
   const draftRound=useRef(round);
   const updateAnswer=useCallback((value:string)=>{setAnswer(value);runtime?.updateAnswerDraft?.(value);},[runtime]);
   useEffect(()=>{if(!runtime?.updateAnswerDraft)return;const sync=()=>setAnswer(runtime.answerDraft??'');sync();return runtime.subscribe(sync);},[runtime]);
@@ -268,24 +271,34 @@ export function Game({id}:{id:string}) {
     void api<Hint[]>(`matches/${id}/rounds/${round}/hints`).then(v=>{if(alive)setHints(v);}).catch(()=>{});return()=>{alive=false;};
   },[id,round,started]);
   async function submit(e:FormEvent) {
-    e.preventDefault();if(!playing||submitRed||busy||!answer.trim())return;setBusy(true);setError('');
+    e.preventDefault();if(!playing||submitRed||submissionRef.current?.round===round||!answer.trim())return;
+    const operation={round};submissionRef.current=operation;setSubmission(operation);setError('');
+    // Realtime state can advance while this round's HTTP response is still pending.
+    const isCurrent=()=>currentRound.current===operation.round&&submissionRef.current===operation;
     let preparation:AbortController|undefined;
     try {
-      if(!pending.current)playSound('ui.confirm');
-      let request=pending.current;
+      let request=pending.current?.round===round?pending.current:null;
+      if(!request)playSound('ui.confirm');
       if(!request){
         let value=answer.trim();
         if(runtime?.prepareAnswer){preparation=new AbortController();preparingAnswer.current=preparation;value=await runtime.prepareAnswer(value,round,updateAnswer,preparation.signal,reduce);if(preparation.signal.aborted)throw new DOMException('Aborted','AbortError');}
+        if(!isCurrent())return;
         request={round,answer:value,requestId:createRequestId()};pending.current=request;
       }
       const result=await api<{correct:boolean;score:number}>(`matches/${id}/guesses`,'POST',request);
-      pending.current=null;
+      if(!isCurrent())return;
+      if(pending.current?.requestId===request.requestId)pending.current=null;
       if(result.correct){if(!noticed.current.has(`${request.round}:perfect`)&&!noticed.current.has(`${request.round}:good`))playSound('answer.correct');showNotice((wrongAttempts.current.get(request.round)??0)===0?'perfect':'good',request.round);}
       else{playSound('answer.wrong');wrongAttempts.current.set(request.round,(wrongAttempts.current.get(request.round)??0)+1);showNotice('bad',request.round);}
       const [savedProgress,snapshot]=await Promise.all([api<Progress[]>(`matches/${id}/progress`),api<MatchView>(`matches/${id}`)]);
+      if(!isCurrent())return;
       setProgress(savedProgress);applySnapshot(snapshot);
       setError('');
-    }catch(e){if(e instanceof ApiError)pending.current=null;setError(errorMessage(e));}finally{if(preparingAnswer.current===preparation)preparingAnswer.current=null;setBusy(false);}
+    }catch(e){if(isCurrent()){if(e instanceof ApiError)pending.current=null;setError(errorMessage(e));}}finally{
+      if(preparingAnswer.current===preparation)preparingAnswer.current=null;
+      if(submissionRef.current===operation)submissionRef.current=null;
+      setSubmission(current=>current===operation?null:current);
+    }
   }
   async function reveal(index:number) {
     if(!playing||hintBusy||hints.some(h=>h.index===index))return;
@@ -312,7 +325,7 @@ export function Game({id}:{id:string}) {
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>
-      <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||Boolean(pending.current)} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
+      <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||pending.current?.round===round} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
       <button ref={submitButton} className={`submit-answer ${submitCovered?'submit-covered':''} ${submitFlashing?'submit-flashing':''} ${submitNoise?.leaving?'submit-dissolving':''} ${submitRed?'submit-red':''}`} disabled={!playing||submitRed||busy||!answer.trim()}><span>{busy?'提交中':answered?'已提交':'提交'}</span><NoiseArtwork skipFlashAt={skipFlashAt} mode="submit" target={submitButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={submitNoise?.startsAt??match.startsAt} deadline={submitNoise?.round===round?match.deadline:submitNoise?.deadline??match.deadline} now={noiseNow} solved={false} active={true} suspended={!submitCovered} fadeOut={submitNoise?.leaving} skew={.2679491924} style={{pointerEvents:'none'}}/></button>
     </form>
     <HintStrip indices={visibleHints} hints={hints}/>

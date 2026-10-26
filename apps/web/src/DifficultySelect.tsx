@@ -15,7 +15,7 @@ import { ROLLING_HANZI } from './difficulty-atlas';
 import './difficulty-select.css';
 
 const SETTINGS_TIME=2;
-type Phase='choosing'|'centering'|'configuring'|'fading-settings'|'scrambling-return'|'returning-settings'|'returning-labels'|'transition'|'starting'|'leaving-hub'|'error';
+type Phase='choosing'|'centering'|'configuring'|'fading-settings'|'fading-to-load'|'scrambling-return'|'returning-settings'|'returning-labels'|'transition'|'starting'|'leaving-hub'|'error';
 
 export function DifficultySelect(){
   const runtime=usePlayRuntime(),api=usePlayApi(),go=usePlayNavigation();
@@ -32,13 +32,6 @@ export function DifficultySelect(){
   const {preferences,updatePreferences}=usePlayPreferences();
   useEffect(()=>{if(phase==='configuring')runtime?.event('challenge-settings');},[phase,runtime]);
   const reduce=useReducedMotion();
-  useEffect(()=>{
-    if(phase!=='leaving-hub'||!exitShade.current)return;
-    const fade=gsap.to(exitShade.current,{opacity:1,duration:modeTransitionDuration(reduce),ease:'phigrosFadeIn',onComplete:()=>{
-      if(runtime||window.location.hash==='#/difficulty')go('/account');
-    }});
-    return()=>{fade.kill();};
-  },[phase,reduce]);
   const {data:active,error:activeError}=useResource<{match:{id:string;mode:string}|null}>('me/active');
   useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
   useEffect(()=>{
@@ -78,11 +71,21 @@ export function DifficultySelect(){
       setError(errorMessage(e));setPhase('error');
     }finally{requestBusy.current=false;}
   },[selected,reduce]);
+  useEffect(()=>{
+    const shade=exitShade.current;if(!shade)return;
+    if(phase==='error'){gsap.set(shade,{opacity:0});return;}
+    if(phase!=='leaving-hub'&&phase!=='fading-to-load')return;
+    const fade=gsap.to(shade,{opacity:1,duration:modeTransitionDuration(reduce),ease:'phigrosFadeIn',onComplete:()=>{
+      if(phase==='fading-to-load'){void start();return;}
+      if(runtime||window.location.hash==='#/difficulty')go('/account');
+    }});
+    return()=>{fade.kill();};
+  },[phase,reduce,start,runtime,go]);
   useGSAP(()=>{
     if(!ready||!painter.current)return;
     if(phase==='choosing'){clock.current.time=0;painter.current.draw(null,null,null,reduce);return;}
     if(!selected)return;
-    if(phase==='configuring'||phase==='fading-settings'||phase==='scrambling-return'||phase==='returning-settings'){
+    if(phase==='configuring'||phase==='fading-settings'||phase==='fading-to-load'||phase==='scrambling-return'||phase==='returning-settings'){
       clock.current.time=SETTINGS_TIME;painter.current.draw(SETTINGS_TIME,selected,null,reduce);
       if(root.current)root.current.dataset.referenceFrame=String(SETTINGS_TIME*30);
       return;
@@ -110,6 +113,8 @@ export function DifficultySelect(){
     const panel=settingsPanel.current;if(!panel)return;
     if(phase==='scrambling-return'){
       gsap.set(panel,{opacity:1,y:0,filter:'blur(0px)'});gsap.set(backButton??null,{opacity:.48});
+    }else if(phase==='fading-to-load'){
+      gsap.set(panel,{opacity:1,y:0,filter:'blur(0px)'});
     }else if(phase==='configuring'){
       gsap.fromTo(panel,{opacity:0,y:8,filter:'blur(8px)'},{opacity:1,y:0,filter:'blur(0px)',duration:reduce?.12:.65,ease:'power2.out'});
     }else if(phase==='fading-settings'||phase==='returning-settings'){
@@ -123,7 +128,7 @@ export function DifficultySelect(){
     }
   },{scope:root,dependencies:[phase,reduce,start],revertOnUpdate:true});
   const back=useCallback(()=>{
-    if(['starting','transition','fading-settings','scrambling-return','returning-settings','returning-labels','leaving-hub'].includes(phase))return;
+    if(['starting','transition','fading-settings','fading-to-load','scrambling-return','returning-settings','returning-labels','leaving-hub'].includes(phase))return;
     playSound('ui.back');
     if(selected){setError('');returnFrom.current=phase==='centering'?clock.current.time:SETTINGS_TIME;setPhase(phase==='configuring'?(selected==='at'?'scrambling-return':'returning-settings'):'returning-labels');}
     else setPhase('leaving-hub');
@@ -145,7 +150,7 @@ export function DifficultySelect(){
     <div className="difficulty-options" role="group" aria-label="选择挑战难度" hidden={phase!=='choosing'&&phase!=='leaving-hub'}>
       {DIFFICULTIES.map(d=><button key={d.id} style={{left:`calc(50% + ${d.x*unit}px)`}} aria-label={`${d.id.toUpperCase()} ${d.name}`} disabled={blocked||Boolean(runtime&&d.id!=='hd')} onPointerEnter={()=>hover(d.id)} onPointerLeave={()=>hover(null)} onFocus={()=>hover(d.id)} onBlur={()=>hover(null)} onClick={()=>choose(d.id)}><span className="difficulty-sr-only">{d.id.toUpperCase()} · {d.name}</span></button>)}
     </div>
-    {selected&&(phase==='configuring'||phase==='fading-settings'||phase==='scrambling-return'||phase==='returning-settings')&&<form ref={settingsPanel} className={`difficulty-challenge-settings ${selected==='at'?'at-challenge-warning':''}`} aria-label={selected==='at'?'AT挑战警告':'挑战设置'} onSubmit={e=>{e.preventDefault();if(phase==='configuring'&&(selected!=='at'||atWarningReady)){runtime?.event('caption-dismiss');setPhase('fading-settings');}}}>
+    {selected&&(phase==='configuring'||phase==='fading-settings'||phase==='fading-to-load'||phase==='scrambling-return'||phase==='returning-settings')&&<form ref={settingsPanel} className={`difficulty-challenge-settings ${selected==='at'?'at-challenge-warning':''}`} aria-label={selected==='at'?'AT挑战警告':'挑战设置'} onSubmit={e=>{e.preventDefault();if(phase==='configuring'&&(selected!=='at'||atWarningReady)){runtime?.event('caption-dismiss');setPhase(!runtime&&preferences.skipDifficultyTransition?'fading-to-load':'fading-settings');}}}>
       <h2>{selected==='at'?'警告':'挑战设置'}</h2>
       <fieldset disabled={phase!=='configuring'}>
         {selected==='at'?<AtChallengeWarning capacity={preferences.healthCapacity===50?50:20} reduce={reduce} concealing={phase==='scrambling-return'||phase==='returning-settings'} onReady={setAtWarningReady} onConcealed={warningConcealed} onChange={capacity=>{if(capacity!==preferences.healthCapacity){updatePreferences({healthCapacity:capacity,healthEnabled:true});playSound('ui.select');}}}/>:<>
@@ -156,7 +161,7 @@ export function DifficultySelect(){
         <div className="difficulty-setting-actions"><button type="submit" disabled={selected==='at'&&!atWarningReady}>确认并开始</button></div>
       </fieldset>
     </form>}
-    <button className="difficulty-back" aria-label={selected?'返回难度选择':'返回游戏'} disabled={['centering','starting','transition','fading-settings','scrambling-return','returning-settings','returning-labels','leaving-hub'].includes(phase)} onClick={back}><ArrowLeft size={28} strokeWidth={1.3}/></button>
+    <button className="difficulty-back" aria-label={selected?'返回难度选择':'返回游戏'} disabled={['centering','starting','transition','fading-settings','fading-to-load','scrambling-return','returning-settings','returning-labels','leaving-hub'].includes(phase)} onClick={back}><ArrowLeft size={28} strokeWidth={1.3}/></button>
     <span className="difficulty-sr-only" role="status">{selected?`${DIFFICULTIES.find(d=>d.id===selected)!.name} · ${selected.toUpperCase()}，${phase==='starting'?'正在进入挑战':'难度已选择'}`:'请选择一个难度'}</span>
     {(error||activeError||active?.match)&&<div className="difficulty-notice" role="alert">
       <p>{error||activeError||'你还有未完成的挑战。'}</p>

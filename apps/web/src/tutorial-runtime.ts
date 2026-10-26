@@ -1,4 +1,4 @@
-import {correctHealthGain,timeoutHealthCost,RULES_VERSION,type MatchView,type MatchResultView,type ResultRoundView,type GameOptions} from '../../../packages/contracts/src';
+import {correctHealthGain,timeoutHealthCost,DOWNGRADE_HINT_LABEL,RULES_VERSION,type MatchView,type MatchResultView,type ResultRoundView,type GameOptions} from '../../../packages/contracts/src';
 import {scoreAnswer} from '../../../packages/game-core/src';
 import type {PlayRuntime} from './runtime-types';
 import type {Preferences,Session} from './store';
@@ -237,14 +237,14 @@ export class TutorialRuntime implements PlayRuntime {
   if(input.requestId&&this.seen.has(input.requestId))return this.seen.get(input.requestId) as T;
   if(operation.match(/^rounds\/\d+\/hints\/\d$/)){
    if(this.step!==3)this.fail('先完成当前教学步骤，再使用提示。');
-   const index=Number(operation.at(-1));if(!this.hints.some(h=>h.index===index))this.hints.push({index,content:index===2?'HD → EZ':this.song().hints[index]!,kind:index===2?'downgrade':index===0?'range':'identity',difficulty:index===2?'ez':null});
-   row.hintsUsed=this.hints.length;this.completed=true;this.feedback='第一条是章节范围。提示本身不减分，但影响答对回血；第三条才降低题图难度。';response=[...this.hints];
+   const index=Number(operation.at(-1));if(!this.hints.some(h=>h.index===index))this.hints.push({index,content:index===2?DOWNGRADE_HINT_LABEL:this.song().hints[index]!,kind:index===2?'downgrade':index===0?'range':'identity',difficulty:index===2?'ez':null});
+   row.hintsUsed=this.hints.length;this.completed=true;this.feedback='第一条是章节范围。前两条不降低计分上限；第三条会降低题图和计分上限，结算基准仍按开局难度。';response=[...this.hints];
   }else if(operation==='guesses'){
    if((![4,5,7].includes(this.step)&&!(this.step===6&&this.aliasLesson))||m.players[0]!.answered)this.fail('请跟随当前教学步骤操作。');
    if(this.correctionInput||(this.step===4&&this.completed))this.fail('请等待当前教学反馈完成。');
    const correct=this.step!==4&&this.isCorrectAnswer(String(input.answer??''));
    row.attempts++;row.elapsedMs=this.clock-m.startsAt;
-   if(correct){row.correct=true;row.title=this.song().title;row.score=scoreAnswer(m.difficulty,row.elapsedMs,30000,row.wrongAttempts);m.players[0]!.score+=row.score;m.players[0]!.health=Math.min(20,m.players[0]!.health!+correctHealthGain(this.hints.length));m.players[0]!.answered=true;m.status='reveal';m.nextAt=this.clock+2000;if(this.step===7)this.feedback='粉区没有拦截提交，已正常答对。';else if(this.step===6&&this.aliasLesson)this.feedback='别名也能判定答对，正常计分与回血。';else{this.step=5;this.feedback='答对后已揭晓原图。这次用过 1 条提示，因此回复 3HP。';}this.completed=true;}
+   if(correct){row.correct=true;row.title=this.song().title;row.score=scoreAnswer(m.difficulty,row.elapsedMs,30000,row.wrongAttempts,this.hints.some(h=>h.kind==='downgrade'));m.players[0]!.score+=row.score;m.players[0]!.health=Math.min(20,m.players[0]!.health!+correctHealthGain(this.hints.length));m.players[0]!.answered=true;m.status='reveal';m.nextAt=this.clock+2000;if(this.step===7)this.feedback='粉区没有拦截提交，已正常答对。';else if(this.step===6&&this.aliasLesson)this.feedback='别名也能判定答对，正常计分与回血。';else{this.step=5;this.feedback='答对后已揭晓原图。这次用过 1 条提示，因此回复 3HP。';}this.completed=true;}
    else{row.wrongAttempts++;m.players[0]!.health=Math.max(1,m.players[0]!.health!-1);if(this.step===4)this.completed=true;this.feedback=this.answerCorrection?TUTORIAL_WRONG_ANSWER_REBUKE:'答错扣 1HP，接下来输入正确曲名。';}
    response={correct,score:correct?row.score:0,elapsedMs:row.elapsedMs};
   }else if(operation==='skip'){

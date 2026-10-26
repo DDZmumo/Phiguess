@@ -6,7 +6,7 @@ import {Avatar} from './visual';
 import {performanceBadgeTotals} from '../../../packages/game-core/src';
 import {PerformanceBadge} from './PerformanceBadge';
 
-type Entry={id:string;name:string;avatarUrl?:string|null;rank:string;score:number;correct:number;totalRounds:number;isGuest:boolean;isReference?:boolean};
+type Entry={id:string;name:string;avatarUrl?:string|null;rank:string;score:number;correct:number;totalRounds:number;isGuest:boolean;isReference?:boolean;isLegacy?:boolean};
 export function Leaderboard(){
  const session=useStore(s=>s.session),preferences=useStore(s=>s.preferences);
  const [difficulty,setDifficulty]=useState<'in'|'at'>(()=>preferences.difficulty==='in'?'in':'at');

@@ -6,7 +6,7 @@ import { gzip } from 'node:zlib';
 import { promisify } from 'node:util';
 import { configuration } from './config';
 import type { GameOptions, GuessInput, InfinityLeaderboardOptions, MatchView, NoiseHitInput, ResultRoundView } from '../../../packages/contracts/src';
-import { correctHealthGain, INFINITY_ROUNDS, resolveHealthCapacity, timeoutHealthCost, RULES_VERSION } from '../../../packages/contracts/src';
+import { correctHealthGain, DOWNGRADE_HINT_LABEL, INFINITY_ROUNDS, resolveHealthCapacity, timeoutHealthCost, RULES_VERSION } from '../../../packages/contracts/src';
 import { scoreAnswer, SerialQueue } from '../../../packages/game-core/src';
 import type { User } from './auth';
 import { Artwork, CatalogService } from './catalog';
@@ -18,6 +18,7 @@ import {nonMainHint} from './version-hints';
 const compressArtwork=promisify(gzip);
 
 interface Match {
+  rulesVersion:string;
   id: string; mode: MatchView['mode']; options: GameOptions; artworks: Artwork[];
   users: User[]; scores: Map<string, number>; answered: Set<string>;
   health:Map<string,number>; wrongAttempts:Map<string,number>;
@@ -113,7 +114,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     options={...options,healthEnabled:capacity>0,healthCapacity:capacity};
     if ([...this.matches.values()].filter(m => ['playing','reveal'].includes(m.status)).length >= 100) throw new ServiceUnavailableException('Active match limit reached');
     const startsAt = Date.now() + 3000;
-    const m: Match = { id: randomUUID(), mode, options, artworks, users, scores: new Map(users.map(u => [u.id,0])), answered: new Set(), round: 0,
+    const m: Match = { rulesVersion:RULES_VERSION,id: randomUUID(), mode, options, artworks, users, scores: new Map(users.map(u => [u.id,0])), answered: new Set(), round: 0,
       health:new Map(users.map(u=>[u.id,capacity])),wrongAttempts:new Map(),
       startsAt, deadline: startsAt + options.roundSeconds * 1000, nextAt: 0, status: 'playing', touchedAt: Date.now(),preparing:this.generated.isGenerated(artworks[0]!) };
     await this.db.transaction(async sql => {
@@ -143,7 +144,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
     const last=rounds.at(-1);if(!last)throw new NotFoundException('Match has no rounds');
     const players=(await this.db.query(`SELECT u.id,u.name,u.avatar_key,p.score,p.health FROM match_players p JOIN users u ON u.id=p.user_id WHERE p.match_id=$1`,[id])).rows;
     const correct=(await this.db.query('SELECT DISTINCT user_id FROM guesses WHERE match_id=$1 AND round=$2 AND correct',[id,last.round])).rows;
-    this.matches.set(id,{id,mode:saved.mode,status:'finished',options:{difficulty:saved.difficulty,rounds:saved.round_count??rounds.length,roundSeconds:saved.round_seconds??30,healthEnabled:saved.health_capacity>0,healthCapacity:saved.health_capacity},
+    this.matches.set(id,{id,rulesVersion:saved.rules_version,mode:saved.mode,status:'finished',options:{difficulty:saved.difficulty,rounds:saved.round_count??rounds.length,roundSeconds:saved.round_seconds??30,healthEnabled:saved.health_capacity>0,healthCapacity:saved.health_capacity},
       artworks:rounds as Artwork[],users:players.map(p=>({id:p.id,name:p.name,avatarUrl:p.avatar_key?`/api/users/${p.id}/avatar`:null})),
       scores:new Map(players.map(p=>[p.id,p.score])),health:new Map(players.map(p=>[p.id,p.health])),wrongAttempts:new Map(),answered:new Set(correct.map(p=>p.user_id)),round:last.round,
       startsAt:new Date(last.starts_at).getTime(),deadline:new Date(last.deadline).getTime(),nextAt:new Date(last.deadline).getTime()+2000,touchedAt:Date.now()});
@@ -215,9 +216,10 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       const artwork=m.artworks[m.round]!;
       const normalize=(s:string)=>s.normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');
       const correct = input.answer !== undefined ? [artwork.title,...artwork.aliases].some(s=>normalize(s)===normalize(input.answer!)) : input.songId === artwork.song_id;
-      const score = correct ? scoreAnswer(m.options.difficulty,elapsedMs,m.options.roundSeconds*1000,m.wrongAttempts.get(userId)??0) : 0;
       const capacity=m.options.healthCapacity??0;
-      const hintCount=correct&&capacity?(await this.db.query('SELECT count(*)::int AS count FROM revealed_hints WHERE match_id=$1 AND round=$2 AND user_id=$3',[id,m.round,userId])).rows[0]!.count:0;
+      const hintSummary=correct?(await this.db.query("SELECT count(*)::int AS count,COALESCE(bool_or(kind='downgrade'),false) AS downgraded FROM revealed_hints WHERE match_id=$1 AND round=$2 AND user_id=$3",[id,m.round,userId])).rows[0]!:{count:0,downgraded:false};
+      const hintCount=hintSummary.count;
+      const score = correct ? scoreAnswer(m.options.difficulty,elapsedMs,m.options.roundSeconds*1000,m.wrongAttempts.get(userId)??0,m.rulesVersion===RULES_VERSION&&hintSummary.downgraded) : 0;
       const health=capacity?Math.max(0,Math.min(capacity,m.health.get(userId)!+(correct?correctHealthGain(hintCount):-1))):0;
       const depleted=Boolean(capacity&&m.users.every(u=>(u.id===userId?health:m.health.get(u.id))===0));
       await this.db.transaction(async sql => {
@@ -324,7 +326,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
           difficulty=levels[position-1]!;
           const lower=(await this.db.query('SELECT id FROM artworks WHERE song_id=$1 AND version=$2 AND variant=$3 AND difficulty=$4',[art.song_id,art.version,art.variant,difficulty])).rows[0];
           if(!lower)throw new NotFoundException('Lower difficulty artwork unavailable');
-          artworkId=lower.id;kind='downgrade';content=`${m.options.difficulty.toUpperCase()} → ${difficulty.toUpperCase()}`;
+          artworkId=lower.id;kind='downgrade';content=DOWNGRADE_HINT_LABEL;
         }else{
           if(!art.composer)throw new NotFoundException('Composer metadata unavailable');
           if(m.options.difficulty==='ez'||m.options.difficulty==='hd'){
@@ -342,7 +344,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
         }
         await this.db.query('INSERT INTO revealed_hints(match_id,round,user_id,hint_index,content,kind,difficulty,artwork_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT DO NOTHING',[id,round,userId,index,content,kind,difficulty,artworkId]);
       }
-      return (await this.db.query('SELECT hint_index AS index,content,kind,difficulty FROM revealed_hints WHERE match_id=$1 AND round=$2 AND user_id=$3 ORDER BY hint_index',[id,round,userId])).rows;
+      return (await this.db.query('SELECT hint_index AS index,content,kind,difficulty FROM revealed_hints WHERE match_id=$1 AND round=$2 AND user_id=$3 ORDER BY hint_index',[id,round,userId])).rows.map(hint=>hint.kind==='downgrade'?{...hint,content:DOWNGRADE_HINT_LABEL}:hint);
     });
   }
   private async advance(m: Match, now: number, forceTimeout=false) {
@@ -388,7 +390,7 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       imageUrl: `/api/matches/${m.id}/rounds/${m.round}/image`,
       ...(m.currentImageKey&&Date.now()>=m.startsAt?{imageKey:m.currentImageKey.toString('base64')}:{}),
       answer: ['reveal','finished'].includes(m.status) ? { id: artwork.song_id,title: artwork.title } : null,
-      players: m.users.map(u => ({ ...u,score: m.scores.get(u.id)!,answered: m.answered.has(u.id),health:m.health.get(u.id)! })), rulesVersion: RULES_VERSION };
+      players: m.users.map(u => ({ ...u,score: m.scores.get(u.id)!,answered: m.answered.has(u.id),health:m.health.get(u.id)! })), rulesVersion: m.rulesVersion };
   }
   async tick() {
     await this.queue.run(async () => {
@@ -437,6 +439,10 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
       if(!match)throw new NotFoundException('Result not available');
       if(published&&(match.status!=='finished'||match.mode!=='practice'||match.round_count!==INFINITY_ROUNDS||!['in','at'].includes(match.difficulty)||!match.health_enabled||![20,50].includes(match.health_capacity)||match.rules_version!==RULES_VERSION))throw new ConflictException('Only completed Infinity results can be published');
       await sql.query('UPDATE match_players SET result_published=$3 WHERE match_id=$1 AND user_id=$2',[id,userId,published]);
+      if(published)await sql.query(`UPDATE match_players p SET result_published=false FROM matches previous_match
+        WHERE p.match_id=previous_match.id AND p.user_id=$1 AND p.result_published AND previous_match.rules_version<>$2
+        AND previous_match.mode='practice' AND previous_match.round_count=$3 AND previous_match.difficulty=$4
+        AND previous_match.health_capacity=$5 AND previous_match.round_seconds=$6`,[userId,RULES_VERSION,INFINITY_ROUNDS,match.difficulty,match.health_capacity,match.round_seconds]);
       return {published};
     });
   }
@@ -453,13 +459,13 @@ export class GamesService implements OnModuleInit, OnModuleDestroy {
   }
   async leaderboard(options:InfinityLeaderboardOptions) {
     const entries=(await this.db.query<LeaderboardEntry>(`WITH best AS (
-      SELECT DISTINCT ON(p.user_id) p.user_id,p.score,p.correct,m.id AS match_id FROM match_players p JOIN matches m ON m.id=p.match_id
-      WHERE p.result_published AND m.status='finished' AND m.health_enabled AND m.health_capacity=$4 AND m.difficulty=$1 AND m.mode='practice' AND m.round_count=$2 AND m.round_seconds=$3 AND m.rules_version=$5
-      ORDER BY p.user_id,p.score DESC,p.correct DESC
-    ) SELECT dense_rank() OVER(ORDER BY b.score DESC) AS rank,u.id,u.name,u.password_hash IS NULL AS "isGuest",
+      SELECT DISTINCT ON(p.user_id) p.user_id,p.score,p.correct,m.id AS match_id,m.rules_version<>$5 AS "isLegacy" FROM match_players p JOIN matches m ON m.id=p.match_id
+      WHERE p.result_published AND m.status='finished' AND m.health_enabled AND m.health_capacity=$4 AND m.difficulty=$1 AND m.mode='practice' AND m.round_count=$2 AND m.round_seconds=$3
+      ORDER BY p.user_id,(m.rules_version=$5) DESC,p.score DESC,p.correct DESC,m.created_at DESC,m.id
+    ) SELECT '0'::text AS rank,u.id,u.name,u.password_hash IS NULL AS "isGuest",b."isLegacy",
       CASE WHEN u.avatar_key IS NOT NULL THEN '/api/users/'||u.id||'/avatar?v='||u.avatar_key END AS "avatarUrl",b.score,b.correct,
       (SELECT count(*)::int FROM match_rounds r WHERE r.match_id=b.match_id) AS "totalRounds"
-    FROM best b JOIN users u ON u.id=b.user_id ORDER BY b.score DESC,u.id LIMIT 100`,[options.difficulty,INFINITY_ROUNDS,options.roundSeconds,options.healthCapacity,RULES_VERSION])).rows;
+    FROM best b JOIN users u ON u.id=b.user_id ORDER BY b."isLegacy",b.score DESC,u.id LIMIT 100`,[options.difficulty,INFINITY_ROUNDS,options.roundSeconds,options.healthCapacity,RULES_VERSION])).rows;
     return withReferencePlayer(entries,options.difficulty);
   }
 }

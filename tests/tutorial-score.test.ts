@@ -15,15 +15,19 @@ test('tutorial scoring rules use additive penalties and preserve the timeout bou
   }
 });
 
-test('tutorial hint rules change recovery without introducing score deductions', () => {
-  const score = scoreAnswer('in', 17_500, 30_000, 1);
+test('third hint lowers earned score while the original difficulty remains the badge denominator', () => {
   assert.deepEqual([0, 1, 2, 3].map(correctHealthGain), [5, 3, 2, 1]);
-  assert.equal(score, 1300);
-  // Hints are intentionally not an argument to the shared scoring function.
-  for (const hintCount of [0, 1, 2, 3]) {
-    assert.equal(scoreAnswer('in', 17_500, 30_000, 1), score);
-    assert.ok(correctHealthGain(hintCount) > 0);
+  for (const [difficulty,lower] of [['hd','ez'],['in','hd'],['at','in']] as const) {
+    assert.equal(scoreAnswer(difficulty, 5_000, 30_000, 0, false),SONG_MAX_SCORE[difficulty]);
+    assert.equal(scoreAnswer(difficulty, 5_000, 30_000, 0, true),SONG_MAX_SCORE[lower]);
+    const score=scoreAnswer(difficulty,17_500,30_000,1,true);
+    assert.equal(score,SONG_MAX_SCORE[lower]*.65);
+    const badge=performanceBadge([{correct:true,score}],difficulty);
+    assert.equal(badge.maximum,SONG_MAX_SCORE[difficulty]);
+    assert.equal(badge.ratio,score/SONG_MAX_SCORE[difficulty]);
   }
+  assert.equal(scoreAnswer('ez',5_000,30_000,0,true),500);
+  assert.equal(scoreAnswer('at',30_000,30_000,0,true),0);
 });
 
 test('tutorial missed-song comparison leaves both badge denominator and correct count unchanged', () => {
