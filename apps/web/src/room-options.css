@@ -15,6 +15,7 @@
 .room-code-label small{font-size:13px;color:#ced6e0}
 .room-code-label>span{font:400 9px Saira,sans-serif;letter-spacing:1.5px;color:#7e91a5}
 .room-lobby .room-code>strong{font:400 31px/1 Saira,sans-serif;letter-spacing:4px;color:#f1f5fa}
+.room-lobby .room-code>strong{user-select:text;-webkit-user-select:text}
 .room-code>button{display:grid;place-items:center;width:34px;height:29px;padding:0;background:#f3f5f7;color:#121923;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%)}
 .room-copy-feedback{position:absolute;right:24px;bottom:-18px;font-size:10px;color:#b7e4ff}
 .room-lobby-body{display:grid;grid-template-columns:minmax(0,1fr) 254px;gap:34px;flex:1;min-height:0;min-width:0}

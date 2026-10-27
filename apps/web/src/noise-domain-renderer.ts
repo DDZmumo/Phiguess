@@ -7,7 +7,8 @@ const vertex=`attribute vec2 position;varying vec2 uv;void main(){uv=position*.5
 const fragment=`precision highp float;
 varying vec2 uv;uniform sampler2D source;uniform sampler2D noiseGrain;uniform vec2 grainTexel;uniform float time;uniform float enabled;uniform vec4 regions[24];uniform float phases[24];uniform float strengths[24];uniform float regionSkew;uniform int regionCount;
 uniform vec4 pointer;uniform float interactionTime;uniform sampler2D contactAtlas;uniform vec2 viewSize;
-uniform float wipeTop;uniform float wipeBottom;uniform float overlay;uniform float picking;uniform vec2 pickPoint;
+uniform float wipeTop;uniform float wipeBottom;uniform float overlay;uniform float picking;uniform vec2 pickPoint;uniform float premultipliedOutput;
+vec4 outputPixel(vec3 color,float alpha){return vec4(clamp(color,0.,1.)*mix(1.,alpha,premultipliedOutput),alpha);}
 // Keep the sine input bounded: large page-uptime offsets can collapse GPU sin()
 // precision and turn the animated silhouette into a straight, displaced edge.
 vec2 wrapNoise(vec2 p){return mod(p,vec2(251.,239.));}
@@ -67,7 +68,7 @@ void main(){
  vec2 sampleUV=vec2(uv.x,1.-uv.y);
  vec2 p=(sampleUV-.5)*viewSize+vec2(640.,360.);
  vec4 sourcePixel=texture2D(source,sampleUV);vec3 original=sourcePixel.rgb;vec3 color=original;float coverage=0.;
- if(enabled<.5){gl_FragColor=vec4(color,1.-overlay);return;}
+ if(enabled<.5){gl_FragColor=outputPixel(color,1.-overlay);return;}
  float contact=0.;
  if(pointer.z>.001||pointer.w>.001){
   if(redDistance(pointer.xy)<36.)contact=roughCell(floor(pointer.xy/3.),time);
@@ -138,9 +139,9 @@ void main(){
  vec3 lit=mix(color,tint,clamp(light*1.5,0.,1.));
  float patchAlpha=clamp(light,0.,1.);
  float alpha=coverage+patchAlpha*(1.-coverage);
- // Straight-alpha output: do not multiply the pink layer by its opacity twice.
+ // Keep color math straight-alpha, then encode for the actual drawing buffer.
  vec3 composite=(lit*coverage+tint*patchAlpha*(1.-coverage))/max(alpha,.001);
- gl_FragColor=vec4(mix(lit,composite,overlay),mix(1.,alpha,overlay));
+ gl_FragColor=outputPixel(mix(lit,composite,overlay),mix(1.,alpha,overlay));
 }`;
 
 export type {NoiseRegion} from './noise-draw-bounds';
@@ -215,9 +216,11 @@ export class NoiseDomainRenderer{
   return this.pickPixel[0]>127;
  }
  constructor(private canvas:HTMLCanvasElement,private grainVideo:HTMLVideoElement,contactImage:HTMLImageElement,private requestDraw?:()=>void){
-  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:false,preserveDrawingBuffer:true});if(!gl)throw Error('当前浏览器无法启用 WebGL');this.gl=gl;
+  const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:false,preserveDrawingBuffer:true});if(!gl)throw Error('当前浏览器无法启用 WebGL');this.gl=gl;
   const compile=(kind:number,code:string)=>{const s=gl.createShader(kind)!;gl.shaderSource(s,code);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s)||'Shader error');return s;};
   const vs=compile(gl.VERTEX_SHADER,vertex),fs=compile(gl.FRAGMENT_SHADER,fragment),program=gl.createProgram()!;gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);gl.deleteShader(vs);gl.deleteShader(fs);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program)||'Link error');this.program=program;gl.useProgram(program);
+  gl.uniform1f(gl.getUniformLocation(program,'premultipliedOutput'),gl.getContextAttributes()?.premultipliedAlpha?1:0);
+  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,false);
   const buffer=gl.createBuffer()!;gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
   const attr=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(attr);gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
   this.texture=gl.createTexture()!;gl.bindTexture(gl.TEXTURE_2D,this.texture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);

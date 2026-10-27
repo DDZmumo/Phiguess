@@ -15,6 +15,7 @@ import {RoomSummary} from './RoomSummary';
 import {useRoomNavigationFade} from './use-room-navigation-fade';
 import {useCover} from './Showcase';
 import {playSound} from './sound';
+import {copyText} from './clipboard';
 import './room-options.css';
 
 function returnFromMissingRoom(code:string,roomEpoch:number,token:string) {
@@ -28,7 +29,7 @@ function RoomCodeDisplay({code,copied,onCopy}:{code:string;copied:boolean;onCopy
   return <div className={`room-code ${copied?'is-copied':''}`}>
     <div className="room-code-label"><small>房间码</small><span>ROOM CODE</span></div>
     <strong>{code}</strong>
-    <button aria-label="复制房间码" title={copied?'已复制':'复制房间码'} onClick={onCopy}>{copied?<Check size={20}/>:<Copy size={20}/>}</button>
+    <button type="button" aria-label="复制房间码" title={copied?'已复制':'复制房间码'} onClick={onCopy}>{copied?<Check size={20}/>:<Copy size={20}/>}</button>
     <span className="room-copy-feedback" role="status">{copied?'已复制':''}</span>
   </div>;
 }
@@ -152,7 +153,7 @@ export function Room({code}:{code:string}) {
     try{const updated=await api<RoomView>(`rooms/${code}/${kind}`,'POST',{userId});setRoomView(updated);setManagedPlayer(null);playSound(kind==='kick'?'ui.back':'ui.confirm');}
     catch(error){if(error instanceof ApiError&&error.message==='Room not found')returnFromMissingRoom(code,membershipEpoch,session.token);else setError(errorMessage(error));}finally{setBusy(false);}
   }
-  const roomCode=<RoomCodeDisplay code={code} copied={copied} onCopy={()=>{void navigator.clipboard.writeText(code).then(()=>{setCopied(true);playSound('ui.confirm');}).catch(()=>setError('复制失败，请手动复制房间码。'));}}/>;
+  const roomCode=<RoomCodeDisplay code={code} copied={copied} onCopy={()=>{setCopied(false);setError('');void copyText(code).then(()=>{setCopied(true);playSound('ui.confirm');}).catch(()=>setError('复制失败，请手动复制房间码。'));}}/>;
   return <section ref={root} className="room-screen room-lobby account-refresh" aria-label="多人房间" data-room-tab={tab} data-tab-transition={tabPhase} data-host-effects-paused={reduce||!pageVisible||tab!=='room'} data-reduced-motion={reduce} style={cover?{backgroundImage:`url("${cover.url}")`}:undefined}>
     <div className="room-lobby-backdrop" aria-hidden="true"/>
     <button ref={leaveButton} className={`back-button room-leave ${leaveArmed?'leave-armed':''}`} type="button" aria-label={leaveArmed?'确认离开房间':'离开房间'} aria-expanded={leaveArmed} disabled={busy||!room} onClick={()=>{if(!leaveArmed){setLeaveArmed(true);playSound('ui.select');return;}playSound('ui.back');void action('leave');}}><ArrowLeft size={38} strokeWidth={1.3}/><span className="room-leave-label">离开？</span></button>
