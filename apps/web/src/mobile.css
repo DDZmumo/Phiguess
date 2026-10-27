@@ -1,5 +1,24 @@
-/* Mobile browser behavior; visual layout remains in the original shared styles. */
-.app-shell[data-mobile=true]{height:100dvh;align-items:flex-start;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);--touch-hit:calc(44px / var(--stage-scale))}
+/* The setting is the full inset: zero fills the viewport, including notch edges. */
+:root{--mobile-side-inset:var(--mobile-edge-padding,0px);--mobile-safe-shade:rgba(0,0,0,.5)}
+.app-shell[data-mobile=true]{position:relative;isolation:isolate;height:100dvh;align-items:flex-start;padding:0 var(--mobile-side-inset);--touch-hit:calc(44px / var(--stage-scale))}
+.mobile-safe-backdrop{position:absolute;inset:-32px;z-index:-1;pointer-events:none;background:linear-gradient(108deg,#101014,#17202c 57%,#232d38);background-size:cover;background-position:center;filter:blur(20px)}
+.mobile-shared-background{position:absolute;inset:0;z-index:-1;overflow:hidden;isolation:isolate;pointer-events:none;background:linear-gradient(108deg,#101014,#17202c 57%,#232d38)}
+.mobile-shared-image{position:absolute;inset:-32px;background-position:center;background-size:cover;filter:blur(calc(16px * var(--stage-scale))) saturate(.55)}
+.mobile-shared-shade{position:absolute;inset:0;background:rgba(9,15,24,.78)}
+.mobile-shared-background[data-scene=room] .mobile-shared-shade{background:rgba(9,15,24,.86)}
+.mobile-shared-background[data-scene=play]{filter:var(--room-scene-filter,none);background:radial-gradient(ellipse at 86% 31%,#42265288,transparent 60%),radial-gradient(ellipse at 0% 46%,#88837355,transparent 70%),linear-gradient(108deg,#101014,#17202c 57%,#232d38)}
+.mobile-shared-background[data-scene=play] .mobile-shared-image{filter:blur(calc(65px * var(--stage-scale)));opacity:.3}
+.mobile-shared-background[data-scene=play] .mobile-shared-shade{background:transparent}
+.mobile-shared-background[data-scene=results] .mobile-shared-image{filter:blur(calc(28px * var(--stage-scale)))}
+.mobile-shared-background[data-scene=results] .mobile-shared-shade{background:linear-gradient(105deg,#05050b66,transparent 70%,#20345422)}
+.mobile-shared-background>.mesh{z-index:0}
+.mobile-shared-background:not([data-scene=play])>.mesh{display:none}
+.mobile-safe-areas{position:absolute;inset:0}
+.mobile-safe-areas::before,.mobile-safe-areas::after{content:'';position:absolute;top:0;bottom:0;width:var(--mobile-side-inset);background:var(--mobile-safe-shade);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.mobile-safe-areas::before{left:0}.mobile-safe-areas::after{right:0}
+.app-shell[data-shared-background=true] :is(.stage,.result-scene,.game-screen){background:transparent}
+.app-shell[data-shared-background=true] .account-refresh{background:transparent!important}
+.app-shell[data-shared-background=true] :is(.scene>.ambient-background,.scene>.mesh,.hub-backdrop,.room-lobby-backdrop,.game-art-backdrop,.result-background,.result-background-tint){display:none}
 .stage-window{position:relative;flex:none}
 .app-shell[data-mobile=true] .fullscreen,.app-shell[data-mobile=true] .fullscreen-error{display:none}
 .app-shell[data-mobile=true] button,.app-shell[data-mobile=true] a,.app-shell[data-mobile=true] input{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -11,6 +30,8 @@
 .app-shell[data-mobile=true] :is(.song-input,.submit-answer)::after{content:'';position:absolute;left:0;right:0;top:50%;height:min(var(--touch-hit),calc(var(--answer-height) + 2 * (var(--answer-top) - var(--art-top) - var(--art-height))));transform:translateY(-50%);background:transparent}
 .app-shell[data-mobile=true] .song-input::after{z-index:-1}
 .app-shell[data-mobile=true] .setting-slider input{height:var(--touch-hit)}
-html[data-mobile=true] .settings-fullscreen{height:100dvh;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+html[data-mobile=true] .settings-fullscreen{isolation:isolate;height:100dvh;padding:0 var(--mobile-side-inset);background:#20232c}
+html[data-mobile=true] .settings-fullscreen::before{content:'';position:fixed;inset:-32px;z-index:-1;pointer-events:none;background:linear-gradient(115deg,#20232c99,#30203899),var(--mobile-safe-background,linear-gradient(115deg,#20232c,#302038));background-size:cover;background-position:center;filter:blur(20px)}
+html[data-mobile=true] .settings-fullscreen::after{content:'';position:fixed;inset:0;pointer-events:none;background:linear-gradient(to right,var(--mobile-safe-shade) 0 var(--mobile-side-inset),transparent var(--mobile-side-inset) calc(100% - var(--mobile-side-inset)),var(--mobile-safe-shade) calc(100% - var(--mobile-side-inset)))}
 html[data-mobile=true] .settings-fullscreen input[type=range]{height:44px;touch-action:pan-y}
 @media(pointer:coarse) and (hover:none){.fullscreen{display:none}}

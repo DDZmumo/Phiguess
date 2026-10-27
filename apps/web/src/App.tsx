@@ -13,7 +13,8 @@ import {TutorialEndTransition} from './TutorialEndTransition';
 import { Room } from './Room';
 import { Results } from './Results';
 import { api } from './api';
-import { Showcase } from './Showcase';
+import { Showcase,useCover } from './Showcase';
+import {MobileBackgroundContext} from './mobile-background';
 import { DifficultySelect } from './DifficultySelect';
 import {MobileLandscape,useMobileDevice,useMobilePortrait} from './MobileLandscape';
 import {requestMobileLandscape} from './landscape';
@@ -41,7 +42,22 @@ export function App() {
   const route=useRoute(),outer=useRef<HTMLDivElement>(null),stageWindow=useRef<HTMLDivElement>(null);
   const session=useStore(s=>s.session),brightness=useStore(s=>s.preferences.brightness),reduce=useReducedMotion();
   const mobile=useMobileDevice(),mobilePortrait=useMobilePortrait();
+  const cover=useCover(),[sceneBackground,setSceneBackground]=useState<string|null>(null);
   const parts=route.split('/'),screen=parts[1]||'title',accountScreen=screen==='account';
+  const sharedBackground=mobile&&['account','room','play','results'].includes(screen);
+  const background=screen==='title'||screen==='account'||screen==='room'?cover?.url:sceneBackground;
+  useLayoutEffect(()=>{
+    const style=document.documentElement.style;
+    if(background)style.setProperty('--mobile-safe-background',`url("${background}")`);
+    else style.removeProperty('--mobile-safe-background');
+    return()=>{style.removeProperty('--mobile-safe-background');};
+  },[background]);
+  const edgePadding=useStore(s=>s.preferences.mobileEdgePadding??0);
+  useLayoutEffect(()=>{
+    const value=Number.isFinite(edgePadding)?Math.max(0,Math.min(128,edgePadding)):0;
+    document.documentElement.style.setProperty('--mobile-edge-padding',`${value}px`);
+    return()=>{document.documentElement.style.removeProperty('--mobile-edge-padding');};
+  },[edgePadding]);
   const size=useAppViewport(outer,mobile,accountScreen);
   useLayoutEffect(()=>{
     if(!size.keyboard){stageWindow.current?.scrollTo(0,0);return;}
@@ -58,7 +74,11 @@ export function App() {
   const [fullscreenError,setFullscreenError]=useState('');
   const [tutorialEnding,setTutorialEnding]=useState(false);
   const finishTutorial=useCallback(()=>setTutorialEnding(true),[]),clearTutorialEnding=useCallback(()=>setTutorialEnding(false),[]);
-  return <main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer} data-mobile={mobile} data-keyboard-open={size.keyboard} style={{'--stage-scale':size.scale} as CSSProperties}>
+  return <MobileBackgroundContext.Provider value={setSceneBackground}><main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer} data-mobile={mobile} data-shared-background={sharedBackground} data-keyboard-open={size.keyboard} style={{'--stage-scale':size.scale} as CSSProperties}>
+    {sharedBackground?<div className="mobile-shared-background" data-scene={screen} aria-hidden="true" style={{opacity:brightness}}>
+      <div className="mobile-shared-image" style={{backgroundImage:background?`url("${background}")`:undefined}}/>
+      <div className="mobile-shared-shade"/><Mesh/><div className="mobile-safe-areas"/>
+    </div>:mobile&&edgePadding>0&&<div className="mobile-safe-backdrop" aria-hidden="true" style={{backgroundImage:background?`url("${background}")`:undefined,opacity:brightness}}/>}
     <div ref={stageWindow} className="stage-window" style={{width:size.width,height:size.keyboard?size.visibleHeight:size.height}}>
     <div className="stage-holder" inert={mobilePortrait} style={{width:size.width,height:size.height}}>
       <div className="stage" style={{width:size.width/size.scale,height:size.height/size.scale,transform:`scale(${size.scale})`}}>
@@ -78,5 +98,5 @@ export function App() {
     </div>
     <MobileLandscape required={mobilePortrait}/>
     {tutorialEnding&&<TutorialEndTransition onFinished={clearTutorialEnding}/>}
-  </main>;
+  </main></MobileBackgroundContext.Provider>;
 }

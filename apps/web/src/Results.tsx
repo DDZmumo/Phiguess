@@ -1,5 +1,6 @@
 import {usePlayRuntime,usePlayApi,usePlayMedia,usePlaySession,usePlayNavigation,useOriginalImages} from './play-runtime';
 import type {OriginalLease} from './original-image-cache';
+import {useMobileBackground} from './mobile-background';
 import {prepareResultMusic,startResultMusic,stopResultMusic} from './menu-music';
 import {playSound} from './sound';
 import {useCallback,useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react';
@@ -99,6 +100,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  const rankingRoot=useRef<HTMLDivElement>(null),multiplayer=result.mode==='room';
  const root=useRef<HTMLElement>(null),intro=useRef<Timeline|null>(null),transition=useRef<Timeline|null>(null);
  const [phase,setPhase]=useState<Phase>('intro'),[background,setBackground]=useState<string|null>(null),[layout,setLayout]=useState({scale:1,portrait:false,ready:false});
+ useMobileBackground(background);
  const [publicationError,setPublicationError]=useState(''),mounted=useRef(true);
  const [revealedRounds,setRevealedRounds]=useState(()=>new Set<number>(runtime?.revealedRounds));
  const markRevealed=useCallback((round:number)=>setRevealedRounds(previous=>previous.has(round)?previous:new Set(previous).add(round)),[]);

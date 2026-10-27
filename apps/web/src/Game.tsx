@@ -1,5 +1,6 @@
 import {usePlayRuntime,usePlayApi,usePlayMedia,usePlayNavigation,usePlaySession,useOriginalImages} from './play-runtime';
 import {DamageFeedback} from './DamageFeedback';
+import {useMobileBackground} from './mobile-background';
 import {RoomLiveRanking} from './RoomLiveRanking';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
@@ -132,6 +133,7 @@ export function Game({id}:{id:string}) {
     noticed.current.add(key);setNotice({kind,serial:++noticeSerial.current});
   },[]);
   const [visualRound,setVisualRound]=useState<number|null>(null),[background,setBackground]=useState<string|null>(null),[imageLoadFailed,setImageLoadFailed]=useState(false),[loadingActionBusy,setLoadingActionBusy]=useState(false);
+  useMobileBackground(background);
   const lastArtRound=useRef<number|null>(null);
   const onArtReady=useCallback((round:number,url:string)=>{if(lastArtRound.current!==null&&round>lastArtRound.current)playSound('round.next');lastArtRound.current=round;setVisualRound(round);setBackground(url);},[]);
   const pending=useRef<{round:number;answer:string;requestId:string}|null>(null);
