@@ -9,17 +9,17 @@ import { normalizeChallengeSettings, INFINITY_ROUNDS } from '../../../packages/c
 export interface Session { token: string; expiresAt: string; user: {id:string;name:string;avatarUrl?:string|null;accountType?:'guest'|'account'} }
 export interface Preferences { artworkScopes?:import('../../../packages/contracts/src').ArtworkScope[]; skipDifficultyTransition?:boolean; motion:boolean; musicVolume?:number; sound:boolean; volume:number; brightness:number; difficulty:'ez'|'hd'|'in'|'at'; rounds:number; roundSeconds:number; healthEnabled?:boolean;healthCapacity?:0|20|50 }
 interface State {
-  session:Session|null; preferences:Preferences; matchId:string|null; roomCode:string|null;
+  session:Session|null; preferences:Preferences; matchId:string|null; roomCode:string|null;roomEpoch:number;
   setSession:(session:Session|null)=>void;
   updatePreferences:(value:Partial<Preferences>)=>void;
   setMatch:(id:string|null)=>void;setRoom:(code:string|null)=>void;
 }
 export const useStore=create<State>()(persist((set)=>({
-  session:null,matchId:null,roomCode:null,
+  session:null,matchId:null,roomCode:null,roomEpoch:0,
   preferences:{skipDifficultyTransition:false,motion:true,musicVolume:.3,sound:true,volume:0.3,brightness:0.9,difficulty:'ez',rounds:5,roundSeconds:30,healthEnabled:true,healthCapacity:20},
-  setSession:session=>set(previous=>({session,...(!session||session.user.id!==previous.session?.user.id?{matchId:null,roomCode:null}:{})})),
+  setSession:session=>set(previous=>({session,...(!session||session.user.id!==previous.session?.user.id?{matchId:null,roomCode:null,roomEpoch:previous.roomEpoch+1}:{})})),
   updatePreferences:value=>set(s=>{const next={...s.preferences,...value};if(next.difficulty==='in'&&next.rounds===INFINITY_ROUNDS){if(value.healthCapacity===0||value.healthEnabled===false)next.rounds=5;else{next.healthCapacity=next.healthCapacity===50?50:20;next.healthEnabled=true;}}return{preferences:{...next,...normalizeChallengeSettings(next.difficulty,next.rounds,next.roundSeconds)}};}),
-  setMatch:matchId=>set({matchId}),setRoom:roomCode=>set({roomCode}),
+  setMatch:matchId=>set({matchId}),setRoom:roomCode=>set(previous=>({roomCode,roomEpoch:previous.roomEpoch+(previous.roomCode===roomCode?0:1)})),
 }),{name:'phiguess-v1',merge:(persisted,current)=>{
   const saved=persisted as Partial<State>|undefined,preferences={...current.preferences,...saved?.preferences};
   if(preferences.difficulty==='in'&&preferences.rounds===INFINITY_ROUNDS){preferences.healthCapacity=preferences.healthCapacity===50?50:20;preferences.healthEnabled=true;}

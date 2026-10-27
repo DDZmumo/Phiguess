@@ -41,7 +41,8 @@ export function FadeScene({children,scene}:{children:ReactNode;scene:string}) {
   const previous=useRef('title');
   useGSAP(()=>{
     if(scene==='results'){previous.current=scene;gsap.set(ref.current,{opacity:1});return;}
-    const entry=previous.current==='title'||(scene==='title'&&previous.current==='account'),play=scene==='play'&&(previous.current==='difficulty'||previous.current==='room'),modeTransition=(scene==='difficulty'&&previous.current==='account')||(scene==='account'&&previous.current==='difficulty');previous.current=scene;
+    if(scene==='play'&&previous.current==='room'){previous.current=scene;gsap.set(ref.current,{opacity:1});return;}
+    const entry=previous.current==='title'||(scene==='title'&&previous.current==='account'),play=scene==='play'&&(previous.current==='difficulty'||previous.current==='room'),modeTransition=(scene==='difficulty'&&previous.current==='account')||(scene==='account'&&previous.current==='difficulty')||(scene==='room'&&previous.current==='account')||(scene==='account'&&previous.current==='room');previous.current=scene;
     gsap.fromTo(ref.current,{opacity:0},{opacity:1,delay:play?.8:0,duration:modeTransition?modeTransitionDuration(reduce):play?(reduce?.15:.65):entry?titleTransitionTiming(reduce).enter:reduce?.1:.25,ease:play||entry||modeTransition?'phigrosFadeIn':'power2.out'});
   },{scope:ref,dependencies:[scene],revertOnUpdate:true});
   return <div key={scene} ref={ref} className="scene" style={{opacity:0}}>{children}</div>;

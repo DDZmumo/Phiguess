@@ -1,5 +1,6 @@
 import {usePlayRuntime,usePlayApi,usePlayMedia,usePlayNavigation,usePlaySession,useOriginalImages} from './play-runtime';
 import {DamageFeedback} from './DamageFeedback';
+import {RoomLiveRanking} from './RoomLiveRanking';
 import {prepareResultMusic,prepareGameMusic,startGameMusic,stopGameMusic} from './menu-music';
 import {playSound} from './sound';
 import {createRequestId} from './request-id';
@@ -10,7 +11,7 @@ import { X, SkipForward, ArrowLeft } from 'lucide-react';
 import { ApiError, errorMessage, type Hint, type Progress } from './api';
 import { useLive, useReducedMotion, useServerTime } from './hooks';
 import { useStore } from './store';
-import { Back, gsap, Settings, useGSAP, UserChip } from './visual';
+import { Back, gsap, Settings, useGSAP, UserChip,modeTransitionDuration } from './visual';
 import { resolveHealthCapacity, type MatchView } from '../../../packages/contracts/src';
 import { SongRail } from './SongRail';
 import { HintStrip } from './HintStrip';
@@ -20,8 +21,20 @@ import { AnswerNotice, type AnswerNoticeEvent } from './AnswerNotice';
 import { HealthBar } from './HealthBar';
 import { subscribeNoiseHits } from './noise-stage';
 import './game-results-transition.css';
+import '@fontsource/saira/latin-600.css';
 
-function Artwork({skipFlashAt,id,round,started,visible,canPreload,complete,difficulty,onReady,progress,startsAt,deadline,now,answered,imageKey,totalRounds}:{skipFlashAt?:number;id:string;round:number;started:boolean;visible:boolean;canPreload:boolean;complete:boolean;difficulty:string;onReady:(round:number,url:string)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean;imageKey?:string;totalRounds:number}) {
+function RoomGameLoading({waiting,loaded,total,remaining,forceIn,onForce,onLeave,failed,host,busy,error}:{waiting:boolean;loaded:number;total:number;remaining?:number;forceIn?:number;onForce:()=>void;onLeave:()=>void;failed:boolean;host:boolean;busy:boolean;error:string}){
+  const ref=useRef<HTMLDivElement>(null),[visible,setVisible]=useState(true),reduce=useReducedMotion();
+  useLayoutEffect(()=>{
+    if(!ref.current)return;
+    if(waiting){setVisible(true);gsap.set(ref.current,{opacity:1});return;}
+    const fade=gsap.to(ref.current,{opacity:0,duration:modeTransitionDuration(reduce),ease:'phigrosFadeOut',onComplete:()=>setVisible(false)});
+    return()=>{fade.kill();};
+  },[waiting,reduce]);
+  return visible?<div ref={ref} className="challenge-loading room-game-loading" data-waiting={waiting} role="status"><strong>{failed?'曲绘加载失败':'正在加载曲绘…'}</strong><p>{loaded} / {total} 位玩家加载完成{waiting&&remaining!==undefined&&` · ${remaining} 秒后自动处理`}</p>{failed&&remaining!==undefined&&<p>{host?'可重新加载，或返回主页并自动转交房主。':'可重新加载，或返回主页加入其他未开始的房间。'}</p>}<div className="room-loading-actions"><button disabled={busy} onClick={()=>location.reload()}>重新加载</button>{waiting&&host&&forceIn!==undefined&&<button disabled={busy||forceIn>0} onClick={onForce}>{forceIn>0?`${forceIn} 秒后可强制开始`:'强制开始'}</button>}{waiting&&remaining!==undefined&&failed&&<button disabled={busy} onClick={onLeave}>{host?'返回主页并转交房主':'返回主页'}</button>}</div>{error&&<p role="alert">{error}</p>}</div>:null;
+}
+
+function Artwork({skipFlashAt,id,round,started,visible,canPreload,complete,portalZoom=false,difficulty,onReady,onLoadError,progress,startsAt,deadline,now,answered,imageKey,totalRounds}:{skipFlashAt?:number;id:string;round:number;started:boolean;visible:boolean;canPreload:boolean;complete:boolean;portalZoom?:boolean;difficulty:string;onReady:(round:number,url:string)=>void;onLoadError?:(failed:boolean)=>void;progress:Progress[];startsAt:number;deadline:number;now:number;answered:boolean;imageKey?:string;totalRounds:number}) {
   const [images,setImages]=useState<{url:string;round:number;difficulty:string;ratio:number;decoded:HTMLImageElement;startsAt:number;deadline:number}[]>([]),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [originals,setOriginals]=useState<Map<number,{url:string;ratio:number}>>(()=>new Map());
   const [zoomOpen,setZoomOpen]=useState(false),zoom=useRef<HTMLDialogElement>(null);
@@ -41,7 +54,7 @@ function Artwork({skipFlashAt,id,round,started,visible,canPreload,complete,diffi
   useEffect(()=>{if(zoomOpen&&!zoom.current?.open)zoom.current?.showModal();else if(!zoomOpen&&zoom.current?.open)zoom.current.close();},[zoomOpen]);
   useEffect(()=>{
     if(!started||!token)return;
-    const ctrl=new AbortController();let alive=true;setError('');
+    const ctrl=new AbortController();let alive=true;setError('');onLoadError?.(false);
     const timeout=setTimeout(()=>ctrl.abort(),30000);
     void (async()=>{
       let blob=await preloader.take(round,imageKey,ctrl.signal);
@@ -55,7 +68,7 @@ function Artwork({skipFlashAt,id,round,started,visible,canPreload,complete,diffi
       const url=URL.createObjectURL(blob);urls.current.add(url);
       const decoded=new Image();decoded.src=url;await decoded.decode();if(!alive)return;
       setImages(previous=>[...previous.slice(-1),{url,round,difficulty,ratio:decoded.naturalWidth/decoded.naturalHeight,decoded,startsAt,deadline}]);onReady(round,url);
-    })().catch(()=>{if(alive)setError('题图加载未完成');}).finally(()=>clearTimeout(timeout));
+    })().catch(()=>{if(alive){setError('题图加载未完成');onLoadError?.(true);}}).finally(()=>clearTimeout(timeout));
     return()=>{alive=false;ctrl.abort();clearTimeout(timeout);};
   },[id,round,started,token,retry,onReady,difficulty,imageKey,preloader,originalImages]);
   useEffect(()=>{
@@ -83,17 +96,18 @@ function Artwork({skipFlashAt,id,round,started,visible,canPreload,complete,diffi
   },{scope:ref,dependencies:[images,reduce],revertOnUpdate:true});
   const ready=images.at(-1)?.round===round&&images.at(-1)?.difficulty===difficulty;
   const solvedCurrent=progress.some(p=>p.round===round&&p.correct)||answered,originalCurrent=originals.get(round);
+  const dialog=<dialog className="art-zoom-dialog" ref={zoom} aria-label="放大曲绘" onCancel={e=>{e.preventDefault();setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}} onClose={()=>setZoomOpen(false)} onClick={e=>{if(e.target===e.currentTarget){setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}}>
+    <button className="art-zoom-close" aria-label="关闭放大曲绘" autoFocus onClick={()=>{setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}><X size={27}/></button>
+    {zoomOpen&&originalCurrent?<img src={originalCurrent.url} alt="当前曲绘的原图" style={{width:`min(100%, calc((92svh - 82px) * ${originalCurrent.ratio}))`}}/>:zoomOpen&&images.at(-1)&&<img src={images.at(-1)!.url} style={{width:`min(100%, calc((92svh - 82px) * ${images.at(-1)!.ratio}))`}} alt="当前曲绘的完整放大图"/>}
+    <p>计时继续 · Esc 或点击空白处关闭</p>
+  </dialog>;
   return <><div className="art-frame" ref={ref} style={{visibility:visible?undefined:'hidden'}} aria-hidden={!visible} inert={!visible}>
     {images.map((image,i)=>{const solved=progress.some(p=>p.round===image.round&&p.correct)||(image.round===round&&answered);const cover=i===images.length-2&&image.round===images.at(-1)?.round&&image.difficulty!==images.at(-1)?.difficulty;return <div key={image.url} className={`art-slide ${i===images.length-1?'art-new':'art-old'} ${cover?'art-downgrade-cover':''}`}><OriginalReveal id={id} round={image.round} solved={solved} preloadOriginal={runtime?.canPreloadOriginal?.(image.round)??false} revealDelay={.45} onOriginalReady={onOriginalReady}><img src={image.url} alt={i===images.length-1?'当前难度的猜测曲绘':''}/></OriginalReveal></div>;})}
     {images.length>0&&<NoiseArtwork skipFlashAt={noiseFlashes.current.get(images.at(-1)!.round)} src={images.at(-1)!.url} image={images.at(-1)!.decoded} showImage={false} alt="" startsAt={images.at(-1)!.round===round?startsAt:images.at(-1)!.startsAt} deadline={noiseDeadlines.current.get(images.at(-1)!.round)??images.at(-1)!.deadline} now={now} solved={progress.some(p=>p.round===images.at(-1)!.round&&p.correct)||(images.at(-1)!.round===round&&answered)} active={true} suspended={zoomOpen||!visible} transitionStart={transitionStart} skew={.2679491924}/>}
     <button className="art-zoom-trigger" aria-label="放大查看曲绘" title={solvedCurrent&&!originalCurrent?'正在读取原图':'点击放大查看'} disabled={!visible||!ready||(solvedCurrent&&!originalCurrent)} onClick={()=>{setZoomOpen(true);runtime?.event('zoom-open');playSound('panel.open');}}/>
     {!ready&&(started||complete)&&<div className={`art-placeholder ${images.length?'over-old':''}`}><strong>{complete?'φ':'…'}</strong><span>{complete?'挑战结束':'正在读取曲绘'}</span></div>}
     {error&&<div className="art-error"><span>{error}</span><button onClick={()=>setRetry(n=>n+1)}>重试</button></div>}
-  </div><dialog className="art-zoom-dialog" ref={zoom} aria-label="放大曲绘" onCancel={e=>{e.preventDefault();setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}} onClose={()=>setZoomOpen(false)} onClick={e=>{if(e.target===e.currentTarget){setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}}>
-    <button className="art-zoom-close" aria-label="关闭放大曲绘" autoFocus onClick={()=>{setZoomOpen(false);runtime?.event('zoom-close');playSound('panel.close');}}><X size={27}/></button>
-    {zoomOpen&&originalCurrent?<img src={originalCurrent.url} alt="当前曲绘的原图" style={{width:`min(100%, calc((92svh - 82px) * ${originalCurrent.ratio}))`}}/>:zoomOpen&&images.at(-1)&&<img src={images.at(-1)!.url} style={{width:`min(100%, calc((92svh - 82px) * ${images.at(-1)!.ratio}))`}} alt="当前曲绘的完整放大图"/>}
-    <p>计时继续 · Esc 或点击空白处关闭</p>
-  </dialog></>;
+  </div>{portalZoom?createPortal(dialog,document.body):dialog}</>;
 }
 
 export function Game({id}:{id:string}) {
@@ -116,7 +130,7 @@ export function Game({id}:{id:string}) {
     if(kind!=='bad'&&noticed.current.has(key))return;
     noticed.current.add(key);setNotice({kind,serial:++noticeSerial.current});
   },[]);
-  const [visualRound,setVisualRound]=useState<number|null>(null),[background,setBackground]=useState<string|null>(null);
+  const [visualRound,setVisualRound]=useState<number|null>(null),[background,setBackground]=useState<string|null>(null),[imageLoadFailed,setImageLoadFailed]=useState(false),[loadingActionBusy,setLoadingActionBusy]=useState(false);
   const lastArtRound=useRef<number|null>(null);
   const onArtReady=useCallback((round:number,url:string)=>{if(lastArtRound.current!==null&&round>lastArtRound.current)playSound('round.next');lastArtRound.current=round;setVisualRound(round);setBackground(url);},[]);
   const pending=useRef<{round:number;answer:string;requestId:string}|null>(null);
@@ -129,7 +143,23 @@ export function Game({id}:{id:string}) {
   useEffect(()=>{if(!runtime?.updateAnswerDraft)return;const sync=()=>setAnswer(runtime.answerDraft??'');sync();return runtime.subscribe(sync);},[runtime]);
   useEffect(()=>()=>preparingAnswer.current?.abort(),[id,round,runtime]);
   const capacity=match?resolveHealthCapacity(match.difficulty,match.healthCapacity,match.healthEnabled):0;
-  const health=match?.players.find(p=>p.id===session.user.id)?.health??capacity,failed=capacity>0&&health===0;
+  const selfPlayer=match?.players.find(player=>player.id===session.user.id),health=selfPlayer?.health??capacity;
+  const failed=match?.mode!=='room'&&capacity>0&&health===0,roomDead=match?.mode==='room'&&Boolean(selfPlayer?.dead),waitingAfterSkip=match?.mode==='room'&&Boolean(selfPlayer?.skipped)&&match.status==='playing';
+  const previousRoomHealth=useRef(health),roomFlashUntil=useRef(0),roomFlashTimer=useRef<ReturnType<typeof setTimeout>|null>(null),[roomFlashing,setRoomFlashing]=useState(false);
+  useLayoutEffect(()=>{
+    if(match?.mode==='room'&&health===0&&previousRoomHealth.current>0&&!reduce){
+      roomFlashUntil.current=performance.now()+800;setRoomFlashing(true);if(roomFlashTimer.current)clearTimeout(roomFlashTimer.current);
+      roomFlashTimer.current=setTimeout(()=>setRoomFlashing(false),800);
+    }
+    previousRoomHealth.current=health;
+  },[health,match?.mode,reduce]);
+  useEffect(()=>()=>{if(roomFlashTimer.current)clearTimeout(roomFlashTimer.current);},[]);
+  const roomFilter=roomDead&&!roomFlashing?`saturate(${.6+.4*Math.max(0,Math.min(1,health/10))})`:'none';
+  useLayoutEffect(()=>{
+    if(match?.mode==='room')document.documentElement.style.setProperty('--room-scene-filter',roomFilter);
+    else document.documentElement.style.removeProperty('--room-scene-filter');
+    return()=>{document.documentElement.style.removeProperty('--room-scene-filter');};
+  },[roomFilter,match?.mode]);
   const complete=match?.status==='finished';
   useEffect(()=>{if(match&&['playing','reveal'].includes(match.status))wasActive.current=true;},[match?.status]);
   useLayoutEffect(()=>{
@@ -141,7 +171,7 @@ export function Game({id}:{id:string}) {
     timeline.call(()=>{
       if(!runtime&&useStore.getState().matchId===id)useStore.getState().setMatch(null);
       if(runtime||window.location.hash===`#/play/${id}`)go(`/results/${id}`);
-    },undefined,instant?(failed&&wasActive.current&&!reduce?.8:.12):'>');
+    },undefined,Math.max(instant?(failed&&wasActive.current&&!reduce?.8:.12):(reduce?.12:.7),match?.mode==='room'?Math.max(0,(roomFlashUntil.current-performance.now())/1000):0));
     return()=>{timeline.kill();};
   },[complete,failed,id,reduce]);
   useEffect(()=>{
@@ -149,7 +179,7 @@ export function Game({id}:{id:string}) {
     const controller=new AbortController();
     void api<{status:string}>(`matches/${id}/result`,'GET',undefined,controller.signal).then(saved=>{
       if(!controller.signal.aborted&&['finished','interrupted'].includes(saved.status))go(`/results/${id}`);
-    }).catch(()=>{});return()=>controller.abort();
+    }).catch(error=>{if(!controller.signal.aborted&&error instanceof ApiError&&error.status===404&&window.location.hash===`#/play/${id}`){if(useStore.getState().matchId===id)useStore.getState().setMatch(null);go('/account');}});return()=>controller.abort();
   },[id,errorStatus]);
   const applySnapshot=useCallback((value:MatchView)=>setMatchView(previous=>previous&&previous.id===value.id&&previous.serverNow>value.serverNow?previous:value),[setMatchView]);
   const started=Boolean(match&&!match.awaitingReady&&now>=match.startsAt),playing=Boolean(match&&match.status==='playing'&&started&&now<match.deadline&&!answered&&!failed);
@@ -168,7 +198,7 @@ export function Game({id}:{id:string}) {
     const timer=setTimeout(()=>setSkipNoise(current=>current?.at===skipFlashAt?{...current,red:true}:current),Math.max(0,skipFlashAt+800-performance.now()));
     return()=>clearTimeout(timer);
   },[skipFlashAt]);
-  const canSkip=playing&&match?.mode==='practice'&&!busy&&!skipBusy;
+  const canSkip=playing&&!busy&&!skipBusy;
   useEffect(()=>{setSkipArmed(false);},[round,match?.status]);
   useEffect(()=>{
     if(!skipArmed)return;
@@ -308,30 +338,40 @@ export function Game({id}:{id:string}) {
   const visibleHints=match?.difficulty==='ez'?[0,2]:[0,2,1];
   const imageDifficulty=hints.find(h=>h.kind==='downgrade')?.difficulty??match?.difficulty??'ez';
   const seconds=match?Math.max(0,Math.ceil(((match.status==='reveal'?match.nextAt:started?match.deadline:match.startsAt)-now)/1000)):0;
+  const roomRemaining=match?.matchEndsAt?Math.min((match.matchSeconds??1200)*1000,Math.max(0,match.matchEndsAt-now)):0;
+  const roomRemainingSeconds=Math.ceil(roomRemaining/1000),roomTimeText=match?.matchEndsAt?`${String(Math.floor(roomRemainingSeconds/60)).padStart(2,'0')}:${String(roomRemainingSeconds%60).padStart(2,'0')}`:'--:--';
+  async function loadingAction(leave=false){
+    if(!match?.awaitingReady||loadingActionBusy)return;setLoadingActionBusy(true);setError('');
+    const requestState=useStore.getState(),roomEpoch=requestState.roomEpoch,token=requestState.session?.token;
+    try{if(leave){const code=match.roomCode??requestState.roomCode;if(!code)throw new Error('无法确认房间，请重新加载。');await api(`rooms/${code}/leave`,'POST');const current=useStore.getState();if(current.roomEpoch!==roomEpoch||current.session?.token!==token)return;if(current.roomCode===code)current.setRoom(null);if(current.matchId===id)current.setMatch(null);if(window.location.hash===`#/play/${id}`)go('/account');}else{const updated=await api<MatchView>(`matches/${id}/force-start`,'POST');const current=useStore.getState();if(current.roomEpoch===roomEpoch&&current.session?.token===token)applySnapshot(updated);}}
+    catch(error){setError(errorMessage(error));}finally{setLoadingActionBusy(false);}
+  }
   if(!match)return <section className="challenge-loading"><Back onClick={()=>go('/account')}/><p role="status">{loadError||'正在连接挑战…'}</p></section>;
-  return <section className="game-screen" aria-label="曲绘猜测">
-    {match.awaitingReady&&<div className="challenge-loading" role="status"><strong>正在加载曲绘…</strong><p>加载完成后开始挑战</p><button onClick={()=>location.reload()}>重新加载</button></div>}
-    {capacity>0&&<><HealthBar key={id} value={health} maxValue={capacity} fullscreenFlash/><DamageFeedback health={health}/></>}
+  return <section className={`game-screen ${match.mode==='room'?'room-life-screen':''}`} aria-label="曲绘猜测" style={match.mode==='room'?{filter:roomFilter}:undefined}>
+    {match.mode==='room'?<RoomGameLoading waiting={Boolean(match.awaitingReady)||visualRound===null} loaded={match.loadedPlayers??0} total={match.players.length} remaining={match.loadingDeadlineAt===undefined?undefined:Math.max(0,Math.ceil((match.loadingDeadlineAt-now)/1000))} forceIn={match.loadingForceStartAt===undefined?undefined:Math.max(0,Math.ceil((match.loadingForceStartAt-now)/1000))} onForce={()=>void loadingAction()} onLeave={()=>void loadingAction(true)} failed={imageLoadFailed} host={match.hostId===session.user.id} busy={loadingActionBusy} error={error}/>:match.awaitingReady&&<div className="challenge-loading" role="status"><strong>正在加载曲绘…</strong><p>加载完成后开始挑战</p><button onClick={()=>location.reload()}>重新加载</button></div>}
+    {capacity>0&&<><HealthBar key={id} value={health} maxValue={capacity} fullscreenFlash keepAtZero={match.mode==='room'}/><DamageFeedback health={health} persistent={roomDead}/></>}
     {background&&<div className="game-art-backdrop" style={{backgroundImage:`url("${background}")`}}/>}
-    <button ref={returnButton} className={`back-button challenge-return ${abandonArmed?'abandon-armed':''} ${returnPink?'return-pink':''}`} type="button" disabled={complete||returnBusy||returnCovered} onClick={()=>void returnChallenge()} aria-label={match.difficulty==='at'?'尝试退出挑战':abandonArmed?'确认放弃挑战':'放弃挑战'} aria-expanded={abandonArmed}>
+    {match.mode==='room'?<RoomLiveRanking match={match} userId={session.user.id} capacity={capacity}/>:<button ref={returnButton} className={`back-button challenge-return ${abandonArmed?'abandon-armed':''} ${returnPink?'return-pink':''}`} type="button" disabled={complete||returnBusy||returnCovered} onClick={()=>void returnChallenge()} aria-label={match.difficulty==='at'?'尝试退出挑战':abandonArmed?'确认放弃挑战':'放弃挑战'} aria-expanded={abandonArmed}>
       <ArrowLeft size={38} strokeWidth={1.3}/><span className="abandon-label">放弃？</span>
       {match.difficulty==='at'&&<NoiseArtwork mode="return" target={returnButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={returnDeadline-800} deadline={returnDeadline} now={now} solved={false} active suspended={!returnCovered} skew={.2679491924}/>}
-    </button>
+    </button>}
     <SongRail noiseClock={{skipFlashAt,round:match.round,startsAt:match.startsAt,deadline:match.deadline,now:noiseNow}} match={{...match,round:visualRound??match.round,difficulty:imageDifficulty}} progress={progress}
       hintDisabled={!playing||hintBusy||visibleHints.every(i=>hints.some(h=>h.index===i))}
       onHint={()=>void reveal(visibleHints.find(i=>!hints.some(h=>h.index===i))??0)} onSettings={()=>{if(runtime){runtime.event('settings');return;}setSettings(true);playSound('ui.confirm');}}/>
     <div className="game-player-header"><div className="game-score" aria-label="当前分数"><span>SCORE</span><b>{(match.players.find(p=>p.id===session.user.id)?.score??0).toLocaleString()}</b></div><UserChip/></div>
-    <Artwork skipFlashAt={skipFlashAt} id={id} round={round} started={started||Boolean(match.awaitingReady)||visualRound===round} visible={started||complete} canPreload={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
+    <Artwork onLoadError={setImageLoadFailed} portalZoom={match.mode==='room'} skipFlashAt={skipFlashAt} id={id} round={round} started={started||Boolean(match.awaitingReady)||visualRound===round} visible={started||complete} canPreload={started} complete={complete} difficulty={imageDifficulty} onReady={onArtReady} progress={progress} startsAt={match.startsAt} deadline={match.deadline} now={noiseNow} answered={answered&&!Boolean(selfPlayer?.skipped)} imageKey={imageDifficulty===match.difficulty?match.imageKey:undefined} totalRounds={match.totalRounds}/>
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>
       <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||pending.current?.round===round} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
-      <button ref={submitButton} className={`submit-answer ${submitCovered?'submit-covered':''} ${submitFlashing?'submit-flashing':''} ${submitNoise?.leaving?'submit-dissolving':''} ${submitRed?'submit-red':''}`} disabled={!playing||submitRed||busy||!answer.trim()}><span>{busy?'提交中':answered?'已提交':'提交'}</span><NoiseArtwork skipFlashAt={skipFlashAt} mode="submit" target={submitButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={submitNoise?.startsAt??match.startsAt} deadline={submitNoise?.round===round?match.deadline:submitNoise?.deadline??match.deadline} now={noiseNow} solved={false} active={true} suspended={!submitCovered} fadeOut={submitNoise?.leaving} skew={.2679491924} style={{pointerEvents:'none'}}/></button>
+      <button ref={submitButton} className={`submit-answer ${submitCovered?'submit-covered':''} ${submitFlashing?'submit-flashing':''} ${submitNoise?.leaving?'submit-dissolving':''} ${submitRed?'submit-red':''}`} disabled={!playing||submitRed||busy||!answer.trim()}><span>{busy?'提交中':waitingAfterSkip?'等待中':answered?'已提交':'提交'}</span><NoiseArtwork skipFlashAt={skipFlashAt} mode="submit" target={submitButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={submitNoise?.startsAt??match.startsAt} deadline={submitNoise?.round===round?match.deadline:submitNoise?.deadline??match.deadline} now={noiseNow} solved={false} active={true} suspended={!submitCovered} fadeOut={submitNoise?.leaving} skew={.2679491924} style={{pointerEvents:'none'}}/></button>
     </form>
     <HintStrip indices={visibleHints} hints={hints}/>
+    {match.mode==='room'&&match.endless&&<div className="room-match-time" role="timer" aria-label="Match time remaining">{roomTimeText}</div>}
+    {roomDead&&capacity>0&&<p className="room-revival-note" role="status">当前阶段不计分，仍可继续答题，血量回复到10HP再次开始计分</p>}
     {(error||loadError)&&<p className="game-error" role="alert">{error||loadError}</p>}
-    <button ref={skipButton} type="button" className={`round-status ${skipArmed?'skip-armed':''}`} disabled={!canSkip} onClick={()=>void skip()} aria-label={skipArmed?'确认跳过本题，按超时规则扣血':'跳过本题'}><small>{skipArmed?'SKIP?':complete?(failed?'CHALLENGE FAILED':'CHALLENGE COMPLETE'):match.status==='reveal'?'NEXT':started?'TIME LEFT':'READY'}</small>{skipArmed?<SkipForward className="skip-icon"/>:!complete&&<strong>{String(seconds).padStart(2,'0')}<span>s</span></strong>}</button>
-    {match.mode==='room'&&<div className="game-bottom"><span>{match.players.filter(p=>p.answered).length} / {match.players.length} 已猜中</span></div>}
+    <button ref={skipButton} type="button" className={`round-status ${skipArmed?'skip-armed':''}`} disabled={!canSkip} onClick={()=>void skip()} aria-label={skipArmed?'确认跳过本题，按超时规则扣血':'跳过本题'}><small>{skipArmed?'SKIP?':waitingAfterSkip?'WAITING':complete?(failed?'CHALLENGE FAILED':'CHALLENGE COMPLETE'):match.status==='reveal'?'NEXT':started?'TIME LEFT':'READY'}</small>{skipArmed?<SkipForward className="skip-icon"/>:!complete&&<strong>{String(seconds).padStart(2,'0')}<span>s</span></strong>}</button>
+    {match.mode==='room'&&!match.endless&&<div className="game-bottom room-game-status"><span>{waitingAfterSkip?'已跳过，等待其他玩家 · ':''}{match.players.filter(player=>player.answered).length} / {match.players.length} 已完成</span></div>}
     {complete&&createPortal(<div ref={endingBlack} className="game-results-blackout" style={{opacity:failed||!wasActive.current?1:0}} aria-hidden="true"/>,document.body)}
     <Settings open={settings} onClose={()=>setSettings(false)}/>
   </section>;

@@ -20,7 +20,7 @@ export class AppModule {}
 export function configureApp(app: INestApplication) {
   const config=configuration();
   app.getHttpAdapter().getInstance().set('trust proxy',config.TRUST_PROXY==='1' ? 1 : false);
-  app.use(helmet()); app.use(json({limit:'16kb'}));
+  app.use(helmet()); app.use(json({limit:'16kb',inflate:false}));
   app.enableCors({origin:(origin:string|undefined,callback:(error:Error|null,allow?:boolean)=>void)=>callback(null,!origin||isAllowedOrigin(origin,config.PUBLIC_ORIGIN,config.NODE_ENV)),methods:['GET','POST'],allowedHeaders:['Authorization','Content-Type','X-Artwork-Ready']});
   app.use('/api',rateLimit({windowMs:60_000,limit:240,standardHeaders:'draft-8',legacyHeaders:false}));
   app.use('/api/auth/guest',rateLimit({windowMs:3600_000,limit:10,standardHeaders:'draft-8',legacyHeaders:false}));

@@ -6,7 +6,7 @@ import { MatchView, RoomCode, RoomView, UUID } from '../../../packages/contracts
 import { AuthService, User } from './auth';
 import { configuration } from './config';
 import {isAllowedOrigin} from './origins';
-import { Events } from './events';
+import { Events,type RoomLoadingRemoval,type RoomMemberRemoval } from './events';
 import { GamesService } from './games';
 import { RoomsService } from './rooms';
 
@@ -14,7 +14,7 @@ import { RoomsService } from './rooms';
 export class RealtimeGateway implements OnGatewayInit, OnGatewayConnection, OnModuleDestroy {
   @WebSocketServer() server!: Server;
   private logger = new Logger(RealtimeGateway.name);
-  private onMatch = (view: MatchView) => this.server.to(`match:${view.id}`).emit('match:state',view);
+  private onMatch = (view: MatchView,userId?:string) => this.server.to(userId?`match:${view.id}:user:${userId}`:`match:${view.id}`).emit('match:state',view);
   private onRoom = (view: RoomView) => {
     // Departed members must stop receiving subsequent room snapshots.
     for (const socket of this.server.sockets.sockets.values()) {
@@ -23,6 +23,17 @@ export class RealtimeGateway implements OnGatewayInit, OnGatewayConnection, OnMo
     this.server.to(`room:${view.code}`).emit('room:state',view);
   };
   private onEmpty = (code: string) => this.server.in(`room:${code}`).socketsLeave(`room:${code}`);
+  private onRoomRemoved=(notice:RoomLoadingRemoval)=>{
+    for(const socket of this.server.sockets.sockets.values())if(notice.userIds.includes(socket.data.user?.id)){
+      if(notice.code){socket.emit('room:removed',{code:notice.code,matchId:notice.matchId,reason:notice.reason});socket.leave(`room:${notice.code}`);}
+      socket.leave(`match:${notice.matchId}`);socket.leave(`match:${notice.matchId}:user:${socket.data.user.id}`);
+    }
+  };
+  private onMemberRemoved=(notice:RoomMemberRemoval)=>{
+    for(const socket of this.server.sockets.sockets.values())if(notice.userIds.includes(socket.data.user?.id)){
+      socket.emit('room:removed',{code:notice.code,reason:notice.reason});socket.leave(`room:${notice.code}`);
+    }
+  };
   constructor(private readonly auth: AuthService, private readonly rooms: RoomsService, private readonly games: GamesService, private readonly events: Events) {}
   afterInit(server: Server) {
     server.use(async (socket,next) => {
@@ -36,7 +47,7 @@ export class RealtimeGateway implements OnGatewayInit, OnGatewayConnection, OnMo
         next();
       } catch { next(new Error('Connection rejected')); }
     });
-    this.events.on('match',this.onMatch); this.events.on('room',this.onRoom); this.events.on('room:empty',this.onEmpty);
+    this.events.on('match',this.onMatch); this.events.on('room',this.onRoom); this.events.on('room:empty',this.onEmpty);this.events.on('room:loading-removed',this.onRoomRemoved);this.events.on('room:member-removed',this.onMemberRemoved);
   }
   handleConnection(socket: Socket) {
     // Revalidate sessions periodically so expiry/logout also revokes broadcasts.
@@ -68,8 +79,8 @@ export class RealtimeGateway implements OnGatewayInit, OnGatewayConnection, OnMo
       const {id}=z.object({id:UUID}).strict().parse(body);
       const view=await this.games.snapshot(id,user.id);
       for (const room of socket.rooms) if (room.startsWith('match:')) await socket.leave(room);
-      await socket.join(`match:${id}`); return view;
+      await socket.join(`match:${id}`);await socket.join(`match:${id}:user:${user.id}`);return view;
     });
   }
-  onModuleDestroy() { this.events.off('match',this.onMatch); this.events.off('room',this.onRoom); this.events.off('room:empty',this.onEmpty); }
+  onModuleDestroy() { this.events.off('match',this.onMatch); this.events.off('room',this.onRoom); this.events.off('room:empty',this.onEmpty);this.events.off('room:loading-removed',this.onRoomRemoved);this.events.off('room:member-removed',this.onMemberRemoved); }
 }

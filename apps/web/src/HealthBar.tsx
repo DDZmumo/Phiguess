@@ -15,13 +15,13 @@ export function healthReferenceState(frame:number){
 }
 
 /** Visual component only. The caller owns life totals and gameplay consequences. */
-export function HealthBar({value=10,maxValue=10,referenceFrame,fullscreenFlash=false}:{value?:number;maxValue?:number;referenceFrame?:number;fullscreenFlash?:boolean}){
+export function HealthBar({value=10,maxValue=10,referenceFrame,fullscreenFlash=false,keepAtZero=false}:{value?:number;maxValue?:number;referenceFrame?:number;fullscreenFlash?:boolean;keepAtZero?:boolean}){
  const canvas=useRef<HTMLCanvasElement>(null),flashLayer=useRef<HTMLDivElement>(null),reduce=useReducedMotion();
- const latest=useRef({value,maxValue,referenceFrame,reduce,fullscreenFlash});latest.current={value,maxValue,referenceFrame,reduce,fullscreenFlash};
- const animation=useRef({value,previous:value,changedAt:performance.now(),enteredAt:performance.now()});
+ const latest=useRef({value,maxValue,referenceFrame,reduce,fullscreenFlash,keepAtZero});latest.current={value,maxValue,referenceFrame,reduce,fullscreenFlash,keepAtZero};
+ const animation=useRef({value,previous:value,changedAt:performance.now(),enteredAt:performance.now(),deathAt:null as number|null});
  const wake=useRef(()=>{});
- useEffect(()=>{const a=animation.current;if(value!==a.value){a.previous=a.value;a.value=value;a.changedAt=performance.now();}},[value]);
- useEffect(()=>{wake.current();},[value,maxValue,referenceFrame,reduce,fullscreenFlash]);
+ useEffect(()=>{const a=animation.current;if(value!==a.value){const now=performance.now();if(value===0&&a.value>0)a.deathAt=now;a.previous=a.value;a.value=value;a.changedAt=now;}},[value]);
+ useEffect(()=>{wake.current();},[value,maxValue,referenceFrame,reduce,fullscreenFlash,keepAtZero]);
  useEffect(()=>{
   let raf=0,last=0,alive=true,fontsReady=false;
   const node=canvas.current!,ctx=node.getContext('2d')!;
@@ -48,23 +48,23 @@ export function HealthBar({value=10,maxValue=10,referenceFrame,fullscreenFlash=f
     flash=a.previous>hp?Math.pow(Math.max(0,1-age/(4/30)),1.5):0;blend=1-Math.pow(1-Math.min(1,age/.18),3);
     if(age<1/30)displayValue=a.previous;
    }
-   const deathAge=state.referenceFrame===undefined?age:(state.referenceFrame-900)/30;
+   const deathAge=state.referenceFrame===undefined?(a.deathAt===null?Infinity:(stamp-a.deathAt)/1000):(state.referenceFrame-900)/30;
    // Reference frames are externally driven. Static/reduced and empty HUDs sleep until invalidated.
-   if(state.referenceFrame===undefined&&((hp>0&&(!state.reduce||(a.previous!==hp&&age<.3)))||
+   if(state.referenceFrame===undefined&&(((hp>0||state.keepAtZero)&&(!state.reduce||(a.previous!==hp&&age<.3)))||
       (hp===0&&deathAge<.8&&!state.reduce&&state.fullscreenFlash)))schedule();
    if(flashLayer.current){
-    const death=hp===0&&(state.referenceFrame!==undefined||a.previous>0)&&deathAge>=0&&deathAge<.8&&!state.reduce&&state.fullscreenFlash;
+    const death=(state.referenceFrame!==undefined||a.deathAt!==null)&&deathAge>=0&&deathAge<.8&&!state.reduce&&state.fullscreenFlash;
     const index=Math.min(24,Math.floor(deathAge*30));
     flashLayer.current.style.opacity=death?String(reference.deathColors[Math.max(0,index)]![0]!/186):'0';
    }
    node.dataset.value=String(hp);node.dataset.referenceFrame=String(Math.floor(frame));node.dataset.flash=String(flash);
-   if(hp===0||(state.referenceFrame!==undefined&&(frame<reference.firstFrame||frame>reference.lastFrame))){ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,node.width,node.height);return;}
+   if((hp===0&&!state.keepAtZero)||(state.referenceFrame!==undefined&&(frame<reference.firstFrame||frame>reference.lastFrame))){ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,node.width,node.height);return;}
    const rect=node.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5),width=Math.max(1,Math.round(rect.width*ratio)),height=Math.max(1,Math.round(rect.height*ratio));
    if(node.width!==width||node.height!==height){node.width=width;node.height=height;}
    const scale=height/130,viewportWidth=width/scale;
    ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,viewportWidth,130);
    const factor=state.referenceFrame===undefined?10/maximum:1;
-   paintHealthBar(ctx,hp*factor,{time,entry:entrance,flash,previous:previous*factor,blend,displayValue,viewportWidth});
+   paintHealthBar(ctx,(state.keepAtZero?Math.max(1,hp):hp)*factor,{time,entry:entrance,flash,previous:(state.keepAtZero?Math.max(1,previous):previous)*factor,blend,displayValue,viewportWidth});
   }
   void document.fonts.load('400 40px Saira').then(()=>{fontsReady=true;schedule();});
   return()=>{alive=false;wake.current=()=>{};cancelAnimationFrame(raf);observer.disconnect();window.removeEventListener('resize',invalidate);document.removeEventListener('visibilitychange',visibility);};

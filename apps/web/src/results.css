@@ -79,3 +79,32 @@
 .result-user .player-chip-copy>small{display:flex;align-items:center;justify-content:center;text-align:center;min-height:19px}
 .result-publication-error{position:absolute;top:510px;left:25%;right:25%;text-align:center;font-size:15px;line-height:1.5;color:#ffc6a5}
 .is-portrait .result-publication-error{top:760px;left:12%;right:12%;font-size:20px}
+.result-ranking-page{position:absolute;inset:0;visibility:hidden}
+.result-ranking-heading{position:absolute;left:255px;top:3px;margin:0;font-size:22px;font-weight:400;display:flex;align-items:baseline;gap:18px}
+.result-ranking-heading>span{font-size:10px;letter-spacing:2px;color:#a5b6c8}
+.result-player-row.is-self{box-shadow:inset 0 0 0 1px #84d4ff99,0 0 12px #56b1ff26}
+.result-player-row{height:90px;margin-bottom:16px}
+.result-player-row .result-course-data{height:90px}
+.result-player-row .result-course-score{top:10px}
+.result-player-row .result-song-stats b{font-size:21px}
+.result-player-identity{width:420px;height:90px;display:flex;align-items:center;gap:18px;padding:12px 28px;transform:skewX(15deg);transform-origin:top left;min-width:0}
+.result-player-rank{flex:none;font-size:33px;line-height:1;color:#a4dcff}
+.result-player-avatar{flex:0 0 46px;width:46px;height:46px;overflow:hidden}
+.result-player-avatar .avatar-face{width:100%;height:100%;transform:none}
+.result-player-avatar .avatar-face img{width:100%;height:100%;object-fit:cover;transform:none}
+.result-player-name{flex:1;min-width:0}
+.result-player-name strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:21px;font-weight:400;line-height:1.4}
+.result-player-name small{display:block;margin-top:5px;font-size:10px;letter-spacing:1px;color:#91a8bd}
+.result-ranking-return{right:-14px;bottom:16px;visibility:hidden;opacity:0}
+.is-portrait .result-ranking-heading{left:182px;top:132px;font-size:27px}
+.is-portrait .result-player-row{height:124px;margin-bottom:18px}
+.is-portrait .result-player-identity{width:630px;height:68px;padding:8px 24px;transform:skewX(10deg)}
+.is-portrait .result-player-row .result-course-data{top:68px;height:56px}
+.is-portrait .result-player-row .result-course-score{top:2px}
+.is-portrait .result-player-avatar{flex-basis:46px;width:46px;height:46px}
+.is-portrait .result-player-name strong{font-size:26px}
+.result-player-name small{display:flex;align-items:center;gap:10px}
+.result-player-name em{font:400 10px/1.3 Interface,'Microsoft YaHei',sans-serif;letter-spacing:0;padding:1px 5px;border:1px solid currentColor}
+.result-player-name .player-dead{color:#ff8d9e}
+.result-player-name .player-alive{color:#9cddff}
+.result-player-row.is-dead .result-player-rank{color:#b78b98}

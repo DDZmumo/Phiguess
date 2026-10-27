@@ -16,6 +16,7 @@ import {useResultScroll} from './use-result-scroll';
 import {OriginalReveal} from './OriginalReveal';
 import {AnswerTint} from './AnswerNotice';
 import {performanceGradeNames} from './PerformanceBadge';
+import {RoomRanking} from './RoomRanking';
 import {SongName,scrambleSongName} from './SongName';
 import '@fontsource/saira/latin-400.css';
 import './game-alignment.css';
@@ -95,6 +96,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
   return()=>{cancelled=true;controller.abort();};
  },[originals,result.id,result.rounds,Boolean(preview)]);
  useEffect(()=>{if(preview)return;prepareResultMusic(result.difficulty);return()=>stopResultMusic(result.id);},[result.id,result.difficulty,Boolean(preview)]);
+ const rankingRoot=useRef<HTMLDivElement>(null),multiplayer=result.mode==='room';
  const root=useRef<HTMLElement>(null),intro=useRef<Timeline|null>(null),transition=useRef<Timeline|null>(null);
  const [phase,setPhase]=useState<Phase>('intro'),[background,setBackground]=useState<string|null>(null),[layout,setLayout]=useState({scale:1,portrait:false,ready:false});
  const [publicationError,setPublicationError]=useState(''),mounted=useRef(true);
@@ -123,6 +125,16 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  },[]);
  function summaryTimeline(paused=false){
   const node=root.current!,s=timing.summary,q=(selector:string)=>node.querySelector(selector);
+  if(multiplayer){
+   const page=q('.result-ranking-page'),rows=[...node.querySelectorAll<HTMLElement>('.result-player-row')];
+   const tl=gsap.timeline({paused,onComplete:()=>{if(!preview)setPhase('summary');}}),fade=reduce?.12:s.fade;
+   tl.set(rows,{x:0,opacity:1},0).set(rows.slice(0,3),{x:1100},0)
+    .to([q('.result-score-page'),q('.result-continue-nav')],{opacity:0,duration:fade,ease:'phigrosFadeOut'},0)
+    .set(page,{visibility:'visible'},fade);
+   rows.slice(0,3).forEach((row,index)=>tl.to(row,{x:0,duration:reduce?.12:1,ease:resultRowEase(index)},fade+index*(reduce?0:8/RESULT_FPS)));
+   tl.fromTo(q('.result-ranking-return'),{opacity:0,y:32},{opacity:1,y:0,visibility:'visible',duration:reduce?.12:.3,ease:'power3.out'},fade+(reduce?0:1.1));
+   return tl;
+  }
   const tl=gsap.timeline({paused,onUpdate:()=>{node.dataset.referenceFrame=String(200+Math.round(tl.time()*RESULT_FPS));},onComplete:()=>{if(!preview){setPhase('summary');runtime?.event('summary-opened');}}});
   const d=(value:number)=>reduce?Math.min(.12,value):value,p=(value:number)=>reduce?value*.08:value;
   tl.to([q('.result-score-page'),q('.result-user'),q('.result-continue-nav')],{opacity:0,duration:d(s.fade),ease:'phigrosFadeOut'},0)
@@ -137,8 +149,8 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  }
  useGSAP(()=>{
   if(!layout.ready)return;
-  const node=root.current!,rows=[...node.querySelectorAll<HTMLElement>('.result-course-row')],q=(selector:string)=>node.querySelector(selector);
-  setPhase('intro');gsap.set([q('.result-score-page'),q('.result-user'),q('.result-continue-nav')],{opacity:1});gsap.set(q('.result-summary'),{visibility:'hidden'});gsap.set(q('.result-summary-dim'),{opacity:0});
+  const node=root.current!,rows=[...node.querySelectorAll<HTMLElement>('.result-score-page .result-course-row')],q=(selector:string)=>node.querySelector(selector);
+  setPhase('intro');gsap.set([q('.result-score-page'),q('.result-user'),q('.result-continue-nav')],{opacity:1});gsap.set(q('.result-secondary'),{visibility:'hidden'});gsap.set(q('.result-summary-dim'),{opacity:0});
   const tl=gsap.timeline({paused:Boolean(preview),onUpdate:()=>{node.dataset.referenceFrame=String(Math.round(tl.time()*RESULT_FPS));},onComplete:()=>{if(!preview)setPhase('ready');}});intro.current=tl;
   if((reduce||runtime?.restoredResult)&&!preview){
    gsap.set(q('.result-intro-black'),{opacity:0});startResultMusic(result.difficulty,result.id);
@@ -167,7 +179,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
  const openSummary=()=>{
   if(preview||phaseRef.current!=='ready'||runtime?.canNavigate?.('/account')===false)return;playSound('ui.confirm');
   // The local tutorial demonstrates the badge without changing its result record.
-  if(!runtime&&(!result.endless||result.status==='interrupted')){leave();return;}runtime?.event('caption-dismiss');setPhase('opening-summary');phaseRef.current='opening-summary';transition.current?.kill();transition.current=summaryTimeline();
+  if(!runtime&&!multiplayer&&(!result.endless||result.status==='interrupted')){leave();return;}runtime?.event('caption-dismiss');setPhase('opening-summary');phaseRef.current='opening-summary';transition.current?.kill();transition.current=summaryTimeline();
  };
  const decidePublication=async(published:boolean)=>{
   if(preview||phaseRef.current!=='summary')return;
@@ -175,7 +187,7 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
   try{await onPublication(published);if(mounted.current){playSound(published?'ui.complete':'ui.back');leave();}}
   catch(error){if(mounted.current){phaseRef.current='summary';setPhase('summary');setPublicationError(errorMessage(error));}}
  };
- useEffect(()=>{const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'){if(phaseRef.current==='summary')void decidePublication(false);else if(phaseRef.current==='ready'){playSound('ui.back');leave();}}};document.addEventListener('keydown',escape);return()=>document.removeEventListener('keydown',escape);});
+ useEffect(()=>{const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'){if(phaseRef.current==='summary'){if(multiplayer)leave();else void decidePublication(false);}else if(phaseRef.current==='ready'){playSound('ui.back');leave();}}};document.addEventListener('keydown',escape);return()=>document.removeEventListener('keydown',escape);});
  const status=interrupted?'挑战已中断':failed?'血量耗尽，挑战结束':'挑战完成';
  return <section ref={root} className={`result-scene ${layout.portrait?'result-portrait':''}`} data-phase={preview?(preview.mode==='score'&&preview.frame>=143?'ready':preview.mode):phase} aria-label="最终得分结算" style={{'--result-scale':layout.scale} as CSSProperties}>
   <div className="result-background" style={background?{backgroundImage:`url("${background}")`}:undefined}/><div className="result-background-tint"/>
@@ -198,16 +210,17 @@ export function ResultScene({result,user,onExit,onPublication,preview}:{result:M
     </div></div>
     <div className="result-total" aria-label={`总得分 ${score}`}><div className="game-score"><span>TOTAL SCORE</span><b>{score}</b></div></div>
    </div>
-   <div className="result-summary" data-grade={grade} role="group" aria-label="无尽模式综合成绩" aria-busy={phase==='saving-summary'} aria-hidden={preview?preview.mode!=='summary':!['opening-summary','summary','saving-summary'].includes(phase)}>
+   {multiplayer?<RoomRanking root={rankingRoot} result={result} userId={user.id} portrait={layout.portrait} visible={['opening-summary','summary'].includes(phase)} interactive={phase==='summary'} reduced={reduce}/>:<div className="result-summary result-secondary" data-grade={grade} role="group" aria-label="无尽模式综合成绩" aria-busy={phase==='saving-summary'} aria-hidden={preview?preview.mode!=='summary':!['opening-summary','summary','saving-summary'].includes(phase)}>
     <div className="result-performance-base performance-badge" data-grade={grade} aria-hidden="true"/>
     <strong className="result-endless-count" aria-label={`共答对 ${correct} 首，${gradeName}`}>{correct}</strong>
     <button className="result-summary-cancel" aria-label="不公布成绩并返回主界面" title="不公布成绩并返回主界面" disabled={Boolean(preview)||phase!=='summary'} onClick={()=>void decidePublication(false)}><X size={48} strokeWidth={1.5}/></button>
     <button className="result-summary-confirm" aria-label="公布成绩并返回主界面" title="公布成绩并返回主界面" disabled={Boolean(preview)||phase!=='summary'} onClick={()=>void decidePublication(true)}><Check size={56} strokeWidth={1.5}/></button>
     <p className="result-grade-description">{legacy?'旧版计分 · 不参与新定级':grade==='none'?'未获得成绩牌':''}<span className="result-sr-only">{gradeName}，综合得分率 {(badge.ratio*100).toFixed(2)}%</span></p>
     {publicationError&&<p className="result-publication-error" role="alert">{publicationError}</p>}
-   </div>
+   </div>}
   </div>
-  <button className="result-nav result-continue-nav" aria-label={runtime?'查看综合成绩':result.endless&&result.status!=='interrupted'?'查看无尽综合成绩':'完成结算，返回主界面'} disabled={Boolean(preview)||phase!=='ready'} onClick={openSummary}><small>NEXT</small><ArrowRight size={48} strokeWidth={1}/></button>
+  <button className="result-nav result-continue-nav" aria-label={multiplayer?'查看玩家排行榜':runtime?'查看综合成绩':result.endless&&result.status!=='interrupted'?'查看无尽综合成绩':'完成结算，返回主界面'} disabled={Boolean(preview)||phase!=='ready'} onClick={openSummary}><small>NEXT</small><ArrowRight size={48} strokeWidth={1}/></button>
+  {multiplayer&&<button className="result-nav result-ranking-return" aria-label="返回房间" disabled={Boolean(preview)||phase!=='summary'} onClick={leave}><small>ROOM</small><ArrowRight size={48} strokeWidth={1}/></button>}
   <div className="result-user"><UserChip user={user} subtitle={`${result.difficulty.toUpperCase()} · ${result.endless?'Infinity':`${result.round_count??result.rounds.length}题`}`}/></div>
   <div className="result-intro-black"/><div className={`result-exit-black ${phase==='leaving'?'active':''}`}/>
  </section>;
@@ -218,5 +231,5 @@ export function Results({id}:{id:string}){
  const [retry,setRetry]=useState(0),{data:result,error}=useResource<MatchResultView>(`matches/${id}/result`,retry),user=usePlaySession()!.user;
  useEffect(()=>{if(!runtime&&result&&['finished','interrupted'].includes(result.status)&&useStore.getState().matchId===id)useStore.getState().setMatch(null);},[id,result?.status]);
  if(!result||!Array.isArray(result.rounds))return <section className="result-loading" aria-label="读取结算" aria-busy={!error&&!result}>{(error||result)&&<><p role="alert">{error||'成绩记录暂未完整加载'}</p><button onClick={()=>setRetry(n=>n+1)}>重试</button><button onClick={()=>go('/account')}>返回主界面</button></>}</section>;
- return <ResultScene key={id} result={result} user={user} onExit={()=>go('/account')} onPublication={async published=>{await api(`matches/${id}/publication`,'POST',{published});}}/>;
+ return <ResultScene key={id} result={result} user={user} onExit={()=>{const code=useStore.getState().roomCode;go(result.mode==='room'&&code?`/room/${code}`:'/account');}} onPublication={async published=>{await api(`matches/${id}/publication`,'POST',{published});}}/>;
 }

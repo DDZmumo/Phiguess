@@ -47,7 +47,7 @@ export function App() {
   },[accountScreen]);
   useEffect(()=>{if(route==='/difficulty/room'||(!MULTIPLAYER_ENABLED&&route.startsWith('/room/')))go('/account');else if(route!=='/'&&!session&&route!=='/account'&&route!=='/tutorial')go('/account');},[route,session]);
   useEffect(()=>{if(session)void api<NonNullable<typeof session>['user']>('me').then(user=>{const current=useStore.getState().session;if(current?.token===session.token)useStore.getState().setSession({...current,user});}).catch(()=>{});},[session?.token]);
-  const menuMusic=screen==='account';
+  const menuMusic=screen==='account'||screen==='room';
   useEffect(()=>{
     if(!menuMusic){setMenuMusicActive(false);return;}
     const timer=window.setTimeout(()=>setMenuMusicActive(true),500);

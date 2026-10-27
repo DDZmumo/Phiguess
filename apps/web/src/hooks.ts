@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
-import type { Ack, MatchView, RoomView } from '../../../packages/contracts/src';
+import type { Ack, MatchView, RoomView,RoomRemovalNotice } from '../../../packages/contracts/src';
 import { api, ApiError, errorMessage } from './api';
 import { useStore } from './store';
 import {usePlayApi,usePlayRuntime,usePlaySession} from './play-runtime';
+import {returnAfterRoomRemoval} from './room-removal';
 
 export function go(path:string) {window.location.hash=path;}
 export function useRoute() {
@@ -24,8 +25,8 @@ export function useResource<T>(path:string|null,refresh=0) {
   return {data,error};
 }
 export function useLive<T extends MatchView|RoomView>(kind:'match'|'room',id:string) {
-  const runtime=usePlayRuntime(),token=usePlaySession()?.token;
-  const [data,setData]=useState<T|null>(null),[error,setError]=useState(''),[failure,setFailure]=useState<{kind:string;id:string;token:string;status:number|null}|null>(null),[connected,setConnected]=useState(false);
+  const runtime=usePlayRuntime(),token=usePlaySession()?.token,roomEpoch=useStore(s=>s.roomEpoch);
+  const [data,setData]=useState<T|null>(null),[error,setError]=useState(''),[failure,setFailure]=useState<{kind:string;id:string;token:string;roomEpoch:number;status:number|null}|null>(null),[connected,setConnected]=useState(false);
   useEffect(()=>{
     if(runtime){
       const update=()=>{setData(runtime.snapshot() as T|null);setError('');setFailure(null);setConnected(true);};
@@ -35,8 +36,11 @@ export function useLive<T extends MatchView|RoomView>(kind:'match'|'room',id:str
     const socket=io({auth:{token},transports:['websocket','polling'],autoConnect:false});
     const connectTimer=setTimeout(()=>socket.connect(),0);
     const update=(value:T)=>{if(alive){setData(previous=>previous&&'serverNow' in previous&&'serverNow' in value&&previous.serverNow>value.serverNow?previous:value);setError('');setFailure(null);}};
-    const refresh=()=>{void api<T>(`${kind==='match'?'matches':'rooms'}/${id}`).then(update).catch(e=>{if(alive){setError(errorMessage(e));setFailure({kind,id,token,status:e instanceof ApiError?e.status:null});}});};
+    const refresh=()=>{void api<T>(`${kind==='match'?'matches':'rooms'}/${id}`).then(update).catch(e=>{if(alive){setError(errorMessage(e));setFailure({kind,id,token,roomEpoch,status:e instanceof ApiError?e.status:null});}});};
     socket.on(`${kind}:state`,update);
+    socket.on('room:removed',(notice:RoomRemovalNotice)=>{
+      if(alive&&useStore.getState().session?.token===token&&((kind==='room'&&id===notice.code)||(kind==='match'&&id===notice.matchId)))returnAfterRoomRemoval(notice.reason,notice.matchId,notice.code,roomEpoch);
+    });
     socket.on('connect',()=>{
       setConnected(true);
       socket.timeout(5000).emit(`${kind}:subscribe`,kind==='match'?{id}:{code:id},(err:Error|null,ack:Ack<T>)=>{if(!alive)return;if(!err&&ack?.ok)update(ack.data);else refresh();});
@@ -46,8 +50,8 @@ export function useLive<T extends MatchView|RoomView>(kind:'match'|'room',id:str
     refresh();const poll=setInterval(refresh,10_000);
     const onVisible=()=>{if(document.visibilityState==='visible')refresh();};document.addEventListener('visibilitychange',onVisible);
     return()=>{alive=false;clearTimeout(connectTimer);clearInterval(poll);document.removeEventListener('visibilitychange',onVisible);socket.disconnect();};
-  },[kind,id,token,runtime]);
-  return {data,setData,error,errorStatus:failure?.kind===kind&&failure.id===id&&failure.token===token?failure.status:null,connected};
+  },[kind,id,token,runtime,roomEpoch]);
+  return {data,setData,error,errorStatus:failure?.kind===kind&&failure.id===id&&failure.token===token&&failure.roomEpoch===roomEpoch?failure.status:null,connected};
 }
 export function useServerTime(match:MatchView|null) {
   const runtime=usePlayRuntime();

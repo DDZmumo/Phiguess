@@ -5,7 +5,7 @@ import { stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { Response } from 'express';
 import { z } from 'zod';
-import { GameOptions, GuestInput, LoginInput, GuessInput, InfinityLeaderboardOptions, NoiseHitInput, ReadyInput, ResultPublicationInput, RoomCode, RoundIndex, UUID } from '../../../packages/contracts/src';
+import { GameOptions, GuestInput, LoginInput, GuessInput, InfinityLeaderboardOptions, NoiseHitInput, ReadyInput, ResultPublicationInput, RoomCode, RoomOptions, RoomPlayerInput, RoundIndex, UUID } from '../../../packages/contracts/src';
 import { AuthGuard, AuthRequest, AuthService } from './auth';
 import { CatalogService } from './catalog';
 import {APP_VERSION} from '../../../packages/contracts/src';
@@ -64,6 +64,7 @@ export class GameController {
   }
   @Post('matches/practice') practice(@Req() req: AuthRequest,@Body() body: unknown) { return this.games.createSolo(req.user,parse(GameOptions,body),req.headers['x-artwork-ready']==='1'); }
   @Post('matches/:id/ready') matchReady(@Req() req:AuthRequest,@Param('id') id:string){return this.games.ready(parse(UUID,id),req.user.id);}
+  @Post('matches/:id/force-start') forceStart(@Req() req:AuthRequest,@Param('id') id:string){return this.games.forceStartLoading(parse(UUID,id),req.user.id);}
   @Get('matches/:id') snapshot(@Req() req: AuthRequest,@Param('id') id: string) { return this.games.snapshot(parse(UUID,id),req.user.id); }
   @Get('matches/:id/rounds/:round/preload')
   async preloadImage(@Req() req:AuthRequest,@Res({passthrough:true}) res:Response,@Param('id') id:string,@Param('round') round:string){
@@ -116,11 +117,14 @@ export class GameController {
     res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");
     return new StreamableFile(createReadStream(path),{type:art.mime});
   }
-  @Post('rooms') createRoom(@Req() req: AuthRequest,@Body() body: unknown) { return this.rooms.create(req.user,parse(GameOptions,body)); }
+  @Post('rooms') createRoom(@Req() req: AuthRequest,@Body() body: unknown) { return this.rooms.create(req.user,parse(RoomOptions,body)); }
   @Post('rooms/:code/join') join(@Req() req: AuthRequest,@Param('code') code: string) { return this.rooms.join(parse(RoomCode,code),req.user); }
   @Get('rooms/:code') room(@Req() req: AuthRequest,@Param('code') code: string) { return this.rooms.snapshot(parse(RoomCode,code),req.user.id); }
+  @Get('rooms/:code/performances') roomPerformances(@Req() req:AuthRequest,@Param('code') code:string){return this.rooms.performances(parse(RoomCode,code),req.user.id);}
   @Post('rooms/:code/ready') ready(@Req() req: AuthRequest,@Param('code') code: string,@Body() body: unknown) { return this.rooms.ready(parse(RoomCode,code),req.user.id,parse(ReadyInput,body).ready); }
-  @Post('rooms/:code/options') roomOptions(@Req() req: AuthRequest,@Param('code') code: string,@Body() body: unknown) { return this.rooms.configure(parse(RoomCode,code),req.user.id,parse(GameOptions,body)); }
-  @Post('rooms/:code/start') start(@Req() req: AuthRequest,@Param('code') code: string) { return this.rooms.start(parse(RoomCode,code),req.user.id); }
+  @Post('rooms/:code/options') roomOptions(@Req() req: AuthRequest,@Param('code') code: string,@Body() body: unknown) { return this.rooms.configure(parse(RoomCode,code),req.user.id,parse(RoomOptions,body)); }
+  @Post('rooms/:code/start') start(@Req() req: AuthRequest,@Param('code') code: string) { return this.rooms.start(parse(RoomCode,code),req.user.id,req.headers['x-artwork-ready']==='1'); }
   @Post('rooms/:code/leave') leave(@Req() req: AuthRequest,@Param('code') code: string) { return this.rooms.leave(parse(RoomCode,code),req.user.id); }
+  @Post('rooms/:code/kick') kick(@Req() req:AuthRequest,@Param('code') code:string,@Body() body:unknown){return this.rooms.kick(parse(RoomCode,code),req.user.id,parse(RoomPlayerInput,body).userId);}
+  @Post('rooms/:code/transfer-host') transferHost(@Req() req:AuthRequest,@Param('code') code:string,@Body() body:unknown){return this.rooms.transferHost(parse(RoomCode,code),req.user.id,parse(RoomPlayerInput,body).userId);}
 }

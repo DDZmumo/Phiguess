@@ -1,5 +1,5 @@
 import {playSound} from './sound';
-import {useEffect,useId,useRef} from 'react';
+import {useEffect,useId,useRef,type ReactNode} from 'react';
 import {createPortal} from 'react-dom';
 import {Check,Minus,Plus} from 'lucide-react';
 import {useStore} from './store';
@@ -28,11 +28,11 @@ export function SettingSwitch({label,description,checked,onChange,className=''}:
   {description&&<p>{description}</p>}
  </div>;
 }
-export function SettingsPanel(){
+export function SettingsPanel({headerAction}:{headerAction?:ReactNode}){
  const settings=useStore(s=>s.preferences),update=useStore(s=>s.updatePreferences);
  return <section className="settings-page" aria-label="游玩设置">
   <div className="settings-form">
-   <header className="settings-heading"><h1>游玩设置</h1><span>SETTINGS</span></header>
+   <header className="settings-heading"><h1>游玩设置</h1><span>SETTINGS</span>{headerAction}</header>
    <SettingRange label="背景亮度" value={settings.brightness} min={.3} onChange={brightness=>update({brightness})}/>
    <SettingSwitch label="界面动效" description="同时遵循系统的减少动态效果设置" checked={settings.motion} onChange={motion=>update({motion})}/>
    <SettingSwitch label="交互音效" description="菜单与按钮的短提示音" checked={settings.sound} onChange={sound=>update({sound})}/>

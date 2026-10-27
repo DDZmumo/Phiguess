@@ -32,6 +32,8 @@ API 容器启动时自动迁移数据库。数据库无宿主端口，API 只在
 
 Compose 通过同一个 Dockerfile 的 `server` 与 `frontend` 构建目标生成后端和 Caddy 镜像。前端生产产物放在 Caddy 的 `/srv/site`，公共网页资源与受保护的题图目录彼此独立。`VITE_DEMO_CATALOG` 默认未启用，生产构建不会自动导入合成曲库。
 
+多人入口默认在生产构建中启用。`VITE_MULTIPLAYER_ENABLED=false` 可在构建时关闭入口；Compose 将同名 `.env` 值传入 Docker build args。它是前端构建参数，修改运行时环境而不重建前端不会生效。不要把 `NODE_ENV` 改为 development 来开启功能。
+
 如需服务器导入，先把待导入目录放在 `imports/`，并使 `storage/assets` 可供容器 uid 1000 写入，然后执行（路径按实际 manifest 修改）：
 
 ```sh
@@ -64,6 +66,8 @@ sudo systemctl enable --now phiguess
 Caddy 原生配置把 `api:3000` 改为 `127.0.0.1:3000`，将静态文件 root 改为 `/opt/phiguess/apps/web/dist`，监听服务商映射的本地入口端口。只允许 Caddy 入口进入，禁止公网直接访问 3000/5432，确保 `TRUST_PROXY=1` 对应一层可信反代。
 
 部署顺序为：上传新版本 → 构建/安装依赖 → 备份 → 重启单实例。重启会中断进行中的比赛，应选维护窗口。
+
+本轮升级需包含 `db/migrations/015_multiplayer_race_survival.sql`，并同步更新的 `package.json` 与 `package-lock.json`。依赖 overrides 固定了安全版本，服务器应重新安装生产依赖；不要只覆盖 JavaScript 而继续使用旧的 `node_modules`。应用不接受压缩的 JSON 请求体，普通 JSON 请求及图片上传保持支持。
 
 ## 宝塔 Nginx 缓存与连接
 

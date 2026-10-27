@@ -2,3 +2,5 @@
 .damage-edge-wave{position:absolute;top:-8%;bottom:-8%;width:12%;opacity:0;background:repeating-radial-gradient(ellipse at center,transparent 0 15%,#ff5d6726 18%,#68000c33 21%,transparent 25% 32%);pointer-events:none}
 .damage-edge-left{left:-5%;transform-origin:left center}
 .damage-edge-right{right:-5%;transform-origin:right center}
+.damage-vignette{transition:opacity 240ms ease}
+.damage-vignette.is-persistent{opacity:.55}

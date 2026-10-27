@@ -9,6 +9,8 @@ RUN npm ci
 COPY apps apps
 COPY packages packages
 COPY tools tools
+ARG VITE_MULTIPLAYER_ENABLED=true
+ENV VITE_MULTIPLAYER_ENABLED=${VITE_MULTIPLAYER_ENABLED}
 RUN npm run build && npm prune --omit=dev
 
 FROM node:22-bookworm-slim AS server

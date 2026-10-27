@@ -36,8 +36,8 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
     app=module.createNestApplication({logger:false,bodyParser:false});configureApp(app);
     await app.listen(0,'127.0.0.1');base=await app.getUrl();games=app.get(GamesService);
   }
-  async function request(path:string,method='GET',token?:string,body?:unknown) {
-    const r=await fetch(`${base}/api/${path}`,{method,headers:{...(token?{Authorization:`Bearer ${token}`} : {}),...(body!==undefined?{'Content-Type':'application/json'}:{})},body:body===undefined?undefined:JSON.stringify(body)});
+  async function request(path:string,method='GET',token?:string,body?:unknown,headers:Record<string,string>={}) {
+    const r=await fetch(`${base}/api/${path}`,{method,headers:{...headers,...(token?{Authorization:`Bearer ${token}`} : {}),...(body!==undefined?{'Content-Type':'application/json'}:{})},body:body===undefined?undefined:JSON.stringify(body)});
     return {status:r.status,body:r.headers.get('content-type')?.includes('json') ? await r.json() as any : await r.text(),headers:r.headers};
   }
   async function step(ms:number) {offset+=ms;await games.tick();}
@@ -249,6 +249,34 @@ test('real PostgreSQL + HTTP + Socket.IO integration', {timeout:90000}, async t=
       await step(5100);
       assert.equal((await request(`matches/${m.id}/result`,'GET',alice.token)).body.status,'finished');
       await request(`rooms/${r.code}/leave`,'POST',alice.token);await request(`rooms/${r.code}/leave`,'POST',bob.token);
+    });
+    await t.test('room loading waits for every player and the same room supports another game',async()=>{
+      const room=(await request('rooms','POST',alice.token,{difficulty:'ez',rounds:1,roundSeconds:30,maxPlayers:2})).body;
+      await request(`rooms/${room.code}/join`,'POST',bob.token);
+      const listener=await socket(alice.token);await listener.timeout(3000).emitWithAck('room:subscribe',{code:room.code});
+      let previousId:string|undefined;
+      for(let game=0;game<2;game++){
+        await request(`rooms/${room.code}/ready`,'POST',alice.token,{ready:true});await request(`rooms/${room.code}/ready`,'POST',bob.token,{ready:true});
+        const starting=once(listener,'room:state');
+        const started=await request(`rooms/${room.code}/start`,'POST',alice.token,undefined,{'X-Artwork-Ready':'1'});
+        assert.equal(started.status,201);const match=started.body;assert.notEqual(match.id,previousId);previousId=match.id;
+        assert.equal((await starting)[0].starting,true);assert.equal(match.awaitingReady,true);assert.equal(match.loadedPlayers,0);
+        assert.equal((await request(`matches/${match.id}/rounds/0/image`,'GET',alice.token)).status,200);
+        const one=(await request(`matches/${match.id}/ready`,'POST',alice.token)).body;
+        assert.equal(one.awaitingReady,true);assert.equal(one.loadedPlayers,1);
+        await step(60_000);assert.equal((await games.snapshot(match.id,alice.user.id)).awaitingReady,true);
+        const both=(await request(`matches/${match.id}/ready`,'POST',bob.token)).body;
+        assert.equal(both.awaitingReady,false);assert.equal(both.loadedPlayers,2);assert.ok(both.startsAt>Date.now());
+        const repeated=(await request(`matches/${match.id}/ready`,'POST',alice.token)).body;assert.equal(repeated.startsAt,both.startsAt);
+        await step(3100);const songId=await answerFor(match.id,0);
+        await request(`matches/${match.id}/guesses`,'POST',alice.token,{requestId:randomUUID(),round:0,songId});
+        await request(`matches/${match.id}/guesses`,'POST',bob.token,{requestId:randomUUID(),round:0,songId});
+        await step(2100);
+        const reset=(await request(`rooms/${room.code}`,'GET',alice.token)).body;
+        assert.equal(reset.matchId,null);assert.equal(reset.code,room.code);assert.ok(reset.players.every((player:any)=>!player.ready));
+        assert.equal((await request(`rooms/${room.code}/start`,'POST',alice.token)).status,409);
+      }
+      await request(`rooms/${room.code}/leave`,'POST',alice.token);await request(`rooms/${room.code}/leave`,'POST',bob.token);
     });
     await t.test('deadline rejects late answers and restart interrupts unfinished matches',async()=>{
       const m=(await request('matches/practice','POST',outsider.token,{difficulty:'ez',rounds:2,roundSeconds:15})).body;

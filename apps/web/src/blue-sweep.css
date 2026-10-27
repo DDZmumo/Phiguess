@@ -1,0 +1,13 @@
+.blue-sweep{position:relative;display:grid;min-width:0;isolation:isolate}
+.blue-sweep-face{grid-area:1/1;display:flex;align-items:center;justify-content:center;gap:10px;min-width:0}
+.blue-sweep-before{clip-path:none}
+.blue-sweep-after{clip-path:inset(0 100% 0 0)}
+.blue-sweep-effect{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.blue-sweep-effect .input-answer-reveal,.blue-sweep-effect .input-answer-sweep{animation:none}
+.blue-sweep-effect .input-answer-reveal{opacity:1;transition:opacity 160ms ease}
+.blue-sweep[data-direction=idle] .input-answer-reveal{opacity:0;transition-duration:700ms}
+.blue-sweep[data-direction=idle] .input-answer-sweep{visibility:hidden}
+.blue-sweep[data-direction=backward] .input-answer-reveal{transition:none}
+.blue-sweep-effect .input-answer-sweep::before{content:'';position:absolute;right:0;top:0;bottom:0;width:2px;background:var(--notice-color)}
+.blue-sweep-effect .input-answer-sweep::after{border:0}
+.blue-sweep[data-direction=backward] .input-answer-sweep::after{left:calc(100% - 2px);right:auto;background:linear-gradient(90deg,color-mix(in srgb,var(--notice-color) 38%,transparent),color-mix(in srgb,var(--notice-color) 8%,transparent) 65%,transparent)}

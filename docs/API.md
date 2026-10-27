@@ -1,8 +1,10 @@
 # HTTP 与实时接口
 
-本文对应当前 `v5-hint85` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
+本文对应单人 `v5-hint85` 与多人 `room-v1-survival` 规则。路由以 `apps/server/src/http.ts` 为准，请求校验和公开类型见 `packages/contracts/src/index.ts`，业务权限见 `games.ts`、`rooms.ts`、`auth.ts`。`/api` 是统一前缀，不是带版本号的 URL；下表省略此前缀。
 
 成功 GET 通常为 200，成功 POST 默认 201。校验失败为 400，未登录或会话失效为 401，权限不足为 403，资源不存在或不可用为 404，状态冲突为 409，限流为 429，数据库/素材等暂不可用为 503；上传超限也可能返回 413。比赛快照的时间为 Unix 毫秒，数据库结果的时间为 ISO 字符串。
+
+压缩 JSON 请求体在解析前拒绝，返回 415。加载阶段被移出的玩家访问原比赛或原房间返回 410，并带 `{ code: "ROOM_LOADING_REMOVED", matchId, roomCode, reason }`；`reason` 为 `loading-timeout`、`forced-start` 或 `left-loading`。
 
 ## 身份、公开资源与个人信息
 
@@ -10,7 +12,7 @@
 
 | 方法 | 路径 | 权限 | 请求 / 响应 |
 |---|---|---|---|
-| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.2.1-preview" }` |
+| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.3.0-preview" }` |
 | GET | `/health/ready` | 公开 | 查询数据库 `matches` 表；成功 `{ status: "ok" }`，失败 503 |
 | POST | `/auth/guest` | 公开 | `{ name }` → `{ token, expiresAt, user }`，每次创建新的游客 |
 | POST | `/auth/login` | 公开 | `{ name, password }` → `{ token, expiresAt, user }`；用户名不存在时自动注册，存在时校验密码 |
@@ -62,10 +64,11 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 |---|---|---|
 | POST | `/matches/practice` | `GameOptions` → `MatchView`；创建单人挑战 |
 | POST | `/matches/:id/ready` | 无请求体要求 → `MatchView`；首题下载解码后确认就绪，启动开局倒计时 |
+| POST | `/matches/:id/force-start` | 无请求体要求 → `MatchView`；仅加载满 60 秒后房主可调用，移出未加载者并开局；调用者自己被移出时返回 410 |
 | GET | `/matches/:id` | `MatchView`；读取快照，必要时从持久化记录恢复已结束比赛的最后一题 |
 | POST | `/matches/:id/guesses` | `{ requestId, round, answer }` 或 `{ requestId, round, songId }` → `{ correct, score, elapsedMs }` |
 | POST | `/matches/:id/return` | 无请求体要求 → `MatchView`；只允许单人，普通难度放弃，AT 设置返回限制 |
-| POST | `/matches/:id/skip` | `{ round }` → `MatchView`；只允许单人，在开题后跳过尚未答对的当前题 |
+| POST | `/matches/:id/skip` | `{ round }` → `MatchView`；开题后跳过当前未完成题，支持单人和多人 |
 | POST | `/matches/:id/noise-hits` | `{ requestId, round }` → `MatchView`；符合噪域条件时扣 1HP |
 | GET | `/matches/:id/progress` | 本人已提交回合的 `[{ round, correct, score, answer_text, title }]` |
 | GET | `/matches/:id/rounds/:round/hints` | 当前回合已解锁的 `[{ index, content, kind, difficulty }]` |
@@ -75,13 +78,13 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 
 ### 判题、计分与重试
 
-正式前端创建单人局时发送 `X-Artwork-Ready: 1`。服务端先生成最多 10 道开局题目，返回 `awaitingReady: true`；此时只允许读取当前首题图，不计时、不接受答案、提示或伤害。浏览器首题解码后调用 `/matches/:id/ready`，再开始 3 秒倒计时。未发送该请求头的旧客户端保留创建后直接倒计时的兼容行为。
+正式前端创建单人局或调用房间开局接口时发送 `X-Artwork-Ready: 1`。服务端先生成最多 10 道开局题目，返回 `awaitingReady: true`；此时只允许读取当前首题图，不计时、不接受答案、提示或伤害。浏览器首题解码后调用 `/matches/:id/ready`；单人立即启动，房间局需要全部参赛者完成就绪握手后统一开始 3 秒倒计时。快照中的 `loadedPlayers` 为已完成握手人数，重复握手不会重置倒计时。未发送该请求头的旧客户端保留创建后直接倒计时的兼容行为。
 
 非主线曲绘第一条提示为包含首次收录版本的连续 2～3 个真实版本范围，格式如 `非主线 · v3.4.0–v3.5.0`；已删除时另起一行显示“已删除”。愚人节曲绘的第一条提示内容固定为“愚人节曲目/特殊曲绘”。同曲不同变体分别分类，已解锁提示会持久保存。
 
 `requestId` 是客户端生成的 UUID；猜测的 `answer` 去首尾空白后为 1～200 字符，和 `songId` 必须且只能提供一个。自由文本按 NFKC、去首尾空白、转小写、连续空白归一为单个空格，与开局时曲名/别名快照精确比较，不做模糊匹配。未知自由文本会记为错误作答；不存在或未启用的 `songId` 返回 400。
 
-答题仅接受 `playing`、当前题、`startsAt <= 收到请求时间 < deadline`、本人尚未答对且开启 HP 时仍有血量的状态。错误可继续尝试，正确后该题锁定。`players[].answered` 表示本题已经答对，不表示已经尝试过。
+答题仅接受 `playing`、当前题、`startsAt <= 收到请求时间 < deadline`、本人尚未完成的状态。单人开启 HP 时还要求仍有血量；多人允许死亡期间继续答题。错误可继续尝试，正确后该题锁定。`players[].answered` 表示本题已经完成，多人跳过也记为完成，不表示已经尝试过。
 
 当前规则版本为 `v5-hint85`。每题满分按开局 EZ/HD/IN/AT 为 500/1000/2000/3000：
 
@@ -105,11 +108,11 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 | 答对，用提示 0 / 1 / 2 / 3 次 | +5 / +3 / +2 / +1，不超过上限 |
 | 有效噪域命中 | -1，不计入错答次数 |
 
-开启 HP 时，血量为 0 的玩家不能继续猜测或解锁提示。多人场并非一人归零就整场结束：全部参赛者归零才立即结束；当前所有玩家均答对或归零时也可结束当前回合。超时/跳过扣血与已发生的错误扣血分别结算。
+单人开启 HP 时，血量为 0 不能继续答题。多人首次降到 0HP 后进入死亡状态，仍可答题和回血，直到回到至少 10HP 才复活；达到 10HP 的当次正确答案恢复计分，此前的正确答案计 0 分。未曾归零的低血量玩家仍存活。多人 Infinity 全员死亡时提前结束，固定题数不因此提前结束。超时/跳过扣血与已发生的错误扣血分别结算。
 
-`skip` 按当前时刻提前结算为超时，更新持久化 deadline；同一题已进入 `reveal` 或 `finished` 后的重复请求不会再次扣血，但换题后重试旧 round 会冲突。`return` 对非 AT 单人比赛把数据库状态设为 `interrupted`，客户端快照结束为 `finished`；AT 活跃场次不退出，返回 `returnBlocked: true` 和首次 `returnBlockedAt`，计时仍继续。已结束单人比赛的 `return` 直接返回快照。房间比赛不能使用这两个单人操作。
+单人 `skip` 按当前时刻提前结算为超时，更新该题 deadline。多人固定题数只关闭本人的该题，等待其他玩家全部完成；多人 Infinity 跳过后立即进入本人下一题，不推进他人游标。多人同一题重试不重复扣血，换题后旧 round 重试返回本人当前快照。`return` 只允许单人：非 AT 比赛设为 `interrupted`，客户端快照结束为 `finished`；AT 活跃场次不退出，返回 `returnBlocked: true` 和首次 `returnBlockedAt`。已结束单人比赛的 `return` 直接返回快照。
 
-`noise-hits` 仅接受仍在 `playing/reveal` 的当前题、开启 HP 且本人存活的参赛者。服务器认可的噪域条件至少满足一个：
+`noise-hits` 仅接受仍在 `playing/reveal` 的当前题且开启 HP 的参赛者；单人还须有剩余血量。服务器认可的噪域条件至少满足一个：
 
 - AT 返回限制开启至少 800ms；或
 - 当前题本人未答对，时间达到 `startsAt + max(0, duration - 25000) + min(duration, 25000) / 4`，其中 `duration = deadline - startsAt`；或
@@ -119,7 +122,7 @@ Infinity 会在开局时抽取当前全部可用歌曲，每个 `song_id` 随机
 
 ### 提示索引与显示顺序
 
-提示只允许开题后访问当前回合，已结束比赛不允许；新解锁还须处于 `playing`，本人未答对且未耗尽 HP。对有效答题状态重复解锁同一 index 不增加记录。GET/POST 返回数组按数字 index 排序，非降图提示的 `difficulty` 为 null：
+提示只允许开题后访问当前回合，已结束比赛不允许；新解锁还须处于 `playing` 且本人未完成该题，单人还须未耗尽 HP。对有效答题状态重复解锁同一 index 不增加记录。GET/POST 返回数组按数字 index 排序，非降图提示的 `difficulty` 为 null：
 
 | API index | kind | 内容 |
 |---|---|---|
@@ -203,21 +206,30 @@ GET /api/leaderboards?difficulty=at&healthCapacity=20&roundSeconds=30
 
 ## 房间
 
-全部需鉴权；房间码匹配 `[A-Z2-9]{6}`，生成器避开易混淆字母。每位用户最多同时加入一个房间，每个房间最多 8 人。
+全部需鉴权；房间码匹配 `[A-Z2-9]{6}`，生成器避开易混淆字母。每位用户最多同时加入一个房间。`RoomOptions` 增加 `maxPlayers`（2～8，默认 8）和 `matchSeconds`（120、180、300、600、1200）。Infinity 归一化后必须有总时限，旧客户端未提供时默认 180 秒。人数上限不能少于当前成员数，满员后拒绝新成员加入。
 
 | 方法 | 路径 | 请求 / 响应与权限 |
 |---|---|---|
-| POST | `/rooms` | `GameOptions` → `RoomView`，创建者成为房主，默认未准备 |
+| POST | `/rooms` | `RoomOptions` → `RoomView`，创建者成为房主，默认未准备 |
 | POST | `/rooms/:code/join` | → `RoomView`；加入未开局且未满房间，重复加入本房间直接返回快照 |
 | GET | `/rooms/:code` | → `RoomView`；仅成员 |
+| GET | `/rooms/:code/performances` | → `{ difficulty: 'in' \| 'at', players: [{ id, best: { score, correct } \| null }] }`；仅成员，批量返回当前成员的 Infinity 综合评分数据 |
 | POST | `/rooms/:code/ready` | `{ ready: boolean }` → `RoomView`；仅未开局成员 |
-| POST | `/rooms/:code/options` | `GameOptions` → `RoomView`；仅未开局房主；实际参数改变会清空全员准备状态 |
+| POST | `/rooms/:code/options` | `RoomOptions` → `RoomView`；仅未开局房主；实际参数或人数上限改变会清空全员准备状态 |
+| POST | `/rooms/:code/kick` | `{ userId: UUID }` → `RoomView`；仅未开局房主，可移出其他成员；被移出者可重新加入未开局房间 |
+| POST | `/rooms/:code/transfer-host` | `{ userId: UUID }` → `RoomView`；仅未开局房主，可转交给其他成员，保留成员顺序和准备状态 |
 | POST | `/rooms/:code/start` | → `MatchView`；仅房主，至少两人且包括房主在内所有人准备 |
 | POST | `/rooms/:code/leave` | → `{ left: true }`；仅成员，房主离开后移交下一名，空房删除 |
 
-`RoomView` 为 `{ code, hostId, options, matchId, players: [{ id, name, ready }] }`。更新 options 是带默认值的完整选项请求，不能按局部 PATCH 理解；归一化后参数未改变时保留准备状态。开局还会检查是否有人在其他活跃比赛中。
+`RoomView` 为 `{ code, hostId, hostChange?, options, matchId, starting, startError, players: [{ id, name, ready, avatarUrl? }] }`。`hostChange` 是最近一次转交事件 `{ eventId, hostId, previousHostId, matchId?, reason: 'transfer' | 'leave' | 'loading' }`，创建房间不会生成转交事件；客户端用事件 ID 去重，比赛中发生的转交提示留到返回房间时展示。开局先广播 `starting: true`，题图准备完成后广播 `matchId`；所有成员据此一起进入加载界面。更新 options 是带默认值的完整选项请求，不能按局部 PATCH 理解；归一化后参数未改变时保留准备状态。`artworkScopes` 与单人共用范围规则，单独改变曲目范围也会清空准备状态；AT 固定使用全部范围。开局还会检查是否有人在其他活跃比赛中。
 
-房间一房一场，结束后离开并新建继续。离房不撤销参赛资格、不停止计时、不删除分数；断线不自动踢人，重连仍用原 token。房间只在内存，约 3 小时无发布更新后回收，普通 GET 不延长此期限。
+房间成员评分牌左侧复用综合评分牌，右侧标注对应难度。房间难度为 IN 时取 IN Infinity，否则取 AT Infinity；从当前计分规则下已完成、已公布的单人 Infinity 记录中按总分取最好成绩，合并 20HP/50HP 以及不同单题时限和曲目范围。没有符合条件的记录时 `best` 为 `null`，不使用多人分数或未公布的个人记录。
+
+开局携带 `X-Artwork-Ready: 1` 时等待首图下载解码后的 ready 握手。预生成完成后开始 90 秒加载窗口，快照给出 `loadingDeadlineAt`、`loadingForceStartAt`、`hostId` 与 `roomCode`。满 60 秒房主可强制开始；满 90 秒自动处理。两种方式均移出未加载者，仅让已加载者开始统一 3 秒倒计时，即使只剩一人也开局；无人加载则中断本局并删除空房。加载中退出不再占用本局参赛资格，房主自动移交，剩余人全部 ready 时可以立即开始。
+
+被移出者不出现在该局结算和排名中，返回主菜单后可加入其他未开始的房间，没有跨房间禁入。任何非成员都不能加入已有 `matchId` 的房间；原房间本局结束后才恢复加入。比赛已经开始后普通离房仍保留历史参赛资格和分数，断线重连继续使用原 token。
+
+比赛结束或中断后，房间清空 `matchId` 并将剩余成员重置为未准备，保留房间码与选项。多人结算第二页展示玩家榜：存活者在前，组内按分数降序，同分同名次；固定题数仅在 HP 开启时显示剩余 HP，Infinity 显示累计存活时间。不调用单人无尽成绩发布接口。房间只在内存，约 3 小时无发布更新后回收，普通 GET 不延长此期限。
 
 ## Socket.IO
 
@@ -228,7 +240,7 @@ GET /api/leaderboards?difficulty=at&healthCapacity=20&roundSeconds=30
 | `room:subscribe` | `{ code }` | `{ ok: true, data: RoomView }` 或 `{ ok: false, error }` |
 | `match:subscribe` | `{ id }` | `{ ok: true, data: MatchView }` 或 `{ ok: false, error }` |
 
-仅成员/参赛者可订阅；每个连接最多订阅一个房间和一场比赛。广播 `room:state`、`match:state` 都是完整快照；写操作统一走 HTTP。离房成员退出该房间广播组，但历史比赛订阅资格不因离房撤销。
+仅成员/参赛者可订阅；每个连接最多订阅一个房间和一场比赛。`room:state`、`match:state` 为完整快照，Infinity 比赛游标向每人单独发送；写操作统一走 HTTP。加载移除立即发送 `room:removed: { code, matchId, reason }`，撤销房间及公共/个人比赛订阅，不依赖房间队列；客户端清理当前场次、房间标识并返回主菜单。已经开始比赛后的普通离房不撤销历史参赛资格。
 
 首次握手、每次订阅均验证会话；每 30 秒重新验证已建立连接，注销后的广播权限最多延迟约 30 秒收回。单身份最多三个已建立连接，每个连接每分钟最多 60 次订阅操作。若握手带 Origin，必须匹配配置的 `PUBLIC_ORIGIN`。
 
