@@ -25,6 +25,10 @@ export function SongRailNoise(props:Props){
   const source=document.createElement('canvas');source.width=640;source.height=834;
   const context=source.getContext('2d')!;
   const {video,ready:loaded}=noiseVideo();
+  const visibleRows=new Set<HTMLElement>(),observed=new Set<HTMLElement>();
+  const rowsObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)visibleRows.add(entry.target as HTMLElement);else visibleRows.delete(entry.target as HTMLElement);}},{root,rootMargin:'100px'});
+  const observeRows=()=>{for(const row of observed)if(!row.isConnected||!root.contains(row)){rowsObserver.unobserve(row);observed.delete(row);visibleRows.delete(row);}for(const row of root.querySelectorAll<HTMLElement>('.song-rail-row'))if(!observed.has(row)){observed.add(row);visibleRows.add(row);rowsObserver.observe(row);}};
+  observeRows();const rowsChanges=new MutationObserver(observeRows),rowsRoot=root.querySelector('.song-rail-rows');if(rowsRoot)rowsChanges.observe(rowsRoot,{childList:true});
   function drawText(element:HTMLElement,color:string,center=false){
    const bounds=root.getBoundingClientRect(),scale=bounds.width/640,r=element.getBoundingClientRect(),style=getComputedStyle(element);
    const x=(r.left-bounds.left)/scale,y=(r.top-bounds.top)/scale,w=r.width/scale,h=r.height/scale;
@@ -34,11 +38,11 @@ export function SongRailNoise(props:Props){
   function tick(stamp:number){
    if(!alive)return;
    if(document.hidden){return;}
-   const state=latest.current,bounds=root.getBoundingClientRect(),scale=bounds.width/640;
-   if(!scale)return;
+   const state=latest.current;let bounds:DOMRect|undefined,scale=0;
    const view=noiseViewport(640,834),regions:NoiseRegion[]=[];
    const labels:Array<{text:string;x:number;y:number;width:number;height:number;font:string;spacing:string;left:number;top:number;frameHeight:number;status:HTMLElement|null;number:HTMLElement|null}>=[];
-   for(const row of root.querySelectorAll<HTMLElement>('.song-rail-row')){
+   for(const row of [...visibleRows].sort((a,b)=>Number(a.dataset.index)-Number(b.dataset.index))){
+    if(!row.isConnected)continue;
     const index=Number(row.dataset.index),past=index<state.clock.round,clock=index===state.clock.round?state.clock:rounds.current.get(index);
     if((!past&&!clock)||state.progress.some(p=>p.round===index&&p.correct))continue;
     // Past unanswered rounds are already red, including after a fresh page load.
@@ -48,6 +52,7 @@ export function SongRailNoise(props:Props){
     const settled=past||elapsed>=duration;
     const age=past?Math.min(duration,25):elapsed-Math.max(0,duration-25);
     if(!skip&&!settled&&age<=0)continue;
+    if(!bounds){bounds=root.getBoundingClientRect();scale=bounds.width/640;if(!scale)return;}
     const title=row.querySelector<HTMLElement>('.song-rail-title')!,label=title.querySelector<HTMLElement>('.song-name-label')!;
     const rect=title.getBoundingClientRect(),x=(rect.left-bounds.left)/scale,y=(rect.top-bounds.top)/scale;
     const width=rect.width/scale,height=rect.height/scale;
@@ -66,7 +71,7 @@ export function SongRailNoise(props:Props){
     const style=getComputedStyle(title);
     labels.push({text:label.textContent??'',x,y,width,height,font:`${style.fontWeight} ${style.fontSize} ${style.fontFamily}`,spacing:style.letterSpacing,left,top,frameHeight,status:row.classList.contains('current')?row.querySelector<HTMLElement>('.song-rail-status'):null,number:row.classList.contains('current')?null:row.querySelector<HTMLElement>('.song-rail-number')});
    }
-   if(!regions.length){surface.style.visibility='hidden';return;}
+   if(!regions.length||!bounds){surface.style.visibility='hidden';return;}
    // DOM positions follow the same GSAP transforms as the text, even on high refresh displays.
    const signature=JSON.stringify(labels.map(({status,number,...label})=>({...label,status:status?.textContent,number:number?.textContent}))),changed=signature!==lastSignature;
    if(!changed&&stamp-lastDraw<1000/60-.2)return;
@@ -92,7 +97,7 @@ export function SongRailNoise(props:Props){
   void Promise.all([loaded,contactAtlas()]).then(([,atlas])=>{
    if(!alive)return;renderer=new NoiseDomainRenderer(surface,video,atlas);renderer.setOverlay(true);renderer.setRegionSkew(.2679491924);renderer.setFrameCallback(tick);
   }).catch(()=>{surface.style.visibility='hidden';});
-  return()=>{alive=false;renderer?.dispose();};
+  return()=>{alive=false;rowsObserver.disconnect();rowsChanges.disconnect();renderer?.dispose();};
  },[]);
  return <canvas ref={canvas} className="song-rail-noise" aria-hidden="true"/>;
 }

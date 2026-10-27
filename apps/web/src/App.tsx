@@ -1,7 +1,7 @@
 import {installMenuMusic,setMenuMusicActive} from './menu-music';
 import {APP_VERSION_LABEL} from '../../../packages/contracts/src';
 import {installSoundLifecycle,playSound} from './sound';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState,type CSSProperties } from 'react';
 import { Maximize } from 'lucide-react';
 import { useStore } from './store';
 import { go, useReducedMotion, useRoute } from './hooks';
@@ -15,8 +15,9 @@ import { Results } from './Results';
 import { api } from './api';
 import { Showcase } from './Showcase';
 import { DifficultySelect } from './DifficultySelect';
-import {MobileLandscape,useMobilePortrait} from './MobileLandscape';
-import {isMobileScreen,requestMobileLandscape} from './landscape';
+import {MobileLandscape,useMobileDevice,useMobilePortrait} from './MobileLandscape';
+import {requestMobileLandscape} from './landscape';
+import {useAppViewport} from './use-app-viewport';
 
 function Title() {
   const ref=useRef<HTMLDivElement>(null),busy=useRef(false),reduce=useReducedMotion();
@@ -37,14 +38,15 @@ function Title() {
 export function App() {
   useEffect(installSoundLifecycle,[]);
   useEffect(installMenuMusic,[]);
-  const route=useRoute(),outer=useRef<HTMLDivElement>(null),[size,setSize]=useState({width:1210,height:834,scale:1});
+  const route=useRoute(),outer=useRef<HTMLDivElement>(null),stageWindow=useRef<HTMLDivElement>(null);
   const session=useStore(s=>s.session),brightness=useStore(s=>s.preferences.brightness),reduce=useReducedMotion();
-  const mobilePortrait=useMobilePortrait();
+  const mobile=useMobileDevice(),mobilePortrait=useMobilePortrait();
   const parts=route.split('/'),screen=parts[1]||'title',accountScreen=screen==='account';
-  useEffect(()=>{
-    const observer=new ResizeObserver(([entry])=>{const {width,height}=entry.contentRect;const portrait=width<height;const scale=portrait?width/810:height/834;setSize({width,height:portrait&&!accountScreen?Math.max(height,scale*1500):height,scale});});
-    if(outer.current)observer.observe(outer.current);return()=>observer.disconnect();
-  },[accountScreen]);
+  const size=useAppViewport(outer,mobile,accountScreen);
+  useLayoutEffect(()=>{
+    if(!size.keyboard){stageWindow.current?.scrollTo(0,0);return;}
+    document.activeElement?.scrollIntoView({block:'nearest',inline:'nearest'});
+  },[size.keyboard,size.visibleHeight,route]);
   useEffect(()=>{if(route==='/difficulty/room'||(!MULTIPLAYER_ENABLED&&route.startsWith('/room/')))go('/account');else if(route!=='/'&&!session&&route!=='/account'&&route!=='/tutorial')go('/account');},[route,session]);
   useEffect(()=>{if(session)void api<NonNullable<typeof session>['user']>('me').then(user=>{const current=useStore.getState().session;if(current?.token===session.token)useStore.getState().setSession({...current,user});}).catch(()=>{});},[session?.token]);
   const menuMusic=screen==='account'||screen==='room';
@@ -56,23 +58,23 @@ export function App() {
   const [fullscreenError,setFullscreenError]=useState('');
   const [tutorialEnding,setTutorialEnding]=useState(false);
   const finishTutorial=useCallback(()=>setTutorialEnding(true),[]),clearTutorialEnding=useCallback(()=>setTutorialEnding(false),[]);
-  return <main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer}>
+  return <main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer} data-mobile={mobile} data-keyboard-open={size.keyboard} style={{'--stage-scale':size.scale} as CSSProperties}>
+    <div ref={stageWindow} className="stage-window" style={{width:size.width,height:size.keyboard?size.visibleHeight:size.height}}>
     <div className="stage-holder" inert={mobilePortrait} style={{width:size.width,height:size.height}}>
       <div className="stage" style={{width:size.width/size.scale,height:size.height/size.scale,transform:`scale(${size.scale})`}}>
         <FadeScene scene={screen}>
           {screen!=='title'&&screen!=='difficulty'&&<><div className="ambient-background" style={{opacity:brightness}}/><Mesh/></>}
           {screen==='tutorial'?<Tutorial onComplete={finishTutorial}/>:screen==='title'?<Title/>:screen==='difficulty'&&session?<DifficultySelect/>:screen==='play'&&session?<Game key={parts[2]} id={parts[2]}/>:screen==='room'&&MULTIPLAYER_ENABLED&&session?<Room code={parts[2]}/>:screen==='results'&&session?<Results key={parts[2]} id={parts[2]}/>:<Hub route={route}/>}
         {import.meta.env.VITE_DEMO_CATALOG==='true'&&<div className="demo-label">本地演示 · 合成题图</div>}
-        <button className="fullscreen" aria-label="切换全屏" onClick={()=>{
-          if(!document.fullscreenElement&&isMobileScreen()){
-            void requestMobileLandscape().then(locked=>{if(!locked&&!document.fullscreenElement)setFullscreenError('当前浏览器无法自动全屏，请横屏游玩');});return;
-          }
+        {!mobile&&<button className="fullscreen" aria-label="切换全屏" onClick={()=>{
+          if(!document.fullscreenElement&&typeof document.documentElement.requestFullscreen!=='function'){setFullscreenError('当前浏览器不支持全屏');return;}
           const result=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
           void result.catch(()=>setFullscreenError('当前浏览器不支持全屏'));
-        }}><Maximize size={18}/></button>
+        }}><Maximize size={18}/></button>}
         {fullscreenError&&<span className="fullscreen-error" role="status">{fullscreenError}</span>}
         </FadeScene>
       </div>
+    </div>
     </div>
     <MobileLandscape required={mobilePortrait}/>
     {tutorialEnding&&<TutorialEndTransition onFinished={clearTutorialEnding}/>}

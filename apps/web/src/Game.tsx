@@ -115,7 +115,8 @@ export function Game({id}:{id:string}) {
   const {data:match,setData:setMatchView,error:loadError,errorStatus}=useLive<MatchView>('match',id),now=useServerTime(match),session=usePlaySession()!;
   const endingBlack=useRef<HTMLDivElement>(null),wasActive=useRef(false),reduce=useReducedMotion();
   const [settings,setSettings]=useState(false),[answer,setAnswer]=useState(runtime?.answerDraft??''),[submission,setSubmission]=useState<{round:number}|null>(null),[error,setError]=useState('');
-  const submissionRef=useRef<{round:number}|null>(null);
+  const submissionRef=useRef<{round:number}|null>(null),composingAnswer=useRef(false),answerInput=useRef<HTMLInputElement>(null);
+  useEffect(()=>{composingAnswer.current=false;},[id,match?.round]);
   const [progress,setProgress]=useState<Progress[]>([]),[hints,setHints]=useState<Hint[]>([]),[hintBusy,setHintBusy]=useState(false);
   const [submitNoise,setSubmitNoise]=useState<{round:number;leaving:boolean;startsAt:number;deadline:number}|null>(null);
   const [notice,setNotice]=useState<AnswerNoticeEvent|null>(null),noticeSerial=useRef(0),noticed=useRef(new Set<string>());
@@ -301,7 +302,7 @@ export function Game({id}:{id:string}) {
     void api<Hint[]>(`matches/${id}/rounds/${round}/hints`).then(v=>{if(alive)setHints(v);}).catch(()=>{});return()=>{alive=false;};
   },[id,round,started]);
   async function submit(e:FormEvent) {
-    e.preventDefault();if(!playing||submitRed||submissionRef.current?.round===round||!answer.trim())return;
+    e.preventDefault();if(composingAnswer.current||!playing||submitRed||submissionRef.current?.round===round||!answer.trim())return;
     const operation={round};submissionRef.current=operation;setSubmission(operation);setError('');
     // Realtime state can advance while this round's HTTP response is still pending.
     const isCurrent=()=>currentRound.current===operation.round&&submissionRef.current===operation;
@@ -363,7 +364,7 @@ export function Game({id}:{id:string}) {
     {round===0&&!started&&!complete&&<div className="round-countdown" aria-live="polite" aria-label={`倒计时 ${seconds}`}>{seconds}</div>}
     <form className="guess-input-row" onSubmit={submit}>
       <div className={`current-difficulty ${imageDifficulty}`}><span>{imageDifficulty.toUpperCase()}</span></div>
-      <div className={`song-input ${notice?'has-answer-notice':''}`}><input aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" disabled={!playing||busy||pending.current?.round===round} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
+      <div className={`song-input ${notice?'has-answer-notice':''}`} onClick={()=>{if(!answerInput.current?.disabled)answerInput.current?.focus({preventScroll:true});}}><input ref={answerInput} aria-label="输入歌名" placeholder="输入歌名或别名" maxLength={200} autoComplete="off" autoCorrect="off" autoCapitalize="none" spellCheck={false} enterKeyHint="send" onCompositionStart={()=>{composingAnswer.current=true;}} onCompositionEnd={()=>{composingAnswer.current=false;}} disabled={!playing||busy||pending.current?.round===round} value={answer} onChange={e=>updateAnswer(e.target.value)}/><AnswerNotice event={notice} onEnd={serial=>setNotice(current=>current?.serial===serial?null:current)}/></div>
       <button ref={submitButton} className={`submit-answer ${submitCovered?'submit-covered':''} ${submitFlashing?'submit-flashing':''} ${submitNoise?.leaving?'submit-dissolving':''} ${submitRed?'submit-red':''}`} disabled={!playing||submitRed||busy||!answer.trim()}><span>{busy?'提交中':waitingAfterSkip?'等待中':answered?'已提交':'提交'}</span><NoiseArtwork skipFlashAt={skipFlashAt} mode="submit" target={submitButton} src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="" showImage={false} startsAt={submitNoise?.startsAt??match.startsAt} deadline={submitNoise?.round===round?match.deadline:submitNoise?.deadline??match.deadline} now={noiseNow} solved={false} active={true} suspended={!submitCovered} fadeOut={submitNoise?.leaving} skew={.2679491924} style={{pointerEvents:'none'}}/></button>
     </form>
     <HintStrip indices={visibleHints} hints={hints}/>

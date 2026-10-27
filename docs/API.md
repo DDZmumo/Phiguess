@@ -12,7 +12,7 @@
 
 | 方法 | 路径 | 权限 | 请求 / 响应 |
 |---|---|---|---|
-| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.3.0-preview" }` |
+| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.3.1-preview" }` |
 | GET | `/health/ready` | 公开 | 查询数据库 `matches` 表；成功 `{ status: "ok" }`，失败 503 |
 | POST | `/auth/guest` | 公开 | `{ name }` → `{ token, expiresAt, user }`，每次创建新的游客 |
 | POST | `/auth/login` | 公开 | `{ name, password }` → `{ token, expiresAt, user }`；用户名不存在时自动注册，存在时校验密码 |

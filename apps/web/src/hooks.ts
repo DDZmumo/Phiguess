@@ -57,6 +57,10 @@ export function useServerTime(match:MatchView|null) {
   const runtime=usePlayRuntime();
   const offset=useRef(0),[now,setNow]=useState(Date.now());
   useEffect(()=>{if(match)offset.current=match.serverNow-Date.now();},[match?.serverNow]);
-  useEffect(()=>{if(runtime)return;const timer=setInterval(()=>setNow(Date.now()+offset.current),100);return()=>clearInterval(timer);},[runtime]);
+  useEffect(()=>{
+    if(runtime)return;let timer:ReturnType<typeof setInterval>|undefined;
+    const visibility=()=>{clearInterval(timer);timer=undefined;if(!document.hidden){setNow(Date.now()+offset.current);timer=setInterval(()=>setNow(Date.now()+offset.current),100);}};
+    visibility();document.addEventListener('visibilitychange',visibility);return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',visibility);};
+  },[runtime]);
   return runtime?match?.serverNow??0:now;
 }

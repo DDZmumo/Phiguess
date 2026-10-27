@@ -6,7 +6,7 @@ interface LandscapeEnvironment {
 }
 
 export function isMobileScreen():boolean {
-  return window.matchMedia('(pointer: coarse) and (hover: none)').matches;
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||window.matchMedia('(pointer: coarse) and (hover: none)').matches;
 }
 
 export async function requestMobileLandscape(environment?:LandscapeEnvironment):Promise<boolean> {

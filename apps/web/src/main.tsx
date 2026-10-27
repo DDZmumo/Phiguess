@@ -11,6 +11,7 @@ import './style.css';
 import './account.css';
 import './game-alignment.css';
 import './title-type.css';
+import './mobile.css';
 
 prepareTutorialStartup();
 createRoot(document.getElementById('root')!).render(<React.StrictMode><ShowcaseProvider><App/></ShowcaseProvider></React.StrictMode>);

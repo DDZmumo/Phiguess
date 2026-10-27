@@ -80,7 +80,7 @@ class NoiseStage {
   }
  }
 
- private onPointer=(event:PointerEvent)=>{this.pointer=event;this.updateHover();};
+ private onPointer=(event:PointerEvent)=>{if(event.pointerType==='touch'&&event.type==='pointerup'){this.onLeave();return;}this.pointer=event;this.updateHover();};
  private onLeave=()=>{this.pointer=null;this.renderer.clearPointer();this.nextHoverDamage=0;this.hoverHit=false;this.nextHoverPick=0;setNoiseMuffled(false);};
  private onHit=(event:PointerEvent)=>{
   if(event.target instanceof Element&&event.target.closest('[data-noise-safe]'))return;
@@ -100,6 +100,26 @@ class NoiseStage {
   this.renderer.dispose();this.renderer=this.createRenderer();this.signature='';this.geometry='';this.last=0;this.contextLost=false;
  };
  private createRenderer(){const renderer=new NoiseDomainRenderer(this.canvas,this.video,this.atlas);renderer.setOverlay(true);renderer.setRegionSkew(.2679491924);return renderer;}
+ private tick=(stamp:number)=>{
+   this.raf=0;if(this.paused())return;
+   this.raf=requestAnimationFrame(this.tick);
+   const interval=this.frameAt?stamp-this.frameAt:0;this.frameAt=stamp;
+   if(this.canvas.style.visibility==='visible')this.renderer.noteFrameInterval(interval);
+   if(stamp-this.updateAt>=this.policy.frameMs-.2){
+    this.updateAt=stamp-Math.max(0,stamp-this.updateAt-this.policy.frameMs)%this.policy.frameMs;
+    for(const layer of this.layers)layer.update?.(stamp);
+    this.paint();
+   }
+   this.updateHover();
+ };
+ private modalObserver:MutationObserver;
+ private modalOpen=false;
+ private paused(){return document.hidden||this.modalOpen;}
+ private onVisibility=()=>{
+  this.modalOpen=Boolean(document.querySelector('dialog[open]'));
+  if(this.paused()){cancelAnimationFrame(this.raf);this.raf=0;this.video.pause();this.onLeave();}
+  else if(!this.raf){this.frameAt=0;this.updateAt=0;this.raf=requestAnimationFrame(this.tick);}
+ };
  constructor(private video:HTMLVideoElement,private atlas:HTMLImageElement){
   this.canvas.className='shared-noise-stage';this.canvas.setAttribute('aria-hidden','true');
   Object.assign(this.canvas.style,{position:'fixed',inset:'0',width:'100vw',height:'100vh',pointerEvents:'none',zIndex:'2147483645'});
@@ -107,28 +127,18 @@ class NoiseStage {
   document.addEventListener('pointerdown',this.onHit,true);document.addEventListener('click',this.onClick,true);
   this.canvas.addEventListener('webglcontextlost',this.onContextLost);this.canvas.addEventListener('webglcontextrestored',this.onContextRestored);
   document.addEventListener('pointermove',this.onPointer,{passive:true});document.addEventListener('pointerdown',this.onPointer,{passive:true});document.addEventListener('pointerup',this.onPointer,{passive:true});document.addEventListener('pointerleave',this.onLeave);window.addEventListener('blur',this.onLeave);
-  const tick=(stamp:number)=>{
-   this.raf=requestAnimationFrame(tick);
-   const interval=this.frameAt?stamp-this.frameAt:0;this.frameAt=stamp;
-   if(document.hidden){video.pause();this.onLeave();return;}
-   if(this.canvas.style.visibility==='visible')this.renderer.noteFrameInterval(interval);
-   // Throttle the contributors too: DOM reads and source painting share one budget.
-   if(stamp-this.updateAt>=this.policy.frameMs-.2){
-    this.updateAt=stamp-Math.max(0,stamp-this.updateAt-this.policy.frameMs)%this.policy.frameMs;
-    for(const layer of this.layers)layer.update?.(stamp);
-    this.paint();
-   }
-   this.updateHover();
-  };
-  this.raf=requestAnimationFrame(tick);
+  document.addEventListener('pointercancel',this.onLeave);document.addEventListener('visibilitychange',this.onVisibility);
+  this.modalObserver=new MutationObserver(this.onVisibility);this.modalObserver.observe(document.body,{attributes:true,subtree:true,attributeFilter:['open']});
+  this.onVisibility();
  }
  private view(){const art=document.querySelector('.art-frame')?.getBoundingClientRect();return noiseViewport(innerWidth,innerHeight,art&&art.width?noiseViewport(art.width+96,art.height+96).scale:undefined);}
  isRedAt(x:number,y:number){if(this.contextLost||this.canvas.style.visibility!=='visible')return false;const v=this.view();return this.renderer.isRedAt(v.left+x/v.scale,v.top+y/v.scale);}
  private paint(force?:NoiseLayer){
   if(this.contextLost)return;
-  const v=this.view(),items=[...this.layers].filter(l=>l.source&&l.canvas.isConnected&&(l===force||l.canvas.style.visibility==='visible')&&l.regions.length);
+  const items=[...this.layers].filter(l=>l.source&&l.canvas.isConnected&&(l===force||l.canvas.style.visibility==='visible')&&l.regions.length);
   items.sort((a,b)=>this.order(a)-this.order(b));
   if(!items.length){this.hoverRegions=[];this.canvas.style.visibility='hidden';this.video.pause();return;}
+  const v=this.view();
   const regions:NoiseRegion[]=[],parts:string[]=[];
   const {width:w,height:h}=noiseBufferSize(innerWidth,innerHeight,1,this.policy,this.resolutionScale);
   if(this.source.width!==w||this.source.height!==h){this.source.width=w;this.source.height=h;this.signature='';}
@@ -173,5 +183,5 @@ class NoiseStage {
   this.paint(layer);const r=layer.canvas.getBoundingClientRect(),c=target.getContext('2d')!;
   c.clearRect(0,0,target.width,target.height);c.drawImage(this.canvas,r.left/innerWidth*this.canvas.width,r.top/innerHeight*this.canvas.height,r.width/innerWidth*this.canvas.width,r.height/innerHeight*this.canvas.height,0,0,target.width,target.height);this.paint();
  }
- dispose(){this.onLeave();window.removeEventListener('blur',this.onLeave);cancelAnimationFrame(this.raf);document.removeEventListener('pointerdown',this.onHit,true);document.removeEventListener('click',this.onClick,true);this.canvas.removeEventListener('webglcontextlost',this.onContextLost);this.canvas.removeEventListener('webglcontextrestored',this.onContextRestored);this.renderer.dispose();this.canvas.remove();this.video.pause();document.removeEventListener('pointermove',this.onPointer);document.removeEventListener('pointerdown',this.onPointer);document.removeEventListener('pointerup',this.onPointer);document.removeEventListener('pointerleave',this.onLeave);}
+ dispose(){this.onLeave();this.modalObserver.disconnect();document.removeEventListener('visibilitychange',this.onVisibility);document.removeEventListener('pointercancel',this.onLeave);window.removeEventListener('blur',this.onLeave);cancelAnimationFrame(this.raf);document.removeEventListener('pointerdown',this.onHit,true);document.removeEventListener('click',this.onClick,true);this.canvas.removeEventListener('webglcontextlost',this.onContextLost);this.canvas.removeEventListener('webglcontextrestored',this.onContextRestored);this.renderer.dispose();this.canvas.remove();this.video.pause();document.removeEventListener('pointermove',this.onPointer);document.removeEventListener('pointerdown',this.onPointer);document.removeEventListener('pointerup',this.onPointer);document.removeEventListener('pointerleave',this.onLeave);}
 }

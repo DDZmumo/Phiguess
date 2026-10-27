@@ -1,0 +1,16 @@
+/* Mobile browser behavior; visual layout remains in the original shared styles. */
+.app-shell[data-mobile=true]{height:100dvh;align-items:flex-start;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);--touch-hit:calc(44px / var(--stage-scale))}
+.stage-window{position:relative;flex:none}
+.app-shell[data-mobile=true] .fullscreen,.app-shell[data-mobile=true] .fullscreen-error{display:none}
+.app-shell[data-mobile=true] button,.app-shell[data-mobile=true] a,.app-shell[data-mobile=true] input{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.app-shell[data-mobile=true][data-keyboard-open=true] .stage-window{overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-padding:8px}
+.app-shell[data-mobile=true][data-keyboard-open=true] .stage-holder{overflow:hidden}
+.app-shell[data-mobile=true] input[type=range]{touch-action:pan-y}
+.app-shell[data-mobile=true] :is(.hub-nav button,.room-actions>button,.setting-slider button,.song-input,.submit-answer){position:relative}
+.app-shell[data-mobile=true] :is(.hub-nav button,.room-actions>button,.setting-slider button,.song-rail-toolbar>button)::after{content:'';position:absolute;left:0;right:0;top:calc((100% - var(--touch-hit))/2);height:var(--touch-hit);background:transparent}
+.app-shell[data-mobile=true] :is(.song-input,.submit-answer)::after{content:'';position:absolute;left:0;right:0;top:50%;height:min(var(--touch-hit),calc(var(--answer-height) + 2 * (var(--answer-top) - var(--art-top) - var(--art-height))));transform:translateY(-50%);background:transparent}
+.app-shell[data-mobile=true] .song-input::after{z-index:-1}
+.app-shell[data-mobile=true] .setting-slider input{height:var(--touch-hit)}
+html[data-mobile=true] .settings-fullscreen{height:100dvh;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+html[data-mobile=true] .settings-fullscreen input[type=range]{height:44px;touch-action:pan-y}
+@media(pointer:coarse) and (hover:none){.fullscreen{display:none}}

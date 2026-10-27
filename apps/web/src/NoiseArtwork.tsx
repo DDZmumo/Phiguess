@@ -152,6 +152,10 @@ export function NoiseArtwork(props:Props){
     renderer?.clearPointer();
     return;
    }
+   // No geometry or source texture is needed before this layer's first warning.
+   const clockNow=state.now+(runtime?.clockPaused?0:stamp-state.anchor);
+   const warningAt=state.mode?state.deadline-5000:state.startsAt+Math.max(0,state.deadline-state.startsAt-25000);
+   if(!state.solved&&state.skipFlashAt===undefined&&wipeAt===null&&exitAt===null&&!lastRegions.length&&clockNow<warningAt){canvas.current!.style.visibility='hidden';return;}
    syncGeometry();
    if(!document.hidden&&stamp-lastPaint>=1000/60-.2){
     lastPaint=stamp-Math.max(0,stamp-lastPaint-1000/60)%(1000/60);

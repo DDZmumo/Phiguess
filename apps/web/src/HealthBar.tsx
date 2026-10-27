@@ -23,10 +23,10 @@ export function HealthBar({value=10,maxValue=10,referenceFrame,fullscreenFlash=f
  useEffect(()=>{const a=animation.current;if(value!==a.value){const now=performance.now();if(value===0&&a.value>0)a.deathAt=now;a.previous=a.value;a.value=value;a.changedAt=now;}},[value]);
  useEffect(()=>{wake.current();},[value,maxValue,referenceFrame,reduce,fullscreenFlash,keepAtZero]);
  useEffect(()=>{
-  let raf=0,last=0,alive=true,fontsReady=false;
+  let raf=0,last=0,alive=true,fontsReady=false,bounds:DOMRect|undefined;
   const node=canvas.current!,ctx=node.getContext('2d')!;
   function schedule(){if(alive&&fontsReady&&!document.hidden&&!raf)raf=requestAnimationFrame(tick);}
-  function invalidate(){last=0;schedule();}
+  function invalidate(){bounds=undefined;last=0;schedule();}
   function visibility(){if(document.hidden){cancelAnimationFrame(raf);raf=0;}else invalidate();}
   wake.current=invalidate;
   const observer=new ResizeObserver(invalidate);observer.observe(node);
@@ -59,7 +59,7 @@ export function HealthBar({value=10,maxValue=10,referenceFrame,fullscreenFlash=f
    }
    node.dataset.value=String(hp);node.dataset.referenceFrame=String(Math.floor(frame));node.dataset.flash=String(flash);
    if((hp===0&&!state.keepAtZero)||(state.referenceFrame!==undefined&&(frame<reference.firstFrame||frame>reference.lastFrame))){ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,node.width,node.height);return;}
-   const rect=node.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5),width=Math.max(1,Math.round(rect.width*ratio)),height=Math.max(1,Math.round(rect.height*ratio));
+   const rect=bounds??=node.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5),width=Math.max(1,Math.round(rect.width*ratio)),height=Math.max(1,Math.round(rect.height*ratio));
    if(node.width!==width||node.height!==height){node.width=width;node.height=height;}
    const scale=height/130,viewportWidth=width/scale;
    ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,viewportWidth,130);

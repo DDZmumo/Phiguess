@@ -1,13 +1,19 @@
 import {useEffect,useRef,useState} from 'react';
 import {Smartphone} from 'lucide-react';
-import {requestMobileLandscape} from './landscape';
+import {isMobileScreen,requestMobileLandscape} from './landscape';
 import './mobile-landscape.css';
 
-const query='(pointer: coarse) and (hover: none) and (max-aspect-ratio: 1/1)';
+const query='(max-aspect-ratio: 1/1)';
+export function useMobileDevice(){
+ const [mobile,setMobile]=useState(isMobileScreen);
+ useEffect(()=>{const media=matchMedia('(pointer: coarse) and (hover: none)'),update=()=>setMobile(isMobileScreen());media.addEventListener('change',update);return()=>media.removeEventListener('change',update);},[]);
+ useEffect(()=>{document.documentElement.dataset.mobile=String(mobile);return()=>{delete document.documentElement.dataset.mobile;};},[mobile]);
+ return mobile;
+}
 export function useMobilePortrait(){
-  const [portrait,setPortrait]=useState(()=>window.matchMedia(query).matches);
+  const [portrait,setPortrait]=useState(()=>isMobileScreen()&&window.matchMedia(query).matches);
   useEffect(()=>{
-    const media=window.matchMedia(query),update=()=>setPortrait(media.matches);
+    const media=window.matchMedia(query),update=()=>setPortrait(isMobileScreen()&&media.matches);
     update();media.addEventListener('change',update);
     return()=>media.removeEventListener('change',update);
   },[]);
