@@ -6,3 +6,5 @@
 
 /* Escape artwork clipping and scene stacking contexts. */
 .artwork-noise-canvas,.artwork-noise-exit,.submit-noise-canvas,.submit-noise-exit{position:fixed;z-index:2147483646;pointer-events:none;visibility:hidden;display:block}
+/* These canvases live outside the scene and would otherwise cover its loading blackout. */
+html[data-noise-loading=true] :is(.shared-noise-stage,.artwork-noise-canvas,.artwork-noise-exit,.submit-noise-canvas,.submit-noise-exit){visibility:hidden!important}
