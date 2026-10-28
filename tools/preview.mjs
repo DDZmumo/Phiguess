@@ -12,7 +12,12 @@ const webPort=Number(values.port??process.env.PHIGUESS_PREVIEW_PORT??5174);
 if(!Number.isInteger(webPort)||webPort<1||webPort>65535)throw new Error('Preview port must be an integer from 1 to 65535');
 const publicOrigin=`http://127.0.0.1:${webPort}`;
 const root=resolve('storage/preview');await mkdir(root,{recursive:true});
-const realCatalog=existsSync('storage/corpus/catalog.json')&&!values.demo;
+let realCatalog=false;
+if(!values.demo&&existsSync('storage/corpus/catalog.json')){
+  const catalog=JSON.parse(await readFile('storage/corpus/catalog.json','utf8'));
+  realCatalog=catalog.groups.length>0&&catalog.groups.every(group=>[group.original,group.assets?.ez].every(path=>typeof path==='string'&&existsSync(resolve('storage/corpus/source',path))));
+  if(!realCatalog)console.log('Private song media is not provisioned; using the isolated synthetic catalog.');
+}
 const database=realCatalog?'phiguess_local':'phiguess_preview';
 let config;
 try{config=JSON.parse(await readFile(resolve(root,'config.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;config={password:randomBytes(24).toString('hex'),secret:randomBytes(32).toString('hex')};await writeFile(resolve(root,'config.json'),JSON.stringify(config),{flag:'wx',mode:0o600});}

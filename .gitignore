@@ -12,11 +12,16 @@ storage/corpus/*
 storage/corpus/prepared/**/*
 !storage/corpus/prepared/**/
 !storage/corpus/prepared/**/manifest.json
-!storage/corpus/source/
-storage/corpus/source/**/*
-!storage/corpus/source/**/
-!storage/corpus/source/Raw/**/*.webp
-!storage/corpus/source/**/EZ/*.webp
+# Source, generated and reduced song artwork stays on the local host/server.
+storage/corpus/source/
+storage/assets/
+storage/library/
+apps/web/public/library/
+apps/web/public/tutorial/
+apps/web/public/reference/*
+!apps/web/public/reference/avatar.webp
+*.apk
+*.bundle
 backups/
 *.log
 coverage/

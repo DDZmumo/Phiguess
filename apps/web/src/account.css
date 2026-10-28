@@ -7,7 +7,7 @@
 .hub-nav button{padding:0 29px;font-size:19px;min-width:0;flex:1}
 .hub-nav button>span{display:block;transform:skewX(15deg)}
 .hub-nav button.active{background:none}
-.hub-nav-active{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#f5f6f7;color:#141a21;pointer-events:none;font-size:19px;transition:clip-path 250ms var(--ease-in-out)}
+.hub-nav-active{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#f5f6f7;color:#141a21;pointer-events:none;font-size:19px;transition:clip-path 250ms var(--ease-in-out)}
 .hub-nav-active>span{display:flex;align-items:center;justify-content:center;transform:skewX(15deg)}
 .account-refresh .hub-tab-panel{will-change:transform;backface-visibility:hidden}
 .account-refresh[data-tab-transition=idle] .hub-tab-panel[aria-hidden=true]{visibility:hidden}

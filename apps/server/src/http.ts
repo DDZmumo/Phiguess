@@ -15,6 +15,7 @@ import { GamesService } from './games';
 import { RoomsService } from './rooms';
 import { MediaService } from './media';
 import {GeneratedArtworks} from './generated-artworks';
+import {LibraryService} from './library';
 
 export function parse<T>(schema: z.ZodType<T>, value: unknown): T {
   const result = schema.safeParse(value);
@@ -23,7 +24,8 @@ export function parse<T>(schema: z.ZodType<T>, value: unknown): T {
 }
 @Controller('api')
 export class PublicController {
-  constructor(private readonly db: Db, private readonly auth: AuthService, private readonly catalog: CatalogService, private readonly games: GamesService, private readonly media:MediaService,private readonly generated:GeneratedArtworks=new GeneratedArtworks(db)) {}
+  constructor(private readonly db: Db, private readonly auth: AuthService, private readonly catalog: CatalogService, private readonly games: GamesService, private readonly media:MediaService,private readonly generated:GeneratedArtworks=new GeneratedArtworks(db),private readonly library:LibraryService=new LibraryService(db)) {}
+  @Get('library') async aliasLibrary(@Res({passthrough:true}) res:Response){res.setHeader('Cache-Control','no-store');return this.library.catalog();}
   @Get('tutorial-art/:slug/:difficulty') async tutorialArt(@Param('slug') slug:string,@Param('difficulty') difficulty:string,@Res({passthrough:true}) res:Response){
     const name=parse(z.enum(['ds','mirage','chaos','8000']),slug),level=parse(z.enum(['hd','in','at']),difficulty);
     const body=await this.generated.tutorial(name,level);res.setHeader('Cache-Control','public, max-age=3600');res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'none'; sandbox");

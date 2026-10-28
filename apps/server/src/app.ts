@@ -14,8 +14,9 @@ import { RealtimeGateway } from './realtime';
 import { RoomsService } from './rooms';
 import { MediaService } from './media';
 import { GeneratedArtworks } from './generated-artworks';
+import { LibraryService } from './library';
 
-@Module({ controllers:[PublicController,GameController], providers:[Db,AuthService,AuthGuard,CatalogService,Events,GeneratedArtworks,GamesService,RoomsService,RealtimeGateway,MediaService] })
+@Module({ controllers:[PublicController,GameController], providers:[Db,AuthService,AuthGuard,CatalogService,Events,GeneratedArtworks,GamesService,RoomsService,RealtimeGateway,MediaService,LibraryService] })
 export class AppModule {}
 export function configureApp(app: INestApplication) {
   const config=configuration();

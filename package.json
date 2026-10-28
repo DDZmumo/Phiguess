@@ -1,6 +1,6 @@
 {
   "name": "phiguess",
-  "version": "0.3.1-preview",
+  "version": "0.4.0-preview",
   "private": true,
   "engines": {
     "node": ">=22.14"

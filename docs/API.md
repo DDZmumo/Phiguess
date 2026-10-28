@@ -12,7 +12,7 @@
 
 | 方法 | 路径 | 权限 | 请求 / 响应 |
 |---|---|---|---|
-| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.3.1-preview" }` |
+| GET | `/health/live` | 公开 | `{ status: "ok", service: "phiguess", version: "0.4.0-preview" }` |
 | GET | `/health/ready` | 公开 | 查询数据库 `matches` 表；成功 `{ status: "ok" }`，失败 503 |
 | POST | `/auth/guest` | 公开 | `{ name }` → `{ token, expiresAt, user }`，每次创建新的游客 |
 | POST | `/auth/login` | 公开 | `{ name, password }` → `{ token, expiresAt, user }`；用户名不存在时自动注册，存在时校验密码 |
@@ -26,6 +26,7 @@
 | GET | `/showcase` | 公开 | 随机最多 12 条 `[{ id, url }]`；从已启用歌曲的活动 EZ 记录中选取有 Raw 预览的曲绘，不含曲名 |
 | GET | `/showcase/:id/image` | 公开 | 该活动 EZ 曲绘的 Raw 预览，`image/webp`；不接受任意素材 ID |
 | GET | `/songs?q=别名` | 公开 | 最多 50 条 `[{ id, title, aliases }]`，按曲名/ID 排序；省略 `q` 视为空串，最长 100 字符 |
+| GET | `/library` | 公开 | `{ songs, chapters, updatedAt }`，每首启用歌曲一条，含曲师、画师、章节、去重别名及可空的公开预览地址；章节含分类、封面与歌曲数，`updatedAt` 为别名来源更新时间，响应不缓存 |
 | GET | `/leaderboards` | 公开 | 已发布的 Infinity 个人最佳成绩；查询和返回值见下文 |
 
 `name` 去首尾空白后为 1～24 字符；登录名还会做 NFKC 规范化并忽略大小写。密码为 8～128 字符，不会自动去空白。登录密码以加盐 scrypt 保存；会话默认有效 30 天，服务器只保存 token 哈希。`accountType` 为 `guest` 或 `account`，`avatarUrl` 可为空。游客昵称不唯一，游客身份没有密码找回机制；目前没有重设密码或第三方登录接口。账号改名遇到已注册登录名返回 409。

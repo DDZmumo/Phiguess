@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {TutorialRuntime} from '../apps/web/src/tutorial-runtime';
 import {TutorialMedia} from '../apps/web/src/tutorial-media';
 import {readFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
 import sharp from 'sharp';
 
 async function correctAnswerLesson(){
@@ -18,7 +19,7 @@ test('tutorial advances on its normal schedule without waiting on image download
  runtime.tick(1);assert.equal(runtime.step,6);assert.equal(runtime.snapshot()!.round,1);
 });
 
-test('tutorial lossless WebP originals preserve every decoded pixel at a smaller size',async()=>{
+test('tutorial lossless WebP originals preserve every decoded pixel at a smaller size',{skip:['ds','mirage','chaos','8000'].every(name=>existsSync(`apps/web/public/tutorial/${name}-original.png`)&&existsSync(`apps/web/public/tutorial/${name}-original.webp`))?false:'private tutorial media is provisioned separately'},async()=>{
  for(const name of ['ds','mirage','chaos','8000']){
   const png=await readFile(`apps/web/public/tutorial/${name}-original.png`),webp=await readFile(`apps/web/public/tutorial/${name}-original.webp`);
   const source=await sharp(png).metadata(),preview=await sharp(webp).metadata();

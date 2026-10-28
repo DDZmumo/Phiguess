@@ -11,6 +11,7 @@ import { useCover } from './Showcase';
 import { HubBackdrop } from './HubBackdrop';
 import {SettingsPanel,SettingSwitch} from './Settings';
 import { Leaderboard } from './Leaderboard';
+import {AliasLibrary} from './library/AliasLibrary';
 import {useSlidingTabs} from './use-sliding-tabs';
 import {useRoomNavigationFade} from './use-room-navigation-fade';
 import {AnswerTint} from './AnswerNotice';
@@ -18,12 +19,12 @@ import {clearRoomNotice,readRoomNotice} from './room-removal';
 
 const labels={practice:'单人游戏',room:'多人房间'};
 export const MULTIPLAYER_ENABLED=import.meta.env.VITE_MULTIPLAYER_ENABLED!=='false';
-type HubTab='game'|'board'|'settings';
+type HubTab='game'|'board'|'aliases'|'settings';
 export function Hub({route='/account'}:{route?:string}) {
   const session=useStore(s=>s.session),setSession=useStore(s=>s.setSession),preferences=useStore(s=>s.preferences);
   const setMatch=useStore(s=>s.setMatch),setRoom=useStore(s=>s.setRoom),matchId=useStore(s=>s.matchId),roomCode=useStore(s=>s.roomCode);
   const inRoom=MULTIPLAYER_ENABLED&&Boolean(session&&roomCode);
-  const tab:HubTab=route==='/account/leaderboard'?'board':route==='/account/settings'?'settings':'game';
+  const tab:HubTab=route==='/account/leaderboard'?'board':route==='/account/aliases'?'aliases':route==='/account/settings'?'settings':'game';
   const [mode,setMode]=useState<'practice'|'room'>(inRoom?'room':'practice');
   const [contentExpanded,setContentExpanded]=useState(false),[scopeExpanded,setScopeExpanded]=useState(false);
   const [roomArtworkSelected,setRoomArtworkSelected]=useState(false),[createArmed,setCreateArmed]=useState(false),[joinPhase,setJoinPhase]=useState<'idle'|'sweeping'|'input'|'returning'>('idle'),[joinCode,setJoinCode]=useState('');
@@ -37,6 +38,7 @@ export function Hub({route='/account'}:{route?:string}) {
   const scopes=savedScopes.some(key=>key==='main'||key==='non-main')?savedScopes:[...savedScopes,'main' as const];
   useEffect(()=>{if(preferences.artworkScopes&&!preferences.artworkScopes.some(key=>key==='main'||key==='non-main'))useStore.getState().updatePreferences({artworkScopes:[...preferences.artworkScopes,'main']});},[preferences.artworkScopes]);
   const [boardVisited,setBoardVisited]=useState(tab==='board');
+  const [libraryVisited,setLibraryVisited]=useState(tab==='aliases');
   const [footerExpanded,setFooterExpanded]=useState(false),[footerActivity,setFooterActivity]=useState(0);
   const [returningTitle,setReturningTitle]=useState(false);
   const [name,setName]=useState(session?.user.name||''),[editing,setEditing]=useState(!session),[pending,setPending]=useState(false),[error,setError]=useState(readRoomNotice);
@@ -47,7 +49,7 @@ export function Hub({route='/account'}:{route?:string}) {
   const [authMode,setAuthMode]=useState<'guest'|'login'>('guest'),[password,setPassword]=useState(''),[loginOpen,setLoginOpen]=useState(false);
   const showAuth=!session||loginOpen;
   const avatarInput=useRef<HTMLInputElement>(null);
-  const root=useRef<HTMLElement>(null),card=useRef<HTMLElement>(null),gamePanel=useRef<HTMLDivElement>(null),boardPanel=useRef<HTMLDivElement>(null),settingsPanel=useRef<HTMLDivElement>(null);
+  const root=useRef<HTMLElement>(null),card=useRef<HTMLElement>(null),gamePanel=useRef<HTMLDivElement>(null),boardPanel=useRef<HTMLDivElement>(null),libraryPanel=useRef<HTMLDivElement>(null),settingsPanel=useRef<HTMLDivElement>(null);
   const launchShade=useRef<HTMLDivElement>(null),launchLocked=useRef(false);
   const [launchPhase,setLaunchPhase]=useState<'idle'|'armed'|'leaving'>('idle'),reduce=useReducedMotion();
   const roomFade=useRoomNavigationFade(reduce);
@@ -57,7 +59,7 @@ export function Hub({route='/account'}:{route?:string}) {
     const timer=setTimeout(()=>setFooterExpanded(false),5000);
     return()=>clearTimeout(timer);
   },[footerExpanded,footerActivity]);
-  const {phase:tabPhase,prepare:prepareTab}=useSlidingTabs(root,[gamePanel,boardPanel,settingsPanel],tab==='game'?0:tab==='board'?1:2,reduce);
+  const {phase:tabPhase,prepare:prepareTab}=useSlidingTabs(root,[gamePanel,boardPanel,libraryPanel,settingsPanel],tab==='game'?0:tab==='board'?1:tab==='aliases'?2:3,reduce);
   const {contextSafe}=useGSAP({scope:root});
   const returnTitle=contextSafe(()=>{
     if(launchLocked.current)return;
@@ -66,12 +68,14 @@ export function Hub({route='/account'}:{route?:string}) {
     gsap.timeline().to(root.current!.closest('.scene'),{opacity:0,duration:timing.exit,ease:'phigrosFadeOut'}).call(()=>go('/'),undefined,`+=${timing.pause}`);
   });
   useEffect(()=>{if(tab==='board')setBoardVisited(true);},[tab]);
+  useEffect(()=>{if(tab==='aliases')setLibraryVisited(true);},[tab]);
   function switchTab(next:HubTab){
     if(next===tab||launchLocked.current)return;playSound('ui.select');
     setRoomAbandonArmed(false);
     if(next==='board')setBoardVisited(true);
+    if(next==='aliases')setLibraryVisited(true);
     prepareTab();
-    go(next==='game'?'/account':next==='board'?'/account/leaderboard':'/account/settings');
+    go(next==='game'?'/account':next==='board'?'/account/leaderboard':next==='aliases'?'/account/aliases':'/account/settings');
   }
   useEffect(()=>{if(!session)setEditing(true);},[session]);
   useEffect(()=>{
@@ -266,14 +270,15 @@ export function Hub({route='/account'}:{route?:string}) {
     setPending(true);setError('');
     try{const result=await uploadAvatar(file);setSession({...session,user:{...session.user,...result}});}catch(e){setError(errorMessage(e));}finally{setPending(false);}
   }
-  const navIndex=tab==='settings'?2:tab==='board'?1:0;
+  const navIndex=tab==='settings'?3:tab==='aliases'?2:tab==='board'?1:0;
   return <section ref={root} className="account-screen account-refresh" data-room-member={inRoom} data-launch-phase={launchPhase} data-returning-title={returningTitle} data-tab={tab} data-tab-transition={tabPhase} aria-label="账号主界面" style={cover?{backgroundImage:`url("${cover.url}")`}:undefined}>
     <HubBackdrop root={root} card={card} clearWindow={tab==='game'||tabPhase==='sliding'} trackMovement={tabPhase==='sliding'}/>
     <nav className="hub-nav" aria-label="主界面导航">
       <button className={tab==='game'?'active':''} aria-current={tab==='game'?'page':undefined} onClick={()=>switchTab('game')}><span>游戏</span></button>
       <button className={tab==='board'?'active':''} aria-current={tab==='board'?'page':undefined} onClick={()=>switchTab('board')}><span>排行榜</span></button>
+      <button className={tab==='aliases'?'active':''} aria-current={tab==='aliases'?'page':undefined} onClick={()=>switchTab('aliases')}><span>别名库</span></button>
       <button className={tab==='settings'?'active':''} aria-current={tab==='settings'?'page':undefined} onClick={()=>switchTab('settings')}><span>设置</span></button>
-      <div className="hub-nav-active" aria-hidden="true" style={{clipPath:`inset(0 ${(2-navIndex)*100/3}% 0 ${navIndex*100/3}%)`}}><span>游戏</span><span>排行榜</span><span>设置</span></div>
+      <div className="hub-nav-active" aria-hidden="true" style={{clipPath:`inset(0 ${(3-navIndex)*25}% 0 ${navIndex*25}%)`}}><span>游戏</span><span>排行榜</span><span>别名库</span><span>设置</span></div>
     </nav>
     <div className="hub-content">
       <div ref={gamePanel} className="hub-tab-panel" aria-hidden={tab!=='game'} inert={tab!=='game'||tabPhase!=='idle'}>
@@ -356,6 +361,7 @@ export function Hub({route='/account'}:{route?:string}) {
       {error&&<p className="hub-notice" role="alert">{error}</p>}
       </div>
       <div ref={boardPanel} className="hub-tab-panel hub-board-panel" aria-hidden={tab!=='board'} inert={tab!=='board'||tabPhase!=='idle'}>{boardVisited&&<Leaderboard/>}</div>
+      <div ref={libraryPanel} className="hub-tab-panel hub-library-panel" aria-hidden={tab!=='aliases'} inert={tab!=='aliases'||tabPhase!=='idle'}>{libraryVisited&&<AliasLibrary active={tab==='aliases'&&tabPhase==='idle'} pageSelected={tab==='aliases'}/>}</div>
       <div ref={settingsPanel} className="hub-tab-panel hub-settings-panel" aria-hidden={tab!=='settings'} inert={tab!=='settings'||tabPhase!=='idle'}><SettingsPanel/></div>
     </div>
     <div className="hub-bottom-line"><div className="hub-footer-actions" data-expanded={footerExpanded} onClickCapture={()=>{if(footerExpanded)setFooterActivity(n=>n+1);}}>

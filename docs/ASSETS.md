@@ -23,7 +23,19 @@ storage/assets/                    导入后的原图、EZ、预览和无损 EZ 
 storage/generated/                 实时生成的 SVG 缓存，可按持久配方重建
 storage/corpus/catalog.json        曲绘和歌曲对应关系
 storage/corpus/lossless-webp-report.json  源图像素与文件哈希记录
+apps/web/public/library/           本地曲包封面、字体与目录装饰
+storage/library/                   运行时别名快照与来源日期
 ```
+
+歌曲源图及全部衍生图片不进入 Git，以上 `source/`、运行素材、教学曲绘、曲包封面均需从本地资源备份单独恢复。应用图标与头像图标继续保留。仓库中的 catalog 和导入清单只描述资源，不包含曲绘；缺少完整源图时 `preview:game` 使用合成演示库。
+
+别名库静态资源由本地提取目录准备（需要 Pillow、fontTools 和 Brotli）：
+
+```powershell
+python tools/prepare-library-media.py --covers <曲包封面目录> --fonts <字体目录> --ui <剧情界面资源目录>
+```
+
+输出到被忽略的 `apps/web/public/library/`，包括 WebP 封面、按曲库文字裁剪的 WOFF2 字体和哈希清单。生产构建将其复制到前端 `dist/library/`。教学及主页背景的私有资源也应在构建前恢复，部署时保留已有服务器资源；不要用 Git 清理命令删除它们。使用 `node tools/check-private-media.mjs --history` 检查当前文件及 HEAD 历史，应用图标不受影响。
 
 ## 导入与准备
 
@@ -56,7 +68,15 @@ npm.cmd run build:server
 node --env-file=storage/preview/runtime.env dist/tools/sync-aliases.js
 ```
 
-同步器读取上游默认分支的最新提交，再以该固定提交下载 nicklist；本地补充位于 `data/catalog/aliases.local.json`，例如 `{"Glaciaxion.SunsetRay":["你自己的别名"]}`。它按歌曲将标准曲名、源文件名、社区别名和本地补充去首尾空白后精确去重，过滤空值及超过 200 字符的值，写入数据库，并把快照和 `sync.json` 保存至 `data/providers/phi-plugin/snapshots/<commit>/`。`sync.json.aliasCount` 是按歌曲统计的同步结果，不是 60 份 manifest 的累计数；同步不会自动改写 catalog 或 prepared manifests。
+同步器查询上游默认分支中最近修改 nicklist 的提交，再以该固定提交下载别名；本地补充位于 `data/catalog/aliases.local.json`，例如 `{"Glaciaxion.SunsetRay":["你自己的别名"]}`。它按歌曲将标准曲名、源文件名、社区别名和本地补充去首尾空白后精确去重，过滤空值及超过 200 字符的值，写入数据库。运行快照与 `sync.json` 保存至 `GENERATED_ASSET_DIR` 同级的 `library/snapshots/<commit>/`，当前来源日期保存到 `library/aliases-state.json`，均不进入 Git。`sync.json.aliasCount` 是按歌曲统计的同步结果，不是 manifest 的累计数；同步不会自动改写 catalog 或 prepared manifests。
+
+0.4.0 的固定别名来源记录于 `data/providers/phi-plugin/aliases-provenance.json`，源更新时间为 2026/10/19。可离线应用该版本的快照：
+
+```powershell
+npm.cmd run aliases:sync -- --offline
+# 应用到正在运行的本地预览数据库
+node --env-file=storage/preview/runtime.env dist/tools/sync-aliases.js --offline
+```
 
 已开局的比赛继续使用内存中的开局答案/别名快照，新比赛使用更新后的数据库数据。
 

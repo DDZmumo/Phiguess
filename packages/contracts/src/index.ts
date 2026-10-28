@@ -1,5 +1,6 @@
 import { z } from 'zod';
 export {APP_VERSION,APP_VERSION_LABEL} from './version';
+export type {LibrarySong,LibraryChapter,LibraryCatalog} from './library';
 
 export const Difficulty = z.enum(['ez', 'hd', 'in', 'at']);
 export type Difficulty = z.infer<typeof Difficulty>;

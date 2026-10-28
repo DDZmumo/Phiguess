@@ -55,6 +55,10 @@ npm ci --omit=dev
 
 原生生产部署可将本地 `npm run build` 生成的后端 `dist/` 和前端 `apps/web/dist/` 一并上传。这样服务器安装生产依赖即可，不需要安装用于本机测试的 PostgreSQL 二进制开发依赖；不要上传 Windows 的 `node_modules`。
 
+后端必须上传完整 `dist/`，包括 `dist/data/providers/` 中运行时需要的 JSON。0.4.0 的曲绘不在 Git 中：构建前单独准备 `apps/web/public/library/`、教学和主页背景资源，保留服务器的 `storage/assets/`、头像、源图与配置。发布应用后执行 `node --env-file=.env dist/tools/sync-aliases.js --offline` 应用随版本固定的别名快照，并检查 `/api/library` 的歌曲数、日期和预览图片。
+
+从含有曲绘历史的旧版本迁移到清理后的 Git 历史前，备份代码、数据库和私有资源。历史改写不应删除磁盘上的资源；切换源码时使用保留工作文件的方式，再更新新版本受跟踪的文件，避免用 `reset --hard` 或 `clean` 清除旧版曲绘。资源备份应独立于 Git。
+
 设置 `.env` 的 `DATABASE_URL`、`PUBLIC_ORIGIN`、`ASSET_DIR=/opt/phiguess/storage/assets`、`AVATAR_DIR=/opt/phiguess/storage/avatars`、`NODE_ENV=production`、`TRUST_PROXY=1`。先创建 `storage/avatars` 与 `storage/generated` 并授予 `phiguess` 用户写权限。发布时同步 `packages/game-core/artwork/`，并按 [实时题图迁移说明](DYNAMIC-ARTWORK.md) 迁移素材。保护 `.env` 的读取权限。按服务器 Node 路径调整 `deploy/phiguess.service`，然后将其安装为 systemd 单元。
 
 ```sh
