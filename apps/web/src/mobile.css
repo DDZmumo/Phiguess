@@ -4,6 +4,7 @@
 .mobile-safe-backdrop{position:absolute;inset:-32px;z-index:-1;pointer-events:none;background:linear-gradient(108deg,#101014,#17202c 57%,#232d38);background-size:cover;background-position:center;filter:blur(20px)}
 .mobile-shared-background{position:absolute;inset:0;z-index:-1;overflow:hidden;isolation:isolate;pointer-events:none;background:linear-gradient(108deg,#101014,#17202c 57%,#232d38)}
 .mobile-shared-image{position:absolute;inset:-32px;background-position:center;background-size:cover;filter:blur(calc(16px * var(--stage-scale))) saturate(.55)}
+.mobile-shared-background[data-scene=account][data-hub-tab=game] .mobile-shared-image{filter:blur(10px) saturate(.55)}
 .mobile-shared-shade{position:absolute;inset:0;background:rgba(9,15,24,.78)}
 .mobile-shared-background[data-scene=room] .mobile-shared-shade{background:rgba(9,15,24,.86)}
 .mobile-shared-background[data-scene=play]{filter:var(--room-scene-filter,none);background:radial-gradient(ellipse at 86% 31%,#42265288,transparent 60%),radial-gradient(ellipse at 0% 46%,#88837355,transparent 70%),linear-gradient(108deg,#101014,#17202c 57%,#232d38)}

@@ -75,7 +75,7 @@ export function App() {
   const [tutorialEnding,setTutorialEnding]=useState(false);
   const finishTutorial=useCallback(()=>setTutorialEnding(true),[]),clearTutorialEnding=useCallback(()=>setTutorialEnding(false),[]);
   return <MobileBackgroundContext.Provider value={setSceneBackground}><main className={`app-shell ${accountScreen?'account-shell ':''}${reduce?'reduced-motion':''}`} ref={outer} data-mobile={mobile} data-shared-background={sharedBackground} data-keyboard-open={size.keyboard} style={{'--stage-scale':size.scale} as CSSProperties}>
-    {sharedBackground?<div className="mobile-shared-background" data-scene={screen} aria-hidden="true" style={{opacity:brightness}}>
+    {sharedBackground?<div className="mobile-shared-background" data-scene={screen} data-hub-tab={accountScreen?(parts[2]||'game'):undefined} aria-hidden="true" style={{opacity:brightness}}>
       <div className="mobile-shared-image" style={{backgroundImage:background?`url("${background}")`:undefined}}/>
       <div className="mobile-shared-shade"/><Mesh/><div className="mobile-safe-areas"/>
     </div>:mobile&&edgePadding>0&&<div className="mobile-safe-backdrop" aria-hidden="true" style={{backgroundImage:background?`url("${background}")`:undefined,opacity:brightness}}/>}
